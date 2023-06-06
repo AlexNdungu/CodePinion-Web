@@ -19,3 +19,15 @@
 </p>
 
 ---
+
+### **Theme Colours**
+
+- <span style="color:#406CEE">#406CEE</span> 
+- <span style="color:#F3F3F3">#F3F3F3</span> 
+- <span style="color:#ACACAC">#ACACAC</span> 
+- <span style="color:#8F8F8F">#8F8F8F</span> 
+- <span style="color:#C53B3B">#C53B3B</span> 
+- <span style="color:#E44F26">#E44F26</span> 
+- <span style="color:#F7DF1E">#F7DF1E</span> 
+
+---
