@@ -2,8 +2,8 @@
 
 ---
 
-Codepinion is a platform that provides to Programmers :
+Codepinion is a platform :
 
-- A place where they can **Store** any project's source code and retreave it from any device that has access to the internet.
-- A place where they can **edit** and **run** their code without having to download it to do that locally.
-- Eventually, an **AI Assitant** will be fitted to make the programmers work even easier.
+- That allows you to **store and access your project’s source code** from any device with internet access.”
+- That allows you to **edit and run your code** without having to download it locally, provided that the project’s **requirements** are already installed.
+- In the future, an **AI assistant** will be implemented to make the work of programmers even easier.
