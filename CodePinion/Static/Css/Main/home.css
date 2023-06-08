@@ -2,7 +2,6 @@
 .home-right-section {
     width: 100%;
     height: 100%;
-    background-color: aqua;
 }
 
 /* The stats section */
@@ -87,4 +86,210 @@
 .stat-nums span {
     font-size: 60px;
     color: #8F8F8F;
+}
+
+
+/* The Pinned safes sections */
+
+.pinned-safe-section {
+    width: calc(100% - 10px);
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* The pin icon */
+
+.pin-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #F3F3F3;
+}
+
+/* The pinned safes */
+
+.pinned-safes {
+    width: 100%;
+    height: calc(100% - 45px);
+    padding-left: 10px;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #F3F3F3;
+}
+
+/* The pinned safe single */
+
+.the-pinned-safe {
+    width: 600px;
+    height: 210px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: #E4E4E4;
+}
+
+/* Pinned details */
+
+/* Pin upper section */
+
+.pin-safe-up {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pin-safe-up h2 {
+    color: #406CEE;
+    margin-right: 10px;
+}
+
+.pin-name-lock {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.visible-detail {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+}
+
+.visible-detail svg {
+    fill: #406CEE;
+    width: 24px;
+    height: 24px;
+}
+
+/* The pin stars and watchers */
+
+.pin-stats-watches {
+    width: 50%;
+    height: 100%;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.pin-stats-watches svg {
+    width: 24px;
+}
+
+/* The pin detail section */
+
+.pin-more-details {
+    width: max-content;
+    height: 45px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: 10px;
+    border-radius: 10px;
+    color: #406CEE;
+    fill: #406CEE;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pin-more-details span {
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/* Pin safe about section */
+.pin-safe-about {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    color: #8F8F8F;
+}
+
+
+/* Pin safe down section */
+
+.pin-safe-down {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Pinned languages section */
+
+.pin-langs {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+/* The lang images */
+
+.pin-lang-single {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.pin-lang-single img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* The last update details */
+
+.pin-last-update {
+    width: 50%;
+    height: 100%;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.last-update-details {
+    width: max-content;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.last-update-details svg {
+    width: 24px;
+    fill: #406CEE;
+}
+
+.last-update-details span {
+    font-size: 15px;
+    margin-left: 20px;
+    color: #406CEE;
 }
