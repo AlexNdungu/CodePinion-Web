@@ -9,6 +9,11 @@
     <!--Connect The Styling-->
     <link rel="stylesheet" href="{% static '/Css/Inherit/left-nav.css' %}">
 
+    <!--The head inherited by the files in-->
+    {% block head_main %}
+    {% endblock %}
+
+
 {% endblock %}
 
 <!--The lower_section tag inherited from upper-nav.html-->
@@ -51,7 +56,9 @@
         <!--The right section-->
         <div class="right-section">
 
+            <!--The file in Main folder will inherit from here-->
             {% block lower_right_section %}
+
             {% endblock %}
 
         </div>
