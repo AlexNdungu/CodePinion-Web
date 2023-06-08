@@ -6,6 +6,10 @@ from django.shortcuts import render
 def UpperNav(request):
     return render(request,'Inherit/upper-nav.html')
 
-#ThNavigation Rendering Function
-def leftNav(request):
+#The Navigation Rendering Function
+def LeftNav(request):
     return render(request,'Inherit/left-nav.html')
+
+#The Home Rendering Function
+def Home(request):
+    return render(request, 'Main/home.html')

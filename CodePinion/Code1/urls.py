@@ -7,5 +7,8 @@ urlpatterns = [
     path('', views.UpperNav, name='upper-nav'),
 
     #Left Navigation Inherit Url
-    path('left_nav/',views.leftNav, name='left-nav')
+    path('left_nav/',views.LeftNav, name='left-nav'),
+
+    #Home Url
+    path('home/', views.Home, name='home')
 ]
