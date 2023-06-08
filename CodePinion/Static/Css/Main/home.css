@@ -4,3 +4,87 @@
     height: 100%;
     background-color: aqua;
 }
+
+/* The stats section */
+
+.stats-section {
+    width: calc(100% - 10px);
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* The stat icon section */
+
+.stat-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #F3F3F3;
+}
+
+.stat-icon svg {
+    fill: #414141;
+}
+
+/* The stat details section */
+.stats-details-section {
+    width: 100%;
+    height: calc(100% - 45px);
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    background-color: #F3F3F3;
+}
+
+/* The stat details themeselves */
+
+.the-stats {
+    width: 400px;
+    height: calc(100% - 20px);
+    margin-right: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #E4E4E4;
+}
+
+.the-stats div {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.the-stats svg {
+    width: 70px;
+    fill: #8F8F8F;
+}
+
+.the-stats h5 {
+    font-size: 25px;
+    color: #8F8F8F;
+}
+
+/* The stat numbers */
+.stat-nums {
+    width: 100%;
+    height: 40%;
+    padding-left: 20px;
+}
+
+.stat-nums span {
+    font-size: 60px;
+    color: #8F8F8F;
+}
