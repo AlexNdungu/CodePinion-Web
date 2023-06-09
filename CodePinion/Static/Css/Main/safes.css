@@ -24,11 +24,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: aquamarine;
 }
 
 .search-part {
-    width: 400px;
+    width: 500px;
     height: 45px;
     display: flex;
     align-items: center;
@@ -44,7 +43,7 @@
 
 /* The search input */
 #search-safe-input {
-    width: 320px;
+    width: 400px;
     height: 100%;
     border: none;
     outline: none;
@@ -57,4 +56,45 @@
 
 #search-safe-input::placeholder {
     color: #414141;
+}
+
+/* The filters and New Safe Section */
+.filters-and-new-safe {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+/* The filet buttons */
+.filter_btn {
+    width: max-content;
+    height: 45px;
+    padding: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #414141;
+    background-color: #D9D9D9;
+    font-weight: 500;
+}
+
+.filter_btn svg {
+    width: 25px;
+    fill: #414141;
+    margin-left: 15px;
+}
+
+/* New safe btn */
+.new-safe {
+    background-color: #414141;
+    color: #D9D9D9;
+}
+
+.new-safe svg {
+    fill: #D9D9D9;
 }
