@@ -1,0 +1,60 @@
+/* The container that contains all the safes and filter option */
+.safes-section {
+    width: calc(100% - 10px);
+    height: calc(100% - 20px);
+    border-radius: 10px;
+    background-color: #F3F3F3;
+}
+
+/* The search-and-buttons */
+
+.search-and-buttons {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* The search */
+.search-section {
+    width: 50%;
+    height: 100%;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: aquamarine;
+}
+
+.search-part {
+    width: 400px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+    border: 2px solid #414141;
+    border-radius: 10px;
+}
+
+.search-part svg {
+    fill: #414141;
+}
+
+/* The search input */
+#search-safe-input {
+    width: 320px;
+    height: 100%;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    padding-left: 10px;
+    background: none;
+    color: #406CEE;
+    font-size: 16px;
+}
+
+#search-safe-input::placeholder {
+    color: #414141;
+}
