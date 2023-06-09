@@ -222,5 +222,80 @@
     justify-content: flex-start;
     padding-left: 20px;
     color: #8F8F8F;
-    background-color: aqua;
+}
+
+/* The Safes Languages and Last Commite time */
+.langs-section {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Commit and langs */
+
+.langs {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* The safe languages */
+
+.safe-langs {
+    width:fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The individual Safe langauge */
+
+.ind-safe-lang {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.ind-safe-lang img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Commit time */
+
+.scheduled-commit {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.commit-time {
+    width: fit-content;
+    height: 45px;
+    padding: 20px;
+    background-color: white;
+    fill: #406CEE;
+    color: #406CEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.commit-time svg {
+    width: 23px;
+    margin-right: 10px;
 }
