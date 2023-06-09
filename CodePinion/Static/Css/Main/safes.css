@@ -133,6 +133,9 @@
     height: 150px;
     border-radius: 10px;
     background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* The safe ame and state */
@@ -174,4 +177,50 @@
 .safe-state svg {
     width: 20px;
     fill: #406CEE;
+}
+
+
+/* The watchers and stars section */
+
+.stars-watchers-section {
+    width: 50%;
+    height: 100%;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.stats-view {
+    width: max-content;
+    height: 45px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #406CEE;
+    fill: #406CEE;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.stats-view svg {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* About safe section */
+
+.about-safe {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    color: #8F8F8F;
+    background-color: aqua;
 }
