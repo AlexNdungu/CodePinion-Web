@@ -13,3 +13,6 @@ def LeftNav(request):
 #The Home Rendering Function
 def Home(request):
     return render(request, 'Main/home.html')
+#The Safes Rendering Fuction
+def Safes(request):
+    return render(request,'Main/safes.html')

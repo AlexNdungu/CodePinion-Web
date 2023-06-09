@@ -10,5 +10,8 @@ urlpatterns = [
     path('left_nav/',views.LeftNav, name='left-nav'),
 
     #Home Url
-    path('home/', views.Home, name='home')
+    path('home/', views.Home, name='home'),
+    
+    #Safes Url
+    path('safes/', views.Safes, name='safes')
 ]
