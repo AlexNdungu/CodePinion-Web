@@ -184,6 +184,7 @@
     border-radius: 10px;
     font-size: 17px;
     color: #414141;
+    background-color: #F3F3F3;
 }
 
 /* Private or public section */
@@ -197,7 +198,6 @@
     justify-content: space-between;
     padding-bottom: 15px;
     border-bottom: 1px solid #8F8F8F;
-
 }
 
 /* The private section */
@@ -254,4 +254,136 @@
     color: #8F8F8F;
     font-size: 15px;
     margin-left: 60px;
+}
+
+
+/* Safe path section */
+
+.safe-path-section {
+    width: 100%;
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-bottom: 1px solid #8F8F8F;
+
+}
+
+.select-path {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Select path btn */
+
+.select-path-btn {
+    width: fit-content;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #ACACAC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+}
+
+.select-path-btn span {
+    font-weight: 500;
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+/* Line separation */
+.path-separation {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.path-separation div {
+    width: 2px;
+    height: 50px;
+    transform: rotate(20deg);
+    background-color: #414141;
+}
+
+/* See path selected */
+
+.path-pasted {
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+    border: 2px solid #414141;
+}
+
+.path-details {
+    color: #8F8F8F;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+
+/* Details of safe to be created (private or public) */
+.new-safe-privacy {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #8F8F8F;
+
+}
+
+.new-safe-privacy span {
+    color: #8F8F8F;
+    font-size: 15px;
+
+}
+
+.new-safe-privacy svg {
+    width: 24px;
+    fill: #8F8F8F;
+}
+
+
+/* Create safe section */
+
+.create-safe-section {
+    width: 100%;
+    height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.create-safe-btn {
+    width: fit-content;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #F3F3F3;
+    padding: 20px;
+    background-color: #406CEE;
+    font-size: 17px;
+}
+
+.create-safe-btn svg {
+    width: 30px;
+    fill: #F3F3F3;
+    margin-left: 10px;
 }
