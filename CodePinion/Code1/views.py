@@ -20,3 +20,7 @@ def Safes(request):
 #New Safe And New Folder
 def CreateSafe(request):
     return render(request, 'Main/create_safe.html')     
+
+#New Safe Connected To Existing Project Folder
+def ConnectSafe(request):
+    return render(request, 'Main/connect_safe.html')

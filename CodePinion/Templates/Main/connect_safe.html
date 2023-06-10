@@ -1,0 +1,209 @@
+{% extends 'Inherit/upper-nav.html' %}
+
+{% load static %}
+
+<!--The head tag inherited from upper-nav.html-->
+{% block head %}
+
+    <!--Connect The Styling-->
+    <link rel="stylesheet" href="{% static '/Css/Main/create_safe.css' %}">
+
+    <!--The Page Title-->
+    <title>CodePinion ::- Create Safe</title>
+
+{% endblock %}
+
+<!--The lower section-->
+{% block lower_section %}
+
+    <!--Creation section-->
+    <div class="creation_section">
+
+        <!--The creation form-->
+        <div class="create_form">
+
+            <!--Heading and head details-->
+            <div class="heading_and_headDetails">
+
+                <h3>Connect A New Safe To Existing Project Folder</h3>
+
+                <span>A Safe contains all project files.</span>
+
+            </div>
+
+            <!--Select account and add safe name-->
+            <div class="select_account_add_safe_name">
+
+                <!--Select account-->
+                <div class="select_account">
+
+                    <span class="acc-label" >Account*</span>
+
+                    <!--Account Drop Down-->
+                    <div class="account-drop-down">
+
+                        <!--Account Selected-->
+                        <div class="account-select">
+
+                            <!--The account profile-->
+                            <div class="account-profile">
+
+                                <img src="{% static 'Images\user.jpg' %}" alt="account-profile">
+
+                            </div>
+
+                            <!--The username-->
+                            <span class="username-select" >AlexNdungu</span>
+
+                            <!--Drop icon-->
+                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.843 10.211c.108-.141.157-.3.157-.456 0-.389-.306-.755-.749-.755h-8.501c-.445 0-.75.367-.75.755 0 .157.05.316.159.457 1.203 1.554 3.252 4.199 4.258 5.498.142.184.36.29.592.29.23 0 .449-.107.591-.291 1.002-1.299 3.044-3.945 4.243-5.498z"/></svg>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--The separator-->
+                <div class="the-separator">
+
+                    <div></div>
+
+                </div>
+
+                <!--Safe name enter section-->
+                <div class="safe-name-section">
+
+                    <span class="acc-label" >Safe Name*</span>
+
+                    <input type="text" class="safe-name-input" >
+
+                </div>
+
+            </div>
+
+            <!--Description section-->
+            <div class="description-section">
+
+                <span class="inspiration">Keep You Safe Name Short And Memorable. Some inspiration? How about <p>turbo-bassoon?</p></span>
+
+                <span class="Description" >Description<p>(Optional)</p></span>
+
+                <input type="text" class="description-input" >
+
+            </div>
+
+            <!--Private or public-->
+            <div class="private-or-public">
+
+                <!--Check private-->
+                <div class="private">
+
+                    <!--The check and name-->
+                    <div class="check-and-name">
+
+                        <!--The checked-->
+                        <div class="check-click">
+
+                            <div></div>
+
+                        </div>
+
+                        <!--The lock icon-->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+
+                        <span class="pp-name" >Private</span>
+
+                    </div>
+
+                    <span class="elaborate-choice" >You choose who can see and commit to this Safe.</span>
+
+                </div>
+
+                <!--Check Public-->
+                <div class="private">
+
+                    <!--The check and name-->
+                    <div class="check-and-name">
+
+                        <!--The checked-->
+                        <div class="check-click">
+
+                            <div></div>
+
+                        </div>
+
+                        <!--The lock icon-->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M352 144c0-44.2 35.8-80 80-80s80 35.8 80 80v48c0 17.7 14.3 32 32 32s32-14.3 32-32V144C576 64.5 511.5 0 432 0S288 64.5 288 144v48H64c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H352V144z"/></svg>
+
+                        <span class="pp-name" >Private</span>
+
+                    </div>
+
+                    <span class="elaborate-choice" >Anyone on the internet can see this Safe. You choose who can commit.
+                    </span>
+
+                </div>
+
+
+            </div>
+
+            <!--Path of project and safe-->
+            <div class="safe-path-section">
+
+                <!--Select local path-->
+                <div class="select-path">
+
+                    <!--The select button-->
+                    <div class="select-path-btn">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21.337.458l-3.937 3.936c-2.449-1.466-5.67-1.144-7.78.966l-4.261 4.262c-2.11 2.11-2.433 5.331-.968 7.78l-3.935 3.935c-.609.609-.609 1.597 0 2.207s1.598.609 2.207 0l3.935-3.935c2.449 1.465 5.67 1.144 7.78-.967l4.261-4.261c2.11-2.11 2.433-5.331.968-7.781l3.936-3.936c.609-.609.609-1.597 0-2.207s-1.597-.609-2.206.001zm-4.862 11.757l-4.261 4.261c-.895.894-2.176 1.169-3.31.827l1.632-1.632c.609-.609.609-1.597 0-2.207s-1.598-.609-2.207 0l-1.631 1.632c-.343-1.133-.067-2.415.826-3.309l4.261-4.261c.895-.894 2.176-1.169 3.31-.827l-1.631 1.63c-.609.609-.609 1.597 0 2.207s1.598.609 2.207 0l1.63-1.63c.343 1.133.067 2.415-.826 3.309z"/></svg>
+
+                        <span>Local Path</span>
+
+                    </div>
+
+                    <!--The separation line-->
+                    <div class="path-separation">
+
+                        <div></div>
+
+                    </div>
+
+                    <!--See path selected-->
+                    <div class="path-pasted"></div>
+
+                </div>
+
+                <span class="path-details" >This Is the Location on your local device where You will Connect this new Safe</span>
+
+            </div>
+
+            <!--Details of safe to be created (private or public)-->
+            <div class="new-safe-privacy">
+
+                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1z" fill-rule="nonzero"/></svg>
+
+                <span>You are creating a public safe in your personal account. Create safe</span>
+
+            </div>
+
+            <!--Create safe section-->
+            <div class="create-safe-section">
+
+                <!--Create safe button-->
+                <div class="create-safe-btn">
+
+                    <span>Connect Safe</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.394 21.711c-1.528.393-3.06.428-4.388.013l6.709-13.886c1.049-2.148 2.947-1.474 3.949-3.521.207-.423.305-.872.305-1.314 0-1.681-1.366-3.003-2.995-3.003-1.734 0-2.974 1.445-2.974 3.055 0 1.274.716 2.272-.082 3.903l-6.709 13.889c-1.762-1.229-3-3.596-3.449-6.104l1.848-.146-3.134-4.542-2.474 4.924 1.746-.156c.602 3.721 2.521 6.808 5.482 8.258 1.264.619 2.62.919 4.016.919 1.031 0 2.086-.179 3.141-.498-.42-.536-.755-1.139-.991-1.791zm3.606-19.712c.547 0 1 .444 1 1.001 0 .54-.441.999-1.004.999-.551 0-.996-.449-.996-1.002 0-.547.443-.998 1-.998zm2.5 13.001c-2.484 0-4.5 2.015-4.5 4.5s2.016 4.5 4.5 4.5c2.482 0 4.5-2.015 4.5-4.5s-2.018-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1z"/></svg>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+{% endblock %} 

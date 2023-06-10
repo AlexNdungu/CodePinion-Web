@@ -17,4 +17,7 @@ urlpatterns = [
 
     #New Safe and New Folder Url
     path('create_safe/', views.CreateSafe, name='create_safe_folder'),
+
+    #New Safe Connected to Existing Project Folder Url
+    path('connect_safe/', views.ConnectSafe, name='connect_safe_folder'),
 ]
