@@ -13,5 +13,8 @@ urlpatterns = [
     path('home/', views.Home, name='home'),
     
     #Safes Url
-    path('safes/', views.Safes, name='safes')
+    path('safes/', views.Safes, name='safes'),
+
+    #New Safe and New Folder Url
+    path('create_safe/', views.CreateSafe, name='create_safe_folder'),
 ]

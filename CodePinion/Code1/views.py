@@ -16,3 +16,7 @@ def Home(request):
 #The Safes Rendering Fuction
 def Safes(request):
     return render(request,'Main/safes.html')
+
+#New Safe And New Folder
+def CreateSafe(request):
+    return render(request, 'Main/create_safe.html')     
