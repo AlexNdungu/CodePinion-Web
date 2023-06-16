@@ -41,4 +41,6 @@
 | <span style="font-weight:bold" >1..*</span> | One-To_Many  |
 | <span style="font-weight:bold" >**</span>   | Many-To_Many |
 
+<img src="CodePinion\Static\Images\DB_Design2.png" alt="drawing" width="50%"/> 
+
 <img src="CodePinion\Static\Images\DB_Design.png" alt="drawing" width="100%"/> 
