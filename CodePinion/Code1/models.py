@@ -17,6 +17,7 @@ class Profile(models.Model):
     full_name = models.CharField(max_length=20, verbose_name='Full Name')
 
     bio = models.TextField(verbose_name='Bio')
+    company = models.CharField(max_length=20, verbose_name='Company')
     location = models.TextField(verbose_name='Location')
     email = models.URLField(max_length = 200, verbose_name='Email')
     website = models.URLField(max_length = 200, verbose_name='Website')
@@ -76,6 +77,9 @@ class Safe(models.Model):
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
 
+    def __str__(self):
+        return self.safe_name
+
 
 
 # PLANNER - (objectves & tasks)
@@ -97,7 +101,9 @@ class Objective(models.Model):
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
 
-
+    def __str__(self):
+        return self.obj_desc
+    
 
 #Tasks Models
 class Task(models.Model):
@@ -116,6 +122,9 @@ class Task(models.Model):
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.task_desc
 
 
 
@@ -145,6 +154,9 @@ class Folder(models.Model):
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
 
+    def __str__(self):
+        return self.folder_name
+
 
 #File Model
 class File(models.Model):
@@ -167,3 +179,6 @@ class File(models.Model):
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.file_name # Concat With Version Later
