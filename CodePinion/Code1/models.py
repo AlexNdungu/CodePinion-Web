@@ -113,7 +113,7 @@ class Folder(models.Model):
 
     #Tree Details (hierarchy)
     #Parent folder
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Parent Folder')
+    folder_parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Parent Folder')
 
     #Childern Folders
     children_folders = models.ManyToManyField('self',blank=True)
@@ -122,6 +122,29 @@ class Folder(models.Model):
     #children_files = models.ManyToManyField(File,blank=True)
 
     #Tasks in a folder
+    tasks = models.ManyToManyField(Task, blank=True)
+
+    update = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True)
+
+
+#File Model
+class File(models.Model):
+
+    file_id = models.AutoField(primary_key=True)
+
+    file_name = models.CharField(max_length=20, verbose_name='File Name')    
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name='File Language')
+
+    #Commit details
+    version = models.TextField(verbose_name='File Version')
+    hash_detail = models.TextField(verbose_name='File Hash')
+    file_predecessor = models.ForeignKey('self',on_delete=models.CASCADE, verbose_name='File Predecessor')
+
+    #Folder parent
+    folder_parent = models.ForeignKey(Folder, on_delete=models.CASCADE, verbose_name='Parent Folder')
+
+    #Tasks in a file
     tasks = models.ManyToManyField(Task, blank=True)
 
     update = models.DateTimeField(auto_now=True)
