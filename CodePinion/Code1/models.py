@@ -40,31 +40,6 @@ class Profile(models.Model):
             return self.info_picture.url   
 
 
-#Folders Model
-class Folder(models.Model):
-
-    folder_id = models.AutoField(primary_key=True)
-
-    #Safe it is in
-    #safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
-
-    folder_name = models.CharField(max_length=20, verbose_name='Folder Name')
-
-    #Tree Details (hierarchy)
-    #Parent folder
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Parent Folder')
-
-    #Childern Folders
-    children_folders = models.ManyToManyField('self',blank=True)
-
-    #Children files
-    #children_files = models.ManyToManyField(File,blank=True)
-
-    update = models.DateTimeField(auto_now=True)
-    created = models.DateField(auto_now_add=True)
-
-
-
 #Programming languages models
 class Language(models.Model):
 
@@ -111,7 +86,7 @@ class Task(models.Model):
     task_id = models.AutoField(primary_key=True)
 
     #The objective this task belongs to
-    objective = models.ForeignKey(Objectives, on_delete=models.CASCADE, verbose_name='Objective')
+    objective = models.ForeignKey(Objective, on_delete=models.CASCADE, verbose_name='Objective')
 
     task_desc = models.TextField(verbose_name='Task Description')
     #due_Date
@@ -119,6 +94,35 @@ class Task(models.Model):
 
     #status
     status = models.BooleanField(default=False, verbose_name='Task status')
+
+    update = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True)
+
+
+
+
+#Folders Model
+class Folder(models.Model):
+
+    folder_id = models.AutoField(primary_key=True)
+
+    #Safe it is in
+    #safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
+
+    folder_name = models.CharField(max_length=20, verbose_name='Folder Name')
+
+    #Tree Details (hierarchy)
+    #Parent folder
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Parent Folder')
+
+    #Childern Folders
+    children_folders = models.ManyToManyField('self',blank=True)
+
+    #Children files
+    #children_files = models.ManyToManyField(File,blank=True)
+
+    #Tasks in a folder
+    tasks = models.ManyToManyField(Task, blank=True)
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
