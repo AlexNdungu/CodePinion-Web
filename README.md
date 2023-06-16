@@ -37,7 +37,7 @@
 
 | Label                                       | Meaning      |
 |---------------------------------------------|--------------|
-| <span style="font-weight:bold" >1..1</span> | One-To_one   |
+| <span style="font-weight:bold" >1..1</span> | One-To_One   |
 | <span style="font-weight:bold" >1..*</span> | One-To_Many  |
 | <span style="font-weight:bold" >**</span>   | Many-To_Many |
 
