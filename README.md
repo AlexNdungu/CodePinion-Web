@@ -34,6 +34,10 @@
 
 ### **Database Structure - CDPH (Codepinion Hierarchy V1.1)**
 
+**Django models** - Django models are the built-in feature that Django uses to create tables, their fields, and various constraints. In short, Django Models is the SQL of Database one uses with Django. Each model is a Python class that subclasses django.db.models.Model. Each attribute of the model represents a database field. 
+
+&rarr; [Click To Read Django Models Documentation](https://docs.djangoproject.com/en/4.2/topics/db/models)
+
 
 | Label                                       | Meaning      |
 |---------------------------------------------|--------------|
