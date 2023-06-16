@@ -59,3 +59,16 @@ class Language(models.Model):
     def language_url(self):
         if self.lang_icon and hasattr(self.lang_icon, 'url'):
             return self.lang_icon.url
+        
+
+#Tasks Models
+class Tasks(models.Model):
+
+    task_id = models.AutoField(primary_key=True)
+
+    task_desc = models.TextField(verbose_name='Task Description')
+    #due_Date
+    #remind_date
+
+    update = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True)
