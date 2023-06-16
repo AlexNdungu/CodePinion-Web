@@ -38,7 +38,32 @@ class Profile(models.Model):
     def info_url(self):
         if self.info_picture and hasattr(self.info_picture, 'url'):
             return self.info_picture.url   
-        
+
+
+#Folders Model
+class Folder(models.Model):
+
+    folder_id = models.AutoField(primary_key=True)
+
+    #Safe it is in
+    #safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
+
+    folder_name = models.CharField(max_length=20, verbose_name='Folder Name')
+
+    #Tree Details (hierarchy)
+    #Parent folder
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Parent Folder')
+
+    #Childern Folders
+    children_folders = models.ManyToManyField('self',blank=True)
+
+    #Children files
+    #children_files = models.ManyToManyField(File,blank=True)
+
+    update = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True)
+
+
 
 #Programming languages models
 class Language(models.Model):
@@ -59,16 +84,41 @@ class Language(models.Model):
     def language_url(self):
         if self.lang_icon and hasattr(self.lang_icon, 'url'):
             return self.lang_icon.url
-        
+
+
+# PLANNER - (objectves & tasks)
+
+#Objectives Models
+class Objective(models.Model):
+
+    obj_id = models.AutoField(primary_key=True)
+
+    obj_desc = models.TextField(verbose_name='Objective Description')
+    #due_Date
+    #remind_date
+
+    #status
+    status = models.BooleanField(default=False, verbose_name='Objective status')
+
+    update = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True)
+
+
 
 #Tasks Models
-class Tasks(models.Model):
+class Task(models.Model):
 
     task_id = models.AutoField(primary_key=True)
+
+    #The objective this task belongs to
+    objective = models.ForeignKey(Objectives, on_delete=models.CASCADE, verbose_name='Objective')
 
     task_desc = models.TextField(verbose_name='Task Description')
     #due_Date
     #remind_date
+
+    #status
+    status = models.BooleanField(default=False, verbose_name='Task status')
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
