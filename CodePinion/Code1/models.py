@@ -21,7 +21,7 @@ class Profile(models.Model):
     email = models.URLField(max_length = 200, verbose_name='Email')
     website = models.URLField(max_length = 200, verbose_name='Website')
 
-    profile_pic = models.ImageField(upload_to = 'profiles')
+    profile_pic = models.ImageField(upload_to = 'profiles', verbose_name='Profiel Picture')
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
@@ -40,13 +40,14 @@ class Profile(models.Model):
             return self.info_picture.url   
 
 
+
 #Programming languages models
 class Language(models.Model):
 
     lang_id = models.AutoField(primary_key=True)
 
-    lang_name = models.CharField(max_length=20, verbose_name='Tag')
-    lang_icon = models.ImageField(upload_to='Tags', verbose_name='Language Icon')
+    lang_name = models.CharField(max_length=20, verbose_name='Language Name')
+    lang_icon = models.ImageField(upload_to='Languages', verbose_name='Language Icon')
     lang_desc = models.TextField(verbose_name='Language Description')
 
     update = models.DateTimeField(auto_now=True)
@@ -61,12 +62,30 @@ class Language(models.Model):
             return self.lang_icon.url
 
 
+#Safe Model
+class Safe(models.Model):
+
+    safe_id = models.AutoField(primary_key=True)
+
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='User Profile')
+
+    safe_name = models.CharField(max_length=20, verbose_name='Safe Name')
+
+    languages = models.ManyToManyField(Language, blank=True)
+
+    update = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True)
+
+
+
 # PLANNER - (objectves & tasks)
 
 #Objectives Models
 class Objective(models.Model):
 
     obj_id = models.AutoField(primary_key=True)
+
+    safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
 
     obj_desc = models.TextField(verbose_name='Objective Description')
     #due_Date
@@ -100,14 +119,13 @@ class Task(models.Model):
 
 
 
-
 #Folders Model
 class Folder(models.Model):
 
     folder_id = models.AutoField(primary_key=True)
 
     #Safe it is in
-    #safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
+    safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
 
     folder_name = models.CharField(max_length=20, verbose_name='Folder Name')
 
