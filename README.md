@@ -40,6 +40,8 @@
 
 &rarr; [Click To Read View The Models File](https://github.com/AlexNdungu/CodePinion-V1.2/blob/main/CodePinion/Code1/models.py)
 
+<br/>
+
 | Label                                       | Meaning      |
 |---------------------------------------------|--------------|
 | <span style="font-weight:bold" >1..1</span> | One-To_One   |
