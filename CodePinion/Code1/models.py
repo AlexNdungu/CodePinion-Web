@@ -72,7 +72,13 @@ class Safe(models.Model):
 
     safe_name = models.CharField(max_length=20, verbose_name='Safe Name')
 
+    #Path to Project
+    path = models.TextField(verbose_name='Project Path')
+
     languages = models.ManyToManyField(Language, blank=True)
+
+    #watchers
+    #stars
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
@@ -138,6 +144,9 @@ class Folder(models.Model):
 
     folder_name = models.CharField(max_length=20, verbose_name='Folder Name')
 
+    #Path to Folder
+    path = models.TextField(verbose_name='Folder Path')
+
     #Tree Details (hierarchy)
     #Parent folder
     folder_parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Parent Folder')
@@ -165,6 +174,9 @@ class File(models.Model):
 
     file_name = models.CharField(max_length=20, verbose_name='File Name')    
     language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name='File Language')
+
+    #Path to file
+    path = models.TextField(verbose_name='File Path')
 
     #Commit details
     version = models.TextField(verbose_name='File Version')
