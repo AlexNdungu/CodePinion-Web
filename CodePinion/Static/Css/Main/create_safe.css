@@ -1,3 +1,76 @@
+/* Popup Sections */
+
+#success_popup,#not_selected,#pop_error {
+    position: absolute;
+    right: 30px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+    padding-right: 20px;
+    height: 60px;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+#success_popup {
+    border: 2px solid #2CA631;
+}
+
+#not_selected {
+    border: 2px solid #406CEE;
+}
+
+#pop_error {
+    border: 2px solid #E44F26;
+}
+
+.success_message,.unselected_message,.error_message {
+    font-size: 18px;
+}
+
+.success_message {
+    color: #2CA631;
+}
+
+.unselected_message {
+    color: #406CEE;
+}
+
+.error_message {
+    color: #E44F26;
+}
+
+.check_icon,.check_icon_unselected,.pop_error_icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.check_icon {
+    background-color: #2CA631;
+}
+
+.check_icon_unselected {
+    background-color: #406CEE;
+}
+
+.pop_error_icon {
+    background-color: #E44F26;
+}
+
+
+.check_icon svg,.check_icon_unselected svg,.pop_error_icon svg {
+    width: 30px;
+    fill: #F3F3F3;
+}
+
+
 /* Creation Form Section */
 
 .creation_section {

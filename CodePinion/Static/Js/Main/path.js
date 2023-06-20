@@ -1,5 +1,11 @@
 //Collecting The Directory to be connected to Code Pinion
 
+//select the  message
+let success_popup = document.getElementById('success_popup');
+let not_selected = document.getElementById('not_selected');
+let pop_error = document.getElementById('pop_error');
+
+
 //The collect path button
 let collect_path_btn = document.getElementById('select-path-btn-connect');
 let paste_path = document.getElementById('selected-path');
@@ -29,12 +35,46 @@ collect_path_btn.addEventListener('click', ()=> {
         contentType: false,
         success: function(response){
 
-            //Paste the path into span(id = selected-path)
-            paste_path.innerHTML = response.path
+            //If path is copied
+            if(response.path != ''){
+
+                //Paste the path into span(id = selected-path)
+                paste_path.innerHTML = response.path
+
+                success_popup.style.visibility = 'visible'
+
+                setTimeout(function(){
+
+                    success_popup.style.visibility = 'hidden'
+                    
+                },2500);
+
+            }
+            else{
+
+                not_selected.style.visibility = 'visible'
+
+                setTimeout(function(){
+
+                    not_selected.style.visibility = 'hidden'
+                    
+                },2500);
+
+            }
 
 
         },
         error: function(error){
+
+            //When error occurs on path selection
+
+            pop_error.style.visibility = 'visible'
+
+            setTimeout(function(){
+
+                pop_error.style.visibility = 'hidden'
+                
+            },2500);
 
         }
     });
