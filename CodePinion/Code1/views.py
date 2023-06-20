@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from . import resorce
 
 
 # Create your views here.
@@ -30,4 +31,7 @@ def ConnectSafe(request):
 #Lets get the path we are to connect to
 def getLocalPath(request):
  
-    return JsonResponse({'status':'success'})
+    #Call the toggleWindow fuction from recource file
+    directory =  resorce.toggleWindow()
+
+    return JsonResponse({'status':'success', 'path':directory})
