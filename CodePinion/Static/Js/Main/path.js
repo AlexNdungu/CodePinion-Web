@@ -2,6 +2,7 @@
 
 //The collect path button
 let collect_path_btn = document.getElementById('select-path-btn-connect');
+let paste_path = document.getElementById('selected-path');
 
 //Get the CSRF token
 const csrftoken = Cookies.get('csrftoken');
@@ -28,7 +29,9 @@ collect_path_btn.addEventListener('click', ()=> {
         contentType: false,
         success: function(response){
 
-            console.log(response)
+            //Paste the path into span(id = selected-path)
+            paste_path.innerHTML = response.path
+
 
         },
         error: function(error){
