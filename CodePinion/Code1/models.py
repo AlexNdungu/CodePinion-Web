@@ -160,6 +160,9 @@ class Folder(models.Model):
     #Tasks in a folder
     tasks = models.ManyToManyField(Task, blank=True)
 
+    #Deleted folder
+    #delete_folder = models.BooleanField(default=False, verbose_name='Deleted Folder Status')
+
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
 
@@ -188,6 +191,9 @@ class File(models.Model):
 
     #Tasks in a file
     tasks = models.ManyToManyField(Task, blank=True)
+
+    #Deleted File
+    #delete_file = models.BooleanField(default=False, verbose_name='Deleted File Status')
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
