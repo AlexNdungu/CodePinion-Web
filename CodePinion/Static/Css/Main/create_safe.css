@@ -405,6 +405,7 @@
 /* The path itself */
 #selected-path {
     color: #414141;
+    font-size: 17px;
 }
 
 .path-details {
