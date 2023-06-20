@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import JsonResponse
+
 
 # Create your views here.
 
@@ -24,3 +26,8 @@ def CreateSafe(request):
 #New Safe Connected To Existing Project Folder
 def ConnectSafe(request):
     return render(request, 'Main/connect_safe.html')
+
+#Lets get the path we are to connect to
+def getLocalPath(request):
+ 
+    return JsonResponse({'status':'success'})
