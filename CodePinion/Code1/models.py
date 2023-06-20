@@ -77,8 +77,16 @@ class Safe(models.Model):
 
     languages = models.ManyToManyField(Language, blank=True)
 
+    #privacy status
+    privacy_status = models.BooleanField(default=False, verbose_name='Privacy Status')
+        #True = Private
+        #False = Public
+
     #watchers
     #stars
+
+    #Deleted Safe
+    #delete_safe = models.BooleanField(default=False, verbose_name='Deleted Safe Status')
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
