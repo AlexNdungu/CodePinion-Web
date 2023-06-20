@@ -41,24 +41,45 @@ collect_path_btn.addEventListener('click', ()=> {
                 //Paste the path into span(id = selected-path)
                 paste_path.innerHTML = response.path
 
-                success_popup.style.visibility = 'visible'
+                success_popup.style.visibility = 'visible';
 
                 setTimeout(function(){
 
-                    success_popup.style.visibility = 'hidden'
+                    success_popup.style.visibility = 'hidden';
                     
                 },2500);
 
             }
             else{
 
-                not_selected.style.visibility = 'visible'
+                if(paste_path.innerHTML == ''){
 
-                setTimeout(function(){
+                    not_selected.style.visibility = 'visible';
 
-                    not_selected.style.visibility = 'hidden'
-                    
-                },2500);
+                    setTimeout(function(){
+
+                        not_selected.style.visibility = 'hidden';
+                        
+                    },2500);
+
+                }
+
+                //If path was already selected
+                else {
+
+                    //Remove
+                    paste_path.innerHTML = '';
+
+                    not_selected.style.visibility = 'visible';
+
+                    setTimeout(function(){
+
+                        not_selected.style.visibility = 'hidden';
+                        
+                    },2500);
+
+                }
+
 
             }
 
@@ -68,11 +89,11 @@ collect_path_btn.addEventListener('click', ()=> {
 
             //When error occurs on path selection
 
-            pop_error.style.visibility = 'visible'
+            pop_error.style.visibility = 'visible';
 
             setTimeout(function(){
 
-                pop_error.style.visibility = 'hidden'
+                pop_error.style.visibility = 'hidden';
                 
             },2500);
 
