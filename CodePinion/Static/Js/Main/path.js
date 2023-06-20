@@ -34,6 +34,6 @@ collect_path_btn.addEventListener('click', ()=> {
         error: function(error){
 
         }
-    })
+    });
 
-})
+});
