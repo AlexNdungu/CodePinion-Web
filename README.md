@@ -40,7 +40,7 @@
 
 &rarr; [Click To Read Django Models Documentation](https://docs.djangoproject.com/en/4.2/topics/db/models)
 
-&rarr; [Click To Read View The Models File](https://github.com/AlexNdungu/CodePinion-V1.2/blob/main/CodePinion/Code1/models.py)
+&rarr; [Click To Read The Models File](https://github.com/AlexNdungu/CodePinion-V1.2/blob/main/CodePinion/Code1/models.py)
 
 <br/>
 
