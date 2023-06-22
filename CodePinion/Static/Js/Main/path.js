@@ -35,22 +35,11 @@ collect_path_btn.addEventListener('click', ()=> {
         contentType: false,
         success: function(response){
 
-            //If path is copied
-            if(response.path != ''){
+            
+            //If path is not selected
+            if(response.path == 'None'){
 
-                //Paste the path into span(id = selected-path)
-                paste_path.innerHTML = response.path
-
-                success_popup.style.visibility = 'visible';
-
-                setTimeout(function(){
-
-                    success_popup.style.visibility = 'hidden';
-                    
-                },2500);
-
-            }
-            else{
+                console.log(response.path)
 
                 if(paste_path.innerHTML == ''){
 
@@ -67,7 +56,7 @@ collect_path_btn.addEventListener('click', ()=> {
                 //If path was already selected
                 else {
 
-                    //Remove
+                    //Remove the selected path
                     paste_path.innerHTML = '';
 
                     not_selected.style.visibility = 'visible';
@@ -80,6 +69,20 @@ collect_path_btn.addEventListener('click', ()=> {
 
                 }
 
+            }
+
+            else if(response.path != 'None'){
+
+                //Paste the path into span(id = selected-path)
+                paste_path.innerHTML = response.path
+
+                success_popup.style.visibility = 'visible';
+
+                setTimeout(function(){
+
+                    success_popup.style.visibility = 'hidden';
+                    
+                },2500);
 
             }
 
