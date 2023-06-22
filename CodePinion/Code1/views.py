@@ -38,19 +38,11 @@ def getLocalPath(request):
     #Call the toggleWindow fuction from recource file
     #directory =  resorce.toggleWindow()
 
-    #path = r"C:\Users\Alex Meta Ndung'u\Documents\Py Projects\CDPH"
+    path = r"C:\Users\Alex Meta Ndung'u\Documents\Py Projects\CDPH\path.py" 
 
-    path_py = r"C:\Users\Alex Meta Ndung'u\Documents\Py Projects\CDPH\path.py" 
-
-    import os
-
-    import subprocess
-
-    result = subprocess.run(['python', path_py], stdout=subprocess.PIPE)
+    result = subprocess.run(['python', path], stdout=subprocess.PIPE)
 
     result1 = result.stdout.decode('utf-8')
-
-    #subprocess.call(['python', path_py], cwd=path)
 
 
     return JsonResponse({'status':'success', 'path':result1})
