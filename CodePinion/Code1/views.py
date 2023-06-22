@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from . import resorce
+import subprocess 
+import os
 
 
 # Create your views here.
@@ -30,8 +32,25 @@ def ConnectSafe(request):
 
 #Lets get the path we are to connect to
 def getLocalPath(request):
+
+    #C:\Users\Alex Meta Ndung'u\Documents\Py Projects
  
     #Call the toggleWindow fuction from recource file
-    directory =  resorce.toggleWindow()
+    #directory =  resorce.toggleWindow()
 
-    return JsonResponse({'status':'success', 'path':directory})
+    #path = r"C:\Users\Alex Meta Ndung'u\Documents\Py Projects\CDPH"
+
+    path_py = r"C:\Users\Alex Meta Ndung'u\Documents\Py Projects\CDPH\path.py" 
+
+    import os
+
+    import subprocess
+
+    result = subprocess.run(['python', path_py], stdout=subprocess.PIPE)
+
+    result1 = result.stdout.decode('utf-8')
+
+    #subprocess.call(['python', path_py], cwd=path)
+
+
+    return JsonResponse({'status':'success', 'path':result1})
