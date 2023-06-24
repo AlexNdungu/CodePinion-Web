@@ -29,8 +29,7 @@ def ssh_client_action():
     #wait for 5seconds
     time.sleep(5)
 
-    #Get the output
-    print(stdout.readlines())
-
     #Close Connection
     ssh_client.close()
+
+    return stdout.readlines()

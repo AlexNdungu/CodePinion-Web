@@ -48,6 +48,6 @@ def getLocalPath(request):
     # result3 = result2.strip("\r")
 
     #Call the ssh client function
-    resorce.ssh_client_action()
+    print(resorce.ssh_client_action())
 
     return JsonResponse({'status':'success', 'path':'result3'})
