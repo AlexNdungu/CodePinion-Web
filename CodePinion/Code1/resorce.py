@@ -11,7 +11,7 @@ def ssh_client_action():
     #Add to known
     ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-    ssh_client.connect(hostname="192.168.100.9",username="user", password="joyce2001")
+    ssh_client.connect(hostname="",username="", password="")
     stdin, stdout, stderr = ssh_client.exec_command('dir /ad /b')
 
     #wait for 5seconds
