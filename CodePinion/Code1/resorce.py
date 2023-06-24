@@ -1,11 +1,11 @@
-from PyQt5.QtWidgets import QFileDialog, QApplication, QSystemTrayIcon
+#from PyQt5.QtWidgets import QFileDialog, QApplication, QSystemTrayIcon
 import sys
 
 #Toggle Windows Conversation Box ro select path
-def toggleWindow():
+# def toggleWindow():
 
-    app = QApplication(sys.argv)
+#     app = QApplication(sys.argv)
 
-    directory = QFileDialog.getExistingDirectory(None, "Select Directory")
+#     directory = QFileDialog.getExistingDirectory(None, "Select Directory")
 
-    return directory
+#     return directory
