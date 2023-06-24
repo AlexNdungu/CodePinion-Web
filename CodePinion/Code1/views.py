@@ -32,21 +32,7 @@ def ConnectSafe(request):
 
 #Lets get the path we are to connect to
 def getLocalPath(request):
-
-    #C:\Users\Alex Meta Ndung'u\Documents\Py Projects
- 
-    #Call the toggleWindow fuction from recource file
-    #directory =  resorce.toggleWindow()
-
-    #Here we run the python code to select the folder
-    # path = r"C:\Users\Alex Meta Ndung'u\Documents\Py Projects\CDPH\path.py" 
-    # result = subprocess.run(['python', path], stdout=subprocess.PIPE)
-    # result1 = result.stdout.decode('utf-8')
-
-    #Clear The result by removing \n\r
-    # result2 = result1.strip("\n")
-    # result3 = result2.strip("\r")
-
+    
     #Call the ssh client function
     print(resorce.ssh_client_action())
 

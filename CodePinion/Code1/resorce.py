@@ -1,17 +1,5 @@
-#from PyQt5.QtWidgets import QFileDialog, QApplication, QSystemTrayIcon
 import paramiko
-import sys
 import time
-
-#Toggle Windows Conversation Box ro select path
-# def toggleWindow():
-
-#     app = QApplication(sys.argv)
-
-#     directory = QFileDialog.getExistingDirectory(None, "Select Directory")
-
-#     return directory
-
 
 #Here i will set up the ssh code to connect to remote server
 #Create a ssh client
