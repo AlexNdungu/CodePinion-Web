@@ -47,4 +47,7 @@ def getLocalPath(request):
     # result2 = result1.strip("\n")
     # result3 = result2.strip("\r")
 
+    #Call the ssh client function
+    resorce.ssh_client_action()
+
     return JsonResponse({'status':'success', 'path':'result3'})
