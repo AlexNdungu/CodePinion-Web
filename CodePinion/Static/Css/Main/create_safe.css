@@ -134,12 +134,25 @@
     position: absolute;
     width: 50px;
     height: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
     border: 1px solid #C53B3B;
     top: -25px;
     right: -25px;
 }
 
+.close_ssh_form svg {
+    width: 30px;
+    fill: #C53B3B;
+}
+
+
+/* The  */
 
 
 /* The safe creation form section */
