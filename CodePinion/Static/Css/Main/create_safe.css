@@ -222,6 +222,33 @@
 }
 
 
+/* Ssh connect button section */
+.the_connect_btn_section {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The connect to ssh btn */
+.connect_ssh_btn {
+    width: 200px;
+    height: 55px;
+    background-color: #406CEE;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #F3F3F3;
+    fill: #F3F3F3;
+}
+
+
 /* The safe creation form section */
 
 .create_form {
