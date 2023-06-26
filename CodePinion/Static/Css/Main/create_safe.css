@@ -129,15 +129,36 @@
 /* User indicate section */
 .user_indicate_section {
     height: 50px;
-    width: 360px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     border-radius: 10px;
+    padding-left: 20px;
     background-color: #F3F3F3;
+    color: #414141;
+    font-size: 16px;
+}
+
+/* the slash */
+.slash_user {
+    width: 2px;
+    height: 35px;
+    transform: rotate(20deg);
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #414141;
+}
+
+.user_indicate_section svg {
+    width: 23px;
+    fill: #414141;
 }
 
 
 /* Path search and and current path section */
 .path_and_search_path_section {
-    width: calc(100% - 370px);
+    width: calc(100% - 310px);
     height: 50px;
     border-radius: 10px;
     background-color: #F3F3F3;
