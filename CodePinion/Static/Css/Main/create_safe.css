@@ -123,7 +123,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color:aqua;
 }
 
 /* User indicate section */
@@ -238,7 +237,7 @@
 .ssh_searching_section {
     width: calc(100% - 10px);
     height: 40px;
-    border-radius: 10px;
+    border-radius: 7px;
     padding-left: 10px;
     border: 1.5px solid #8F8F8F;
     display: flex;
@@ -284,6 +283,49 @@
     fill: #F3F3F3;
 }
 
+/* Select Working Folder */
+.show_selected_path_section {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: aquamarine;
+}
+
+.inner_show_selected_path {
+    width: calc(100% - 20px);
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: #F3F3F3;
+}
+
+.inner_show_selected_path h3 {
+    color: #414141;
+}
+
+/* Read the selected path */
+.view_selected_path {
+    width: 500px;
+    height: 40px;
+    padding-left: 20px;
+    border-radius: 10px;
+    border: 1.5px solid #8F8F8F;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #414141;
+}
+
+.the_selected_path_show {
+    margin-left: 5px;
+    color: #406CEE;
+}
 
 
 /* The ssh login popup */
