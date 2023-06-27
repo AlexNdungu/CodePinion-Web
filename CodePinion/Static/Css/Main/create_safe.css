@@ -375,11 +375,24 @@
     width: calc(100% - 10px);
     height: 45px;
     border-radius: 7px;
-    background-color: #D9D9D9;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding-left: 15px;
+    transition: 0.1s ease-in;
+}
+
+.clickable_ssh_directory:hover {
+    background-color: #D9D9D9;
+}
+
+.clickable_ssh_directory span {
+    font-size: 15px;
+    color: #414141;
+}
+
+.clickable_ssh_directory:hover > span {
+    color: #406CEE;
 }
 
 .clickable_ssh_directory svg {
@@ -388,10 +401,10 @@
     margin-right: 10px;
 }
 
-.clickable_ssh_directory span {
-    font-size: 15px;
-    color: #414141;
+.clickable_ssh_directory:hover > svg {
+    fill: #406CEE;
 }
+
 
 
 /* The checking directory section */
