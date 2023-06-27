@@ -160,9 +160,43 @@
 .path_and_search_path_section {
     width: calc(100% - 370px);
     height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-radius: 10px;
     background-color: #F3F3F3;
 }
+
+/* Path indicator section */
+.ssh_path_indicate{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.ssh_path_indicate svg {
+    width: 26px;
+    fill: #414141;
+    margin-right: 10px;
+}
+
+.ssh_path_indicate span {
+    color: #414141;
+    font-size: 15px;
+}
+
+
+/* The ssh file dispaly layout and searchbar */
+.ssh_search_and_file_layout {
+    width: 60%;
+    height: 100%;
+    background-color: beige;
+}
+
 
 /* Close the ssh filing system */
 .close_ssh_filing {
