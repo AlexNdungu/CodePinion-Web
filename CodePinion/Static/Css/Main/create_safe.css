@@ -194,7 +194,36 @@
 .ssh_search_and_file_layout {
     width: 60%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: beige;
+}
+
+/* The folder system layout */
+.ssh_folder_layout {
+    width: 120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(60, 101, 101);
+}
+
+/* The change layout btns */
+.folder_layout_change {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.folder_layout_change svg {
+    fill: #414141;
+    width: 35px;
 }
 
 
