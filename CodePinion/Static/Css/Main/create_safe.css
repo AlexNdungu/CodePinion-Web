@@ -197,24 +197,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: beige;
 }
 
 /* The folder system layout */
 .ssh_folder_layout {
-    width: 120px;
+    width: 100px;
     height: 100%;
     display: flex;
     align-items: center;
-    background-color: rgb(60, 101, 101);
 }
 
 /* The change layout btns */
 .folder_layout_change {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin-right: 10px;
-    border-radius: 10px;
+    border-radius: 7px;
     background-color: #D9D9D9;
     display: flex;
     align-items: center;
@@ -223,7 +221,50 @@
 
 .folder_layout_change svg {
     fill: #414141;
-    width: 35px;
+    width: 25px;
+}
+
+
+/* Search ssh folders section */
+.ssh_folder_search {
+    width: calc(100% - 100px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* The actual search bar */
+.ssh_searching_section {
+    width: calc(100% - 10px);
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: 1.5px solid #8F8F8F;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ssh_searching_section svg {
+    transform: scale(0.9);
+    fill: #8F8F8F;
+    margin-right: 10px;
+}
+
+/* The search bar input */
+.ssh_searching_section input {
+    width: 400px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 15px;
+    color: #414141;
+}
+
+.ssh_searching_section input::placeholder {
+    color: #8F8F8F;
 }
 
 
