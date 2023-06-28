@@ -10,13 +10,23 @@ let pop_error = document.getElementById('pop_error');
 let collect_path_btn = document.getElementById('select-path-btn-connect');
 let paste_path = document.getElementById('selected-path');
 
+//get the post ssh credentials
+let login_ssh = document.getElementById('post_ssh_credentials'); 
+//
+let host_name = document.getElementById('host_name');
+let user_name = document.getElementById('user_name');
+let password = document.getElementById('password');
+
+
 //Get the CSRF token
-const csrftoken = Cookies.get('csrftoken');
+let csrf = document.getElementsByName('csrfmiddlewaretoken');
 
-//The click event that will trigger the windows dialog
-collect_path_btn.addEventListener('click', ()=> {
+//Add click to ssh post credentials
 
-    console.log(csrftoken)
+login_ssh.addEventListener('click', ()=> {
+    
+
+    console.log(csrf)
 
     //Now we perform the ajax call
 
@@ -24,8 +34,12 @@ collect_path_btn.addEventListener('click', ()=> {
     let formData = new FormData();
 
     //Append the csrf token
-    formData.append('csrfmiddlewaretoken',csrftoken);
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
 
+    //Appen hostname,username and password
+    formData.append('host_name',host_name.value);
+    formData.append('user_name',user_name.value);
+    formData.append('password',password.value);
 
     $.ajax({
         type:'POST',
@@ -35,72 +49,11 @@ collect_path_btn.addEventListener('click', ()=> {
         contentType: false,
         success: function(response){
 
-            
-            //If path is not selected
-            if(response.path == 'None'){
-
-                console.log(response.path)
-
-                if(paste_path.innerHTML == ''){
-
-                    not_selected.style.visibility = 'visible';
-
-                    setTimeout(function(){
-
-                        not_selected.style.visibility = 'hidden';
-                        
-                    },2500);
-
-                }
-
-                //If path was already selected
-                else {
-
-                    //Remove the selected path
-                    paste_path.innerHTML = '';
-
-                    not_selected.style.visibility = 'visible';
-
-                    setTimeout(function(){
-
-                        not_selected.style.visibility = 'hidden';
-                        
-                    },2500);
-
-                }
-
-            }
-
-            else if(response.path != 'None'){
-
-                //Paste the path into span(id = selected-path)
-                paste_path.innerHTML = response.path
-
-                success_popup.style.visibility = 'visible';
-
-                setTimeout(function(){
-
-                    success_popup.style.visibility = 'hidden';
-                    
-                },2500);
-
-            }
-
 
         },
         error: function(error){
 
-            //When error occurs on path selection
-
-            pop_error.style.visibility = 'visible';
-
-            setTimeout(function(){
-
-                pop_error.style.visibility = 'hidden';
-                
-            },2500);
-
+            
         }
-    });
-
-});
+    });    
+})

@@ -511,7 +511,7 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: none;  /* Pop in and out */
+    display: flex;  /* Pop in and out */
     align-items: center;
     justify-content: center;
 }
@@ -654,7 +654,7 @@
 .connect_ssh_btn {
     width: 200px;
     height: 55px;
-    background-color: #406CEE;
+    background-color: #414141;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -665,7 +665,14 @@
     font-weight: 500;
     color: #F3F3F3;
     fill: #F3F3F3;
+    cursor: pointer;
+    transition: 0.2s ease-in;
 }
+
+/* The hover effect */
+.connect_ssh_btn:hover {
+     background-color: #406CEE;
+    } 
 
 
 /* The safe creation form section */

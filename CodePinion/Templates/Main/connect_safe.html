@@ -83,8 +83,10 @@
 
                     </div>
 
-                    <!--The ssh_login_inputs-->
-                    <div class="ssh_login_inputs">
+                    <form method="post" class="ssh_login_inputs" >
+
+                        <!--The csrf token-->
+                        {% csrf_token %}
 
                         <!--Host name-->
                         <!--The individual ssh inputs-->
@@ -104,7 +106,7 @@
                                 </div>
 
                                 <!--The detail input-->
-                                <input type="text">
+                                <input type="text" id="host_name">
 
                             </div>
 
@@ -128,7 +130,7 @@
                                 </div>
 
                                 <!--The detail input-->
-                                <input type="text">
+                                <input type="text" id="user_name" >
 
                             </div>
 
@@ -152,18 +154,18 @@
                                 </div>
 
                                 <!--The detail input-->
-                                <input type="password">
+                                <input type="password" id="password" >
 
                             </div>
 
                         </div>
 
-                    </div>
+                    </form>
 
                     <!--The connect button-->
                     <div class="the_connect_btn_section">
 
-                        <div class="connect_ssh_btn">
+                        <div class="connect_ssh_btn" id="post_ssh_credentials" >
 
                             <span>Connect</span>
 

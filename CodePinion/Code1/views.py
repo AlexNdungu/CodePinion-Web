@@ -32,8 +32,17 @@ def ConnectSafe(request):
 
 #Lets get the path we are to connect to
 def getLocalPath(request):
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        #Host name
+        host_name = request.POST.get('host_name')
+        #User name
+        user_name = request.POST.get('user_name')
+        #password
+        password = request.POST.get('password')
     
-    #Call the ssh client function
-    print(resorce.ssh_client_action())
+        #Call the ssh client function
+        print(resorce.ssh_client_action(host_name,user_name,password))
 
     return JsonResponse({'status':'success', 'path':'result3'})
