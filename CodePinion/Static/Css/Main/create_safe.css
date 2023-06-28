@@ -416,8 +416,10 @@
     width: calc(100% - 310px);
     height: calc(100% - 10px);
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
+    overflow-y: auto;
     border-radius: 10px;
     padding: 10px;
     background-color: #F3F3F3;
@@ -433,6 +435,7 @@
     transition: 0.1s ease-in;
     fill: #414141;
     color: #414141;
+    margin-bottom: 10px;
     cursor: pointer;
 }
 
