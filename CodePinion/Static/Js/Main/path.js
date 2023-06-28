@@ -6,9 +6,17 @@ let not_selected = document.getElementById('not_selected');
 let pop_error = document.getElementById('pop_error');
 
 
+//Call the login for and file system
+let ssh_login_form = document.getElementById('ssh_login_popup');
+let ssh_file_system = document.getElementById('choose_path_ssh_section');
+
+
 //The collect path button
-let collect_path_btn = document.getElementById('select-path-btn-connect');
+let launch_ssh_login_form = document.getElementById('select-path-btn-connect');
+let close_ssh_login_form = document.getElementById('close_ssh_form');
+//
 let paste_path = document.getElementById('selected-path');
+
 
 //get the post ssh credentials
 let login_ssh = document.getElementById('post_ssh_credentials'); 
@@ -21,8 +29,24 @@ let password = document.getElementById('password');
 //Get the CSRF token
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 
-//Add click to ssh post credentials
+//This click fuctions display and hide the login form
+launch_ssh_login_form.addEventListener('click', ()=> {
 
+    //Display the login ssh form
+    ssh_login_form.style.display = 'flex';
+
+});
+
+close_ssh_login_form.addEventListener('click', ()=> {
+
+    //Display the login ssh form
+    ssh_login_form.style.display = 'none';
+
+});
+
+
+
+//This click function logs the user to the server
 login_ssh.addEventListener('click', ()=> {
     
     //Now we perform the ajax call

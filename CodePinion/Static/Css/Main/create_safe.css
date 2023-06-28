@@ -511,7 +511,7 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: flex;  /* Pop in and out */
+    display: none;  /* Pop in and out */
     align-items: center;
     justify-content: center;
 }
@@ -559,15 +559,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: #F3F3F3;
     border: 1px solid #C53B3B;
+    fill: #C53B3B;
     top: -25px;
     right: -25px;
+    transition: 0.1s ease-in;
+    cursor: pointer;
+}
+
+.close_ssh_form:hover {
+    background-color: #C53B3B;
+    fill: #F3F3F3;
 }
 
 .close_ssh_form svg {
     width: 30px;
-    fill: #C53B3B;
 }
 
 
@@ -962,6 +969,13 @@
     padding: 20px;
     fill: #F3F3F3;
     color: #F3F3F3;
+    transition: 0.1s ease-in;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.select-path-btn:hover {
+    background-color: #414141;
 }
 
 .select-path-btn span {
