@@ -43,6 +43,16 @@ def getLocalPath(request):
         password = request.POST.get('password')
     
         #Call the ssh client function
-        print(resorce.ssh_client_action(host_name,user_name,password))
+        server_reponse = resorce.ssh_client_action(host_name,user_name,password)
 
-    return JsonResponse({'status':'success', 'path':'result3'})
+        #Clean the return by
+        dir_list = []
+
+        for dir in server_reponse:
+
+            dir_new = dir.replace("\r", "").replace("\n", "")
+            dir_list.append(dir_new)
+
+        print(dir_list)   
+
+        return JsonResponse({'status':'success', 'path':dir_list})

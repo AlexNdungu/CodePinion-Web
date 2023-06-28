@@ -25,9 +25,6 @@ let csrf = document.getElementsByName('csrfmiddlewaretoken');
 
 login_ssh.addEventListener('click', ()=> {
     
-
-    console.log(csrf)
-
     //Now we perform the ajax call
 
     //First we create form data
@@ -49,6 +46,7 @@ login_ssh.addEventListener('click', ()=> {
         contentType: false,
         success: function(response){
 
+            console.log(response)
 
         },
         error: function(error){
