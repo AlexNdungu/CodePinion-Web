@@ -21,6 +21,10 @@ let paste_path = document.getElementById('selected-path');
 //get the post ssh credentials
 let login_ssh = document.getElementById('post_ssh_credentials'); 
 //
+let ssh_login_loader_spin = document.getElementById('loader_ssh_log');
+let login_ssh_span = document.querySelector('#post_ssh_credentials span')
+let login_ssh_svg = document.querySelector('#post_ssh_credentials svg')
+//
 let host_name = document.getElementById('host_name');
 let user_name = document.getElementById('user_name');
 let password = document.getElementById('password');
@@ -48,6 +52,11 @@ close_ssh_login_form.addEventListener('click', ()=> {
 
 //This click function logs the user to the server
 login_ssh.addEventListener('click', ()=> {
+
+    //Here we remove the writings in the button and add a spinner
+    login_ssh_span.style.display = 'none';
+    login_ssh_svg.style.display = 'none';
+    ssh_login_loader_spin.style.display = 'flex';
     
     //Now we perform the ajax call
 
@@ -57,7 +66,7 @@ login_ssh.addEventListener('click', ()=> {
     //Append the csrf token
     formData.append('csrfmiddlewaretoken', csrf[0].value);
 
-    //Appen hostname,username and password
+    //Append hostname,username and password
     formData.append('host_name',host_name.value);
     formData.append('user_name',user_name.value);
     formData.append('password',password.value);
@@ -69,6 +78,21 @@ login_ssh.addEventListener('click', ()=> {
         processData: false,
         contentType: false,
         success: function(response){
+
+            //On success
+            //Here we remove the writings in the button and add a spinner
+            login_ssh_span.style.display = 'flex';
+            login_ssh_svg.style.display = 'flex';
+            ssh_login_loader_spin.style.display = 'none';
+
+            //Success popup
+            success_popup.style.visibility = 'visible';
+
+            setTimeout(function(){
+
+                success_popup.style.visibility = 'hidden';
+                
+            },2500);
 
             console.log(response)
 

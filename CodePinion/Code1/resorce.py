@@ -20,4 +20,6 @@ def ssh_client_action(hostname,username,password):
     #Close Connection
     ssh_client.close()
 
+    #print(stderr.readlines())
+
     return stdout.readlines()

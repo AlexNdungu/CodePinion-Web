@@ -12,6 +12,7 @@
     height: 60px;
     border-radius: 10px;
     visibility: hidden;
+    z-index: 4;
 }
 
 #success_popup {
@@ -665,9 +666,9 @@
     border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-left: 40px;
-    padding-right: 40px;
+    justify-content: space-evenly;
+    /* padding-left: 40px;
+    padding-right: 40px; */
     font-size: 18px;
     font-weight: 500;
     color: #F3F3F3;
@@ -679,7 +680,32 @@
 /* The hover effect */
 .connect_ssh_btn:hover {
      background-color: #406CEE;
-    } 
+} 
+
+/* The loader */
+.loader_ssh_log {
+    border: 2px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 2px solid #406CEE;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 0.4s linear infinite; /* Safari */
+    animation: spin 0.4s linear infinite;
+    display: none;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
 
 
 /* The safe creation form section */
