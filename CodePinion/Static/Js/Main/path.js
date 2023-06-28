@@ -30,6 +30,12 @@ let user_name = document.getElementById('user_name');
 let password = document.getElementById('password');
 
 
+//Get all the elements in the ssh filing system
+let user_dir_indicate = document.getElementById('slash_user_view');
+let list_ssh_navigation = document.getElementById('select_ssh_directory_navigation');
+let check_dir_section = document.getElementById('check_choosen_directory_section');
+
+
 //Get the CSRF token
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 
@@ -50,13 +56,24 @@ close_ssh_login_form.addEventListener('click', ()=> {
 
 
 
+//Helper fuctions
+
+//This fuction either displays or hides the elements in the login form popup
+function login_popup_effects(span,svg,loader) {
+
+    //Here we remove the writings in the button and add a spinner
+    login_ssh_span.style.display = span;
+    login_ssh_svg.style.display = svg;
+    ssh_login_loader_spin.style.display = loader;
+
+}
+
+
 //This click function logs the user to the server
 login_ssh.addEventListener('click', ()=> {
 
-    //Here we remove the writings in the button and add a spinner
-    login_ssh_span.style.display = 'none';
-    login_ssh_svg.style.display = 'none';
-    ssh_login_loader_spin.style.display = 'flex';
+    //Call the function that affect the login popup
+    login_popup_effects('none','none','flex')
     
     //Now we perform the ajax call
 
@@ -80,10 +97,6 @@ login_ssh.addEventListener('click', ()=> {
         success: function(response){
 
             //On success
-            //Here we remove the writings in the button and add a spinner
-            login_ssh_span.style.display = 'flex';
-            login_ssh_svg.style.display = 'flex';
-            ssh_login_loader_spin.style.display = 'none';
 
             //Success popup
             success_popup.style.visibility = 'visible';
@@ -94,7 +107,60 @@ login_ssh.addEventListener('click', ()=> {
                 
             },2500);
 
-            console.log(response)
+            
+            //Call the function that affect the login popup
+            login_popup_effects('flex','flex','none')
+
+            //Remove login popup
+            ssh_login_form.style.display = 'none';
+            //Show the ssh filing system
+            ssh_file_system.style.display = 'flex';
+
+            //Now we display the name as required
+            user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
+
+            //Now we add all the directories to the navigation
+
+            const dir_list_members = response.dir_list
+
+            $('#select_ssh_directory_navigation').empty();
+
+            if(dir_list_members.length > 0){
+
+                for(let oneDIR = 0; oneDIR < dir_list_members.length; oneDIR++){
+
+                    //This is the html of one dir in the navigation
+                    let ssh_dir = `
+                        <!--The clickable and inner directories-->
+                        <div class="the_clickable_and_inner_dir">
+
+                            <!--Individual clickable directory-->
+                            <div class="clickable_ssh_directory">
+
+                                <!--clickable directory content-->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+
+                                <span class="clickable_directory_name" >${dir_list_members[oneDIR]}</span>
+
+                            </div>
+
+                            <!--inner clicked dir-->
+                            <div class="inner_clicked_dir">
+                                <!--Here will be the inner dirs when this dir is clicked-->
+                            </div>
+
+                        </div>
+                        `
+
+                    //Append all the lists
+                    $("#select_ssh_directory_navigation").append(ssh_dir);
+
+                }
+
+            }
+
+            //change username
+            console.log(dir_list_members)
 
         },
         error: function(error){

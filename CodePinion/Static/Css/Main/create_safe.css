@@ -13,6 +13,7 @@
     border-radius: 10px;
     visibility: hidden;
     z-index: 4;
+    background-color: white;
 }
 
 #success_popup {
@@ -343,6 +344,7 @@
 .select_ssh_directory_navigation {
     width: 300px;
     height: calc(100% - 10px);
+    overflow: auto;
     padding-top: 5px;
     display: flex;
     flex-direction: column;

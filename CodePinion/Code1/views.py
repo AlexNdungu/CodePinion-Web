@@ -55,4 +55,4 @@ def getLocalPath(request):
 
         print(dir_list)   
 
-        return JsonResponse({'status':'success', 'path':dir_list})
+        return JsonResponse({'status':'success', 'dir_list':dir_list})
