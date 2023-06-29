@@ -36,6 +36,8 @@ let list_ssh_navigation = document.getElementById('select_ssh_directory_navigati
 let check_dir_section = document.getElementById('check_choosen_directory_section');
 //Current path dir 
 let current_working_dir = document.getElementById('current_directory_ssh_dispayer');
+//Choosen dir
+let choosen_dir_show = document.getElementById('the_selected_path_show');
 
 
 //Get the CSRF token
@@ -149,7 +151,7 @@ function fill_checks_with_dirs(dir_list_members){
                         <!--The checkable dir name-->
                         <div class="checkable_dir_name">
 
-                            <span>${dir_list_members[oneDIR]}</span>
+                            <span class="this_divs_dir_name" >${dir_list_members[oneDIR]}</span>
 
                         </div>
 
@@ -167,7 +169,8 @@ function fill_checks_with_dirs(dir_list_members){
     let all_dirs_checks = document.getElementsByClassName('ind_checked_and_choosen_dir');
     let all_checks_for_dirs = document.getElementsByClassName('checkbox_for_this_dir');
     let svg_check_dir_ticks = document.getElementsByClassName('svg_check_dir_tick');
-    let svg_check_containers = document.getElementsByClassName('check_dir')
+    let svg_check_containers = document.getElementsByClassName('check_dir');
+    let individual_divs_names = document.getElementsByClassName('this_divs_dir_name');
 
     for(let num_dir = 0; num_dir < all_dirs_checks.length; num_dir++){
 
@@ -193,9 +196,11 @@ function fill_checks_with_dirs(dir_list_members){
             //Display the tick
             svg_check_dir_ticks[num_dir].style.visibility = 'visible';
             //Change border of check tick container
-            svg_check_containers[num_dir].classList.add('svg_check_containers_hover')
+            svg_check_containers[num_dir].classList.add('svg_check_containers_hover');
             //Change styling of checked dir
             all_dirs_checks[num_dir].classList.add('ind_onchecked_and_choosen_dir');
+            //Change selected path
+            choosen_dir_show.innerHTML = current_working_dir.innerHTML + "\\" + individual_divs_names[num_dir].innerHTML;
 
         });
 
