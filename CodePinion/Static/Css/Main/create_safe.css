@@ -457,6 +457,10 @@
     padding-right: 5px;
 }
 
+.check_dir_section input {
+    visibility: hidden;
+}
+
 
 /* The checkbox */
 .check_dir {
@@ -475,7 +479,7 @@
     border: 1.5px solid #F3F3F3;
 }
 
-.check_dir svg {
+.svg_check_dir_tick {
     width: 15px;
     visibility: hidden;
 }

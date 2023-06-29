@@ -128,10 +128,12 @@ function fill_checks_with_dirs(dir_list_members){
                         <!--The check dir section-->
                         <div class="check_dir_section">
 
+                            <input type="checkbox" class="checkbox_for_this_dir" >
+
                             <!--The ckeck box-->
                             <div class="check_dir">
 
-                                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m2.25 12.321 7.27 6.491c.143.127.321.19.499.19.206 0 .41-.084.559-.249l11.23-12.501c.129-.143.192-.321.192-.5 0-.419-.338-.75-.749-.75-.206 0-.411.084-.559.249l-10.731 11.945-6.711-5.994c-.144-.127-.322-.19-.5-.19-.417 0-.75.336-.75.749 0 .206.084.412.25.56" fill-rule="nonzero"/></svg>
+                                <svg class="svg_check_dir_tick" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m2.25 12.321 7.27 6.491c.143.127.321.19.499.19.206 0 .41-.084.559-.249l11.23-12.501c.129-.143.192-.321.192-.5 0-.419-.338-.75-.749-.75-.206 0-.411.084-.559.249l-10.731 11.945-6.711-5.994c-.144-.127-.322-.19-.5-.19-.417 0-.75.336-.75.749 0 .206.084.412.25.56" fill-rule="nonzero"/></svg>
 
                             </div>
 
@@ -160,6 +162,35 @@ function fill_checks_with_dirs(dir_list_members){
         }
 
     }
+
+    //Now give all the dirs click events
+    let all_dirs_checks = document.getElementsByClassName('ind_checked_and_choosen_dir');
+    let all_checks_for_dirs = document.getElementsByClassName('checkbox_for_this_dir');
+    let svg_check_dir_ticks = document.getElementsByClassName('svg_check_dir_tick');
+
+    for(let num_dir = 0; num_dir < all_dirs_checks.length; num_dir++){
+
+        all_dirs_checks[num_dir].addEventListener('click', ()=> {
+
+            for(let num_check = 0; num_check < all_checks_for_dirs.length; num_check++){
+
+                //Uncheck the checkbox
+                all_checks_for_dirs[num_check].checked = false;
+                //Hide the chech tick
+                svg_check_dir_ticks[num_check].style.visibility = 'hidden';
+
+            }
+
+            //Check the checkbox
+            all_checks_for_dirs[num_dir].checked = true;
+            //Display the arroe
+            svg_check_dir_ticks[num_dir].style.visibility = 'visible';
+
+        });
+
+    }
+
+
 
 }
 
