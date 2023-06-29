@@ -53,8 +53,8 @@ def getLocalPath(request):
             dir_new = dir.replace("\r", "").replace("\n", "")
             dir_list.append(dir_new)
 
-        # print(dir_list)
+        #Get the current path 
+        current_dir_path = server_reponse[0][0].replace("\r", "").replace("\n", "")
+        print(current_dir_path) 
 
-        print(server_reponse)   
-
-        return JsonResponse({'status':'success', 'dir_list':dir_list})
+        return JsonResponse({'status':'success', 'dir_list':dir_list, 'current_dir_path':current_dir_path})

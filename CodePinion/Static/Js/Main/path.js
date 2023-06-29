@@ -34,6 +34,8 @@ let password = document.getElementById('password');
 let user_dir_indicate = document.getElementById('slash_user_view');
 let list_ssh_navigation = document.getElementById('select_ssh_directory_navigation');
 let check_dir_section = document.getElementById('check_choosen_directory_section');
+//Current path dir 
+let current_working_dir = document.getElementById('current_directory_ssh_dispayer');
 
 
 //Get the CSRF token
@@ -220,6 +222,9 @@ login_ssh.addEventListener('click', ()=> {
             //Now we add the checkable dirs
             fill_checks_with_dirs(dir_list_members)
 
+            //Now lets add the current path to the interface
+            const current_path_dir = response.current_dir_path;
+            current_working_dir.innerHTML = current_path_dir
 
             //change username
             console.log(dir_list_members)
