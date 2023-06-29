@@ -180,7 +180,7 @@ function fill_checks_with_dirs(dir_list_members){
                 //Hide the chech tick
                 svg_check_dir_ticks[num_check].style.visibility = 'hidden';
                 //Change border of check tick container
-                svg_check_containers[num_check].style.border = "1.5px solid #414141";
+                svg_check_containers[num_check].classList.remove('svg_check_containers_hover');
                 //Return background to original
                 if(all_dirs_checks[num_check].classList.contains('ind_onchecked_and_choosen_dir')){
                     all_dirs_checks[num_check].classList.remove('ind_onchecked_and_choosen_dir');
@@ -193,7 +193,7 @@ function fill_checks_with_dirs(dir_list_members){
             //Display the tick
             svg_check_dir_ticks[num_dir].style.visibility = 'visible';
             //Change border of check tick container
-            svg_check_containers[num_dir].style.border = "1.5px solid #F3F3F3";
+            svg_check_containers[num_dir].classList.add('svg_check_containers_hover')
             //Change styling of checked dir
             all_dirs_checks[num_dir].classList.add('ind_onchecked_and_choosen_dir');
 

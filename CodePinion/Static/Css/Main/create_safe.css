@@ -481,6 +481,11 @@
     transition: 0.1s ease-in;
 }
 
+/* check effect */
+.svg_check_containers_hover {
+    border: 1.5px solid #f3f3f3;
+}
+
 /* Hover effect */
 .ind_checked_and_choosen_dir:hover .check_dir_section > .check_dir{
     border: 1.5px solid #F3F3F3;
