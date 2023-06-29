@@ -447,6 +447,13 @@
     color: #F3F3F3;
 }
 
+/* On check */
+.ind_onchecked_and_choosen_dir {
+    background-color: #406CEE;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+}
+
 /* The checkbox section */
 .check_dir_section {
     width: 100%;

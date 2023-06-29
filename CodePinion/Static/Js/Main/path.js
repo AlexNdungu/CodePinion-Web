@@ -123,7 +123,7 @@ function fill_checks_with_dirs(dir_list_members){
             //This is the html of one dir in the navigation
             let ssh_dir = `
                     <!--The checked_choosen dir-->
-                    <div class="ind_checked_and_choosen_dir">
+                    <div class="ind_checked_and_choosen_dir ">
 
                         <!--The check dir section-->
                         <div class="check_dir_section">
@@ -167,6 +167,7 @@ function fill_checks_with_dirs(dir_list_members){
     let all_dirs_checks = document.getElementsByClassName('ind_checked_and_choosen_dir');
     let all_checks_for_dirs = document.getElementsByClassName('checkbox_for_this_dir');
     let svg_check_dir_ticks = document.getElementsByClassName('svg_check_dir_tick');
+    let svg_check_containers = document.getElementsByClassName('check_dir')
 
     for(let num_dir = 0; num_dir < all_dirs_checks.length; num_dir++){
 
@@ -178,13 +179,23 @@ function fill_checks_with_dirs(dir_list_members){
                 all_checks_for_dirs[num_check].checked = false;
                 //Hide the chech tick
                 svg_check_dir_ticks[num_check].style.visibility = 'hidden';
+                //Change border of check tick container
+                svg_check_containers[num_check].style.border = "1.5px solid #414141";
+                //Return background to original
+                if(all_dirs_checks[num_check].classList.contains('ind_onchecked_and_choosen_dir')){
+                    all_dirs_checks[num_check].classList.remove('ind_onchecked_and_choosen_dir');
+                }
 
             }
 
             //Check the checkbox
             all_checks_for_dirs[num_dir].checked = true;
-            //Display the arroe
+            //Display the tick
             svg_check_dir_ticks[num_dir].style.visibility = 'visible';
+            //Change border of check tick container
+            svg_check_containers[num_dir].style.border = "1.5px solid #F3F3F3";
+            //Change styling of checked dir
+            all_dirs_checks[num_dir].classList.add('ind_onchecked_and_choosen_dir');
 
         });
 
