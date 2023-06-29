@@ -48,11 +48,13 @@ def getLocalPath(request):
         #Clean the return by
         dir_list = []
 
-        for dir in server_reponse:
+        for dir in server_reponse[1]:
 
             dir_new = dir.replace("\r", "").replace("\n", "")
             dir_list.append(dir_new)
 
-        print(dir_list)   
+        # print(dir_list)
+
+        print(server_reponse)   
 
         return JsonResponse({'status':'success', 'dir_list':dir_list})
