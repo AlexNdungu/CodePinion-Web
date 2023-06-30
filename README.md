@@ -34,13 +34,30 @@
 
 ---
 
+
+### **Codepinion and Django**
+
+**Django Framework** - [Django](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+
+> **_NOTE:_**  **Codepinion** is built ontop of Django and other Python modules. Read [Requirements.txt](https://github.com/AlexNdungu/CodePinion-V1.2/blob/ssh/CodePinion/requirements.txt).
+
+```
+# Assuming python is installed
+
+pip install django
+```
+
+---
+
 ### **CDPH (Codepinion Hierarchy V1.1)**
 
-### **Databases Structure**
+### **Databases Structure &rarr; (CodePinion and PostgreSQL)**
 
 **PostgreSQL** - [PostgreSQL](https://www.postgresql.org/) is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
 
 ```
+# Assuming Django is already installed
+
 pip install psycopg2
 ```
 
@@ -61,4 +78,5 @@ pip install psycopg2
 <img src="CodePinion\Static\Images\DB_Design2.png" alt="drawing" width="50%"/> 
 
 <img src="CodePinion\Static\Images\DB_Design.png" alt="drawing" width="100%"/> 
+
 
