@@ -34,7 +34,15 @@
 
 ---
 
-### **Database Structure - CDPH (Codepinion Hierarchy V1.1)**
+### **CDPH (Codepinion Hierarchy V1.1)**
+
+### **Databases Structure**
+
+**PostgreSQL** - [PostgreSQL](https://www.postgresql.org/) is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
+
+```
+pip install psycopg2
+```
 
 **Django models** - Django models are the built-in feature that Django uses to create tables, their fields, and various constraints. In short, Django Models is the SQL of Database one uses with Django. Each model is a Python class that subclasses django.db.models.Model. Each attribute of the model represents a database field. 
 
@@ -53,3 +61,4 @@
 <img src="CodePinion\Static\Images\DB_Design2.png" alt="drawing" width="50%"/> 
 
 <img src="CodePinion\Static\Images\DB_Design.png" alt="drawing" width="100%"/> 
+
