@@ -61,11 +61,33 @@ pip install django
 pip install psycopg2
 ```
 
+```
+# Settings.py - Connecting django with database
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': ‘<database_name>’,
+       'USER': '<database_username>',
+       'PASSWORD': '<password>',
+       'HOST': '<database_hostname_or_ip>',
+       'PORT': '<database_port>',
+   }
+}
+```
+
 **Django models** - Django models are the built-in feature that Django uses to create tables, their fields, and various constraints. In short, Django Models is the SQL of Database one uses with Django. Each model is a Python class that subclasses django.db.models.Model. Each attribute of the model represents a database field. 
 
 &rarr; [Click To Read Django Models Documentation](https://docs.djangoproject.com/en/4.2/topics/db/models)
 
 &rarr; [Click To Read The Models File](https://github.com/AlexNdungu/CodePinion-V1.2/blob/main/CodePinion/Code1/models.py)
+
+```
+# Write the models.py changes into PostgreSQL
+
+python manage.py makemigrations
+python manage.py migrate
+```
 
 <br/>
 
@@ -78,5 +100,4 @@ pip install psycopg2
 <img src="CodePinion\Static\Images\DB_Design2.png" alt="drawing" width="50%"/> 
 
 <img src="CodePinion\Static\Images\DB_Design.png" alt="drawing" width="100%"/> 
-
 
