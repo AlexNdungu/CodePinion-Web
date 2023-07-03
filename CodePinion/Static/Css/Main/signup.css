@@ -24,6 +24,7 @@
 
 
 
+
 /* The login form section */
 .signin_section {
     width: 50%;
@@ -38,5 +39,51 @@
     width: 90%;
     height: 95%;
     border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
+}
+
+/* Actual inner form */
+.inner_actual_form {
+    width: 60%;
+    height: 100%;
+    background-color: antiquewhite;
+    padding-top: 50px;
+}
+
+.inner_actual_form h3 {
+    color: #414141;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.inner_actual_form span {
+    color: #ACACAC;
+    font-size: 16px;
+}
+
+/* Continue with google */
+
+.with_google {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    border-radius: 10px;
+    background-color: #EFEFEF;
+}
+
+.with_google img {
+    width: 30px;
+    height: 30px;
+}
+
+.with_google span {
+    color: #8F8F8F;
+    font-size: 17px;
+    margin-left: 20px;
 }
