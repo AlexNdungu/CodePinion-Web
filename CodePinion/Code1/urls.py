@@ -9,6 +9,9 @@ urlpatterns = [
     #Left Navigation Inherit Url
     path('left_nav/',views.LeftNav, name='left-nav'),
 
+    #Sign up url
+    path('signup/',views.signUp, name='sign_up'),
+
     #Home Url
     path('home/', views.Home, name='home'),
     

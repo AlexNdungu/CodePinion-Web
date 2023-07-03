@@ -5,3 +5,29 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
+/* The sign in body */
+.sign_body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The playground */
+.sign_playGround {
+    width: 50%;
+    height: 100%;
+}
+
+
+
+/* The login form section */
+.signin_section {
+    width: 50%;
+    height: 100%;
+    background-color: beige;
+}
+
+/* The inner sign in section */

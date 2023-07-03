@@ -15,6 +15,11 @@ def UpperNav(request):
 def LeftNav(request):
     return render(request,'Inherit/left-nav.html')
 
+#Sign up page
+def signUp(request):
+    return render(request,'Main/signup.html')
+
+
 #The Home Rendering Function
 def Home(request):
     return render(request, 'Main/home.html')
