@@ -50,7 +50,7 @@
     width: 60%;
     height: 100%;
     background-color: antiquewhite;
-    padding-top: 50px;
+    padding-top: 100px;
 }
 
 .inner_actual_form h3 {
@@ -59,7 +59,7 @@
     margin-bottom: 10px;
 }
 
-.inner_actual_form span {
+.enter_det_span {
     color: #ACACAC;
     font-size: 16px;
 }
@@ -75,6 +75,7 @@
     padding-left: 20px;
     border-radius: 10px;
     background-color: #EFEFEF;
+    margin-top: 30px;
 }
 
 .with_google img {
@@ -86,4 +87,140 @@
     color: #8F8F8F;
     font-size: 17px;
     margin-left: 20px;
+}
+
+/* The or section */
+
+.or_email {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #414141;
+    font-size: 20px;
+}
+
+.or_email div {
+    width: 40%;
+    height: 1.5px;
+    background-color: #414141;
+}
+
+/* The forms section */
+
+form {
+    width: 100%;
+    height: max-content;
+    background-color: aquamarine;
+}
+
+/* The inputs */
+
+.email_input {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    background-color: #EFEFEF;
+    fill: #ACACAC;
+    color:#ACACAC;
+}
+
+.email_input input {
+    width: 300px;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: inherit;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.email_input input::placeholder {
+    color: #ACACAC;
+}
+
+
+/* The password input */
+.password_input {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 5px;
+    background-color: #EFEFEF;
+    color:#ACACAC;
+    fill: #ACACAC;
+}
+
+.pass_input_lock {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pass_input_lock input{
+    width: 300px;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: inherit;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.pass_input_lock input::placeholder {
+    color: #ACACAC;
+}
+
+.password_input svg {
+    width: 24px;
+}
+
+/* View password */
+.view_pass {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ACACAC;
+    fill: #F3F3F3;
+}
+
+.password_input .view_pass svg {
+    width: 20px;
+}
+
+/* More details about inputs */
+.input_detail {
+    width: 100%;
+    height: 20px; /* 40px when showing more details */
+    display: flex; /* Show more details */
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 14px;
+    color: #C53B3B;
+}
+
+.input_detail span {
+    display: none;
+}
+
+.input_detail div {
+    display: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #C53B3B;
 }
