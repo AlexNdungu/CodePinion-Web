@@ -73,8 +73,18 @@
     padding-left: 20px;
     border-radius: 10px;
     background-color: #EFEFEF;
+    color: #8F8F8F;
     margin-top: 30px;
+    transition: 0.2s ease-in;
+    cursor: pointer;
 }
+
+/* Hover */
+.with_google:hover {
+    background-color: #406CEE;
+    color: #EFEFEF;
+}
+
 
 .with_google img {
     width: 30px;
@@ -82,7 +92,6 @@
 }
 
 .with_google span {
-    color: #8F8F8F;
     font-size: 17px;
     margin-left: 20px;
 }
@@ -123,9 +132,23 @@ form {
     justify-content: flex-start;
     padding-left: 10px;
     background-color: #EFEFEF;
+    border: 2px solid #EFEFEF;
     fill: #ACACAC;
-    color:#ACACAC;
+    transition: 0.2s ease-in;
 }
+
+/* Hover and focus effect */
+.email_input:hover {
+    border: 2px solid #406CEE;
+    fill: #406CEE;
+}
+
+.email_input:focus-within {
+    border: 2px solid #406CEE;
+    fill: #406CEE;
+    background-color: white;
+}
+
 
 .email_input input {
     width: 300px;
@@ -135,10 +158,20 @@ form {
     background: inherit;
     font-size: 16px;
     margin-left: 10px;
+    color: #406CEE;
 }
 
 .email_input input::placeholder {
     color: #ACACAC;
+    transition: 0.2s ease-in;
+}
+
+.email_input input:focus::placeholder {
+    color: #406CEE;
+}
+
+.email_input:hover > input::placeholder {
+    color: #406CEE;
 }
 
 
@@ -153,9 +186,29 @@ form {
     padding-left: 10px;
     padding-right: 5px;
     background-color: #EFEFEF;
+    border: 2px solid #EFEFEF;
     color:#ACACAC;
     fill: #ACACAC;
+    transition: 0.2s ease-in;
 }
+
+/* Hover and focus effect */
+.password_input:hover {
+    border: 2px solid #406CEE;
+    fill: #406CEE;
+}
+
+.password_input:focus-within {
+    border: 2px solid #406CEE;
+    fill: #406CEE;
+    background-color: white;
+}
+
+.password_input input:focus::placeholder {
+    color: #406CEE;
+}
+
+
 
 .pass_input_lock {
     height: 100%;
@@ -172,10 +225,16 @@ form {
     background: inherit;
     font-size: 16px;
     margin-left: 10px;
+    transition: 0.2s ease-in;
+    color: #406CEE;
 }
 
 .pass_input_lock input::placeholder {
     color: #ACACAC;
+}
+
+.pass_input_lock:hover > input::placeholder {
+    color: #406CEE;
 }
 
 .password_input svg {
@@ -191,6 +250,14 @@ form {
     align-items: center;
     justify-content: center;
     background-color: #ACACAC;
+    fill: #F3F3F3;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+/* Hover */
+.view_pass:hover{
+    background-color: #406CEE;
     fill: #F3F3F3;
 }
 
@@ -236,6 +303,13 @@ form {
     color: #F3F3F3;
     font-size: 16px;
     font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+/* Hover effect */
+.create_user:hover {
+    background-color: #406CEE;
 }
 
 
