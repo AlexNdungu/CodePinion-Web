@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #D3DBFF;
 }
 
 /* The playground */
@@ -27,7 +28,15 @@
 .signin_section {
     width: 50%;
     height: 100%;
-    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* The inner sign in section */
+.inner_signin_section {
+    width: 90%;
+    height: 95%;
+    border-radius: 20px;
+    background-color: white;
+}
