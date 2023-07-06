@@ -1,11 +1,37 @@
-from PyQt5.QtWidgets import QFileDialog, QApplication, QSystemTrayIcon
-import sys
+import paramiko
+import time
 
-#Toggle Windows Conversation Box ro select path
-def toggleWindow():
+#Here i will set up the ssh code to connect to remote server
+#Create a ssh client
 
-    app = QApplication(sys.argv)
+def ssh_client_action(hostname,username,password):
 
-    directory = QFileDialog.getExistingDirectory(None, "Select Directory")
+    ssh_client = paramiko.SSHClient()
 
-    return directory
+    #Add to known
+    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    ssh_client.connect(hostname=hostname,username=username, password=password)
+
+    commands = [
+        'cd',
+        'dir /ad /b'
+    ]
+
+    out_put = []
+
+    for command in commands:
+
+        stdin, stdout, stderr = ssh_client.exec_command(command)
+
+        out_put.append(stdout.readlines())
+
+    #wait for 5seconds
+    time.sleep(5)
+
+    #Close Connection
+    ssh_client.close()
+
+    #print(stderr.readlines())
+
+    return out_put

@@ -34,13 +34,60 @@
 
 ---
 
-### **Database Structure - CDPH (Codepinion Hierarchy V1.1)**
+
+### **Codepinion and Django**
+
+**Django Framework** - [Django](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+
+> **_NOTE:_**  **Codepinion** is built ontop of Django and other Python modules. Read [Requirements.txt](https://github.com/AlexNdungu/CodePinion-V1.2/blob/ssh/CodePinion/requirements.txt).
+
+```
+# Assuming python is installed
+
+pip install django
+```
+
+---
+
+### **CDPH (Codepinion Hierarchy V1.1)**
+
+### **Databases Structure &rarr; (CodePinion and PostgreSQL)**
+
+**PostgreSQL** - [PostgreSQL](https://www.postgresql.org/) is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
+
+```
+# Assuming Django is already installed
+
+pip install psycopg2
+```
+
+```
+# Settings.py - Connecting django with database
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': ‘<database_name>’,
+       'USER': '<database_username>',
+       'PASSWORD': '<password>',
+       'HOST': '<database_hostname_or_ip>',
+       'PORT': '<database_port>',
+   }
+}
+```
 
 **Django models** - Django models are the built-in feature that Django uses to create tables, their fields, and various constraints. In short, Django Models is the SQL of Database one uses with Django. Each model is a Python class that subclasses django.db.models.Model. Each attribute of the model represents a database field. 
 
 &rarr; [Click To Read Django Models Documentation](https://docs.djangoproject.com/en/4.2/topics/db/models)
 
 &rarr; [Click To Read The Models File](https://github.com/AlexNdungu/CodePinion-V1.2/blob/main/CodePinion/Code1/models.py)
+
+```
+# Write the models.py changes into PostgreSQL
+
+python manage.py makemigrations
+python manage.py migrate
+```
 
 <br/>
 
@@ -53,3 +100,10 @@
 <img src="CodePinion\Static\Images\DB_Design2.png" alt="drawing" width="50%"/> 
 
 <img src="CodePinion\Static\Images\DB_Design.png" alt="drawing" width="100%"/> 
+
+<br/>
+
+### **Filing System &rarr; (CodePinion and Secure Shell Protocol)**
+
+**Secure Shell (SSH)** - [SSH (Secure Shell)](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server) - protocol uses encryption to secure the connection between a client and a server. All user authentication, commands, output, and file transfers are encrypted to protect against attacks in the network.
+

@@ -1,0 +1,332 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* The sign in body */
+.sign_body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D3DBFF;
+}
+
+/* The playground */
+.sign_playGround {
+    width: 50%;
+    height: 100%;
+}
+
+
+
+/* The login form section */
+.signin_section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The inner sign in section */
+.inner_signin_section {
+    width: 90%;
+    height: 95%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+/* Actual inner form */
+.inner_actual_form {
+    width: 60%;
+    height: 100%;
+    padding-top: 150px;
+}
+
+.inner_actual_form h3 {
+    color: #414141;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.enter_det_span {
+    color: #ACACAC;
+    font-size: 16px;
+}
+
+/* Continue with google */
+
+.with_google {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    border-radius: 10px;
+    background-color: #EFEFEF;
+    color: #8F8F8F;
+    margin-top: 30px;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+/* Hover */
+.with_google:hover {
+    background-color: #406CEE;
+    color: #EFEFEF;
+}
+
+
+.with_google img {
+    width: 30px;
+    height: 30px;
+}
+
+.with_google span {
+    font-size: 17px;
+    margin-left: 20px;
+}
+
+/* The or section */
+
+.or_email {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #414141;
+    font-size: 20px;
+}
+
+.or_email div {
+    width: 40%;
+    height: 1.5px;
+    background-color: #414141;
+}
+
+/* The forms section */
+
+form {
+    width: 100%;
+    height: max-content;
+}
+
+/* The inputs */
+
+.email_input {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    background-color: #EFEFEF;
+    border: 2px solid #EFEFEF;
+    fill: #ACACAC;
+    transition: 0.2s ease-in;
+}
+
+/* Hover and focus effect */
+.email_input:hover {
+    border: 2px solid #406CEE;
+    fill: #406CEE;
+}
+
+.email_input:focus-within {
+    border: 2px solid #406CEE;
+    fill: #406CEE;
+    background-color: white;
+}
+
+
+.email_input input {
+    width: 300px;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: inherit;
+    font-size: 16px;
+    margin-left: 10px;
+    color: #406CEE;
+}
+
+.email_input input::placeholder {
+    color: #ACACAC;
+    transition: 0.2s ease-in;
+}
+
+.email_input input:focus::placeholder {
+    color: #406CEE;
+}
+
+.email_input:hover > input::placeholder {
+    color: #406CEE;
+}
+
+
+/* The password input */
+.password_input {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 5px;
+    background-color: #EFEFEF;
+    border: 2px solid #EFEFEF;
+    color:#ACACAC;
+    fill: #ACACAC;
+    transition: 0.2s ease-in;
+}
+
+/* Hover and focus effect */
+.password_input:hover {
+    border: 2px solid #406CEE;
+    fill: #406CEE;
+}
+
+.password_input:focus-within {
+    border: 2px solid #406CEE;
+    fill: #406CEE;
+    background-color: white;
+}
+
+.password_input input:focus::placeholder {
+    color: #406CEE;
+}
+
+
+
+.pass_input_lock {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pass_input_lock input{
+    width: 300px;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: inherit;
+    font-size: 16px;
+    margin-left: 10px;
+    transition: 0.2s ease-in;
+    color: #406CEE;
+}
+
+.pass_input_lock input::placeholder {
+    color: #ACACAC;
+}
+
+.pass_input_lock:hover > input::placeholder {
+    color: #406CEE;
+}
+
+.password_input svg {
+    width: 24px;
+}
+
+/* View password */
+.view_pass {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ACACAC;
+    fill: #F3F3F3;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+/* Hover */
+.view_pass:hover{
+    background-color: #406CEE;
+    fill: #F3F3F3;
+}
+
+.password_input .view_pass svg {
+    width: 20px;
+}
+
+/* More details about inputs */
+.input_detail {
+    width: 100%;
+    height: 20px; /* 40px when showing more details */
+    display: flex; /* Show more details */
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 14px;
+    color: #C53B3B;
+}
+
+.input_detail span {
+    display: none;
+}
+
+.input_detail div {
+    display: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #C53B3B;
+}
+
+
+/* Create user button */
+
+.create_user {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ACACAC;
+    color: #F3F3F3;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+/* Hover effect */
+.create_user:hover {
+    background-color: #406CEE;
+}
+
+
+/* Have an account or not */
+.have_dont_account {
+    width: 100%;
+    height: 70px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #414141;
+    font-size: 16px;
+}
+
+.have_dont_account span a {
+    color: #406CEE;
+    font-weight: 600;
+    margin-left: 5px;
+}

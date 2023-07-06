@@ -12,6 +12,8 @@
     height: 60px;
     border-radius: 10px;
     visibility: hidden;
+    z-index: 4;
+    background-color: white;
 }
 
 #success_popup {
@@ -71,15 +73,663 @@
 }
 
 
-/* Creation Form Section */
+
+/* Creation Form Section and ssh login popup*/
 
 .creation_section {
     width: 100%;
     height: 100%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+
+/* Choose path ssh section (File System) */
+
+.choose_path_ssh_section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+}
+
+.inner_choose_path_ssh {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(65, 65, 65,0.4);
+}
+
+/* Ssh File system */
+.ssh_file_system {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* User path search and close section */
+.user_search_path_close_section {
+    width: 100%;
+    height: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* User indicate section */
+.user_indicate_section {
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding-left: 20px;
+    background-color: #F3F3F3;
+    color: #414141;
+    font-size: 16px;
+}
+
+/* the slash */
+.slash_user {
+    width: 2px;
+    height: 35px;
+    transform: rotate(20deg);
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #414141;
+}
+
+.user_indicate_section svg {
+    width: 23px;
+    fill: #414141;
+}
+
+
+/* Path search and current path section */
+.path_and_search_path_section {
+    width: calc(100% - 370px);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+}
+
+/* Path indicator section */
+.ssh_path_indicate{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.ssh_path_indicate svg {
+    width: 26px;
+    fill: #414141;
+    margin-right: 10px;
+}
+
+.ssh_path_indicate span {
+    color: #414141;
+    font-size: 15px;
+}
+
+
+/* The ssh file dispaly layout and searchbar */
+.ssh_search_and_file_layout {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* The folder system layout */
+.ssh_folder_layout {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* The change layout btns */
+.folder_layout_change {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 7px;
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.folder_layout_change svg {
+    fill: #414141;
+    width: 25px;
+}
+
+
+/* Search ssh folders section */
+.ssh_folder_search {
+    width: calc(100% - 100px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* The actual search bar */
+.ssh_searching_section {
+    width: calc(100% - 10px);
+    height: 40px;
+    border-radius: 7px;
+    padding-left: 10px;
+    border: 1.5px solid #8F8F8F;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ssh_searching_section svg {
+    transform: scale(0.9);
+    fill: #8F8F8F;
+    margin-right: 10px;
+}
+
+/* The search bar input */
+.ssh_searching_section input {
+    width: 400px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 15px;
+    color: #414141;
+}
+
+.ssh_searching_section input::placeholder {
+    color: #8F8F8F;
+}
+
+
+/* Close the ssh filing system */
+.close_ssh_filing {
+    width: 50px;
+    height: 50px;
+    background-color: #C53B3B;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close_ssh_filing svg {
+    width: 30px;
+    fill: #F3F3F3;
+}
+
+/* Select Working Folder */
+.show_selected_path_section {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.inner_show_selected_path {
+    width: calc(100% - 20px);
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: #F3F3F3;
+}
+
+.inner_show_selected_path h3 {
+    color: #414141;
+}
+
+/* Read the selected path */
+.view_selected_path {
+    width: 500px;
+    height: 40px;
+    padding-left: 20px;
+    border-radius: 10px;
+    border: 1.5px solid #8F8F8F;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #414141;
+}
+
+.the_selected_path_show {
+    margin-left: 5px;
+    color: #406CEE;
+}
+
+
+/* This section will contain the navigation of the ssh directory and selecting directory */
+.ssh_select_and_move_to_directories {
+    width: 100%;
+    height: calc(100% - 130px);
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/* The ssh navigation section */
+.select_ssh_directory_navigation {
+    width: 300px;
+    height: calc(100% - 10px);
+    overflow: auto;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+}
+
+
+/* The clickable and inner dirs */
+.the_clickable_and_inner_dir {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* After clicking this is whre the inner dirs will be dispayed */
+
+/* .inner_clicked_dir {
+    width: 100%;
+    height: 300px;
+} */
+
+
+/* Clickable ssh directory */
+.clickable_ssh_directory {
+    width: calc(100% - 10px);
+    height: 45px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+    transition: 0.1s ease-in;
+    cursor: pointer;
+}
+
+.clickable_ssh_directory:hover {
+    background-color: #D9D9D9;
+}
+
+.clickable_ssh_directory span {
+    font-size: 15px;
+    color: #414141;
+}
+
+.clickable_ssh_directory:hover > span {
+    color: #406CEE;
+}
+
+.clickable_ssh_directory svg {
+    width: 24px;
+    fill: #414141;
+    margin-right: 10px;
+}
+
+.clickable_ssh_directory:hover > svg {
+    fill: #406CEE;
+}
+
+
+/* The checking directory section */
+
+.check_choosen_directory_section {
+    width: calc(100% - 310px);
+    height: calc(100% - 10px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #F3F3F3;
+}
+
+/* The checked and choosen dir */
+.ind_checked_and_choosen_dir {
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    transition: 0.1s ease-in;
+    fill: #414141;
+    color: #414141;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* The hover effect */
+
+.ind_checked_and_choosen_dir:hover {
+    background-color: #406CEE;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+}
+
+/* On check */
+.ind_onchecked_and_choosen_dir {
+    background-color: #406CEE;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+}
+
+/* The checkbox section */
+.check_dir_section {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+}
+
+.check_dir_section input {
+    visibility: hidden;
+}
+
+
+/* The checkbox */
+.check_dir {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid #414141;
+    border-radius: 5px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    transition: 0.1s ease-in;
+}
+
+/* check effect */
+.svg_check_containers_hover {
+    border: 1.5px solid #f3f3f3;
+}
+
+/* Hover effect */
+.ind_checked_and_choosen_dir:hover .check_dir_section > .check_dir{
+    border: 1.5px solid #F3F3F3;
+}
+
+.svg_check_dir_tick {
+    width: 15px;
+    visibility: hidden;
+}
+
+/* The folder icon */
+.check_folder_ic {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check_folder_ic svg {
+    width: 60px;
+}
+
+/* The checkable dir name */
+.checkable_dir_name {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.checkable_dir_name span {
+    width: calc(100% - 30px);
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+/* The ssh login popup */
+
+.ssh_login_popup {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    display: none;  /* Pop in and out */
+    align-items: center;
+    justify-content: center;
+}
+
+
+.inner_ssh_login_popup {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(65, 65, 65,0.4);
+}
+
+/* The ssh login form */
+.ssh_login_form {
+    width: 600px;
+    height: 350px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* ssh form top */
+.ssh_login_form_top {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #414141;
+}
+
+/* Close form */
+.close_ssh_form {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F3F3F3;
+    border: 1px solid #C53B3B;
+    fill: #C53B3B;
+    top: -25px;
+    right: -25px;
+    transition: 0.1s ease-in;
+    cursor: pointer;
+}
+
+.close_ssh_form:hover {
+    background-color: #C53B3B;
+    fill: #F3F3F3;
+}
+
+.close_ssh_form svg {
+    width: 30px;
+}
+
+
+/* The ssh login inputs */
+
+.ssh_login_inputs {
+    width: 100%;
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The inputs */
+.ssh_loh_input_indv {
+    width: 100%;
+    height: 70px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ssh_loh_input_indv span {
+    font-size: 17px;
+    color: #8F8F8F;
+}
+
+
+/* The input and icon ssh input individuals */
+.log_ssh_input_icon {
+    width: 420px;
+    height: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: 1.5px solid #D9D9D9;
+}
+
+/* The icon */
+.ssh_log_ic {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    background-color: #D9D9D9;
+}
+
+.ssh_log_ic svg {
+    width: 30px;
+    fill: #414141;
+}
+
+/* The login ssh input */
+.log_ssh_input_icon input {
+    height: 100%;
+    width: 360px;
+    border-radius: 5px;
+    padding-left: 5px;
+    font-size: 17px;
+    color: #414141;
+    background-color: inherit;
+    border: none;
+    outline: none;
+}
+
+
+/* Ssh connect button section */
+.the_connect_btn_section {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The connect to ssh btn */
+.connect_ssh_btn {
+    width: 200px;
+    height: 55px;
+    background-color: #414141;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* padding-left: 40px;
+    padding-right: 40px; */
+    font-size: 18px;
+    font-weight: 500;
+    color: #F3F3F3;
+    fill: #F3F3F3;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+/* The hover effect */
+.connect_ssh_btn:hover {
+     background-color: #406CEE;
+} 
+
+/* The loader */
+.loader_ssh_log {
+    border: 2px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 2px solid #406CEE;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 0.4s linear infinite; /* Safari */
+    animation: spin 0.4s linear infinite;
+    display: none;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+/* The safe creation form section */
 
 .create_form {
     width: 700px;
@@ -366,6 +1016,13 @@
     padding: 20px;
     fill: #F3F3F3;
     color: #F3F3F3;
+    transition: 0.1s ease-in;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.select-path-btn:hover {
+    background-color: #414141;
 }
 
 .select-path-btn span {

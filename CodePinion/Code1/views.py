@@ -15,6 +15,11 @@ def UpperNav(request):
 def LeftNav(request):
     return render(request,'Inherit/left-nav.html')
 
+#Sign up page
+def signUp(request):
+    return render(request,'Main/signup.html')
+
+
 #The Home Rendering Function
 def Home(request):
     return render(request, 'Main/home.html')
@@ -33,18 +38,28 @@ def ConnectSafe(request):
 #Lets get the path we are to connect to
 def getLocalPath(request):
 
-    #C:\Users\Alex Meta Ndung'u\Documents\Py Projects
- 
-    #Call the toggleWindow fuction from recource file
-    #directory =  resorce.toggleWindow()
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
 
-    #Here we run the python code to select the folder
-    path = r"C:\Users\Alex Meta Ndung'u\Documents\Py Projects\CDPH\path.py" 
-    result = subprocess.run(['python', path], stdout=subprocess.PIPE)
-    result1 = result.stdout.decode('utf-8')
+        #Host name
+        host_name = request.POST.get('host_name')
+        #User name
+        user_name = request.POST.get('user_name')
+        #password
+        password = request.POST.get('password')
+    
+        #Call the ssh client function
+        server_reponse = resorce.ssh_client_action(host_name,user_name,password)
 
-    #Clear The result by removing \n\r
-    result2 = result1.strip("\n")
-    result3 = result2.strip("\r")
+        #Clean the return by
+        dir_list = []
 
-    return JsonResponse({'status':'success', 'path':result3})
+        for dir in server_reponse[1]:
+
+            dir_new = dir.replace("\r", "").replace("\n", "")
+            dir_list.append(dir_new)
+
+        #Get the current path 
+        current_dir_path = server_reponse[0][0].replace("\r", "").replace("\n", "")
+        print(current_dir_path) 
+
+        return JsonResponse({'status':'success', 'dir_list':dir_list, 'current_dir_path':current_dir_path})

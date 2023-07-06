@@ -33,7 +33,7 @@
     <div class="not_selected" id="not_selected" >
 
         <div class="check_icon_unselected">
-
+ 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.601 21.5c0 1.38-1.116 2.5-2.499 2.5-1.378 0-2.499-1.12-2.499-2.5s1.121-2.5 2.499-2.5c1.383 0 2.499 1.119 2.499 2.5zm-2.42-21.5c-4.029 0-7.06 2.693-7.06 8h3.955c0-2.304.906-4.189 3.024-4.189 1.247 0 2.57.828 2.684 2.411.123 1.666-.767 2.511-1.892 3.582-2.924 2.78-2.816 4.049-2.816 7.196h3.943c0-1.452-.157-2.508 1.838-4.659 1.331-1.436 2.986-3.222 3.021-5.943.047-3.963-2.751-6.398-6.697-6.398z"/></svg>
 
         </div>
@@ -55,10 +55,314 @@
 
     </div>
 
-
-
     <!--Creation section-->
+
+    
     <div class="creation_section">
+
+        <!--The connection to ssh popup-->
+        <div class="ssh_login_popup" id="ssh_login_popup" >
+
+            <!--Inner ssh_login_popup-->
+            <div class="inner_ssh_login_popup">
+
+                <!--The actual popup-->
+                <div class="ssh_login_form">
+
+                    <!--The form top-->
+                    <div class="ssh_login_form_top">
+
+                        <h3>Login To A Computer Or A Server</h3>
+
+                        <!--Close ssh form-->
+                        <div class="close_ssh_form" id="close_ssh_form" >
+
+                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m20 20h-15.25c-.414 0-.75.336-.75.75s.336.75.75.75h15.75c.53 0 1-.47 1-1v-15.75c0-.414-.336-.75-.75-.75s-.75.336-.75.75zm-1-17c0-.478-.379-1-1-1h-15c-.62 0-1 .519-1 1v15c0 .621.52 1 1 1h15c.478 0 1-.379 1-1zm-8.503 6.437 2.219-2.22c.146-.146.338-.219.53-.219.404 0 .751.325.751.75 0 .193-.073.384-.219.531l-2.22 2.22 2.222 2.222c.147.147.22.339.22.53 0 .427-.349.751-.75.751-.192 0-.385-.073-.531-.219l-2.222-2.223-2.223 2.223c-.146.146-.338.219-.53.219-.401 0-.751-.324-.751-.751 0-.191.073-.383.22-.53l2.222-2.222-2.219-2.22c-.146-.147-.219-.338-.219-.531 0-.425.346-.75.75-.75.192 0 .384.073.53.219z" fill-rule="nonzero"/></svg>
+
+                        </div>
+
+                    </div>
+
+                    <form method="post" class="ssh_login_inputs" >
+
+                        <!--The csrf token-->
+                        {% csrf_token %}
+
+                        <!--Host name-->
+                        <!--The individual ssh inputs-->
+                        <div class="ssh_loh_input_indv">
+
+                            <!--The input name-->
+                            <span>Host Name</span>
+
+                            <!--The input and icon-->
+                            <div class="log_ssh_input_icon">
+
+                                <!--The icon-->
+                                <div class="ssh_log_ic">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
+
+                                </div>
+
+                                <!--The detail input-->
+                                <input type="text" id="host_name">
+
+                            </div>
+
+                        </div>
+
+                        <!--The User Name-->
+                        <!--The individual ssh inputs-->
+                        <div class="ssh_loh_input_indv">
+
+                            <!--The input name-->
+                            <span>User Name</span>
+
+                            <!--The input and icon-->
+                            <div class="log_ssh_input_icon">
+
+                                <!--The icon-->
+                                <div class="ssh_log_ic">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/></svg>
+
+                                </div>
+
+                                <!--The detail input-->
+                                <input type="text" id="user_name" >
+
+                            </div>
+
+                        </div>
+
+                        <!--Password-->
+                        <!--The individual ssh inputs-->
+                        <div class="ssh_loh_input_indv">
+
+                            <!--The input name-->
+                            <span>PassWord</span>
+
+                            <!--The input and icon-->
+                            <div class="log_ssh_input_icon">
+
+                                <!--The icon-->
+                                <div class="ssh_log_ic">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+
+                                </div>
+
+                                <!--The detail input-->
+                                <input type="password" id="password" >
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <!--The connect button-->
+                    <div class="the_connect_btn_section">
+
+                        <div class="connect_ssh_btn" id="post_ssh_credentials" >
+
+                            <span>Connect</span>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.723 18.654l-3.61 3.609c-2.316 2.315-6.063 2.315-8.378 0-1.12-1.118-1.735-2.606-1.735-4.188 0-1.582.615-3.07 1.734-4.189l4.866-4.865c2.355-2.355 6.114-2.262 8.377 0 .453.453.81.973 1.089 1.527l-1.593 1.592c-.18-.613-.5-1.189-.964-1.652-1.448-1.448-3.93-1.51-5.439-.001l-.001.002-4.867 4.865c-1.5 1.499-1.5 3.941 0 5.44 1.517 1.517 3.958 1.488 5.442 0l2.425-2.424c.993.284 1.791.335 2.654.284zm.161-16.918l-3.574 3.576c.847-.05 1.655 0 2.653.283l2.393-2.389c1.498-1.502 3.94-1.5 5.44-.001 1.517 1.518 1.486 3.959 0 5.442l-4.831 4.831-.003.002c-1.438 1.437-3.886 1.552-5.439-.002-.473-.474-.785-1.042-.956-1.643l-.084.068-1.517 1.515c.28.556.635 1.075 1.088 1.528 2.245 2.245 6.004 2.374 8.378 0l4.832-4.831c2.314-2.316 2.316-6.062-.001-8.377-2.317-2.321-6.067-2.313-8.379-.002z"/></svg>
+                            
+                            <div class="loader_ssh_log" id="loader_ssh_log" ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--The choose path ssh section-->
+        <div class="choose_path_ssh_section" id="choose_path_ssh_section">
+
+            <!--Inner choose path ssh section-->
+            <div class="inner_choose_path_ssh">
+
+                <!--The ssh file system-->
+                <div class="ssh_file_system">
+
+                    <!--User Search and close section-->
+                    <div class="user_search_path_close_section">
+
+                        <!--User indicate section-->
+                        <div class="user_indicate_section">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"/></svg>
+
+                            <!--Slash user section-->
+                            <div class="slash_user"></div>
+
+                            <!--User Name On Login-->
+                            <span id="slash_user_view" >user@192.192.192.192</span>
+
+                        </div>
+
+                        <!--path and search path section-->
+                        <div class="path_and_search_path_section">
+
+                            <!--The current path indicator-->
+                            <div class="ssh_path_indicate">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+
+                                <!--The span that displays the current directory-->
+                                <span class="current_directory_ssh_dispayer" id="current_directory_ssh_dispayer" ></span>
+
+                            </div>
+
+                            <!--ssh search path and change layout-->
+                            <div class="ssh_search_and_file_layout">
+
+                                <!--ssh folder layout-->
+                                <div class="ssh_folder_layout">
+
+                                    <!--table layout-->
+                                    <div class="folder_layout_change">
+
+                                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m3 12.7v7.3c0 .62.519 1 1 1h7.3v-8.3zm18 0h-8.3v8.3h7.3c.621 0 1-.52 1-1zm-9.7-9.7h-7.3c-.478 0-1 .379-1 1v7.3h8.3zm1.4 0v8.3h8.3v-7.3c0-.478-.379-1-1-1z" fill-rule="nonzero"/></svg>
+
+                                    </div>
+
+                                    <!--List layout-->
+                                    <div class="folder_layout_change">
+
+                                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m3.3 15.4c.717 0 1.3.583 1.3 1.3s-.583 1.3-1.3 1.3-1.3-.583-1.3-1.3.583-1.3 1.3-1.3zm2.7 1.85c0-.414.336-.75.75-.75h14.5c.414 0 .75.336.75.75s-.336.75-.75.75h-14.5c-.414 0-.75-.336-.75-.75zm-2.7-6.55c.717 0 1.3.583 1.3 1.3s-.583 1.3-1.3 1.3-1.3-.583-1.3-1.3.583-1.3 1.3-1.3zm2.7 1.3c0-.414.336-.75.75-.75h14.5c.414 0 .75.336.75.75s-.336.75-.75.75h-14.5c-.414 0-.75-.336-.75-.75zm-2.7-6c.717 0 1.3.583 1.3 1.3s-.583 1.3-1.3 1.3-1.3-.583-1.3-1.3.583-1.3 1.3-1.3zm2.7.75c0-.414.336-.75.75-.75h14.5c.414 0 .75.336.75.75s-.336.75-.75.75h-14.5c-.414 0-.75-.336-.75-.75z" fill-rule="nonzero"/></svg>
+
+                                    </div>
+
+                                </div>
+
+                                <!--ssh folder search bar-->
+                                <div class="ssh_folder_search">
+
+                                    <!--The searching section-->
+                                    <div class="ssh_searching_section">
+
+                                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M19.757 20.171c-.791.524-1.739.829-2.757.829-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 1.018-.305 1.966-.829 2.757l2.829 2.829-1.414 1.414-2.829-2.829zm-7.654.829h-12.103v-20h7c1.695 1.942 2.371 3 4 3h11v7.103c-.574-.586-1.25-1.072-2-1.428v-3.675h-9c-2.339 0-3.537-1.388-4.917-3h-4.083v16h8.675c.356.75.842 1.426 1.428 2zm4.897-8c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3z"/></svg>
+
+                                        <input type="text" placeholder="Seach For A Folder" >
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!--Close the ssh file system-->
+                        <div class="close_ssh_filing">
+
+                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
+
+                        </div>
+
+                    </div>
+
+                    <!--Show selected path-->
+                    <div class="show_selected_path_section">
+
+                        <!--Show the selected path-->
+                        <div class="inner_show_selected_path">
+
+                            <h3>Select Working Folder</h3>
+
+                            <!--view selected path-->
+                            <div class="view_selected_path">
+
+                                <span>Selected Directory :</span>
+
+                                <!--Show path selected out-->
+                                <span class="the_selected_path_show" id="the_selected_path_show" ></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--The change and select folder sections-->
+                    <div class="ssh_select_and_move_to_directories">
+
+                        <!--Select ssh directory nav-->
+                        <div class="select_ssh_directory_navigation" id="select_ssh_directory_navigation" >
+
+                            
+                            <!-- <div class="the_clickable_and_inner_dir">
+
+                                
+                                <div class="clickable_ssh_directory">
+
+                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+
+                                    <span class="clickable_directory_name" >CodePinion Vesions 1_2</span>
+
+                                </div>
+
+                                
+                                <div class="inner_clicked_dir">
+                                    
+                                </div>
+
+                            </div> -->
+
+                        </div>
+
+                        <!--check choosen directory section-->
+                        <div class="check_choosen_directory_section" id="check_choosen_directory_section" >
+
+                            <!--The checked_choosen dir-->
+                            <div class="ind_checked_and_choosen_dir">
+
+                                <!--The check dir section-->
+                                <div class="check_dir_section">
+
+                                    <!--The ckeck box-->
+                                    <div class="check_dir">
+
+                                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m2.25 12.321 7.27 6.491c.143.127.321.19.499.19.206 0 .41-.084.559-.249l11.23-12.501c.129-.143.192-.321.192-.5 0-.419-.338-.75-.749-.75-.206 0-.411.084-.559.249l-10.731 11.945-6.711-5.994c-.144-.127-.322-.19-.5-.19-.417 0-.75.336-.75.749 0 .206.084.412.25.56" fill-rule="nonzero"/></svg>
+
+                                    </div>
+
+                                </div>
+
+                                <!--Folder dir icon-->
+                                <div class="check_folder_ic">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+
+                                </div>
+
+                                <!--The checkable dir name-->
+                                <div class="checkable_dir_name">
+
+                                    <span>CodePinion Vesions 1_2</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
         <!--The creation form-->
         <div class="create_form">
