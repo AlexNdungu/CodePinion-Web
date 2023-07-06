@@ -19,6 +19,9 @@ def LeftNav(request):
 def signUp(request):
     return render(request,'Main/signup.html')
 
+#Sign in page
+def signIn(request):
+    return render(request,'Main/signin.html')
 
 #The Home Rendering Function
 def Home(request):

@@ -12,6 +12,9 @@ urlpatterns = [
     #Sign up url
     path('signup/',views.signUp, name='sign_up'),
 
+    #Sign in url
+    path('signin/',views.signIn, name='signin'),
+
     #Home Url
     path('', views.Home, name='home'),
     
