@@ -290,6 +290,22 @@ form {
 }
 
 
+/* Forgot password */
+.forgot_pass {
+    width: 100%;
+    height: 35px; /* 40px when showing more details */
+    display: flex; /* Show more details */
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.forgot_pass span a {
+    color: #406CEE;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+
 /* Create user button */
 
 .create_user {
