@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
 
     #Upper Navigation Inherit Url
-    path('', views.UpperNav, name='upper-nav'),
+    path('upperNav/', views.UpperNav, name='upper-nav'),
 
     #Left Navigation Inherit Url
     path('left_nav/',views.LeftNav, name='left-nav'),
@@ -13,7 +13,7 @@ urlpatterns = [
     path('signup/',views.signUp, name='sign_up'),
 
     #Home Url
-    path('home/', views.Home, name='home'),
+    path('', views.Home, name='home'),
     
     #Safes Url
     path('safes/', views.Safes, name='safes'),
