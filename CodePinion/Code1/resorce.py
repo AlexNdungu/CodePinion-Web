@@ -1,37 +1,46 @@
 import paramiko
 import time
 
-#Here i will set up the ssh code to connect to remote server
-#Create a ssh client
+#Create A Class SecureShell That Has All the methods required by ssh
 
-def ssh_client_action(hostname,port,username,password):
+class SecureShell:
 
-    ssh_client = paramiko.SSHClient()
+    def __init__(self,hostname,port,username,password):
+        
+        self.hostname = hostname
+        self.port = port
+        self.username = username
+        self.password = password
 
-    #Add to known
-    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    #This method will be reponsible for ssh login
+    def sshLogin(self):
 
-    ssh_client.connect(hostname=hostname,port=port,username=username, password=password)
+        ssh_client = paramiko.SSHClient()
 
-    commands = [
-        'cd',
-        'dir /ad /b'
-    ]
+        #Add to known
+        ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-    out_put = []
+        ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
 
-    for command in commands:
+        commands = [
+            'cd',
+            'dir /ad /b'
+        ]
 
-        stdin, stdout, stderr = ssh_client.exec_command(command)
+        out_put = []
 
-        out_put.append(stdout.readlines())
+        for command in commands:
 
-    #wait for 5seconds
-    time.sleep(5)
+            stdin, stdout, stderr = ssh_client.exec_command(command)
 
-    #Close Connection
-    ssh_client.close()
+            out_put.append(stdout.readlines())
 
-    #print(stderr.readlines())
+        #wait for 5seconds
+        time.sleep(5)
 
-    return out_put
+        #Close Connection
+        ssh_client.close()
+
+        #print(stderr.readlines())
+
+        return out_put

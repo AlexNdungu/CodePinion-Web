@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from . import resorce
+#from . import resorce
+from .resorce import SecureShell
 import subprocess 
 import os
 
@@ -38,7 +39,7 @@ def CreateSafe(request):
 def ConnectSafe(request):
     return render(request, 'Main/connect_safe.html')
 
-#Lets get the path we are to connect to
+
 def getLocalPath(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -51,9 +52,15 @@ def getLocalPath(request):
         user_name = request.POST.get('user_name')
         #password
         password = request.POST.get('password')
+
+        #Call class
+        login_instance = SecureShell(host_name,port_number,user_name,password)
+
+        #use the login instance to receive the response
+        server_reponse = login_instance.sshLogin()
     
         #Call the ssh client function
-        server_reponse = resorce.ssh_client_action(host_name,port_number,user_name,password)
+        #server_reponse = resorce.ssh_client_action(host_name,port_number,user_name,password)
 
         #Clean the return by
         dir_list = []
