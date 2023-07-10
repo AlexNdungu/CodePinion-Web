@@ -23,6 +23,8 @@ let login_ssh = document.getElementById('post_ssh_credentials');
 //
 let edit_port = document.getElementById('edit_default_port');
 let check_edit_input = document.getElementById('engage_port_editor');
+let show_default_port = document.getElementById('show_default_port');
+let port_input_edit = document.getElementById('engage_port_editor');
 //
 let ssh_login_loader_spin = document.getElementById('loader_ssh_log');
 let login_ssh_span = document.querySelector('#post_ssh_credentials span');
@@ -69,7 +71,24 @@ close_ssh_login_form.addEventListener('click', ()=> {
 //This fuction will activate or deactivate port number edit
 edit_port.addEventListener('click', ()=> {
 
-    console.log('click')
+    //edit_default_active
+
+    if(check_edit_input.checked == false){
+
+        check_edit_input.checked = true; //Check the edit toggle checkbox
+        edit_port.classList.add('edit_default_active'); //Button is blue since edit is on
+        show_default_port.style.display = 'none'; //Edit active hence default show is hidden
+        port_number.style.display = 'flex'; //Edit active hence input is shown
+    }
+    else{
+
+        check_edit_input.checked = false; //uncheck the edit toggle checkbox
+        edit_port.classList.remove('edit_default_active'); //Button is blue since edit is off
+        show_default_port.style.display = 'flex'; //Edit inactive hence default show is shown
+        port_number.style.display = 'none'; //Edit inactive hence input is hidden
+        port_number.value = '22';
+    }
+
 
 })
 
