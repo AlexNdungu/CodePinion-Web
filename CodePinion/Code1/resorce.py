@@ -41,6 +41,4 @@ class SecureShell:
         #Close Connection
         ssh_client.close()
 
-        #print(stderr.readlines())
-
         return out_put
