@@ -4,14 +4,14 @@ import time
 #Here i will set up the ssh code to connect to remote server
 #Create a ssh client
 
-def ssh_client_action(hostname,username,password):
+def ssh_client_action(hostname,port,username,password):
 
     ssh_client = paramiko.SSHClient()
 
     #Add to known
     ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-    ssh_client.connect(hostname=hostname,username=username, password=password)
+    ssh_client.connect(hostname=hostname,port=port,username=username, password=password)
 
     commands = [
         'cd',

@@ -257,6 +257,7 @@ login_ssh.addEventListener('click', ()=> {
 
     //Append hostname,username and password
     formData.append('host_name',host_name.value);
+    formData.append('port_number',port_number.value);
     formData.append('user_name',user_name.value);
     formData.append('password',password.value);
 

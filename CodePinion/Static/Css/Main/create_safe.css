@@ -737,7 +737,7 @@
 
 /* Edit check input */
 #engage_port_editor {
-    display: flex;
+    display: none;
     width: 15px;
     height: 15px;
 }

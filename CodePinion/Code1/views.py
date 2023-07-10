@@ -45,13 +45,15 @@ def getLocalPath(request):
 
         #Host name
         host_name = request.POST.get('host_name')
+        #Port Number
+        port_number = int(request.POST.get('port_number'))
         #User name
         user_name = request.POST.get('user_name')
         #password
         password = request.POST.get('password')
     
         #Call the ssh client function
-        server_reponse = resorce.ssh_client_action(host_name,user_name,password)
+        server_reponse = resorce.ssh_client_action(host_name,port_number,user_name,password)
 
         #Clean the return by
         dir_list = []
