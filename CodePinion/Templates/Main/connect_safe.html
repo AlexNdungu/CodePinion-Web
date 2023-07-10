@@ -344,8 +344,8 @@
                         <!--Select ssh directory nav-->
                         <div class="select_ssh_directory_navigation" id="select_ssh_directory_navigation" >
 
-                            
-                            <!-- <div class="the_clickable_and_inner_dir">
+                            <!--The dir navigation-->
+                            <div class="the_clickable_and_inner_dir">
 
                                 
                                 <div class="clickable_ssh_directory">
@@ -362,20 +362,39 @@
                                     
                                 </div>
 
-                            </div> -->
+                            </div>
+
+                            <div class="the_clickable_and_inner_dir">
+
+                                
+                                <div class="clickable_ssh_directory">
+
+                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+
+                                    <span class="clickable_directory_name" >CodePinion</span>
+
+                                </div>
+
+                                
+                                <div class="inner_clicked_dir">
+                                    
+                                </div>
+
+                            </div>
 
                         </div>
 
                         <!--check choosen directory section-->
                         <div class="check_choosen_directory_section" id="check_choosen_directory_section" >
 
-                            <!--The checked_choosen dir-->
-                            <div class="ind_checked_and_choosen_dir">
+                            
+                            <!-- <div class="ind_checked_and_choosen_dir">
 
-                                <!--The check dir section-->
+                               
                                 <div class="check_dir_section">
 
-                                    <!--The ckeck box-->
+                                    
                                     <div class="check_dir">
 
                                         <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m2.25 12.321 7.27 6.491c.143.127.321.19.499.19.206 0 .41-.084.559-.249l11.23-12.501c.129-.143.192-.321.192-.5 0-.419-.338-.75-.749-.75-.206 0-.411.084-.559.249l-10.731 11.945-6.711-5.994c-.144-.127-.322-.19-.5-.19-.417 0-.75.336-.75.749 0 .206.084.412.25.56" fill-rule="nonzero"/></svg>
@@ -384,21 +403,21 @@
 
                                 </div>
 
-                                <!--Folder dir icon-->
+                                
                                 <div class="check_folder_ic">
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
 
                                 </div>
 
-                                <!--The checkable dir name-->
+                                
                                 <div class="checkable_dir_name">
 
                                     <span>CodePinion Vesions 1_2</span>
 
                                 </div>
 
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -608,5 +627,6 @@
 {% block javaS %}
 
 <script type="module" src="{% static 'Js/Main/path.js' %}"></script>
+<script type="module" src="{% static 'Js/Main/dir_navigate.js' %}"></script>
 
 {% endblock %}
