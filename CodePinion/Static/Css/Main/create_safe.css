@@ -680,6 +680,37 @@
     background-color: aquamarine;
 }
 
+/* Default display */
+.show_default {
+    height: 40px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #414141;
+}
+
+.show_default span {
+    color: #F3F3F3;
+}
+
+/* Engage port edit */
+.edit_default {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #414141;
+    fill: #F3F3F3;
+}
+
+.edit_default svg {
+    width: 25px;
+}
+
 
 /* Ssh connect button section */
 .the_connect_btn_section {
