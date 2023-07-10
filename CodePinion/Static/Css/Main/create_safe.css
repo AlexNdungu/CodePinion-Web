@@ -677,14 +677,28 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aquamarine;
+}
+
+/* Default Port input */
+.default_input_port input {
+    display: none; /* Show it when edit check is on */
+    height: 100%;
+    width: 200px;
+    border-radius: 5px;
+    padding-left: 5px;
+    font-size: 17px;
+    color: #414141;
+    background-color: inherit;
+    border: none;
+    outline: none;
+
 }
 
 /* Default display */
 .show_default {
     height: 40px;
     width: 180px;
-    display: flex;
+    display: flex; /* Show it when edit check is off */
     align-items: center;
     justify-content: center;
     border-radius: 10px;
@@ -705,10 +719,24 @@
     justify-content: center;
     background-color: #414141;
     fill: #F3F3F3;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+
+.edit_default:hover {
+    background-color: #406CEE;
 }
 
 .edit_default svg {
     width: 25px;
+}
+
+/* Edit check input */
+#engage_port_editor {
+    display: flex;
+    width: 15px;
+    height: 15px;
 }
 
 

@@ -21,11 +21,15 @@ let paste_path = document.getElementById('selected-path');
 //get the post ssh credentials
 let login_ssh = document.getElementById('post_ssh_credentials'); 
 //
+let edit_port = document.getElementById('edit_default_port');
+let check_edit_input = document.getElementById('engage_port_editor');
+//
 let ssh_login_loader_spin = document.getElementById('loader_ssh_log');
-let login_ssh_span = document.querySelector('#post_ssh_credentials span')
-let login_ssh_svg = document.querySelector('#post_ssh_credentials svg')
+let login_ssh_span = document.querySelector('#post_ssh_credentials span');
+let login_ssh_svg = document.querySelector('#post_ssh_credentials svg');
 //
 let host_name = document.getElementById('host_name');
+let port_number = document.getElementById('port_number');
 let user_name = document.getElementById('user_name');
 let password = document.getElementById('password');
 
@@ -61,6 +65,13 @@ close_ssh_login_form.addEventListener('click', ()=> {
 
 
 //Helper fuctions
+
+//This fuction will activate or deactivate port number edit
+edit_port.addEventListener('click', ()=> {
+
+    console.log('click')
+
+})
 
 //This fuction either displays or hides the elements in the login form popup
 function login_popup_effects(span,svg,loader) {
