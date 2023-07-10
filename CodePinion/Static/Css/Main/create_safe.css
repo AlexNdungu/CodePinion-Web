@@ -533,7 +533,7 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: none;  /* Pop in and out */
+    display: flex;  /* Pop in and out */
     align-items: center;
     justify-content: center;
 }
@@ -552,7 +552,7 @@
 /* The ssh login form */
 .ssh_login_form {
     width: 600px;
-    height: 350px;
+    height: 420px; /* Change height from 350px */
     border-radius: 10px;
     background-color: white;
 }
@@ -604,7 +604,7 @@
 
 .ssh_login_inputs {
     width: 100%;
-    height: 210px;
+    height: 280px; /* Change the height from 210 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -656,6 +656,7 @@
     fill: #414141;
 }
 
+
 /* The login ssh input */
 .log_ssh_input_icon input {
     height: 100%;
@@ -667,6 +668,16 @@
     background-color: inherit;
     border: none;
     outline: none;
+}
+
+/* The port section */
+.default_input_port {
+    height: 100%;
+    width: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aquamarine;
 }
 
 
