@@ -69,6 +69,5 @@ def getLocalPath(request):
 
         #Get the current path 
         current_dir_path = server_reponse[0][0].replace("\r", "").replace("\n", "")
-        print(current_dir_path) 
 
         return JsonResponse({'status':'success', 'dir_list':dir_list, 'current_dir_path':current_dir_path})
