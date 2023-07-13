@@ -8,7 +8,16 @@ for(let nav = 0; nav < all_dir_nav_btns.length; nav++ ){
 
     all_dir_nav_btns[nav].addEventListener('click', ()=> {
 
-        console.log(all_dir_names[nav].innerHTML)
+        //console.log(all_dir_names[nav].innerHTML)
+
+        //Build The Intented path
+
+        //The current ssh dir
+        let current_dir_path = document.getElementById('current_directory_ssh_dispayer').innerHTML;
+
+        let intended_dir_path = current_dir_path + "\\" + all_dir_names[nav].innerHTML;
+
+        console.log(intended_dir_path)
 
     });
 
