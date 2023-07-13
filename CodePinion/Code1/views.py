@@ -65,6 +65,8 @@ def getLocalPath(request):
             #use the login instance to receive the response
             server_reponse = login_instance.sshLogin()
 
+            print(server_reponse)
+
             #Clean the return by
             dir_list = []
 
