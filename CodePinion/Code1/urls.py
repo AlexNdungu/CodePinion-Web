@@ -28,4 +28,7 @@ urlpatterns = [
     path('connect_safe/', views.ConnectSafe, name='connect_safe_folder'),
     #Get local path
     path('getPath/', views.getLocalPath, name='get_local_path_connect'),
+
+    #Enter Intended Dir
+    path('cdDir/',views.cdIntoDir,name='enter_into_dir'),
 ]

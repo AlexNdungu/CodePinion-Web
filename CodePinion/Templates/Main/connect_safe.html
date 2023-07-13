@@ -112,6 +112,52 @@
 
                         </div>
 
+                        <!--Port Number-->
+                        <!--The individual ssh inputs-->
+                        <div class="ssh_loh_input_indv">
+
+                            <!--The input name-->
+                            <span>Port Number</span>
+
+                            <!--The input and icon-->
+                            <div class="log_ssh_input_icon">
+
+                                <!--The icon-->
+                                <div class="ssh_log_ic">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 64H384v64H256V64zM240 0c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h48v32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96v32H80c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48H240c26.5 0 48-21.5 48-48V368c0-26.5-21.5-48-48-48H192V288H448v32H400c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48H560c26.5 0 48-21.5 48-48V368c0-26.5-21.5-48-48-48H512V288h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H352V192h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H240zM96 448V384H224v64H96zm320-64H544v64H416V384z"/></svg>
+
+                                </div>
+
+                                <!--The default and edit section-->
+                                <div class="default_input_port">
+
+                                    <!--The detail input-->
+                                    <input type="text" id="port_number" value="22">
+
+                                    <!--Show default-->
+                                    <div class="show_default" id="show_default_port" >
+
+                                        <span>Default - (Port 22)</span>
+
+                                    </div>
+
+                                    <!--Check box to engage and remove edit-->
+                                    <input type="checkbox" id="engage_port_editor" >
+
+                                    <!--Edit default pen-->
+                                    <div class="edit_default" id="edit_default_port" >
+
+                                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z" fill-rule="nonzero"/></svg>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                         <!--The User Name-->
                         <!--The individual ssh inputs-->
                         <div class="ssh_loh_input_indv">
@@ -298,38 +344,71 @@
                         <!--Select ssh directory nav-->
                         <div class="select_ssh_directory_navigation" id="select_ssh_directory_navigation" >
 
-                            
-                            <!-- <div class="the_clickable_and_inner_dir">
+                            <div class="the_clickable_and_inner_dir">
 
-                                
                                 <div class="clickable_ssh_directory">
 
                                     
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
 
-                                    <span class="clickable_directory_name" >CodePinion Vesions 1_2</span>
+                                    <span class="clickable_directory_name" >Documents</span>
 
                                 </div>
 
-                                
                                 <div class="inner_clicked_dir">
+
+                                    <div class="drop_inner_dir">
+
+                                        <div class="close_enter_inner_dir_btns">
+
+                                            <div class="inner_dir_enter">
+
+                                                <span>Enter</span>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+                                                
+                                            </div>
+
+                                            <div class="inner_dir_close">
+
+                                                <span>Close</span>
+
+                                                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="minor_dir_them_section">
+
+                                            <div class="minor_dir">
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+
+                                                <span>CodePinion</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
                                     
                                 </div>
 
-                            </div> -->
+                            </div>
 
                         </div>
 
                         <!--check choosen directory section-->
                         <div class="check_choosen_directory_section" id="check_choosen_directory_section" >
 
-                            <!--The checked_choosen dir-->
-                            <div class="ind_checked_and_choosen_dir">
+                            
+                            <!-- <div class="ind_checked_and_choosen_dir">
 
-                                <!--The check dir section-->
+                               
                                 <div class="check_dir_section">
 
-                                    <!--The ckeck box-->
+                                    
                                     <div class="check_dir">
 
                                         <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m2.25 12.321 7.27 6.491c.143.127.321.19.499.19.206 0 .41-.084.559-.249l11.23-12.501c.129-.143.192-.321.192-.5 0-.419-.338-.75-.749-.75-.206 0-.411.084-.559.249l-10.731 11.945-6.711-5.994c-.144-.127-.322-.19-.5-.19-.417 0-.75.336-.75.749 0 .206.084.412.25.56" fill-rule="nonzero"/></svg>
@@ -338,21 +417,21 @@
 
                                 </div>
 
-                                <!--Folder dir icon-->
+                                
                                 <div class="check_folder_ic">
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
 
                                 </div>
 
-                                <!--The checkable dir name-->
+                                
                                 <div class="checkable_dir_name">
 
                                     <span>CodePinion Vesions 1_2</span>
 
                                 </div>
 
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -562,5 +641,6 @@
 {% block javaS %}
 
 <script type="module" src="{% static 'Js/Main/path.js' %}"></script>
+<script type="module" src="{% static 'Js/Main/dir_navigate.js' %}"></script>
 
 {% endblock %}

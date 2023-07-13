@@ -21,24 +21,33 @@ let paste_path = document.getElementById('selected-path');
 //get the post ssh credentials
 let login_ssh = document.getElementById('post_ssh_credentials'); 
 //
+let edit_port = document.getElementById('edit_default_port');
+let check_edit_input = document.getElementById('engage_port_editor');
+let show_default_port = document.getElementById('show_default_port');
+let port_input_edit = document.getElementById('engage_port_editor');
+//
 let ssh_login_loader_spin = document.getElementById('loader_ssh_log');
-let login_ssh_span = document.querySelector('#post_ssh_credentials span')
-let login_ssh_svg = document.querySelector('#post_ssh_credentials svg')
+let login_ssh_span = document.querySelector('#post_ssh_credentials span');
+let login_ssh_svg = document.querySelector('#post_ssh_credentials svg');
 //
 let host_name = document.getElementById('host_name');
+let port_number = document.getElementById('port_number');
 let user_name = document.getElementById('user_name');
 let password = document.getElementById('password');
 
 
 //Get all the elements in the ssh filing system
 let user_dir_indicate = document.getElementById('slash_user_view');
-let list_ssh_navigation = document.getElementById('select_ssh_directory_navigation');
-let check_dir_section = document.getElementById('check_choosen_directory_section');
+//let list_ssh_navigation = document.getElementById('select_ssh_directory_navigation');
+//let check_dir_section = document.getElementById('check_choosen_directory_section');
 //Current path dir 
 let current_working_dir = document.getElementById('current_directory_ssh_dispayer');
 //Choosen dir
 let choosen_dir_show = document.getElementById('the_selected_path_show');
 
+//This fuction acts as the dir cd function
+//Import the fuction enterSshDir from dir_navigation.js file
+import { enterSshDir } from './dir_navigate.js';
 
 //Get the CSRF token
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
@@ -62,6 +71,30 @@ close_ssh_login_form.addEventListener('click', ()=> {
 
 //Helper fuctions
 
+//This fuction will activate or deactivate port number edit
+edit_port.addEventListener('click', ()=> {
+
+    //edit_default_active
+
+    if(check_edit_input.checked == false){
+
+        check_edit_input.checked = true; //Check the edit toggle checkbox
+        edit_port.classList.add('edit_default_active'); //Button is blue since edit is on
+        show_default_port.style.display = 'none'; //Edit active hence default show is hidden
+        port_number.style.display = 'flex'; //Edit active hence input is shown
+    }
+    else{
+
+        check_edit_input.checked = false; //uncheck the edit toggle checkbox
+        edit_port.classList.remove('edit_default_active'); //Button is blue since edit is off
+        show_default_port.style.display = 'flex'; //Edit inactive hence default show is shown
+        port_number.style.display = 'none'; //Edit inactive hence input is hidden
+        port_number.value = '22';
+    }
+
+
+})
+
 //This fuction either displays or hides the elements in the login form popup
 function login_popup_effects(span,svg,loader) {
 
@@ -83,25 +116,58 @@ function fill_nav_with_dirs(dir_list_members){
 
             //This is the html of one dir in the navigation
             let ssh_dir = `
-                <!--The clickable and inner directories-->
                 <div class="the_clickable_and_inner_dir">
 
-                    <!--Individual clickable directory-->
                     <div class="clickable_ssh_directory">
 
-                        <!--clickable directory content-->
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
 
                         <span class="clickable_directory_name" >${dir_list_members[oneDIR]}</span>
 
                     </div>
 
-                    <!--inner clicked dir-->
                     <div class="inner_clicked_dir">
-                        <!--Here will be the inner dirs when this dir is clicked-->
+
+                        <div class="drop_inner_dir">
+
+                            <div class="close_enter_inner_dir_btns">
+
+                                <div class="inner_dir_enter">
+
+                                    <span>Enter</span>
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+                                    
+                                </div>
+
+                                <div class="inner_dir_close">
+
+                                    <span>Close</span>
+
+                                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
+
+                                </div>
+
+                            </div>
+
+                            <div class="minor_dir_them_section">
+
+                                <div class="minor_dir">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+
+                                    <span>CodePinion</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        
                     </div>
 
-                </div>
+                </div> 
                 `
 
             //Append all the lists
@@ -111,6 +177,13 @@ function fill_nav_with_dirs(dir_list_members){
 
     }
 
+    //Get All the dir navigation buttons
+    let all_dir_nav_btns = document.getElementsByClassName('the_clickable_and_inner_dir');
+    //Get all dir names
+    let all_dir_names = document.getElementsByClassName('clickable_directory_name');
+
+    //Use the imported function
+    enterSshDir(all_dir_nav_btns,all_dir_names,csrf);
 }
 
 //This fuction fill the check dir section with the dirs
@@ -227,8 +300,10 @@ login_ssh.addEventListener('click', ()=> {
 
     //Append hostname,username and password
     formData.append('host_name',host_name.value);
+    formData.append('port_number',port_number.value);
     formData.append('user_name',user_name.value);
     formData.append('password',password.value);
+    formData.append('ssh_activity','Login');
 
     $.ajax({
         type:'POST',
