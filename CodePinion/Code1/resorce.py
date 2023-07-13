@@ -42,3 +42,9 @@ class SecureShell:
         ssh_client.close()
 
         return out_put
+    
+
+    #Enter Dir
+    def sshCdIntoDir(self):
+
+        ssh_client = paramiko.SSHClient()

@@ -43,6 +43,8 @@ def ConnectSafe(request):
 def getLocalPath(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            
+        ssh_process = request.POST.get('ssh_activity')
 
         #Host name
         host_name = request.POST.get('host_name')
@@ -56,21 +58,32 @@ def getLocalPath(request):
         #Call class
         login_instance = SecureShell(host_name,port_number,user_name,password)
 
-        #use the login instance to receive the response
-        server_reponse = login_instance.sshLogin()
+        if ssh_process == 'Login':
 
-        #Clean the return by
-        dir_list = []
+            print('login')
 
-        for dir in server_reponse[1]:
+            #use the login instance to receive the response
+            server_reponse = login_instance.sshLogin()
 
-            dir_new = dir.replace("\r", "").replace("\n", "")
-            dir_list.append(dir_new)
+            #Clean the return by
+            dir_list = []
 
-        #Get the current path 
-        current_dir_path = server_reponse[0][0].replace("\r", "").replace("\n", "")
+            for dir in server_reponse[1]:
 
-        return JsonResponse({'status':'success', 'dir_list':dir_list, 'current_dir_path':current_dir_path})
+                dir_new = dir.replace("\r", "").replace("\n", "")
+                dir_list.append(dir_new)
+
+            #Get the current path 
+            current_dir_path = server_reponse[0][0].replace("\r", "").replace("\n", "")
+
+            return JsonResponse({'status':'success', 'dir_list':dir_list, 'current_dir_path':current_dir_path})
+        
+        elif ssh_process == 'cd':
+
+            #Intended Path
+            intended_path = request.POST.get('intended_path')
+
+            return JsonResponse({'status':'success','path':intended_path})
 
 
 #Enter Intender Dir
