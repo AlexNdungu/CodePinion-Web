@@ -39,7 +39,7 @@ def CreateSafe(request):
 def ConnectSafe(request):
     return render(request, 'Main/connect_safe.html')
 
-
+#Login to ssh
 def getLocalPath(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -71,3 +71,14 @@ def getLocalPath(request):
         current_dir_path = server_reponse[0][0].replace("\r", "").replace("\n", "")
 
         return JsonResponse({'status':'success', 'dir_list':dir_list, 'current_dir_path':current_dir_path})
+
+
+#Enter Intender Dir
+def cdIntoDir(request):
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        #Intended Path
+        intended_path = request.POST.get('intended_path')
+
+        return JsonResponse({'status':'success','path':intended_path})
