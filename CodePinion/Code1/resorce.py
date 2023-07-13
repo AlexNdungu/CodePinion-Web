@@ -23,8 +23,8 @@ class SecureShell:
         ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
 
         commands = [
-            'cd',
-            'dir /ad /b'
+            'pwd',
+            'ls'
         ]
 
         out_put = []
