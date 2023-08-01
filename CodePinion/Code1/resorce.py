@@ -22,9 +22,16 @@ class SecureShell:
 
         ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
 
+        #Linux
+        # commands = [
+        #     'pwd',
+        #     'ls'
+        # ]
+
+        #Windows
         commands = [
-            'pwd',
-            'ls'
+            'cd',
+            'dir /B /AD'
         ]
 
         out_put = []

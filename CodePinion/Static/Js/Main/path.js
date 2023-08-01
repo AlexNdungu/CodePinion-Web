@@ -39,7 +39,9 @@ let password = document.getElementById('password');
 //Get all the elements in the ssh filing system
 let user_dir_indicate = document.getElementById('slash_user_view');
 //let list_ssh_navigation = document.getElementById('select_ssh_directory_navigation');
-//let check_dir_section = document.getElementById('check_choosen_directory_section');
+
+//This will be used to uncheck the checked
+let check_dir_section_for_unchecking = document.getElementById('check_choosen_directory_section');
 //Current path dir 
 let current_working_dir = document.getElementById('current_directory_ssh_dispayer');
 //Choosen dir
@@ -280,6 +282,29 @@ function fill_checks_with_dirs(dir_list_members){
     }
 
 
+    //If the parent dir is clicked, uncheck the checked dir
+    check_dir_section_for_unchecking.addEventListener('click', function(event){
+        if (check_dir_section_for_unchecking !== event.target) return;
+      
+        for(let num_check = 0; num_check < all_checks_for_dirs.length; num_check++){
+
+            //Uncheck the checkbox
+            all_checks_for_dirs[num_check].checked = false;
+            //Hide the chech tick
+            svg_check_dir_ticks[num_check].style.visibility = 'hidden';
+            //Change border of check tick container
+            svg_check_containers[num_check].classList.remove('svg_check_containers_hover');
+            //Return background to original
+            if(all_dirs_checks[num_check].classList.contains('ind_onchecked_and_choosen_dir')){
+                all_dirs_checks[num_check].classList.remove('ind_onchecked_and_choosen_dir');
+            }
+
+        }
+
+        //Remove the selected dir
+        choosen_dir_show.innerHTML = "";
+      
+    }, false);
 
 }
 

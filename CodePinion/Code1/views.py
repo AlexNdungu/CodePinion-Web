@@ -82,6 +82,8 @@ def getLocalPath(request):
         
         elif ssh_process == 'cd':
 
+            print('cd')
+
             #Intended Path
             intended_path = request.POST.get('intended_path')
 
