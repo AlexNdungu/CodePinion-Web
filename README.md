@@ -37,7 +37,7 @@
 
 ### **Codepinion and Django**
 
-**Django Framework** - [Django](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+ [**Django Framework**](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
 
 > **_NOTE:_**  **Codepinion** is built ontop of Django and other Python modules. Read [Requirements.txt](https://github.com/AlexNdungu/CodePinion-V1.2/blob/ssh/requirements.txt).
 
@@ -53,7 +53,7 @@ pip install django
 
 ### **Databases Structure &rarr; (CodePinion and PostgreSQL)**
 
-**PostgreSQL** - [PostgreSQL](https://www.postgresql.org/) is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
+[**PostgreSQL**](https://www.postgresql.org/) is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
 
 ```
 # Assuming Django is already installed
