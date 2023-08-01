@@ -105,5 +105,5 @@ python manage.py migrate
 
 ### **Filing System &rarr; (CodePinion and Secure Shell Protocol)**
 
-**Secure Shell (SSH)** - [SSH (Secure Shell)](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server) - protocol uses encryption to secure the connection between a client and a server. All user authentication, commands, output, and file transfers are encrypted to protect against attacks in the network.
+[**Secure Shell (SSH)**](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server) - protocol uses encryption to secure the connection between a client and a server. All user authentication, commands, output, and file transfers are encrypted to protect against attacks in the network.
 
