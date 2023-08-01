@@ -141,19 +141,10 @@
     font-size: 16px;
 }
 
-/* the slash */
-.slash_user {
-    width: 2px;
-    height: 35px;
-    transform: rotate(20deg);
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: #414141;
-}
-
 .user_indicate_section svg {
     width: 40px;
     fill: #414141;
+    margin-right: 10px;
 }
 
 #windows_icon {
@@ -161,7 +152,7 @@
 }
 
 #linux_icon {
-    display: flex;
+    display: none;
 }
 
 

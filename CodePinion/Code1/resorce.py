@@ -31,8 +31,6 @@ class SecureShell:
             'linux':'pwd',
         }
 
-        find_os_out_put = {}
-
         #This loop passes the two commands in find_os and append the corresponding command to its os
         for os, cmd in find_os.items():
 
@@ -41,9 +39,6 @@ class SecureShell:
             if stdout.readlines() != []:
 
                 what_is_os = os 
-
-        #Shows the os
-        print(what_is_os)
 
         #This if statement changes command depending on whether os is windows or linux
         if what_is_os == "windows":
@@ -62,7 +57,11 @@ class SecureShell:
                 'ls'
             ]
 
+        #This list will hold all the outputs
         out_put = []
+
+        #First append the os returned
+        out_put.append(what_is_os)
 
         for command in commands:
 

@@ -44,6 +44,9 @@ let user_dir_indicate = document.getElementById('slash_user_view');
 let check_dir_section_for_unchecking = document.getElementById('check_choosen_directory_section');
 //Current path dir 
 let current_working_dir = document.getElementById('current_directory_ssh_dispayer');
+//select the wimdows and linux icons
+let windows_icon = document.getElementById('windows_icon');
+let linux_icon = document.getElementById('linux_icon');
 //Choosen dir
 let choosen_dir_show = document.getElementById('the_selected_path_show');
 
@@ -369,12 +372,24 @@ login_ssh.addEventListener('click', ()=> {
             //Now we add the checkable dirs
             fill_checks_with_dirs(dir_list_members)
 
+            //Change the os icons
+            if (response.current_os == 'windows'){
+
+                windows_icon.style.display = 'flex';
+
+            }
+            else if(response.current_os == 'linux'){
+
+                linux_icon.style.display = 'flex';
+
+            }
+
             //Now lets add the current path to the interface
             const current_path_dir = response.current_dir_path;
             current_working_dir.innerHTML = current_path_dir
 
             //change username
-            console.log(dir_list_members)
+            //console.log(dir_list_members)
 
         },
         error: function(error){
