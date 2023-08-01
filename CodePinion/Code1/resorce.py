@@ -22,18 +22,6 @@ class SecureShell:
 
         ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
 
-        #Linux
-        # commands = [
-        #     'pwd',
-        #     'ls'
-        # ]
-
-        #Windows
-        # commands = [
-        #     'cd',
-        #     'dir /B /AD'
-        # ]
-
         #This variable will store the os
         what_is_os = ""
 
@@ -57,12 +45,22 @@ class SecureShell:
         #Shows the os
         print(what_is_os)
 
+        #This if statement changes command depending on whether os is windows or linux
+        if what_is_os == "windows":
 
-        #Windows
-        commands = [
-            'cd',
-            'dir /B /AD'
-        ]
+            #Windows
+            commands = [
+                'cd',
+                'dir /B /AD'
+            ]
+
+        else:
+
+            #Linux
+            commands = [
+                'pwd',
+                'ls'
+            ]
 
         out_put = []
 
