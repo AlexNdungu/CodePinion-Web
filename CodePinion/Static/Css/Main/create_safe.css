@@ -93,7 +93,7 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: none; /* Flex for upgrade */
+    display: flex; /* Flex for upgrade */
     align-items: center;
     justify-content: center;
 }
@@ -135,7 +135,7 @@
     align-items: center;
     justify-content: flex-start;
     border-radius: 10px;
-    padding-left: 20px;
+    padding-left: 5px;
     background-color: #F3F3F3;
     color: #414141;
     font-size: 16px;
@@ -152,9 +152,18 @@
 }
 
 .user_indicate_section svg {
-    width: 23px;
+    width: 40px;
     fill: #414141;
 }
+
+#windows_icon {
+    display: none;
+}
+
+#linux_icon {
+    display: flex;
+}
+
 
 
 /* Path search and current path section */
