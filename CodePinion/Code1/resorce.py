@@ -29,6 +29,36 @@ class SecureShell:
         # ]
 
         #Windows
+        # commands = [
+        #     'cd',
+        #     'dir /B /AD'
+        # ]
+
+        #This variable will store the os
+        what_is_os = ""
+
+        #This dictionary has two commamd that will enable codepinion to find out if ssh device is windows or linux
+        find_os = {
+            'windows':'cd',
+            'linux':'pwd',
+        }
+
+        find_os_out_put = {}
+
+        #This loop passes the two commands in find_os and append the corresponding command to its os
+        for os, cmd in find_os.items():
+
+            stdin, stdout, stderr = ssh_client.exec_command(cmd)
+
+            if stdout.readlines() != []:
+
+                what_is_os = os 
+
+        #Shows the os
+        print(what_is_os)
+
+
+        #Windows
         commands = [
             'cd',
             'dir /B /AD'
