@@ -161,8 +161,6 @@ form {
     color: #406CEE;
 }
 
-
-
 .email_input input::placeholder {
     color: #ACACAC;
     transition: 0.2s ease-in;
@@ -184,12 +182,14 @@ form {
     border: 2px solid #C53B3B;
     fill: #C53B3B;
     color: #C53B3B;
+    background-color: white;
 }
 
 .valid_input {
     border: 2px solid #2CA631;
     fill: #2CA631;
     color: #2CA631;
+    background-color: white;
 }
 
 .invalid_input input{
