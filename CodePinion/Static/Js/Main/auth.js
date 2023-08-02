@@ -4,6 +4,10 @@ let email_signup = document.getElementById('email_sign');
 let pass1_signup = document.getElementById('pass1');
 let pass2_signup = document.getElementById('pass2');
 
+//See paswords buttons
+let see_pass1 = document.getElementById('see_pass1');
+let see_pass2 = document.getElementById('see_pass2');
+
 //Input containers
 let email_container = document.getElementById('email_input');
 
@@ -11,6 +15,7 @@ let email_container = document.getElementById('email_input');
 let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
+//Email Effects
 //Check if email is valid
 email_signup.addEventListener('focusout', ()=> {
 
@@ -63,5 +68,23 @@ email_signup.addEventListener('focus', ()=> {
     }
 });
 
+
+//Password Effects
+//See password
+see_pass1.addEventListener('click', ()=> {
+
+    //Change password to input
+    if(pass1_signup.getAttribute("type") == 'password'){
+
+        pass1_signup.setAttribute('type', 'text');
+
+    }
+    else{
+
+        pass1_signup.setAttribute('type', 'password');
+
+    }
+
+})
 
 //Check Password strength
