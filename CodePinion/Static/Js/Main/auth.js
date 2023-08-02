@@ -51,5 +51,17 @@ email_signup.addEventListener('focusout', ()=> {
 
     }
 
-
 });
+
+email_signup.addEventListener('focus', ()=> {
+
+    if(email_container.classList.contains('invalid_input') || email_container.classList.contains('valid_input')){
+
+        email_container.classList.remove('invalid_input');
+        email_container.classList.remove('valid_input');
+
+    }
+});
+
+
+//Check Password strength

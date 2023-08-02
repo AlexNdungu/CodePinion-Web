@@ -163,6 +163,21 @@ form {
 
 
 
+.email_input input::placeholder {
+    color: #ACACAC;
+    transition: 0.2s ease-in;
+}
+
+.email_input input:focus::placeholder {
+    color: #406CEE;
+}
+
+.email_input:hover > input::placeholder {
+    color: #406CEE;
+}
+
+
+
 
 /* This classes will be added if input in password or email is valid or invalid */
 .invalid_input {
@@ -194,20 +209,6 @@ form {
 }
 
 
-
-
-.email_input input::placeholder {
-    color: #ACACAC;
-    transition: 0.2s ease-in;
-}
-
-.email_input input:focus::placeholder {
-    color: #406CEE;
-}
-
-.email_input:hover > input::placeholder {
-    color: #406CEE;
-}
 
 
 /* The password input */
