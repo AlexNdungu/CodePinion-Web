@@ -149,17 +149,6 @@ form {
     background-color: white;
 }
 
-/* This classes will be added if input in password or email is valid or invalid */
-.invalid_input {
-    border: 2px solid #C53B3B;
-    fill: #C53B3B;
-}
-
-.valid_input {
-    border: 2px solid #2CA631;
-    fill: #2CA631;
-}
-
 
 .email_input input {
     width: 300px;
@@ -171,6 +160,41 @@ form {
     margin-left: 10px;
     color: #406CEE;
 }
+
+
+
+
+/* This classes will be added if input in password or email is valid or invalid */
+.invalid_input {
+    border: 2px solid #C53B3B;
+    fill: #C53B3B;
+    color: #C53B3B;
+}
+
+.valid_input {
+    border: 2px solid #2CA631;
+    fill: #2CA631;
+    color: #2CA631;
+}
+
+.invalid_input input{
+    color: #C53B3B;
+}
+
+.valid_input input{
+    color: #2CA631;
+}
+
+.invalid_input:hover > input {
+    color: #406CEE;
+}
+
+.valid_input:hover > input {
+    color: #406CEE;
+}
+
+
+
 
 .email_input input::placeholder {
     color: #ACACAC;
