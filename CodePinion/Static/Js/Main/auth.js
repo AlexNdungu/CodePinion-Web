@@ -263,10 +263,36 @@ pass1_signup.addEventListener('focusout', ()=> {
         }
 
     }
+    else{
+
+        if(password_input_1.classList.contains('invalid_input') || password_input_1.classList.contains('valid_input')){
+
+            password_input_1.classList.remove('invalid_input');
+            password_input_1.classList.remove('valid_input');
+    
+        }
+
+        //Reduce the message div
+        password_errors_div.style.height = '20px';
+        //Show message
+        password_error_message.innerHTML = "";
+        password_error_message.style.display = 'none';
+
+        //Remove all changes from password 2
+        if(password_input_2.classList.contains('invalid_input') || password_input_2.classList.contains('valid_input')){
+
+            password_input_2.classList.remove('invalid_input');
+            password_input_2.classList.remove('valid_input');
+
+            //Emplty input
+            pass2_signup.value = "";
+    
+        }
+
+    }
     
 
 });
 
 
-//Confirm password section
 
