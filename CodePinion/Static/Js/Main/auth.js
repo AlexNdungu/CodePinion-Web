@@ -187,6 +187,51 @@ function compare_pass(pass_1, pass_2){
 }
 
 
+//Default password 1
+function default_pass1(){
+
+    //Reduce the message div
+    password_errors_div.style.height = '20px';
+    //Show message
+    password_errors_div.innerHTML = "";
+    password_errors_div.style.display = 'none';
+
+    //Remove all changes from password 2
+    if(password_input_1.classList.contains('invalid_input') || password_input_2.classList.contains('valid_input')){
+
+        password_input_1.classList.remove('invalid_input');
+        password_input_1.classList.remove('valid_input');
+
+        //Emplty input
+        pass1_signup.value = "";
+
+    }
+
+};
+
+//Default password 2
+function default_pass2(){
+
+    //Reduce the message div
+    password_errors_div1.style.height = '20px';
+    //Show message
+    password_error_message1.innerHTML = "";
+    password_error_message1.style.display = 'none';
+
+    //Remove all changes from password 2
+    if(password_input_2.classList.contains('invalid_input') || password_input_2.classList.contains('valid_input')){
+
+        password_input_2.classList.remove('invalid_input');
+        password_input_2.classList.remove('valid_input');
+
+        //Emplty input
+        pass2_signup.value = "";
+
+    }
+
+};
+
+
 //Check Password strength
 pass1_signup.addEventListener('focusout', ()=> {
 
@@ -210,6 +255,9 @@ pass1_signup.addEventListener('focusout', ()=> {
 
             password_input_1.classList.add('invalid_input');
 
+            //default password 2
+            default_pass2();
+
         }
         else{
 
@@ -228,6 +276,10 @@ pass1_signup.addEventListener('focusout', ()=> {
                 }
 
                 password_input_1.classList.add('invalid_input');
+
+
+                //default password 2
+                default_pass2();
 
             }
 
@@ -272,22 +324,11 @@ pass1_signup.addEventListener('focusout', ()=> {
     
         }
 
-        //Reduce the message div
-        password_errors_div.style.height = '20px';
-        //Show message
-        password_error_message.innerHTML = "";
-        password_error_message.style.display = 'none';
+        //Default password 1
+        default_pass1();
 
-        //Remove all changes from password 2
-        if(password_input_2.classList.contains('invalid_input') || password_input_2.classList.contains('valid_input')){
-
-            password_input_2.classList.remove('invalid_input');
-            password_input_2.classList.remove('valid_input');
-
-            //Emplty input
-            pass2_signup.value = "";
-    
-        }
+        //default password 2
+        default_pass2();
 
     }
     
