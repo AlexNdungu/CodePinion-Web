@@ -146,7 +146,10 @@ for(let a =0; a < view_passes.length; a++){
 
 
 //Password comparison function
-function compare_pass(pass_1, pass_2){
+function compare_pass(){
+
+    let pass_1 = pass1_signup.value
+    let pass_2 = pass2_signup.value
 
     if(pass_1 != pass_2){
 
@@ -212,6 +215,9 @@ function default_pass1(){
 //Default password 2
 function default_pass2(){
 
+    //Remove focus event
+    pass2_signup.removeEventListener("focusout", compare_pass);
+
     //Reduce the message div
     password_errors_div1.style.height = '20px';
     //Show message
@@ -224,10 +230,10 @@ function default_pass2(){
         password_input_2.classList.remove('invalid_input');
         password_input_2.classList.remove('valid_input');
 
-        //Emplty input
-        pass2_signup.value = "";
-
     }
+
+    //Emplty input
+    pass2_signup.value = "";
 
 };
 
@@ -236,6 +242,9 @@ function default_pass2(){
 pass1_signup.addEventListener('focusout', ()=> {
 
     let pass_value = pass1_signup.value
+
+    //Emplty input
+    pass2_signup.value = "";
 
     if(pass_value != ''){
 
@@ -301,13 +310,7 @@ pass1_signup.addEventListener('focusout', ()=> {
 
 
                 //Call the password comparison
-                pass2_signup.addEventListener('focusout', ()=> {
-
-                    let pass_value2 = pass2_signup.value
-
-                    compare_pass(pass_value,pass_value2);
-
-                });
+                pass2_signup.addEventListener("focusout", compare_pass);
 
 
             }
