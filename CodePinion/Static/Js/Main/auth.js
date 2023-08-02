@@ -16,6 +16,7 @@ let password_errors_div = document.getElementById('password_errors_div');
 let password_error_message = document.getElementById('password_error_message');
 //The password border containers
 let password_input_1 = document.getElementById('password_input_1');
+let password_input_2 = document.getElementById('password_input_2')
 
 
 //Input containers
@@ -118,6 +119,36 @@ for(let a =0; a < view_passes.length; a++){
 }
 
 
+//Password comparison function
+function compare_pass(pass_1, pass_2){
+
+    if(pass_1 != pass_2){
+
+        //Change the border of password container
+        if(password_input_2.classList.contains('valid_input')){
+
+            password_input_2.classList.remove('valid_input');
+
+        }
+
+        password_input_2.classList.add('invalid_input');
+
+    }
+    else{
+
+        //Change the border of password container
+        if(password_input_2.classList.contains('invalid_input')){
+
+            password_input_2.classList.remove('invalid_input');
+
+        }
+
+        password_input_2.classList.add('valid_input');
+
+    }
+
+}
+
 
 //Check Password strength
 pass1_signup.addEventListener('focusout', ()=> {
@@ -180,13 +211,25 @@ pass1_signup.addEventListener('focusout', ()=> {
                 password_input_1.classList.add('valid_input');
 
 
+                //Call the password comparison
+                pass2_signup.addEventListener('focusout', ()=> {
+
+                    let pass_value2 = pass2_signup.value
+
+                    compare_pass(pass_value,pass_value2);
+
+                });
+
+
             }
 
         }
 
     }
-    // else{
+    
 
-    // }
+});
 
-})
+
+//Confirm password section
+
