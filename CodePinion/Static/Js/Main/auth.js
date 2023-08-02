@@ -189,7 +189,6 @@ function compare_pass(){
 
 }
 
-
 //Default password 1
 function default_pass1(){
 
