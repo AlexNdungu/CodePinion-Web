@@ -149,6 +149,15 @@ form {
     background-color: white;
 }
 
+/* This classes will be added if input in password or email is valid or invalid */
+.invalid_input {
+    border: 2px solid #C53B3B;
+}
+
+.valid_input {
+    border: 2px solid #2CA631;
+}
+
 
 .email_input input {
     width: 300px;

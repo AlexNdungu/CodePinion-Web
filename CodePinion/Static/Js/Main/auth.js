@@ -18,13 +18,35 @@ email_signup.addEventListener('focusout', ()=> {
 
         if(email_signup.value.match(mailformat)){
 
-            email_container.style.
+            if(email_container.classList.contains('invalid_input')){
+
+                email_container.classList.remove('invalid_input');
+
+            }
+
+            email_container.classList.add('valid_input');
     
         }
         else{
+
+            if(email_container.classList.contains('valid_input')){
+
+                email_container.classList.remove('valid_input');
+
+            }
     
-            console.log('no match')
+            email_container.classList.add('invalid_input');
     
+        }
+
+    }
+    else{
+
+        if(email_container.classList.contains('invalid_input') || email_container.classList.contains('valid_input')){
+
+            email_container.classList.remove('invalid_input');
+            email_container.classList.remove('valid_input');
+
         }
 
     }
