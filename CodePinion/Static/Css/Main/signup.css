@@ -291,6 +291,21 @@ form {
     transition: 0.2s ease-in;
 }
 
+/* Active class js */
+.view_pass_active {
+    background-color: #406CEE;
+}
+
+/* The eye icons */
+#eye_pass1_open,#eye_pass1_open1 {
+    display: flex;
+}
+
+#eye_pass1_close,#eye_pass1_close1 {
+    display: none;
+}
+
+
 /* Hover */
 .view_pass:hover{
     background-color: #406CEE;
@@ -353,7 +368,7 @@ form {
     justify-content: center;
     background-color: #ACACAC;
     color: #F3F3F3;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
     cursor: pointer;
     transition: 0.2s ease-in;

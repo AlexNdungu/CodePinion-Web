@@ -3,10 +3,14 @@
 let email_signup = document.getElementById('email_sign');
 let pass1_signup = document.getElementById('pass1');
 let pass2_signup = document.getElementById('pass2');
+let pass_inputs = document.getElementsByClassName('pass_input_place')
 
 //See paswords buttons
-let see_pass1 = document.getElementById('see_pass1');
-let see_pass2 = document.getElementById('see_pass2');
+let view_passes = document.getElementsByClassName('view_pass');
+//
+let eye_pass_opens = document.getElementsByClassName('eye_pass_open');
+let eye_pass_closes = document.getElementsByClassName('eye_pass_close');
+
 
 //Input containers
 let email_container = document.getElementById('email_input');
@@ -71,20 +75,35 @@ email_signup.addEventListener('focus', ()=> {
 
 //Password Effects
 //See password
-see_pass1.addEventListener('click', ()=> {
+for(let a =0; a < view_passes.length; a++){
 
-    //Change password to input
-    if(pass1_signup.getAttribute("type") == 'password'){
+    view_passes[a].addEventListener('click', ()=> {
 
-        pass1_signup.setAttribute('type', 'text');
+        pass_inputs
+        //Change password to input
+        if(pass_inputs[a].getAttribute("type") == 'password'){
 
-    }
-    else{
+            pass_inputs[a].setAttribute('type', 'text');
+            //Change eye
+            eye_pass_opens[a].style.display = 'none';
+            eye_pass_closes[a].style.display = 'flex';
+            //Button background
+            view_passes[a].classList.add('view_pass_active');
 
-        pass1_signup.setAttribute('type', 'password');
+        }
+        else{
 
-    }
+            pass_inputs[a].setAttribute('type', 'password');
+            //Change eye
+            eye_pass_opens[a].style.display = 'flex';
+            eye_pass_closes[a].style.display = 'none';
+            //Button background
+            view_passes[a].classList.remove('view_pass_active');
 
-})
+        }
+
+    })
+
+}
 
 //Check Password strength
