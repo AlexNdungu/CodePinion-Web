@@ -269,7 +269,6 @@ form {
     display: none;
 }
 
-
 /* Hover */
 .view_pass:hover{
     background-color: #406CEE;
@@ -297,12 +296,20 @@ form {
     background-color: white;
 }
 
+.invalid_input input:hover{
+    color: #406CEE;
+}
+
 .invalid_input input{
     color: #C53B3B;
 }
 
 .valid_input input{
     color: #2CA631;
+}
+
+.valid_input input:hover{
+    color: #406CEE;
 }
 
 .invalid_input:hover > input {
@@ -312,7 +319,6 @@ form {
 .valid_input:hover > input {
     color: #406CEE;
 }
-
 
 
 
