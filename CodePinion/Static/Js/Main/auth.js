@@ -14,6 +14,13 @@ let eye_pass_closes = document.getElementsByClassName('eye_pass_close');
 //This input div will show password error
 let password_errors_div = document.getElementById('password_errors_div');
 let password_error_message = document.getElementById('password_error_message');
+//
+let password_errors_div1 = document.getElementById('password_errors_div1');
+let password_error_message1 = document.getElementById('password_error_message1');
+//
+let email_errors_div = document.getElementById('email_errors_div');
+let email_error_message = document.getElementById('email_error_message');
+
 //The password border containers
 let password_input_1 = document.getElementById('password_input_1');
 let password_input_2 = document.getElementById('password_input_2')
@@ -39,6 +46,12 @@ email_signup.addEventListener('focusout', ()=> {
 
         if(email_signup.value.match(mailformat)){
 
+            //Extend the message div
+            email_errors_div.style.height = '20px';
+            //Show message
+            email_error_message.innerHTML = "";
+            email_error_message.style.display = 'none';
+
             if(email_container.classList.contains('invalid_input')){
 
                 email_container.classList.remove('invalid_input');
@@ -49,6 +62,13 @@ email_signup.addEventListener('focusout', ()=> {
     
         }
         else{
+
+            //Extend the message div
+            email_errors_div.style.height = '40px';
+            //Show message
+            email_error_message.innerHTML = "Email Is Invalid !";
+            email_error_message.style.display = 'flex';
+
 
             if(email_container.classList.contains('valid_input')){
 
@@ -124,6 +144,12 @@ function compare_pass(pass_1, pass_2){
 
     if(pass_1 != pass_2){
 
+        //Extend the message div
+        password_errors_div1.style.height = '40px';
+        //Show message
+        password_error_message1.innerHTML = "Passwords Dont Match !";
+        password_error_message1.style.display = 'flex';
+
         //Change the border of password container
         if(password_input_2.classList.contains('valid_input')){
 
@@ -135,6 +161,11 @@ function compare_pass(pass_1, pass_2){
 
     }
     else{
+        //Extend the message div
+        password_errors_div1.style.height = '20px';
+        //Show message
+        password_error_message1.innerHTML = "";
+        password_error_message1.style.display = 'none';
 
         //Change the border of password container
         if(password_input_2.classList.contains('invalid_input')){
