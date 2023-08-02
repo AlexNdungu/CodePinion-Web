@@ -152,10 +152,12 @@ form {
 /* This classes will be added if input in password or email is valid or invalid */
 .invalid_input {
     border: 2px solid #C53B3B;
+    fill: #C53B3B;
 }
 
 .valid_input {
     border: 2px solid #2CA631;
+    fill: #2CA631;
 }
 
 
