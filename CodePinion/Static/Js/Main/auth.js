@@ -90,6 +90,12 @@ email_signup.addEventListener('focusout', ()=> {
 
         }
 
+        //Extend the message div
+        email_errors_div.style.height = '20px';
+        //Show message
+        email_error_message.innerHTML = "";
+        email_error_message.style.display = 'none';
+
     }
 
 });
