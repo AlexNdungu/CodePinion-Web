@@ -20,6 +20,10 @@ def LeftNav(request):
 def signUp(request):
     return render(request,'Main/signup.html')
 
+#Create new user
+def createNewUser(request):
+    return JsonResponse({'status':'success'})
+
 #Sign in page
 def signIn(request):
     return render(request,'Main/signin.html')

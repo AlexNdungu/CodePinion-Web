@@ -72,6 +72,9 @@
                     <!--the form itself-->
                     <form class="email_pass_form">
 
+                        <!--The csrf token-->
+                        {% csrf_token %}
+
                         <!--The email input-->
                         <div class="email_input" id="email_input">
 

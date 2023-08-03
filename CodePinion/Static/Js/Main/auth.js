@@ -3,7 +3,10 @@
 let email_signup = document.getElementById('email_sign');
 let pass1_signup = document.getElementById('pass1');
 let pass2_signup = document.getElementById('pass2');
-let pass_inputs = document.getElementsByClassName('pass_input_place')
+let pass_inputs = document.getElementsByClassName('pass_input_place');
+
+//Get the CSRF token
+let csrf = document.getElementsByName('csrfmiddlewaretoken');
 
 //The sign in button
 let create_user = document.getElementById('create_user');
@@ -338,13 +341,46 @@ pass1_signup.addEventListener('focusout', ()=> {
 });
 
 
+//This fuction creates new user
+function create_new_user(){
 
+    //First we create form data
+    let formData = new FormData();
+
+    //Append the csrf token
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
+
+    //Append hostname,username and password
+    formData.append('email',email_signup.value);
+    formData.append('password',pass1_signup.value);
+
+    $.ajax({
+        type:'POST',
+        url:'/createNewUser/',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+
+           console.log(response)
+
+        },
+        error: function(error){
+
+            
+        }
+    });    
+
+}
+
+
+//When create button is clicked
 create_user.addEventListener('click', ()=> {
 
 
     if(email_valid == true && password_valid == true){
 
-        console.log('created')
+        create_new_user()
 
     }
     else{
