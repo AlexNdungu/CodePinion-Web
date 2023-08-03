@@ -5,6 +5,9 @@ let pass1_signup = document.getElementById('pass1');
 let pass2_signup = document.getElementById('pass2');
 let pass_inputs = document.getElementsByClassName('pass_input_place')
 
+//The sign in button
+let create_user = document.getElementById('create_user');
+
 //See paswords buttons
 let view_passes = document.getElementsByClassName('view_pass');
 //
@@ -37,6 +40,33 @@ const lowercaseRegex = /[a-z]/;
 const numberRegex = /\d/;
 const specialRegex = /[^A-Za-z0-9]/;
 
+//These two variables will keep track of if to create account or not
+let email_valid = false;
+let password_valid = false;
+
+
+function create_person(){
+
+    console.log('creation')
+
+
+    if(email_valid == true && password_valid == true){
+
+        create_user.addEventListener('click', ()=> {
+
+            console.log('clicked ...creating')
+
+        });
+
+    }
+    else{
+        
+        console.log('cannot create')
+
+    }
+
+}
+
 
 //Email Effects
 //Check if email is valid
@@ -59,6 +89,13 @@ email_signup.addEventListener('focusout', ()=> {
             }
 
             email_container.classList.add('valid_input');
+
+            //Email is valid
+            email_valid = true;
+
+            //Call create user fuction if email is valid
+            create_person();
+
     
         }
         else{
@@ -77,6 +114,9 @@ email_signup.addEventListener('focusout', ()=> {
             }
     
             email_container.classList.add('invalid_input');
+
+            //Email is not valid
+            email_valid = false;
     
         }
 
@@ -95,6 +135,10 @@ email_signup.addEventListener('focusout', ()=> {
         //Show message
         email_error_message.innerHTML = "";
         email_error_message.style.display = 'none';
+
+        //Email is not valid
+        email_valid = false;
+
 
     }
 
@@ -168,6 +212,9 @@ function compare_pass(){
 
         password_input_2.classList.add('invalid_input');
 
+        //password is not valid
+        password_valid = false;
+
     }
     else{
         //Extend the message div
@@ -184,6 +231,12 @@ function compare_pass(){
         }
 
         password_input_2.classList.add('valid_input');
+
+        //password is valid
+        password_valid = true;
+
+        //Call Create user function when password is valid
+        create_person();
 
     }
 
@@ -208,6 +261,9 @@ function default_pass(password_errors_container,password_error_out,pass_input,pa
 
     //Emplty input
     pass_sign.value = "";
+
+    //password is invalid
+    password_valid = false;
 
 };
 
@@ -240,6 +296,9 @@ pass1_signup.addEventListener('focusout', ()=> {
 
             password_input_1.classList.add('invalid_input');
 
+            //password is invalid
+            password_valid = false;
+
 
         }
         else{
@@ -259,6 +318,9 @@ pass1_signup.addEventListener('focusout', ()=> {
                 }
 
                 password_input_1.classList.add('invalid_input');
+
+                //password is invalid
+                password_valid = false;
 
 
             }
@@ -305,6 +367,4 @@ pass1_signup.addEventListener('focusout', ()=> {
     
 
 });
-
-
 
