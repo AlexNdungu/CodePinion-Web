@@ -187,63 +187,40 @@ function compare_pass(){
 
     }
 
-}
-
-//Default password 1
-function default_pass1(){
-
-    //Reduce the message div
-    password_errors_div.style.height = '20px';
-    //Show message
-    password_error_message.innerHTML = "";
-    password_error_message.style.display = 'none';
-
-    //Remove all changes from password 2
-    if(password_input_1.classList.contains('invalid_input') || password_input_2.classList.contains('valid_input')){
-
-        password_input_1.classList.remove('invalid_input');
-        password_input_1.classList.remove('valid_input');
-
-        //Emplty input
-        pass1_signup.value = "";
-
-    }
-
 };
 
-//Default password 2
-function default_pass2(){
 
-    //Remove focus event
-    pass2_signup.removeEventListener("focusout", compare_pass);
+function default_pass(password_errors_container,password_error_out,pass_input,pass_sign){
 
     //Reduce the message div
-    password_errors_div1.style.height = '20px';
+    password_errors_container.style.height = '20px';
     //Show message
-    password_error_message1.innerHTML = "";
-    password_error_message1.style.display = 'none';
+    password_error_out.innerHTML = "";
+    password_error_out.style.display = 'none';
 
     //Remove all changes from password 2
-    if(password_input_2.classList.contains('invalid_input') || password_input_2.classList.contains('valid_input')){
+    if(pass_input.classList.contains('invalid_input') || pass_input.classList.contains('valid_input')){
 
-        password_input_2.classList.remove('invalid_input');
-        password_input_2.classList.remove('valid_input');
+        pass_input.classList.remove('invalid_input');
+        pass_input.classList.remove('valid_input');
 
     }
 
     //Emplty input
-    pass2_signup.value = "";
+    pass_sign.value = "";
 
 };
-
 
 //Check Password strength
 pass1_signup.addEventListener('focusout', ()=> {
 
-    let pass_value = pass1_signup.value
+    let pass_value = pass1_signup.value;
 
-    //Emplty input
-    pass2_signup.value = "";
+    //Remove focus event
+    pass2_signup.removeEventListener("focusout", compare_pass);
+
+    //default password 2
+    default_pass(password_errors_div1,password_error_message1,password_input_2,pass2_signup);
 
     if(pass_value != ''){
 
@@ -263,8 +240,6 @@ pass1_signup.addEventListener('focusout', ()=> {
 
             password_input_1.classList.add('invalid_input');
 
-            //default password 2
-            default_pass2();
 
         }
         else{
@@ -285,9 +260,6 @@ pass1_signup.addEventListener('focusout', ()=> {
 
                 password_input_1.classList.add('invalid_input');
 
-
-                //default password 2
-                default_pass2();
 
             }
 
@@ -327,10 +299,7 @@ pass1_signup.addEventListener('focusout', ()=> {
         }
 
         //Default password 1
-        default_pass1();
-
-        //default password 2
-        default_pass2();
+        default_pass(password_errors_div,password_error_message,password_input_1,pass1_signup);
 
     }
     
