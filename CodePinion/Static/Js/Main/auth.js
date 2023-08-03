@@ -362,7 +362,7 @@ function create_new_user(){
         contentType: false,
         success: function(response){
 
-           console.log(response)
+           console.log(response);
 
         },
         error: function(error){
@@ -380,7 +380,8 @@ create_user.addEventListener('click', ()=> {
 
     if(email_valid == true && password_valid == true){
 
-        create_new_user()
+        //Call the create user function
+        create_new_user();
 
     }
     else{
