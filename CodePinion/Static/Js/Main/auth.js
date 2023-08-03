@@ -45,29 +45,6 @@ let email_valid = false;
 let password_valid = false;
 
 
-function create_person(){
-
-    console.log('creation')
-
-
-    if(email_valid == true && password_valid == true){
-
-        create_user.addEventListener('click', ()=> {
-
-            console.log('clicked ...creating')
-
-        });
-
-    }
-    else{
-        
-        console.log('cannot create')
-
-    }
-
-}
-
-
 //Email Effects
 //Check if email is valid
 email_signup.addEventListener('focusout', ()=> {
@@ -92,10 +69,6 @@ email_signup.addEventListener('focusout', ()=> {
 
             //Email is valid
             email_valid = true;
-
-            //Call create user fuction if email is valid
-            create_person();
-
     
         }
         else{
@@ -138,7 +111,6 @@ email_signup.addEventListener('focusout', ()=> {
 
         //Email is not valid
         email_valid = false;
-
 
     }
 
@@ -234,9 +206,6 @@ function compare_pass(){
 
         //password is valid
         password_valid = true;
-
-        //Call Create user function when password is valid
-        create_person();
 
     }
 
@@ -368,3 +337,20 @@ pass1_signup.addEventListener('focusout', ()=> {
 
 });
 
+
+
+create_user.addEventListener('click', ()=> {
+
+
+    if(email_valid == true && password_valid == true){
+
+        console.log('created')
+
+    }
+    else{
+        
+        console.log('cannot create')
+
+    }
+
+});
