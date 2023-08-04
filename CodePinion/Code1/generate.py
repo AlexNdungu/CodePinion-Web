@@ -76,7 +76,7 @@ class UserGen():
         return self.StripMail() + self.GenNumWithMax()
     
 
-    def GenMoreName(self, names_number):
+    def GenAndCompare(self, names_number, custom_list = []):
 
         '''
         This method generates the number of names passed (names_number)
@@ -99,7 +99,7 @@ class UserGen():
 
                     name_generated = self.Combine_Mail_Num()
 
-                    if name_generated not in generated_names:
+                    if name_generated not in generated_names and name_generated not in custom_list:
 
                         generated_names.append(name_generated)
 
