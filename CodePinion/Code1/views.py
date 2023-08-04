@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 #from . import resorce
 from .resorce import SecureShell
+from .generate import UserGen
 import subprocess 
 import os
 
@@ -22,6 +23,9 @@ def signUp(request):
 
 #Create new user
 def createNewUser(request):
+
+    
+
     return JsonResponse({'status':'success'})
 
 #Sign in page
