@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from Code1.secret import PostgreSQL_password
 
 #To load Css Correctly
 import mimetypes
@@ -82,8 +83,11 @@ WSGI_APPLICATION = 'CodePinion.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Code-Pinion',
+        'USER': 'postgres',
+        'PASSWORD': PostgreSQL_password,
+        'HOST': 'localhost'
     }
 }
 
@@ -129,6 +133,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Static')
 ]
+
+MEDIA_URL = '/Media/'
+
+MEDIA_ROOT = BASE_DIR / 'Media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

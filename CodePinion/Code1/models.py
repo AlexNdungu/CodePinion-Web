@@ -22,7 +22,7 @@ class Profile(models.Model):
     email = models.URLField(max_length = 200, verbose_name='Email')
     website = models.URLField(max_length = 200, verbose_name='Website')
 
-    profile_pic = models.ImageField(upload_to = 'profiles', verbose_name='Profiel Picture')
+    profile_pic = models.ImageField(upload_to = 'Media/Profiles', verbose_name='Profile Picture')
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
@@ -33,12 +33,7 @@ class Profile(models.Model):
     @property
     def profile_url(self):
         if self.profile_pic and hasattr(self.profile_pic, 'url'):
-            return self.profile_pic.url  
-
-    @property
-    def info_url(self):
-        if self.info_picture and hasattr(self.info_picture, 'url'):
-            return self.info_picture.url   
+            return self.profile_pic.url   
 
 
 

@@ -1,10 +1,13 @@
+from django.contrib.auth.models import User
+#
 from django.shortcuts import render
 from django.http import JsonResponse
 #from . import resorce
 from .resorce import SecureShell
 from .generate import UserGen
-import subprocess 
-import os
+
+# import subprocess 
+# import os
 
 
 # Create your views here.
@@ -29,7 +32,7 @@ def createNewUser(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        
+        #user = User.objects.create_user("john", "lennon@thebeatles.com", "johnpassword")
 
     return JsonResponse({'status':'success'})
 
