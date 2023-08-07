@@ -141,13 +141,17 @@
 }
 
 .sign_pop_inner {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #fff;
+}
+
+.sign_pop_inner svg {
+    width: 17px;
 }
 
 .sign_pop_message {
