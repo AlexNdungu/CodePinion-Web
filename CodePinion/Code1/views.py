@@ -24,7 +24,12 @@ def signUp(request):
 #Create new user
 def createNewUser(request):
 
-    
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        
 
     return JsonResponse({'status':'success'})
 

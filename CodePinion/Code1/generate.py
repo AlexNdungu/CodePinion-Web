@@ -76,7 +76,7 @@ class UserGen():
         return self.StripMail() + self.GenNumWithMax()
     
 
-    def GenAndCompare(self, names_number, custom_list = []):
+    def GenMoreName(self, names_number, custom_list = []):
 
         '''
         This method generates the number of names passed (names_number)
