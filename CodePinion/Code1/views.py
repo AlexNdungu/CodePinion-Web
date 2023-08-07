@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from . import models
 #
 from django.shortcuts import render
 from django.http import JsonResponse
@@ -27,14 +28,73 @@ def signUp(request):
 #Create new user
 def createNewUser(request):
 
+    #Email will always be unique for any user
+
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
 
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        #user = User.objects.create_user("john", "lennon@thebeatles.com", "johnpassword")
+        #Now we check if the user exists
+        if User.objects.filter(email=email).exists():
+            
+            return JsonResponse({'status':'exists'})
 
-    return JsonResponse({'status':'success'})
+        else:
+
+            #Create the user
+            user = User.objects.create_user(username=email, email=email, password=password)
+            #Create a profile for the user
+            profile = models.Profile(user=user)
+            #Save the profile
+            profile.save()
+
+            #Strip the email
+            stripped_mail = email.split('@')[0]
+
+            #Check if the an email exists matching stripped mail
+            if User.objects.filter(username=stripped_mail).exists():
+
+                #Get the newly craeted profile id
+                profile_id = str(profile.profile_id)
+                #Create a new username with stripped mail and profile id
+                new_username = stripped_mail + profile_id
+
+                if User.objects.filter(username=new_username).exists():
+
+                    #count the numebr of profiles 
+                    profile_count = models.Profile.objects.count()
+                    #
+                    profile_count = profile_count + 1000
+                    #Get a list of existing usernames
+                    usernames = User.objects.values_list("username")
+                    # Convert the QuerySet to a list
+                    usernames = list(usernames)
+
+                    #initialise the UserName Generator Class
+                    username_gen = UserGen(email,profile_count)
+                    #Call the GenMoreName method
+                    generated_username = username_gen.GenMoreName(1,usernames)[0]
+
+                    #Now asign the new username
+                    user.username = generated_username
+                    # Save the changes to the database
+                    user.save()
+
+                else:
+
+                    user.username = new_username
+                    # Save the changes to the database
+                    user.save()
+
+            else:
+
+                user.username = stripped_mail
+                # Save the changes to the database
+                user.save()
+
+
+            return JsonResponse({'status':'created'})
 
 #Sign in page
 def signIn(request):

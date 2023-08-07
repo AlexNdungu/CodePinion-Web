@@ -1,5 +1,5 @@
 '''
-UserGen Class - Generates usernames
+UserGen Class 
 '''
 
 import random
@@ -16,17 +16,17 @@ class UserGen():
     def StripMail(self):
 
         '''
-        This method Strips an email
+        This method Strips an Email.
 
         - It first check if the email format is valid, 
             * if true => it proceeds with the following
                 Example:
-                1. Email = dev@gmail.com 
+                - Email = dev@gmail.com 
                     returns: dev
-                2. Email = testmail@yahoo.com
+                - Email = testmail@yahoo.com
                     returns: testmail   
 
-            * if false 
+            * if false => raises a value error
         '''
 
         check_valid_mail = bool(re.match(r"[^@]+@[^@]+\.[^@]+", self.email))
@@ -45,7 +45,9 @@ class UserGen():
     def GenNumWithMax(self):
 
         '''
-        This method generates a random number considering the maximum number passed to it
+        ### This method 
+        * Generates a random number considering the maximum number passed to it.
+        * Then, converts the generated number to a string => str(generated_number).
         '''
 
         if isinstance(self.max_num, int):
@@ -74,40 +76,55 @@ class UserGen():
         '''
 
         return self.StripMail() + self.GenNumWithMax()
-    
-
-    def GenMoreName(self, names_number, custom_list = []):
-
-        '''
-        This method generates the number of names passed (names_number)
-        '''
-
-        #List of generated usernames
-        generated_names = []
-
-        if isinstance(names_number, int):
         
-            if names_number < 1:
+
+    def GenMoreName(self, names_amount, custom_list = []):
+
+        '''
+        ### This method 
+        * Generates the amount of names passed (names_amount = )
+        * Also gives you the ability to compare the generated names with a (custom list = [ ])
+        '''
+
+        #Set of generated usernames
+        generated_names_set = set()
+
+        #Convert the custom list to find items faster Time Complexity of search in set is O(n)
+        custom_list_set = set(custom_list)
+
+        if isinstance(names_amount, int):
+        
+            if names_amount < 1:
 
                 raise ValueError('The amount of names to be generated cannot be less than 1')
             
             else:
 
-                loop_count = 0
+                if names_amount > self.max_num:
 
-                while loop_count < names_number:
+                    raise ValueError('The amount of names to be generated cannot be more than the set maximum range of the random numbers generated')
+                
+                else:
 
-                    name_generated = self.Combine_Mail_Num()
+                    loop_count = 0
 
-                    if name_generated not in generated_names and name_generated not in custom_list:
+                    while loop_count < names_amount:
 
-                        generated_names.append(name_generated)
+                        name_generated = self.Combine_Mail_Num()
 
-                        loop_count += 1
+                        if name_generated not in (generated_names_set | custom_list_set):
 
-                    else:
+                            generated_names_set.add(name_generated)
 
-                        loop_count = loop_count
+                            loop_count += 1
+
+                        else:
+
+                            loop_count = loop_count
+
+
+                #Covert the generated_names_set to a list to be returned
+                generated_names = list(generated_names_set)
 
 
         else:
