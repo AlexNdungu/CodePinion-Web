@@ -43,168 +43,168 @@ class Profile(models.Model):
 
 
 #Programming languages models
-class Language(models.Model):
+# class Language(models.Model):
 
-    lang_id = models.AutoField(primary_key=True)
+#     lang_id = models.AutoField(primary_key=True)
 
-    lang_name = models.CharField(max_length=20, verbose_name='Language Name')
-    lang_icon = models.ImageField(upload_to='Languages', verbose_name='Language Icon')
-    lang_desc = models.TextField(verbose_name='Language Description')
+#     lang_name = models.CharField(max_length=20, verbose_name='Language Name')
+#     lang_icon = models.ImageField(upload_to='Languages', verbose_name='Language Icon')
+#     lang_desc = models.TextField(verbose_name='Language Description')
 
-    update = models.DateTimeField(auto_now=True)
-    created = models.DateField(auto_now_add=True)
+#     update = models.DateTimeField(auto_now=True)
+#     created = models.DateField(auto_now_add=True)
 
-    def __str__(self):
-        return self.lang_name
+#     def __str__(self):
+#         return self.lang_name
 
-    @property
-    def language_url(self):
-        if self.lang_icon and hasattr(self.lang_icon, 'url'):
-            return self.lang_icon.url
-
-
-#Safe Model
-class Safe(models.Model):
-
-    safe_id = models.AutoField(primary_key=True)
-
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='User Profile')
-
-    safe_name = models.CharField(max_length=20, verbose_name='Safe Name')
-
-    #Path to Project
-    path = models.TextField(verbose_name='Project Path')
-
-    languages = models.ManyToManyField(Language, blank=True)
-
-    #privacy status
-    privacy_status = models.BooleanField(default=False, verbose_name='Privacy Status')
-        #True = Private
-        #False = Public
-
-    #watchers
-    #stars
-
-    #Deleted Safe
-    #delete_safe = models.BooleanField(default=False, verbose_name='Deleted Safe Status')
-
-    update = models.DateTimeField(auto_now=True)
-    created = models.DateField(auto_now_add=True)
-
-    def __str__(self):
-        return self.safe_name
+#     @property
+#     def language_url(self):
+#         if self.lang_icon and hasattr(self.lang_icon, 'url'):
+#             return self.lang_icon.url
 
 
+# #Safe Model
+# class Safe(models.Model):
 
-# PLANNER - (objectves & tasks)
+#     safe_id = models.AutoField(primary_key=True)
 
-#Objectives Models
-class Objective(models.Model):
+#     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='User Profile')
 
-    obj_id = models.AutoField(primary_key=True)
+#     safe_name = models.CharField(max_length=20, verbose_name='Safe Name')
 
-    safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
+#     #Path to Project
+#     path = models.TextField(verbose_name='Project Path')
 
-    obj_desc = models.TextField(verbose_name='Objective Description')
-    #due_Date
-    #remind_date
+#     languages = models.ManyToManyField(Language, blank=True)
 
-    #status
-    status = models.BooleanField(default=False, verbose_name='Objective status')
+#     #privacy status
+#     privacy_status = models.BooleanField(default=False, verbose_name='Privacy Status')
+#         #True = Private
+#         #False = Public
 
-    update = models.DateTimeField(auto_now=True)
-    created = models.DateField(auto_now_add=True)
+#     #watchers
+#     #stars
 
-    def __str__(self):
-        return self.obj_desc
+#     #Deleted Safe
+#     #delete_safe = models.BooleanField(default=False, verbose_name='Deleted Safe Status')
+
+#     update = models.DateTimeField(auto_now=True)
+#     created = models.DateField(auto_now_add=True)
+
+#     def __str__(self):
+#         return self.safe_name
+
+
+
+# # PLANNER - (objectves & tasks)
+
+# #Objectives Models
+# class Objective(models.Model):
+
+#     obj_id = models.AutoField(primary_key=True)
+
+#     safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
+
+#     obj_desc = models.TextField(verbose_name='Objective Description')
+#     #due_Date
+#     #remind_date
+
+#     #status
+#     status = models.BooleanField(default=False, verbose_name='Objective status')
+
+#     update = models.DateTimeField(auto_now=True)
+#     created = models.DateField(auto_now_add=True)
+
+#     def __str__(self):
+#         return self.obj_desc
     
 
-#Tasks Models
-class Task(models.Model):
+# #Tasks Models
+# class Task(models.Model):
 
-    task_id = models.AutoField(primary_key=True)
+#     task_id = models.AutoField(primary_key=True)
 
-    #The objective this task belongs to
-    objective = models.ForeignKey(Objective, on_delete=models.CASCADE, verbose_name='Objective')
+#     #The objective this task belongs to
+#     objective = models.ForeignKey(Objective, on_delete=models.CASCADE, verbose_name='Objective')
 
-    task_desc = models.TextField(verbose_name='Task Description')
-    #due_Date
-    #remind_date
+#     task_desc = models.TextField(verbose_name='Task Description')
+#     #due_Date
+#     #remind_date
 
-    #status
-    status = models.BooleanField(default=False, verbose_name='Task status')
+#     #status
+#     status = models.BooleanField(default=False, verbose_name='Task status')
 
-    update = models.DateTimeField(auto_now=True)
-    created = models.DateField(auto_now_add=True)
+#     update = models.DateTimeField(auto_now=True)
+#     created = models.DateField(auto_now_add=True)
 
-    def __str__(self):
-        return self.task_desc
-
-
-
-#Folders Model
-class Folder(models.Model):
-
-    folder_id = models.AutoField(primary_key=True)
-
-    #Safe it is in
-    safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
-
-    folder_name = models.CharField(max_length=20, verbose_name='Folder Name')
-
-    #Path to Folder
-    path = models.TextField(verbose_name='Folder Path')
-
-    #Tree Details (hierarchy)
-    #Parent folder
-    folder_parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Parent Folder')
-
-    #Childern Folders
-    children_folders = models.ManyToManyField('self',blank=True)
-
-    #Children files
-    #children_files = models.ManyToManyField(File,blank=True)
-
-    #Tasks in a folder
-    tasks = models.ManyToManyField(Task, blank=True)
-
-    #Deleted folder
-    #delete_folder = models.BooleanField(default=False, verbose_name='Deleted Folder Status')
-
-    update = models.DateTimeField(auto_now=True)
-    created = models.DateField(auto_now_add=True)
-
-    def __str__(self):
-        return self.folder_name
+#     def __str__(self):
+#         return self.task_desc
 
 
-#File Model
-class File(models.Model):
 
-    file_id = models.AutoField(primary_key=True)
+# #Folders Model
+# class Folder(models.Model):
 
-    file_name = models.CharField(max_length=20, verbose_name='File Name')    
-    language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name='File Language')
+#     folder_id = models.AutoField(primary_key=True)
 
-    #Path to file
-    path = models.TextField(verbose_name='File Path')
+#     #Safe it is in
+#     safe = models.ForeignKey(Safe, on_delete=models.CASCADE, verbose_name='Safe')
 
-    #Commit details
-    version = models.TextField(verbose_name='File Version')
-    hash_detail = models.TextField(verbose_name='File Hash')
-    file_predecessor = models.ForeignKey('self',on_delete=models.CASCADE, verbose_name='File Predecessor')
+#     folder_name = models.CharField(max_length=20, verbose_name='Folder Name')
 
-    #Folder parent
-    folder_parent = models.ForeignKey(Folder, on_delete=models.CASCADE, verbose_name='Parent Folder')
+#     #Path to Folder
+#     path = models.TextField(verbose_name='Folder Path')
 
-    #Tasks in a file
-    tasks = models.ManyToManyField(Task, blank=True)
+#     #Tree Details (hierarchy)
+#     #Parent folder
+#     folder_parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Parent Folder')
 
-    #Deleted File
-    #delete_file = models.BooleanField(default=False, verbose_name='Deleted File Status')
+#     #Childern Folders
+#     children_folders = models.ManyToManyField('self',blank=True)
 
-    update = models.DateTimeField(auto_now=True)
-    created = models.DateField(auto_now_add=True)
+#     #Children files
+#     #children_files = models.ManyToManyField(File,blank=True)
 
-    def __str__(self):
-        return self.file_name # Concat With Version Later
+#     #Tasks in a folder
+#     tasks = models.ManyToManyField(Task, blank=True)
+
+#     #Deleted folder
+#     #delete_folder = models.BooleanField(default=False, verbose_name='Deleted Folder Status')
+
+#     update = models.DateTimeField(auto_now=True)
+#     created = models.DateField(auto_now_add=True)
+
+#     def __str__(self):
+#         return self.folder_name
+
+
+# #File Model
+# class File(models.Model):
+
+#     file_id = models.AutoField(primary_key=True)
+
+#     file_name = models.CharField(max_length=20, verbose_name='File Name')    
+#     language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name='File Language')
+
+#     #Path to file
+#     path = models.TextField(verbose_name='File Path')
+
+#     #Commit details
+#     version = models.TextField(verbose_name='File Version')
+#     hash_detail = models.TextField(verbose_name='File Hash')
+#     file_predecessor = models.ForeignKey('self',on_delete=models.CASCADE, verbose_name='File Predecessor')
+
+#     #Folder parent
+#     folder_parent = models.ForeignKey(Folder, on_delete=models.CASCADE, verbose_name='Parent Folder')
+
+#     #Tasks in a file
+#     tasks = models.ManyToManyField(Task, blank=True)
+
+#     #Deleted File
+#     #delete_file = models.BooleanField(default=False, verbose_name='Deleted File Status')
+
+#     update = models.DateTimeField(auto_now=True)
+#     created = models.DateField(auto_now_add=True)
+
+#     def __str__(self):
+#         return self.file_name # Concat With Version Later
