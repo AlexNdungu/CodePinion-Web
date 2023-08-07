@@ -81,17 +81,32 @@ def createNewUser(request):
                     # Save the changes to the database
                     user.save()
 
+                    #Now give this profile a full name
+                    profile.full_name = generated_username
+                    # Save the changes to the database
+                    profile.save()
+
                 else:
 
                     user.username = new_username
                     # Save the changes to the database
                     user.save()
 
+                    #Now give this profile a full name
+                    profile.full_name = new_username
+                    # Save the changes to the database
+                    profile.save()
+
             else:
 
                 user.username = stripped_mail
                 # Save the changes to the database
                 user.save()
+
+                #Now give this profile a full name
+                profile.full_name = stripped_mail
+                # Save the changes to the database
+                profile.save()
 
 
             return JsonResponse({'status':'created'})
