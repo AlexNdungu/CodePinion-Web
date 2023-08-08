@@ -35,6 +35,9 @@ def createNewUser(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
+        #This username is suggested
+        suggest_username = ''
+
         #Now we check if the user exists
         if User.objects.filter(email=email).exists():
             
@@ -76,38 +79,29 @@ def createNewUser(request):
                     #Call the GenMoreName method
                     generated_username = username_gen.GenMoreName(1,usernames)[0]
 
-                    #Now asign the new username
-                    user.username = generated_username
-                    # Save the changes to the database
-                    user.save()
-
-                    #Now give this profile a full name
-                    profile.full_name = generated_username
-                    # Save the changes to the database
-                    profile.save()
+                    #Assign the suggested_username to generated_username
+                    suggest_username = generated_username
 
                 else:
 
-                    user.username = new_username
-                    # Save the changes to the database
-                    user.save()
-
-                    #Now give this profile a full name
-                    profile.full_name = new_username
-                    # Save the changes to the database
-                    profile.save()
-
+                    #Assign the suggested name to new_username
+                    suggest_username = new_username
+                    
             else:
 
-                user.username = stripped_mail
-                # Save the changes to the database
-                user.save()
+                #Assign the suggested name to stripped_mail
+                suggest_username = stripped_mail
 
-                #Now give this profile a full name
-                profile.full_name = stripped_mail
-                # Save the changes to the database
-                profile.save()
 
+            #Change username from email to suggest_username
+            user.username = suggest_username
+            # Save the changes to the database
+            user.save()
+
+            #Now give this profile a full name
+            profile.full_name = suggest_username
+            # Save the changes to the database
+            profile.save()
 
             return JsonResponse({'status':'created'})
 
