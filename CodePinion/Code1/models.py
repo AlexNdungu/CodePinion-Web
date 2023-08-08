@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
+
 
 
 # Create your models here.
@@ -14,7 +16,7 @@ class Profile(models.Model):
 
     #The Profile class attributes
     profile_id = models.AutoField(primary_key=True)
-    full_name = models.CharField(max_length=20, verbose_name='Full Name')
+    full_name = models.CharField(max_length=50, verbose_name='Full Name')
 
     bio = models.TextField(verbose_name='Bio')
     company = models.CharField(max_length=20, verbose_name='Company')
@@ -34,6 +36,53 @@ class Profile(models.Model):
     def profile_url(self):
         if self.profile_pic and hasattr(self.profile_pic, 'url'):
             return self.profile_pic.url   
+
+
+
+#Supported Devices
+class SSH_Supported(models.Model):
+
+    os_name = models.CharField(max_length=10, verbose_name='OS Name')
+    os_description = models.TextField(verbose_name='OS Description')
+    os_icon = models.TextField(verbose_name='OS Icon Code')
+
+    update = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.os_name
+
+
+#SSH device model
+class SSH_Devices(models.Model):
+
+    #Owner of these devices
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Device Owner')
+
+    #The os of the device
+    device_os = models.ForeignKey(SSH_Supported, on_delete=models.CASCADE, verbose_name='Device OS')
+
+    host = models.CharField(max_length=35, verbose_name='Host Name')
+    host_name = models.CharField(max_length=20, verbose_name='Device Name')
+    host_port = models.IntegerField(verbose_name='Port Number', default=22)
+    host_username = models.CharField(max_length=20, verbose_name='Host Username')
+    host_password = models.CharField(max_length=128, verbose_name='Host Password')
+
+    #The last time user was connected to the device
+    last_connected = models.DateTimeField(verbose_name='Lastly Connected')
+
+    update = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.device_name
+    
+    #Saving the password
+    def save(self, *args, **kwargs):
+        self.host_password = make_password(self.host_password)
+        super().save(*args, **kwargs)
+
+
 
 
 
