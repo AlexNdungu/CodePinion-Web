@@ -21,7 +21,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
+    #Google Auth URL
+    path("accounts/", include("allauth.urls")),
     #Link Apps Urls to Main Project
     path('',include('Code1.urls'))
 ]

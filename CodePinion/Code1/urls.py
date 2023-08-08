@@ -12,7 +12,7 @@ urlpatterns = [
     #Sign up url
     path('signup/',views.signUp, name='sign_up'),
 
-    #Craete new user
+    #Create new user
     path('createNewUser/', views.createNewUser, name='create_new_user'),
 
     #Sign in url
