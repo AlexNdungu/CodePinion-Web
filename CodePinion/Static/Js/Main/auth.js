@@ -33,6 +33,8 @@ let password_input_2 = document.getElementById('password_input_2');
 
 //The signin popups
 let user_exists_pop = document.getElementById('user_exists_pop');
+let user_exists_pop_close = document.getElementById('user_exists_pop_close');
+//
 let user_creation_error_pop = document.getElementById('user_creation_error_pop');
 
 
@@ -344,6 +346,18 @@ pass1_signup.addEventListener('focusout', ()=> {
 
 });
 
+
+//This event listiner closes the user_exists_pop
+user_exists_pop_close.addEventListener('click', ()=> {
+
+     //Show the error message
+     user_exists_pop.style.display = 'none';
+
+     //Error on email
+     email_container.classList.remove('valid_input');
+     email_container.classList.remove('invalid_input');
+
+});
 
 //This fuction creates new user
 function create_new_user(){
