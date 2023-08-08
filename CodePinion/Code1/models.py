@@ -2,9 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 
-
-
-# Create your models here.
+.
 
 # Here I will create the tables in the databases
 
@@ -81,7 +79,6 @@ class SSH_Devices(models.Model):
     def save(self, *args, **kwargs):
         self.host_password = make_password(self.host_password)
         super().save(*args, **kwargs)
-
 
 
 
