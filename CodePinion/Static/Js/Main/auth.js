@@ -36,7 +36,7 @@ let user_exists_pop = document.getElementById('user_exists_pop');
 let user_exists_pop_close = document.getElementById('user_exists_pop_close');
 //
 let user_creation_error_pop = document.getElementById('user_creation_error_pop');
-
+let user_creation_error_pop_close = document.getElementById('user_creation_error_pop_close');
 
 //Input containers
 let email_container = document.getElementById('email_input');
@@ -354,8 +354,15 @@ user_exists_pop_close.addEventListener('click', ()=> {
      user_exists_pop.style.display = 'none';
 
      //Error on email
-     email_container.classList.remove('valid_input');
      email_container.classList.remove('invalid_input');
+
+});
+
+//This event listiner closes the user_creation_error_pop
+user_creation_error_pop_close.addEventListener('click', ()=> {
+
+    //Show the error message
+    user_creation_error_pop.style.display = 'none';
 
 });
 
@@ -399,16 +406,21 @@ function create_new_user(){
                 default_pass(password_errors_div1,password_error_message1,password_input_2,pass2_signup);
 
            }
-           //If 
-           else if(){
-
-
-
-           }
-
+           
         },
         error: function(error){
 
+            //Show the error message
+            user_creation_error_pop.style.display = 'flex';
+
+            //Error on email
+            email_container.classList.remove('valid_input');
+
+            //Default email and passwords
+            //Default password 1
+            default_pass(password_errors_div,password_error_message,password_input_1,pass1_signup);
+            //default password 2
+            default_pass(password_errors_div1,password_error_message1,password_input_2,pass2_signup);
             
         }
     });    
