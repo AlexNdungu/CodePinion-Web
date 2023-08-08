@@ -91,15 +91,18 @@ class SecureShell:
 
 
 #Create User Signal
-def Create_User_Signal(user, optional_email = '',suggest_username = ''):
-
-    #Get the instance of user created 
-    new_user_email = user.email
+def Create_User_Signal(user):
 
     #Create a profile for the user
     profile = models.Profile(user=user)
     #Save the profile
     profile.save()
+
+    #The username to be saved
+    suggest_username = ''
+
+    #Get the instance of user created 
+    new_user_email = user.email
 
     #Strip the email
     stripped_mail = new_user_email.split('@')[0]
@@ -143,10 +146,9 @@ def Create_User_Signal(user, optional_email = '',suggest_username = ''):
 
     #Change username from email to suggest_username
     user.username = suggest_username
-    # Save the changes to the database
-    user.save()
-
     #Now give this profile a full name
     profile.full_name = suggest_username
+
     # Save the changes to the database
+    user.save()
     profile.save()
