@@ -359,6 +359,8 @@ user_exists_pop_close.addEventListener('click', ()=> {
 
 });
 
+
+
 //This fuction creates new user
 function create_new_user(){
 
@@ -383,18 +385,24 @@ function create_new_user(){
             //If The user exists
            if(response.status == 'exists'){
 
-            //Show the error message
-            user_exists_pop.style.display = 'flex';
+                //Show the error message
+                user_exists_pop.style.display = 'flex';
 
-            //Error on email
-            email_container.classList.remove('valid_input');
-            email_container.classList.add('invalid_input');
+                //Error on email
+                email_container.classList.remove('valid_input');
+                email_container.classList.add('invalid_input');
 
-            //Default email and passwords
-            //Default password 1
-            default_pass(password_errors_div,password_error_message,password_input_1,pass1_signup);
-            //default password 2
-            default_pass(password_errors_div1,password_error_message1,password_input_2,pass2_signup);
+                //Default email and passwords
+                //Default password 1
+                default_pass(password_errors_div,password_error_message,password_input_1,pass1_signup);
+                //default password 2
+                default_pass(password_errors_div1,password_error_message1,password_input_2,pass2_signup);
+
+           }
+           //If 
+           else if(){
+
+
 
            }
 
