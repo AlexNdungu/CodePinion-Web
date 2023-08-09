@@ -915,11 +915,18 @@
 .ssh_available_device {
     width: 100%;
     height: 60px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
     background-color: #F3F3F3;
+    transition: 0.2s ease-in;
+}
+
+.ssh_available_device:hover {
+    background-color: white;
+    transform: scale(1.1);
 }
 
 
