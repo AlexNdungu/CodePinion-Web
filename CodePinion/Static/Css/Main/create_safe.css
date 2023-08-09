@@ -917,9 +917,18 @@
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     border-radius: 10px;
     background-color: #F3F3F3;
+}
+
+
+/* Device os and details */
+.ssh_device_icon_and_details,.ssh_device_edit_and_connect_both {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 /* Device os icon */
@@ -942,6 +951,7 @@
 .ssh_dev_login_detail {
     position: relative;
     height: 50px;
+    margin-right: 5px;
     width: fit-content;
     display: flex;
     align-items: center;
@@ -978,9 +988,27 @@
 /* The ssh detail span */
 .ssh_dev_login_detail span{
     padding: 10px;
+    padding-left: 40px;
     color: #414141;
 }
 
+
+/* Edit SSH device details */
+.ssh_device_edit_and_connect {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #414141;
+    border-radius: 10px;
+}
+
+.ssh_device_edit_and_connect svg {
+    width: 22px;
+    fill: #F3F3F3;
+}
 
 
 
