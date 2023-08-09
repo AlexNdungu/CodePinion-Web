@@ -921,6 +921,7 @@
     justify-content: space-between;
     border-radius: 10px;
     background-color: #F3F3F3;
+    cursor: pointer;
     transition: 0.2s ease-in;
 }
 
@@ -1010,12 +1011,23 @@
     align-items: center;
     background-color: #414141;
     border-radius: 10px;
+    transition: 0.2s ease-in;
+}
+
+.ssh_device_edit_and_connect:nth-child(1):hover{
+    background-color: #406CEE;
+}
+
+.ssh_device_edit_and_connect:nth-child(2):hover{
+    background-color: #2CA631;
 }
 
 .ssh_device_edit_and_connect svg {
     width: 22px;
     fill: #F3F3F3;
 }
+
+
 
 
 
