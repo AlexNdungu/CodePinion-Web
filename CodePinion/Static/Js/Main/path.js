@@ -341,6 +341,8 @@ login_ssh.addEventListener('click', ()=> {
         contentType: false,
         success: function(response){
 
+            console.log(response)
+
             //On success
 
             //Success popup
@@ -373,12 +375,12 @@ login_ssh.addEventListener('click', ()=> {
             fill_checks_with_dirs(dir_list_members)
 
             //Change the os icons
-            if (response.current_os == 'windows'){
+            if (response.current_os == 'Windows'){
 
                 windows_icon.style.display = 'flex';
 
             }
-            else if(response.current_os == 'linux'){
+            else if(response.current_os == 'Linux'){
 
                 linux_icon.style.display = 'flex';
 

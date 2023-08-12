@@ -83,9 +83,11 @@ def getLocalPath(request):
         user_name = request.POST.get('user_name')
         #password
         password = request.POST.get('password')
+        #get the current profile
+        current_profile = models.Profile.objects.get(user = request.user)
 
         #Call class
-        login_instance = SecureShell(host_name,port_number,user_name,password)
+        login_instance = SecureShell(host_name,port_number,user_name,password,current_profile)
 
         #use the login instance to receive the response
         server_reponse = login_instance.sshLogin()

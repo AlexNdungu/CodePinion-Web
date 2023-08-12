@@ -1,5 +1,6 @@
 import paramiko
 import time
+from datetime import datetime
 
 from . import models
 from django.contrib.auth.models import User
@@ -10,12 +11,35 @@ from .generate import UserGen
 
 class SecureShell:
 
-    def __init__(self,hostname,port,username,password):
+    def __init__(self,hostname,port,username,password,profile):
         
         self.hostname = hostname
         self.port = port
         self.username = username
         self.password = password
+        self.profile = profile
+
+    #Save ssh device
+    def save_device(self,os):
+
+        #Get the os
+        device_os = models.SSH_Supported.objects.get(os_name = os)
+
+        #Create a instance Device for the profile
+        ssh_device = models.SSH_Devices(
+            profile = self.profile,
+            device_os = device_os,
+            host = self.hostname,
+            host_name = self.hostname,
+            host_port = self.port,
+            host_username = self.username,
+            host_password = self.password,
+            last_connected = datetime.now()
+        )
+
+        #Save the device
+        ssh_device.save()
+
 
     #This method will be reponsible for ssh login
     def sshLogin(self):
@@ -34,8 +58,8 @@ class SecureShell:
 
             #This dictionary has two commamd that will enable codepinion to find out if ssh device is windows or linux
             find_os = {
-                'windows':'cd',
-                'linux':'pwd',
+                'Windows':'cd',
+                'Linux':'pwd',
             }
 
             #This loop passes the two commands in find_os and append the corresponding command to its os
@@ -48,7 +72,7 @@ class SecureShell:
                     what_is_os = os 
 
             #This if statement changes command depending on whether os is windows or linux
-            if what_is_os == "windows":
+            if what_is_os == "Windows":
 
                 #Windows
                 commands = [
@@ -81,6 +105,15 @@ class SecureShell:
 
             #Close Connection
             ssh_client.close()
+
+            #Save this new device
+            if models.SSH_Devices.objects.filter(host_name = self.hostname).exists():
+
+                pass
+
+            else:
+
+                self.save_device(what_is_os)
 
             return out_put
     
@@ -153,3 +186,4 @@ def Create_User_Signal(user):
     # Save the changes to the database
     user.save()
     profile.save()
+
