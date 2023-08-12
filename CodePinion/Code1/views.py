@@ -89,8 +89,7 @@ def getLocalPath(request):
 
         #use the login instance to receive the response
         server_reponse = login_instance.sshLogin()
-
-        print(server_reponse)
+        
 
         if server_reponse != 'Error':
 
