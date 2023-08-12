@@ -3,7 +3,9 @@
 //select the  message
 let success_popup = document.getElementById('success_popup');
 let not_selected = document.getElementById('not_selected');
-let pop_error = document.getElementById('pop_error');
+//
+let pop_error_auth_ssh = document.getElementById('pop_error_auth_ssh');
+let pop_error_auth_ssh_message = document.getElementById('pop_error_auth_ssh_message');
 
 
 //Call the login for and file system
@@ -341,57 +343,73 @@ login_ssh.addEventListener('click', ()=> {
         contentType: false,
         success: function(response){
 
-            console.log(response)
+            console.log(response.status)
 
-            //On success
+            if(response.status == 'success'){
 
-            //Success popup
-            success_popup.style.visibility = 'visible';
+                //On success
 
-            setTimeout(function(){
+                //Success popup
+                success_popup.style.visibility = 'visible';
 
-                success_popup.style.visibility = 'hidden';
+                setTimeout(function(){
+
+                    success_popup.style.visibility = 'hidden';
+                    
+                },2500);
+
                 
-            },2500);
+                //Call the function that affect the login popup
+                login_popup_effects('flex','flex','none')
 
-            
-            //Call the function that affect the login popup
-            login_popup_effects('flex','flex','none')
+                //Remove login popup
+                ssh_login_form.style.display = 'none';
+                //Show the ssh filing system
+                ssh_file_system.style.display = 'flex';
 
-            //Remove login popup
-            ssh_login_form.style.display = 'none';
-            //Show the ssh filing system
-            ssh_file_system.style.display = 'flex';
+                //Now we display the name as required
+                user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
 
-            //Now we display the name as required
-            user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
+                //Now we add all the directories to the navigation
+                const dir_list_members = response.dir_list;
+                //Call the fuction which adds the dirs to navs
+                fill_nav_with_dirs(dir_list_members);
 
-            //Now we add all the directories to the navigation
-            const dir_list_members = response.dir_list;
-            //Call the fuction which adds the dirs to navs
-            fill_nav_with_dirs(dir_list_members);
+                //Now we add the checkable dirs
+                fill_checks_with_dirs(dir_list_members)
 
-            //Now we add the checkable dirs
-            fill_checks_with_dirs(dir_list_members)
+                //Change the os icons
+                if (response.current_os == 'Windows'){
 
-            //Change the os icons
-            if (response.current_os == 'Windows'){
+                    windows_icon.style.display = 'flex';
 
-                windows_icon.style.display = 'flex';
+                }
+                else if(response.current_os == 'Linux'){
+
+                    linux_icon.style.display = 'flex';
+
+                }
+
+                //Now lets add the current path to the interface
+                const current_path_dir = response.current_dir_path;
+                current_working_dir.innerHTML = current_path_dir
 
             }
-            else if(response.current_os == 'Linux'){
+            else if(response.status == 'fail'){
 
-                linux_icon.style.display = 'flex';
+                //On success
+
+                //Success popup
+                pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';
+                pop_error_auth_ssh.style.display = 'flex';
+
+                setTimeout(function(){
+
+                    pop_error_auth_ssh.style.display = 'none';
+                    
+                },2500);
 
             }
-
-            //Now lets add the current path to the interface
-            const current_path_dir = response.current_dir_path;
-            current_working_dir.innerHTML = current_path_dir
-
-            //change username
-            //console.log(dir_list_members)
 
         },
         error: function(error){

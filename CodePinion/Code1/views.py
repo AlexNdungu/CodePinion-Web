@@ -115,8 +115,6 @@ def getLocalPath(request):
 
             error_message = 'Authentication Error. Try Other Credentials'
 
-            print(error_message)
-
             return JsonResponse({'status':'fail', 'Error Message':error_message})
 
 
