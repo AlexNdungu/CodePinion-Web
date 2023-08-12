@@ -639,6 +639,7 @@
 
 
 .inner_ssh_login_popup {
+    position: relative;
     width: calc(100% - 20px);
     height: calc(100% - 20px);
     border-radius: 10px;
@@ -684,8 +685,8 @@
     background-color: #F3F3F3;
     border: 1px solid #C53B3B;
     fill: #C53B3B;
-    top: -25px;
-    right: -25px;
+    top: 25px;
+    right: 25px;
     transition: 0.1s ease-in;
     cursor: pointer;
 }
