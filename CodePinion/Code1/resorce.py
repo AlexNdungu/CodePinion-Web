@@ -20,73 +20,74 @@ class SecureShell:
     #This method will be reponsible for ssh login
     def sshLogin(self):
 
-        ssh_client = paramiko.SSHClient()
+        try:
 
-        #Add to known
-        ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh_client = paramiko.SSHClient()
 
-        ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
+            #Add to known
+            ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-        #This variable will store the os
-        what_is_os = ""
+            ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
 
-        #This dictionary has two commamd that will enable codepinion to find out if ssh device is windows or linux
-        find_os = {
-            'windows':'cd',
-            'linux':'pwd',
-        }
+            #This variable will store the os
+            what_is_os = ""
 
-        #This loop passes the two commands in find_os and append the corresponding command to its os
-        for os, cmd in find_os.items():
+            #This dictionary has two commamd that will enable codepinion to find out if ssh device is windows or linux
+            find_os = {
+                'windows':'cd',
+                'linux':'pwd',
+            }
 
-            stdin, stdout, stderr = ssh_client.exec_command(cmd)
+            #This loop passes the two commands in find_os and append the corresponding command to its os
+            for os, cmd in find_os.items():
 
-            if stdout.readlines() != []:
+                stdin, stdout, stderr = ssh_client.exec_command(cmd)
 
-                what_is_os = os 
+                if stdout.readlines() != []:
 
-        #This if statement changes command depending on whether os is windows or linux
-        if what_is_os == "windows":
+                    what_is_os = os 
 
-            #Windows
-            commands = [
-                'cd',
-                'dir /B /AD'
-            ]
+            #This if statement changes command depending on whether os is windows or linux
+            if what_is_os == "windows":
 
-        else:
+                #Windows
+                commands = [
+                    'cd',
+                    'dir /B /AD'
+                ]
 
-            #Linux
-            commands = [
-                'pwd',
-                'ls'
-            ]
+            else:
 
-        #This list will hold all the outputs
-        out_put = []
+                #Linux
+                commands = [
+                    'pwd',
+                    'ls'
+                ]
 
-        #First append the os returned
-        out_put.append(what_is_os)
+            #This list will hold all the outputs
+            out_put = []
 
-        for command in commands:
+            #First append the os returned
+            out_put.append(what_is_os)
 
-            stdin, stdout, stderr = ssh_client.exec_command(command)
+            for command in commands:
 
-            out_put.append(stdout.readlines())
+                stdin, stdout, stderr = ssh_client.exec_command(command)
 
-        #wait for 5seconds
-        time.sleep(5)
+                out_put.append(stdout.readlines())
 
-        #Close Connection
-        ssh_client.close()
+            #wait for 5seconds
+            time.sleep(5)
 
-        return out_put
+            #Close Connection
+            ssh_client.close()
+
+            return out_put
     
+        except paramiko.ssh_exception.AuthenticationException:
 
-    #Enter Dir
-    def sshCdIntoDir(self):
+            return 'Error'
 
-        ssh_client = paramiko.SSHClient()
 
 
 

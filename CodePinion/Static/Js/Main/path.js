@@ -331,7 +331,7 @@ login_ssh.addEventListener('click', ()=> {
     formData.append('port_number',port_number.value);
     formData.append('user_name',user_name.value);
     formData.append('password',password.value);
-    formData.append('ssh_activity','Login');
+    //formData.append('ssh_activity','Login');
 
     $.ajax({
         type:'POST',

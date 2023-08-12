@@ -73,7 +73,7 @@ def getLocalPath(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
             
-        ssh_process = request.POST.get('ssh_activity')
+        #ssh_process = request.POST.get('ssh_activity')
 
         #Host name
         host_name = request.POST.get('host_name')
@@ -87,14 +87,12 @@ def getLocalPath(request):
         #Call class
         login_instance = SecureShell(host_name,port_number,user_name,password)
 
-        if ssh_process == 'Login':
+        #use the login instance to receive the response
+        server_reponse = login_instance.sshLogin()
 
-            print('login')
+        print(server_reponse)
 
-            #use the login instance to receive the response
-            server_reponse = login_instance.sshLogin()
-
-            print(server_reponse)
+        if server_reponse != 'Error':
 
             #Clean the return by
             dir_list = []
@@ -112,14 +110,13 @@ def getLocalPath(request):
 
             return JsonResponse({'status':'success', 'dir_list':dir_list, 'current_dir_path':current_dir_path,'current_os':current_os})
         
-        elif ssh_process == 'cd':
+        else:
 
-            print('cd')
+            error_message = 'Authentication Error. Try Other Credentials'
 
-            #Intended Path
-            intended_path = request.POST.get('intended_path')
+            print(error_message)
 
-            return JsonResponse({'status':'success','path':intended_path})
+            return JsonResponse({'status':'fail', 'Error Message':error_message})
 
 
 #Enter Intender Dir
