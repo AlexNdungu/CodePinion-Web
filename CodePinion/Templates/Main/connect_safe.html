@@ -16,16 +16,41 @@
 <!--The lower section-->
 {% block lower_section %}
 
-    <!--Success Popup-->
-    <div class="success_popup" id="success_popup" >
+    <!--This section will show pop up when ssh success-->
+    <div class="signIn_Message_pop"  id="success_popup">
 
-        <div class="check_icon">
+        <!--The popup icon-->
+        <div class="sign_pop_icon">
 
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.856 10.303c.086.554.144 1.118.144 1.697 0 6.075-4.925 11-11 11s-11-4.925-11-11 4.925-11 11-11c2.347 0 4.518.741 6.304 1.993l-1.422 1.457c-1.408-.913-3.082-1.45-4.882-1.45-4.962 0-9 4.038-9 9s4.038 9 9 9c4.894 0 8.879-3.928 8.99-8.795l1.866-1.902zm-.952-8.136l-9.404 9.639-3.843-3.614-3.095 3.098 6.938 6.71 12.5-12.737-3.096-3.096z"/></svg>
+            <div class="sign_pop_outer">
+
+                <div class="sign_pop_inner">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.856 10.303c.086.554.144 1.118.144 1.697 0 6.075-4.925 11-11 11s-11-4.925-11-11 4.925-11 11-11c2.347 0 4.518.741 6.304 1.993l-1.422 1.457c-1.408-.913-3.082-1.45-4.882-1.45-4.962 0-9 4.038-9 9s4.038 9 9 9c4.894 0 8.879-3.928 8.99-8.795l1.866-1.902zm-.952-8.136l-9.404 9.639-3.843-3.614-3.095 3.098 6.938 6.71 12.5-12.737-3.096-3.096z"/></svg>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <span class="success_message" >Path Copied Successfully</span>
+        <!--The popup message-->
+        <div class="sign_pop_message">  
+
+            <span id="pop_success_auth_ssh_message" >SSH Login Successfull</span>
+
+        </div>
+
+        <!--Close the popup-->
+        <div class="sign_pop_close">
+
+            <div class="pop_close"  id="user_creation_error_pop_close">
+
+                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
+
+            </div>
+
+        </div>
 
     </div>
 

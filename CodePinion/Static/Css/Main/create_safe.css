@@ -10,8 +10,11 @@
     justify-content: space-between;
     margin-bottom: 20px;
     background-color: #FBEFEB;
-    border: 1px solid #FC5758;
     border-radius: 10px;
+}
+
+#pop_error_auth_ssh {
+    border: 1px solid #FC5758;
     fill: #FC5758;
 }
 
@@ -22,6 +25,9 @@
     align-items: center;
     justify-content: center;
     border-radius: 100%;
+}
+
+#pop_error_auth_ssh .sign_pop_outer{
     background-color: #FC5758;
 }
 
@@ -45,9 +51,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FC5758;
     font-size: 16px;
     font-weight: 500;
+}
+
+#pop_error_auth_ssh .sign_pop_message {
+    color: #FC5758;
 }
 
 .pop_close {
@@ -68,6 +77,9 @@
 
 .pop_close svg {
     width: 25px;
+}
+
+#pop_error_auth_ssh .pop_close svg {
     fill: #FC5758;
 }
 
