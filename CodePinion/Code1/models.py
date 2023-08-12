@@ -72,7 +72,7 @@ class SSH_Devices(models.Model):
     created = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.device_name
+        return self.host
     
     #Saving the password
     def save(self, *args, **kwargs):

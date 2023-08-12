@@ -350,11 +350,11 @@ login_ssh.addEventListener('click', ()=> {
                 //On success
 
                 //Success popup
-                success_popup.style.visibility = 'visible';
+                success_popup.style.display = 'flex';
 
                 setTimeout(function(){
 
-                    success_popup.style.visibility = 'hidden';
+                    success_popup.style.display = 'none';
                     
                 },2500);
 

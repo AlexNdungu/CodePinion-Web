@@ -1,8 +1,6 @@
 /* The signin pop up message section */
 .signIn_Message_pop {
     position: absolute;
-    width: 100%;
-    height: 50px;
     padding-left: 10px;
     display: none; /* Flex to edit */
     align-items: center;
@@ -12,6 +10,8 @@
 }
 
 #pop_error_auth_ssh {
+    width: 100%;
+    height: 50px;
     background-color: #FBEFEB;
     border: 1px solid #FC5758;
     fill: #FC5758;
@@ -19,10 +19,13 @@
 }
 
 #success_popup {
+    height: 50px;
+    right: 30px;
+    top: 110px;
     background-color: #F1F8F4;
     border: 1px solid #CFE8D3;
     fill: #50DC6C;
-    right: 30px;
+    z-index: 4;
 }
 
 .sign_pop_outer {
@@ -40,6 +43,7 @@
 
 #success_popup .sign_pop_outer{
     background-color: #50DC6C;
+    margin-right: 10px;
 }
 
 .sign_pop_inner {
