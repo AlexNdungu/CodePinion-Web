@@ -1,7 +1,6 @@
 /* The signin pop up message section */
 .signIn_Message_pop {
     position: absolute;
-    top: -60px;
     width: 100%;
     height: 50px;
     padding-left: 10px;
@@ -9,13 +8,21 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
-    background-color: #FBEFEB;
     border-radius: 10px;
 }
 
 #pop_error_auth_ssh {
+    background-color: #FBEFEB;
     border: 1px solid #FC5758;
     fill: #FC5758;
+    top: -60px;
+}
+
+#success_popup {
+    background-color: #F1F8F4;
+    border: 1px solid #CFE8D3;
+    fill: #50DC6C;
+    right: 30px;
 }
 
 .sign_pop_outer {
@@ -29,6 +36,10 @@
 
 #pop_error_auth_ssh .sign_pop_outer{
     background-color: #FC5758;
+}
+
+#success_popup .sign_pop_outer{
+    background-color: #50DC6C;
 }
 
 .sign_pop_inner {
@@ -59,6 +70,10 @@
     color: #FC5758;
 }
 
+#success_popup .sign_pop_message {
+    color: #50DC6C;
+}
+
 .pop_close {
     width: 40px;
     height: 40px;
@@ -83,10 +98,14 @@
     fill: #FC5758;
 }
 
+#success_popup .pop_close svg {
+    fill: #50DC6C;
+}
+
 
 /* Popup Sections */
 
-#success_popup,#not_selected,#pop_error {
+#not_selected,#pop_error {
     position: absolute;
     right: 30px;
     width: max-content;
@@ -102,10 +121,6 @@
     background-color: white;
 }
 
-#success_popup {
-    border: 2px solid #2CA631;
-}
-
 #not_selected {
     border: 2px solid #406CEE;
 }
@@ -114,7 +129,7 @@
     border: 2px solid #E44F26;
 }
 
-.success_message,.unselected_message,.error_message {
+.unselected_message,.error_message {
     font-size: 18px;
 }
 
@@ -140,10 +155,6 @@
     margin-right: 20px;
 }
 
-.check_icon {
-    background-color: #2CA631;
-}
-
 .check_icon_unselected {
     background-color: #406CEE;
 }
@@ -152,8 +163,7 @@
     background-color: #E44F26;
 }
 
-
-.check_icon svg,.check_icon_unselected svg,.pop_error_icon svg {
+.check_icon_unselected svg,.pop_error_icon svg {
     width: 30px;
     fill: #F3F3F3;
 }
