@@ -327,6 +327,8 @@ login_ssh.addEventListener('click', ()=> {
     //Check if any input is empty and change ssh_inputs_empty to true
     for(let a = 0; a < log_ssh_input_icon_inputs.length;a++){
 
+        log_ssh_input_icons[a].style.border = '1.5px solid #D9D9D9';
+
         if(log_ssh_input_icon_inputs[a].value == ''){
 
             log_ssh_input_icons[a].style.border = '2px solid #C53B3B';
@@ -339,6 +341,7 @@ login_ssh.addEventListener('click', ()=> {
 
     //If no input is empty
     if(ssh_inputs_empty == false){
+
         //Call the function that affect the login popup
         login_popup_effects('none','none','flex')
             
@@ -440,7 +443,9 @@ login_ssh.addEventListener('click', ()=> {
 
                 
             }
-        });    
+
+        });   
+
     }
 
 })
