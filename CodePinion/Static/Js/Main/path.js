@@ -360,7 +360,7 @@ login_ssh.addEventListener('click', ()=> {
 
                 
                 //Call the function that affect the login popup
-                login_popup_effects('flex','flex','none')
+                login_popup_effects('flex','flex','none');
 
                 //Remove login popup
                 ssh_login_form.style.display = 'none';
@@ -398,6 +398,8 @@ login_ssh.addEventListener('click', ()=> {
             else if(response.status == 'fail'){
 
                 //On success
+                //Call the function that affect the login popup
+                login_popup_effects('flex','flex','none')
 
                 //Success popup
                 pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';

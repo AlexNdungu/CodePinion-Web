@@ -732,7 +732,7 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: flex;  /* Pop in and out */
+    display: none;  /* Pop in and out */
     align-items: center;
     justify-content: center;
 }
@@ -840,6 +840,11 @@
     border: 1.5px solid #D9D9D9;
 }
 
+/* Focus within */
+.log_ssh_input_icon:focus-within {
+    border: 2px solid #406CEE;
+}
+
 /* The icon */
 .ssh_log_ic {
     width: 40px;
@@ -869,6 +874,7 @@
     border: none;
     outline: none;
 }
+
 
 /* The port section */
 .default_input_port {
@@ -973,7 +979,7 @@
 
 /* The hover effect */
 .connect_ssh_btn:hover {
-     background-color: #406CEE;
+     background-color: #2CA631;
 } 
 
 /* The loader */
