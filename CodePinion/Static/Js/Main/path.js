@@ -26,7 +26,7 @@ let login_ssh = document.getElementById('post_ssh_credentials');
 let edit_port = document.getElementById('edit_default_port');
 let check_edit_input = document.getElementById('engage_port_editor');
 let show_default_port = document.getElementById('show_default_port');
-let port_input_edit = document.getElementById('engage_port_editor');
+//let port_input_edit = document.getElementById('engage_port_editor');
 //
 let ssh_login_loader_spin = document.getElementById('loader_ssh_log');
 let login_ssh_span = document.querySelector('#post_ssh_credentials span');
@@ -36,6 +36,11 @@ let host_name = document.getElementById('host_name');
 let port_number = document.getElementById('port_number');
 let user_name = document.getElementById('user_name');
 let password = document.getElementById('password');
+
+//Check if the ssh credential inputs are empty
+//
+let log_ssh_input_icons = document.querySelectorAll('.log_ssh_input_icon');
+let log_ssh_input_icon_inputs = document.querySelectorAll('.log_ssh_input_icon input:not([type=\"checkbox\"])');
 
 
 //Get all the elements in the ssh filing system
@@ -317,106 +322,125 @@ function fill_checks_with_dirs(dir_list_members){
 //This click function logs the user to the server
 login_ssh.addEventListener('click', ()=> {
 
-    //Call the function that affect the login popup
-    login_popup_effects('none','none','flex')
-    
-    //Now we perform the ajax call
+    let ssh_inputs_empty = false;
 
-    //First we create form data
-    let formData = new FormData();
+    //Check if any input is empty and change ssh_inputs_empty to true
+    for(let a = 0; a < log_ssh_input_icon_inputs.length;a++){
 
-    //Append the csrf token
-    formData.append('csrfmiddlewaretoken', csrf[0].value);
+        if(log_ssh_input_icon_inputs[a].value == ''){
 
-    //Append hostname,username and password
-    formData.append('host_name',host_name.value);
-    formData.append('port_number',port_number.value);
-    formData.append('user_name',user_name.value);
-    formData.append('password',password.value);
-    //formData.append('ssh_activity','Login');
+            log_ssh_input_icons[a].style.border = '2px solid #C53B3B';
 
-    $.ajax({
-        type:'POST',
-        url:'/getPath/',
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function(response){
+            ssh_inputs_empty = true;
 
-            console.log(response.status)
+        }
 
-            if(response.status == 'success'){
+    }
 
-                //On success
+    //If no input is empty
+    if(ssh_inputs_empty == false){
+        //Call the function that affect the login popup
+        login_popup_effects('none','none','flex')
+            
+        //Now we perform the ajax call
 
-                //Success popup
-                success_popup.style.display = 'flex';
+        //First we create form data
+        let formData = new FormData();
 
-                setTimeout(function(){
+        //Append the csrf token
+        formData.append('csrfmiddlewaretoken', csrf[0].value);
 
-                    success_popup.style.display = 'none';
+        //Append hostname,username and password
+        formData.append('host_name',host_name.value);
+        formData.append('port_number',port_number.value);
+        formData.append('user_name',user_name.value);
+        formData.append('password',password.value);
+        //formData.append('ssh_activity','Login');
+
+        $.ajax({
+            type:'POST',
+            url:'/getPath/',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response){
+
+                console.log(response.status)
+
+                if(response.status == 'success'){
+
+                    //On success
+
+                    //Success popup
+                    success_popup.style.display = 'flex';
+
+                    setTimeout(function(){
+
+                        success_popup.style.display = 'none';
+                        
+                    },2500);
+
                     
-                },2500);
+                    //Call the function that affect the login popup
+                    login_popup_effects('flex','flex','none');
+
+                    //Remove login popup
+                    ssh_login_form.style.display = 'none';
+                    //Show the ssh filing system
+                    ssh_file_system.style.display = 'flex';
+
+                    //Now we display the name as required
+                    user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
+
+                    //Now we add all the directories to the navigation
+                    const dir_list_members = response.dir_list;
+                    //Call the fuction which adds the dirs to navs
+                    fill_nav_with_dirs(dir_list_members);
+
+                    //Now we add the checkable dirs
+                    fill_checks_with_dirs(dir_list_members)
+
+                    //Change the os icons
+                    if (response.current_os == 'Windows'){
+
+                        windows_icon.style.display = 'flex';
+
+                    }
+                    else if(response.current_os == 'Linux'){
+
+                        linux_icon.style.display = 'flex';
+
+                    }
+
+                    //Now lets add the current path to the interface
+                    const current_path_dir = response.current_dir_path;
+                    current_working_dir.innerHTML = current_path_dir
+
+                }
+                else if(response.status == 'fail'){
+
+                    //On success
+                    //Call the function that affect the login popup
+                    login_popup_effects('flex','flex','none')
+
+                    //Success popup
+                    pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';
+                    pop_error_auth_ssh.style.display = 'flex';
+
+                    setTimeout(function(){
+
+                        pop_error_auth_ssh.style.display = 'none';
+                        
+                    },2500);
+
+                }
+
+            },
+            error: function(error){
 
                 
-                //Call the function that affect the login popup
-                login_popup_effects('flex','flex','none');
-
-                //Remove login popup
-                ssh_login_form.style.display = 'none';
-                //Show the ssh filing system
-                ssh_file_system.style.display = 'flex';
-
-                //Now we display the name as required
-                user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
-
-                //Now we add all the directories to the navigation
-                const dir_list_members = response.dir_list;
-                //Call the fuction which adds the dirs to navs
-                fill_nav_with_dirs(dir_list_members);
-
-                //Now we add the checkable dirs
-                fill_checks_with_dirs(dir_list_members)
-
-                //Change the os icons
-                if (response.current_os == 'Windows'){
-
-                    windows_icon.style.display = 'flex';
-
-                }
-                else if(response.current_os == 'Linux'){
-
-                    linux_icon.style.display = 'flex';
-
-                }
-
-                //Now lets add the current path to the interface
-                const current_path_dir = response.current_dir_path;
-                current_working_dir.innerHTML = current_path_dir
-
             }
-            else if(response.status == 'fail'){
+        });    
+    }
 
-                //On success
-                //Call the function that affect the login popup
-                login_popup_effects('flex','flex','none')
-
-                //Success popup
-                pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';
-                pop_error_auth_ssh.style.display = 'flex';
-
-                setTimeout(function(){
-
-                    pop_error_auth_ssh.style.display = 'none';
-                    
-                },2500);
-
-            }
-
-        },
-        error: function(error){
-
-            
-        }
-    });    
 })
