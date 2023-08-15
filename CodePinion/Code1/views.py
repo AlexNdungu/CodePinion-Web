@@ -86,6 +86,8 @@ def getLocalPath(request):
         #get the current profile
         current_profile = models.Profile.objects.get(user = request.user)
 
+        print(current_profile)
+
         #Call class
         login_instance = SecureShell(host_name,port_number,user_name,password,current_profile)
 
