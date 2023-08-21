@@ -188,7 +188,7 @@ class SecureShell:
             ssh_client.close()
 
             # Clean the return list
-            return_list = self.clean_server_response_list(stdout.readlines())
+            return_list = self.clean_server_response(stdout.readlines())
 
             return return_list
         
