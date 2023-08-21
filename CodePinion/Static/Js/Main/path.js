@@ -59,7 +59,7 @@ let choosen_dir_show = document.getElementById('the_selected_path_show');
 
 //This fuction acts as the dir cd function
 //Import from dir_navigation.js file
-import { enterSshDir } from './dir_navigate.js';
+import { interactWithCmd } from './dir_navigate.js';
 import { backToPrevDir } from './dir_navigate.js';
 
 //Get the CSRF token
@@ -207,13 +207,15 @@ export function fill_nav_with_dirs(parent_dir,dir_list_members){
     let clickable_folder_is_empty = document.getElementsByClassName('clickable_folder_is_empty');
     // Get all enter into directory buttons
     let enter_into_directory_btns = document.getElementsByClassName('inner_dir_enter');
+    // Get the current directory
+    let current_dir = document.getElementById('current_directory_ssh_dispayer').innerHTML;
 
     // Use the imported functions
     // This function will enter into the directory
-    enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns,csrf,login_user);
+    interactWithCmd(parent_dir,all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns,csrf,login_user);
 
     // This function will go back to the previous directory
-    backToPrevDir(parent_dir,csrf,login_user)
+    backToPrevDir(parent_dir,current_dir,csrf,login_user)
 
 }
 

@@ -5,7 +5,7 @@ import { fill_checks_with_dirs } from './path.js';
 // Helper fuctions below
 
 // This function is used to display sub directories
-function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,sub_dir_list){
+function viewSubDirs(index_value,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,sub_dir_list){
 
     // The popup messages
     let empty_folder_popup = document.getElementById('information_popup');
@@ -64,7 +64,7 @@ function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_conta
 }
 
 // This function is used to enter the directory and work with its sub directories
-function usedSubDir(enter_buttons,intended_dir_path,sub_dir_list){
+function usedSubDir(parent_dir,enter_buttons,intended_dir_path,sub_dir_list){
 
     // The popup messages
     let empty_folder_popup = document.getElementById('information_popup');
@@ -74,6 +74,9 @@ function usedSubDir(enter_buttons,intended_dir_path,sub_dir_list){
 
     // Take the current path
     let current_dir_path = document.getElementById('current_directory_ssh_dispayer');
+
+    let back_btn = document.getElementById('back_dir_btn');
+    let select_h3_show = document.getElementById('h3_show_after_dir_change');
 
     // Check if sub_dir_list is empty
     if(sub_dir_list.length == 0){
@@ -102,11 +105,16 @@ function usedSubDir(enter_buttons,intended_dir_path,sub_dir_list){
             enter_buttons[enter].addEventListener('click', ()=> {
 
                 // Call the import function
-                fill_nav_with_dirs(sub_dir_list);
+                fill_nav_with_dirs(parent_dir,sub_dir_list);
                 fill_checks_with_dirs(sub_dir_list);
 
                 // Update the path
                 current_dir_path.innerHTML = intended_dir_path;
+
+                // Show the back button
+                back_btn.style.display = 'flex';
+                // Hide the select h3
+                select_h3_show.style.display = 'none';
 
             })
 
@@ -117,7 +125,8 @@ function usedSubDir(enter_buttons,intended_dir_path,sub_dir_list){
 
 }
 
-export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns,csrf,login_user){
+// This fuction is used to interact with the directory navigation buttons
+export function interactWithCmd(parent_dir,all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns,csrf,login_user){
     
     // Get the host name from login_user
     let host_name = login_user.split('@')[1];
@@ -158,10 +167,10 @@ export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_na
                     all_dir_nav_btns_spinner[nav].style.display = 'none';
 
                     // Call the function to display the sub directories
-                    enterSubDir(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
+                    viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
 
                     // Call the function to work with the sub directories
-                    usedSubDir(enter_into_directory_btns,intended_dir_path,response.sub_dirs)
+                    usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,response.sub_dirs)
 
 
                 },
@@ -177,15 +186,16 @@ export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_na
 
 }
 
-
 //This function takes you back to the previous directory
-export function backToPrevDir(parent_dir,csrf,login_user){
+export function backToPrevDir(parent_dir,current_dir_path,csrf,login_user){
 
     let back_btn = document.getElementById('back_dir_btn');
-    let select_h3_show = document.getElementsByTagName('.inner_show_selected_path h3')[0];
+    let select_h3_show = document.getElementById('h3_show_after_dir_change');
 
-    // The current ssh dir
-    let current_dir_path = document.getElementById('current_directory_ssh_dispayer').innerHTML;
+
+    console.log( 'current ' + current_dir_path);
+
+    console.log( 'parent: ' + parent_dir);
 
     // Check if the current dir is the root dir
     if(current_dir_path == parent_dir){
@@ -208,12 +218,13 @@ export function backToPrevDir(parent_dir,csrf,login_user){
         // Click event to the back button
         back_btn.addEventListener('click', ()=> {
 
+
             // Get the host name from login_user
             let host_name = login_user.split('@')[1];
 
             // Get the previous directory path
             let remove_current_dir = current_dir_path.lastIndexOf("\\");
-            let previous_directory_path = str.slice(0, remove_current_dir);
+            let previous_directory_path = current_dir_path.slice(0, remove_current_dir);
 
             // First we create form data
             let formData = new FormData();
@@ -234,7 +245,7 @@ export function backToPrevDir(parent_dir,csrf,login_user){
                     console.log(response);
 
                     // Call the import function
-                    fill_nav_with_dirs(response.sub_dirs);
+                    fill_nav_with_dirs(parent_dir,response.sub_dirs);
                     fill_checks_with_dirs(response.sub_dirs);
 
                     // Update the path
