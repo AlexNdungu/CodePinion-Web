@@ -34,7 +34,7 @@ function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_conta
     else{
 
         success_folder_popup.style.display = 'flex';
-        success_folder_popup_message.innerHTML = 'Successfully Entered The Directory !';
+        success_folder_popup_message.innerHTML = 'Successfully Retrieved The Directory !';
 
         setTimeout(() => {
             success_folder_popup.style.display = 'none';
@@ -64,13 +64,16 @@ function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_conta
 }
 
 // This function is used to enter the directory and work with its sub directories
-function usedSubDir(enter_buttons,sub_dir_list){
+function usedSubDir(enter_buttons,intended_dir_path,sub_dir_list){
 
     // The popup messages
     let empty_folder_popup = document.getElementById('information_popup');
 
     let success_folder_popup = document.getElementById('success_popup');
     let success_folder_popup_message = document.getElementById('pop_success_auth_ssh_message');
+
+    // Take the current path
+    let current_dir_path = document.getElementById('current_directory_ssh_dispayer');
 
     // Check if sub_dir_list is empty
     if(sub_dir_list.length == 0){
@@ -85,12 +88,14 @@ function usedSubDir(enter_buttons,sub_dir_list){
     }
     else{
 
+        // Show success message
         success_folder_popup.style.display = 'flex';
         success_folder_popup_message.innerHTML = 'Successfully Entered The Directory !';
 
         setTimeout(() => {
             success_folder_popup.style.display = 'none';
         }, 5000);
+
 
         for(let enter = 0; enter < enter_buttons.length; enter++){
 
@@ -99,6 +104,9 @@ function usedSubDir(enter_buttons,sub_dir_list){
                 // Call the import function
                 fill_nav_with_dirs(sub_dir_list);
                 fill_checks_with_dirs(sub_dir_list);
+
+                // Update the path
+                current_dir_path.innerHTML = intended_dir_path;
 
             })
 
@@ -153,7 +161,7 @@ export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_na
                     enterSubDir(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
 
                     // Call the function to work with the sub directories
-                    usedSubDir(enter_into_directory_btns,response.sub_dirs)
+                    usedSubDir(enter_into_directory_btns,intended_dir_path,response.sub_dirs)
 
 
                 },
