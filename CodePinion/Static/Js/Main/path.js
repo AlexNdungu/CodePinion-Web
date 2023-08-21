@@ -139,9 +139,21 @@ function fill_nav_with_dirs(dir_list_members){
 
                     </div>
 
-                    <div class="inner_clicked_dir">
+                    <div class="inner_clicked_dir"> 
 
                         <div class="drop_inner_dir">
+
+                            <div class="minor_dir_them_section">
+
+                                <div class="minor_dir">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
+
+                                    <span>CodePinion</span>
+
+                                </div>
+
+                            </div>
 
                             <div class="close_enter_inner_dir_btns">
 
@@ -158,18 +170,6 @@ function fill_nav_with_dirs(dir_list_members){
                                     <span>Close</span>
 
                                     <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
-
-                                </div>
-
-                            </div>
-
-                            <div class="minor_dir_them_section">
-
-                                <div class="minor_dir">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
-
-                                    <span>CodePinion</span>
 
                                 </div>
 
@@ -195,9 +195,13 @@ function fill_nav_with_dirs(dir_list_members){
     let all_dir_names = document.getElementsByClassName('clickable_directory_name');
     // Get the login_user
     let login_user = document.getElementById('slash_user_view').innerHTML
+    // Get the inner subdirectories
+    let inner_subdirectories = document.getElementsByClassName('inner_clicked_dir');
+    // Get the container holding all the inner subdirectories
+    let inner_subdirectories_container = document.getElementsByClassName('minor_dir_them_section');
 
     //Use the imported function
-    enterSshDir(all_dir_nav_btns,all_dir_names,csrf,login_user);
+    enterSshDir(all_dir_nav_btns,all_dir_names,inner_subdirectories,inner_subdirectories_container,csrf,login_user);
 }
 
 //This fuction fill the check dir section with the dirs

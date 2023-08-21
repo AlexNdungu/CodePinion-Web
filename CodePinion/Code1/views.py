@@ -94,7 +94,7 @@ def getLocalPath(request):
 
         #use the login instance to receive the response
         server_reponse = login_instance.ssh_login()
-        
+
 
         if server_reponse != 'Error':
 
@@ -122,10 +122,8 @@ def cdIntoDir(request):
 
         # Call the SecureShell class
         ssh_instance = SecureShell(ssh_device.host_name,ssh_device.host_port,ssh_device.host_username,ssh_device.host_password)
-        # call the window_command function
+        # call the windows_command function
         server_response = ssh_instance.windows_command(intended_path)
 
-        print(server_response)
-
-        return JsonResponse({'status':'success','path':intended_path})
+        return JsonResponse({'status':'success','sub_dirs':server_response,'path':intended_path})
     
