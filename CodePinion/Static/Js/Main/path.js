@@ -378,11 +378,12 @@ login_ssh.addEventListener('click', ()=> {
             contentType: false,
             success: function(response){
 
-                console.log(response.status)
-
                 if(response.status == 'success'){
 
                     //On success
+                    
+                    //Call the function that affect the login popup
+                    login_popup_effects('flex','flex','none');
 
                     //Success popup
                     success_popup.style.display = 'flex';
@@ -391,11 +392,7 @@ login_ssh.addEventListener('click', ()=> {
 
                         success_popup.style.display = 'none';
                         
-                    },2500);
-
-                    
-                    //Call the function that affect the login popup
-                    login_popup_effects('flex','flex','none');
+                    },5000);
 
                     //Remove login popup
                     ssh_login_form.style.display = 'none';
@@ -444,7 +441,7 @@ login_ssh.addEventListener('click', ()=> {
 
                         pop_error_auth_ssh.style.display = 'none';
                         
-                    },2500);
+                    },5000);
 
                 }
 

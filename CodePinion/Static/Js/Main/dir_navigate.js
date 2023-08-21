@@ -20,7 +20,7 @@ export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_na
 
             console.log(intended_dir_path)
 
-            //First we create form data
+            // First we create form data
             let formData = new FormData();
 
             formData.append('csrfmiddlewaretoken', csrf[0].value);
@@ -35,7 +35,7 @@ export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_na
                 contentType: false,
                 success: function(response){
 
-                    //On success
+                    // On success
 
                     enterSubDir(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
 
@@ -58,8 +58,16 @@ export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_na
 
 function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,sub_dir_list){
 
+    // The popup messages
+    let empty_folder_popup = document.getElementById('information_popup');
+
+    let success_folder_popup = document.getElementById('success_popup');
+    let success_folder_popup_message = document.getElementById('pop_success_auth_ssh_message');
+
     // Show the sub directories section
     inner_subdirectories[index_value].style.display = 'flex';
+
+    $(inner_subdirectories_container[index_value]).empty();
 
     // Check if sub_dir_list is empty
     if(sub_dir_list.length == 0){
@@ -67,13 +75,21 @@ function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_conta
         // Show the sub directories section
         clickable_folder_is_empty[index_value].style.display = 'flex';
 
-        return;
+        empty_folder_popup.style.display = 'flex';
+
+        setTimeout(() => {
+            empty_folder_popup.style.display = 'none';
+        }, 5000);
+
     }
+    else{
 
+        success_folder_popup.style.display = 'flex';
+        success_folder_popup_message.innerHTML = 'Successfully Entered The Directory !';
 
-    $(inner_subdirectories_container[index_value]).empty();
-
-    if(sub_dir_list.length > 0){
+        setTimeout(() => {
+            success_folder_popup.style.display = 'none';
+        }, 5000);
 
         for(let oneDIR = 0; oneDIR < sub_dir_list.length; oneDIR++){
 
@@ -89,7 +105,7 @@ function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_conta
                 </div>
                 `
 
-            //Append all the lists
+            // Append all the lists
             $(inner_subdirectories_container[index_value]).append(sub_drectory);
 
         }
