@@ -1,4 +1,4 @@
-export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,csrf,login_user){
+export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,csrf,login_user){
     
     // Get the host name from login_user
     let host_name = login_user.split('@')[1];
@@ -37,7 +37,7 @@ export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_na
 
                     //On success
 
-                    enterSubDir(folder_index,inner_subdirectories,inner_subdirectories_container,response.sub_dirs);
+                    enterSubDir(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
 
                     all_dir_nav_btns_spinner[nav].style.display = 'none';
 
@@ -56,10 +56,20 @@ export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_na
 }
 
 
-function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_container,sub_dir_list){
+function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,sub_dir_list){
 
     // Show the sub directories section
     inner_subdirectories[index_value].style.display = 'flex';
+
+    // Check if sub_dir_list is empty
+    if(sub_dir_list.length == 0){
+
+        // Show the sub directories section
+        clickable_folder_is_empty[index_value].style.display = 'flex';
+
+        return;
+    }
+
 
     $(inner_subdirectories_container[index_value]).empty();
 

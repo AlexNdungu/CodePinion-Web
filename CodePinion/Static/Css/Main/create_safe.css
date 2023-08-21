@@ -480,16 +480,49 @@
 /* The inner section containing buttons and dirs */
 
 .drop_inner_dir {
+    position: relative;
     width: calc(100% - 10px);
     max-height: 100%;
     border-radius: 10px;
-    border: 1.5px solid #414141;
+    border: 1.5px solid #D9D9D9;
     padding-bottom: 5px;
 }
 
 .drop_inner_dir:hover {
     border: 1.5px solid #406CEE;
 }
+
+/* Empty folder */
+.clickable_folder_is_empty {
+    position: absolute;
+    display: none; /* flex to make changes to empty folder */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+}
+
+.clickable_folder_is_empty svg {
+    width: 15px;
+    fill: #414141;
+}
+
+/* Define a keyframe animation for the up and down movement */
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(2);
+      }
+  }
+  
+  /* Apply the animation to the svg element */
+  .clickable_folder_is_empty svg {
+    animation: bounce 2s ease-in-out infinite;
+  }
 
 
 /* These button will close or enter onto the dir */
