@@ -52,17 +52,21 @@ class SecureShell:
     #     return plain_pass
 
 
-    def clean_server_response_list(self,server_response_list):
+    def clean_server_response(self,server_response_list=[],current_directory=None):
 
-        #Clean the return by
-        dir_list = []
+        # Clean the return by
+        dir_list = [dir.replace("\r", "").replace("\n", "") for dir in server_response_list]
 
-        for dir in server_response_list:
+        if current_directory is not None:
+            # Clean the current path
+            clean_current_directory = current_directory.replace("\r", "").replace("\n", "")
 
-            dir_new = dir.replace("\r", "").replace("\n", "")
-            dir_list.append(dir_new)
-
-        return dir_list
+        if server_response_list and current_directory:
+            return dir_list, clean_current_directory
+        elif current_directory is None:
+            return dir_list
+        else:
+            return clean_current_directory
     
 
     # This method will be reponsible for ssh login
@@ -119,9 +123,27 @@ class SecureShell:
 
             for command in commands:
 
-                stdin, stdout, stderr = ssh_client.exec_command(command)
+                index = commands.index(command)
 
-                out_put.append(stdout.readlines())
+                if index == 0:
+                        
+                    stdin, stdout, stderr = ssh_client.exec_command(command)
+
+                    # Clean the current directory
+                    return_path = self.clean_server_response(current_directory = stdout.readlines()[0])
+
+                    # Append directory to out_put
+                    out_put.append(return_path)
+
+                elif index == 1:
+
+                    stdin, stdout, stderr = ssh_client.exec_command(command)
+
+                    # Clean the return list
+                    return_list = self.clean_server_response(server_response_list = stdout.readlines())
+
+                    # Append directory to out_put
+                    out_put.append(return_list)
 
             time.sleep(5)
 

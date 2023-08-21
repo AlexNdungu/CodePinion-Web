@@ -98,21 +98,9 @@ def getLocalPath(request):
 
         if server_reponse != 'Error':
 
-            #Clean the return by
-            dir_list = []
+            print(server_reponse)
 
-            for dir in server_reponse[2]:
-
-                dir_new = dir.replace("\r", "").replace("\n", "")
-                dir_list.append(dir_new)
-
-            # Get the current path 
-            current_dir_path = server_reponse[1][0].replace("\r", "").replace("\n", "")
-
-            # Get the os
-            current_os = server_reponse[0]
-
-            return JsonResponse({'status':'success', 'dir_list':dir_list, 'current_dir_path':current_dir_path,'current_os':current_os})
+            return JsonResponse({'status':'success', 'dir_list':server_reponse[2], 'current_dir_path':server_reponse[1],'current_os':server_reponse[0]})
         
         else:
 
