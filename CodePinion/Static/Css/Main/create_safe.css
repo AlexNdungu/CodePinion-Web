@@ -577,6 +577,7 @@
 
 /* Clickable ssh directory */
 .clickable_ssh_directory {
+    position: relative;
     width: calc(100% - 10px);
     height: 45px;
     border-radius: 7px;
@@ -609,6 +610,31 @@
 
 .clickable_ssh_directory:hover > svg {
     fill: #406CEE;
+}
+
+/* The clickable dir spinner */
+/* Define a keyframe animation for the spinner */
+@keyframes spin1 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Apply the animation to the class clickable_dir_spinner */
+.clickable_dir_spinner {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    border: 3px solid #8F8F8F;
+    border-top-color: #406CEE;
+    border-radius: 50%;
+    animation: spin1 0.4s linear infinite;
 }
 
 

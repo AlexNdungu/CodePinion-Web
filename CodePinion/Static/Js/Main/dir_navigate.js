@@ -1,4 +1,4 @@
-export function enterSshDir(all_dir_nav_btns,all_dir_names,inner_subdirectories,inner_subdirectories_container,csrf,login_user){
+export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,csrf,login_user){
     
     // Get the host name from login_user
     let host_name = login_user.split('@')[1];
@@ -7,6 +7,9 @@ export function enterSshDir(all_dir_nav_btns,all_dir_names,inner_subdirectories,
     for(let nav = 0; nav < all_dir_nav_btns.length; nav++ ){
 
         all_dir_nav_btns[nav].addEventListener('click', (event)=> {
+
+            //Show the spinner
+            all_dir_nav_btns_spinner[nav].style.display = 'flex';
 
             let folder_index = nav;
 
@@ -34,7 +37,9 @@ export function enterSshDir(all_dir_nav_btns,all_dir_names,inner_subdirectories,
 
                     //On success
 
-                    enterSubDir(folder_index,inner_subdirectories,inner_subdirectories_container,response.sub_dirs)
+                    enterSubDir(folder_index,inner_subdirectories,inner_subdirectories_container,response.sub_dirs);
+
+                    all_dir_nav_btns_spinner[nav].style.display = 'none';
 
 
                 },

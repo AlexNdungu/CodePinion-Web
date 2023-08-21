@@ -131,11 +131,12 @@ function fill_nav_with_dirs(dir_list_members){
                 <div class="the_clickable_and_inner_dir">
 
                     <div class="clickable_ssh_directory">
-
                         
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
 
                         <span class="clickable_directory_name" >${dir_list_members[oneDIR]}</span>
+
+                        <div class="clickable_dir_spinner"></div>
 
                     </div>
 
@@ -145,13 +146,7 @@ function fill_nav_with_dirs(dir_list_members){
 
                             <div class="minor_dir_them_section">
 
-                                <div class="minor_dir">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
-
-                                    <span>CodePinion</span>
-
-                                </div>
+                                <!--Subdirectories will appear here-->
 
                             </div>
 
@@ -191,6 +186,8 @@ function fill_nav_with_dirs(dir_list_members){
 
     // Get All the dir navigation buttons
     let all_dir_nav_btns = document.getElementsByClassName('clickable_ssh_directory');
+    // Get all the spinner
+    let all_dir_nav_btns_spinner = document.getElementsByClassName('clickable_dir_spinner');
     // Get all dir names
     let all_dir_names = document.getElementsByClassName('clickable_directory_name');
     // Get the login_user
@@ -201,7 +198,7 @@ function fill_nav_with_dirs(dir_list_members){
     let inner_subdirectories_container = document.getElementsByClassName('minor_dir_them_section');
 
     //Use the imported function
-    enterSshDir(all_dir_nav_btns,all_dir_names,inner_subdirectories,inner_subdirectories_container,csrf,login_user);
+    enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,csrf,login_user);
 }
 
 //This fuction fill the check dir section with the dirs
