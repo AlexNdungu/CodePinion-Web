@@ -51,6 +51,20 @@ class SecureShell:
         
     #     return plain_pass
 
+
+    def clean_server_response_list(self,server_response_list):
+
+        #Clean the return by
+        dir_list = []
+
+        for dir in server_response_list:
+
+            dir_new = dir.replace("\r", "").replace("\n", "")
+            dir_list.append(dir_new)
+
+        return dir_list
+    
+
     # This method will be reponsible for ssh login
     def ssh_login(self):
 
@@ -151,7 +165,10 @@ class SecureShell:
 
             ssh_client.close()
 
-            return stdout.readlines()
+            # Clean the return list
+            return_list = self.clean_server_response_list(stdout.readlines())
+
+            return return_list
         
         except paramiko.ssh_exception.AuthenticationException:
 
