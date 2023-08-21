@@ -223,7 +223,7 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: none; /* Flex for upgrade */
+    display: flex; /* Flex for upgrade */
     align-items: center;
     justify-content: center;
 }
@@ -457,6 +457,30 @@
 .inner_show_selected_path h3 {
     color: #414141;
 }
+
+/* The previous directory button */
+#back_dir_btn {
+    height: 40px;
+    width: 200px;
+    display: none; /* Flex to change back directory button */
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    background-color: #414141;
+    color: #f3f3f3;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+#back_dir_btn:hover {
+    background-color: #406CEE;
+}
+
+#back_dir_btn svg {
+    fill: #F3F3F3;
+    width: 30px;
+}
+
 
 /* Read the selected path */
 .view_selected_path {

@@ -176,3 +176,75 @@ export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_na
     };
 
 }
+
+
+//This function takes you back to the previous directory
+export function backToPrevDir(parent_dir,csrf,login_user){
+
+    let back_btn = document.getElementById('back_dir_btn');
+    let select_h3_show = document.getElementsByTagName('.inner_show_selected_path h3')[0];
+
+    // The current ssh dir
+    let current_dir_path = document.getElementById('current_directory_ssh_dispayer').innerHTML;
+
+    // Get the host name from login_user
+    let host_name = login_user.split('@')[1];
+
+    // Check if the current dir is the root dir
+    if(current_dir_path == parent_dir){
+
+        // Show h3 tag
+        select_h3_show.style.display = 'flex';
+
+        //Hide the back button
+        back_btn.style.display = 'none';
+
+    }
+    else{
+
+        // Hide h3 tag
+        select_h3_show.style.display = 'none';
+
+        //Show the back button
+        back_btn.style.display = 'flex';
+
+        // Click event to the back button
+        back_btn.addEventListener('click', ()=> {
+
+            // First we create form data
+            let formData = new FormData();
+
+            formData.append('csrfmiddlewaretoken', csrf[0].value);
+            formData.append('current_path',current_dir_path);
+            formData.append('host_name',host_name);
+
+            $.ajax({
+                type:'POST',
+                url:'/cdDir/',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response){
+
+                    // On success
+                    console.log(response);
+
+                    // Call the import function
+                    fill_nav_with_dirs(response.sub_dirs);
+                    fill_checks_with_dirs(response.sub_dirs);
+
+                    // Update the path
+                    document.getElementById('current_directory_ssh_dispayer').innerHTML = response.current_dir;
+
+                },
+                error: function(error){
+
+                    
+                }
+            });
+
+        });    
+
+    }
+
+}
