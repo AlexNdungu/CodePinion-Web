@@ -189,13 +189,15 @@ function fill_nav_with_dirs(dir_list_members){
 
     }
 
-    //Get All the dir navigation buttons
+    // Get All the dir navigation buttons
     let all_dir_nav_btns = document.getElementsByClassName('the_clickable_and_inner_dir');
-    //Get all dir names
+    // Get all dir names
     let all_dir_names = document.getElementsByClassName('clickable_directory_name');
+    // Get the login_user
+    let login_user = document.getElementById('slash_user_view').innerHTML
 
     //Use the imported function
-    enterSshDir(all_dir_nav_btns,all_dir_names,csrf);
+    enterSshDir(all_dir_nav_btns,all_dir_names,csrf,login_user);
 }
 
 //This fuction fill the check dir section with the dirs

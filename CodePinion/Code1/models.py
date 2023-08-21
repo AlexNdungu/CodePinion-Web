@@ -1,17 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.auth.hashers import make_password
-
-
+from cryptography.fernet import Fernet
+from fernet_fields import EncryptedTextField
 # Here I will create the tables in the databases
 
-#User Profile
+# User Profile
 class Profile(models.Model):
 
-    #One profile owned by one user
+    # One profile owned by one user
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    #The Profile class attributes
+    # The Profile class attributes
     profile_id = models.AutoField(primary_key=True)
     full_name = models.CharField(max_length=50, verbose_name='Full Name')
 
@@ -36,7 +35,7 @@ class Profile(models.Model):
 
 
 
-#Supported Devices
+# Supported Devices
 class SSH_Supported(models.Model):
 
     os_name = models.CharField(max_length=10, verbose_name='OS Name')
@@ -50,22 +49,23 @@ class SSH_Supported(models.Model):
         return self.os_name
 
 
-#SSH device model
+# SSH device model
 class SSH_Devices(models.Model):
 
-    #Owner of these devices
+    # Owner of these devices
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Device Owner')
 
-    #The os of the device
+    # The os of the device
     device_os = models.ForeignKey(SSH_Supported, on_delete=models.CASCADE, verbose_name='Device OS')
 
     host = models.CharField(max_length=35, verbose_name='Host Name')
     host_name = models.CharField(max_length=20, verbose_name='Device Name')
     host_port = models.IntegerField(verbose_name='Port Number', default=22)
     host_username = models.CharField(max_length=20, verbose_name='Host Username')
-    host_password = models.CharField(max_length=128, verbose_name='Host Password')
+    #host_password = models.CharField(max_length=128, verbose_name='Host Password')
+    host_password = EncryptedTextField(verbose_name='Host Password')
 
-    #The last time user was connected to the device
+    # The last time user was connected to the device
     last_connected = models.DateTimeField(verbose_name='Lastly Connected')
 
     update = models.DateTimeField(auto_now=True)
@@ -74,10 +74,12 @@ class SSH_Devices(models.Model):
     def __str__(self):
         return self.host
     
-    #Saving the password
-    def save(self, *args, **kwargs):
-        self.host_password = make_password(self.host_password)
-        super().save(*args, **kwargs)
+    # Saving the password
+    # def save(self, *args, **kwargs):
+    #     key = Fernet.generate_key()
+    #     f = Fernet(key)
+    #     self.host_password = f.encrypt(self.host_password.encode())
+    #     super().save(*args, **kwargs)
 
 
 

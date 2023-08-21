@@ -412,9 +412,11 @@
 
 /* Read the selected path */
 .view_selected_path {
-    width: 500px;
+    width: fit-content;
+    min-width: 400px;
     height: 40px;
     padding-left: 20px;
+    padding-right: 20px;
     border-radius: 10px;
     border: 1.5px solid #8F8F8F;
     display: flex;

@@ -1,8 +1,9 @@
-export function enterSshDir(all_dir_nav_btns,all_dir_names,csrf){
-    //Get the CSRF token
-    //let csrf = document.getElementsByName('csrfmiddlewaretoken');
+export function enterSshDir(all_dir_nav_btns,all_dir_names,csrf,login_user){
+    
+    // Get the host name from login_user
+    let host_name = login_user.split('@')[1];
 
-    //Click event to the navigation buttons ssh
+    // Click event to the navigation buttons ssh
     for(let nav = 0; nav < all_dir_nav_btns.length; nav++ ){
 
         all_dir_nav_btns[nav].addEventListener('click', ()=> {
@@ -21,16 +22,13 @@ export function enterSshDir(all_dir_nav_btns,all_dir_names,csrf){
             //First we create form data
             let formData = new FormData();
 
-            //Append the csrf token
             formData.append('csrfmiddlewaretoken', csrf[0].value);
-
-            //Append hostname,username and password
             formData.append('intended_path',intended_dir_path);
-            formData.append('ssh_activity','cd');
+            formData.append('host_name',host_name);
 
             $.ajax({
                 type:'POST',
-                url:'/getPath/',
+                url:'/cdDir/',
                 data: formData,
                 processData: false,
                 contentType: false,

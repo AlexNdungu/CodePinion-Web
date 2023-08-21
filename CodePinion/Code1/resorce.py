@@ -1,17 +1,18 @@
 import paramiko
 import time
 from datetime import datetime
+from cryptography.fernet import Fernet
 
 from . import models
 from django.contrib.auth.models import User
 from .generate import UserGen
 
 
-#Create A Class SecureShell That Has All the methods required by ssh
+# Create A Class SecureShell That Has All the methods required by ssh
 
 class SecureShell:
 
-    def __init__(self,hostname,port,username,password,profile):
+    def __init__(self,hostname,port,username,password,profile=None):
         
         self.hostname = hostname
         self.port = port
@@ -19,13 +20,13 @@ class SecureShell:
         self.password = password
         self.profile = profile
 
-    #Save ssh device
+    # Save ssh device
     def save_device(self,os):
 
-        #Get the os
+        # Get the os
         device_os = models.SSH_Supported.objects.get(os_name = os)
 
-        #Create a instance Device for the profile
+        # Create a instance Device for the profile
         ssh_device = models.SSH_Devices(
             profile = self.profile,
             device_os = device_os,
@@ -37,41 +38,49 @@ class SecureShell:
             last_connected = datetime.now()
         )
 
-        #Save the device
         ssh_device.save()
 
+    # Decodes password from database
+    # def decode_password(self):
 
-    #This method will be reponsible for ssh login
-    def sshLogin(self):
+    #     #Decrpt the password
+    #     key = Fernet.generate_key()
+    #     f = Fernet(key)
+    #     plain_pass = f.decrypt(self.password)
+    #     plain_pass = plain_pass.decode()
+        
+    #     return plain_pass
+
+    # This method will be reponsible for ssh login
+    def ssh_login(self):
 
         try:
 
             ssh_client = paramiko.SSHClient()
 
-            #Add to known
             ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
             ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
 
-            #This variable will store the os
+            # This variable will store the os
             what_is_os = ""
 
-            #This dictionary has two commamd that will enable codepinion to find out if ssh device is windows or linux
-            find_os = {
-                'Windows':'cd',
-                'Linux':'pwd',
-            }
+            find_os = [
+                ('Windows', 'dir'),
+                ('Linux', 'uname')
+            ]
 
-            #This loop passes the two commands in find_os and append the corresponding command to its os
-            for os, cmd in find_os.items():
+            # This loop passes the two commands in find_os and append the corresponding command to its os
+            for os, cmd in find_os:
 
                 stdin, stdout, stderr = ssh_client.exec_command(cmd)
 
                 if stdout.readlines() != []:
 
                     what_is_os = os 
+                    break
 
-            #This if statement changes command depending on whether os is windows or linux
+            # This if statement changes command depending on whether os is windows or linux
             if what_is_os == "Windows":
 
                 #Windows
@@ -88,10 +97,10 @@ class SecureShell:
                     'ls'
                 ]
 
-            #This list will hold all the outputs
+            # This list will hold all the outputs
             out_put = []
 
-            #First append the os returned
+            # First append the os returned
             out_put.append(what_is_os)
 
             for command in commands:
@@ -100,13 +109,11 @@ class SecureShell:
 
                 out_put.append(stdout.readlines())
 
-            #wait for 5seconds
             time.sleep(5)
 
-            #Close Connection
             ssh_client.close()
 
-            #Save this new device
+            # Save this new device
             if models.SSH_Devices.objects.filter(host_name = self.hostname).exists():
 
                 pass
@@ -120,11 +127,38 @@ class SecureShell:
         except paramiko.ssh_exception.AuthenticationException:
 
             return 'Error'
+        
+
+    # This method will be pass Windows commands
+    def windows_command(self,cd_path):
+
+        try:
+
+            ssh_client = paramiko.SSHClient()
+
+            ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+            ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
+
+            # This variable will store the cd command to enter into a new directory
+            cd_entry_command = 'dir ' + cd_path + ' /D /B /AD'
+
+            stdin, stdout, stderr = ssh_client.exec_command(cd_entry_command)
+
+            time.sleep(5)
+
+            ssh_client.close()
+
+            return stdout.readlines()
+        
+        except paramiko.ssh_exception.AuthenticationException:
+
+            return 'Error'
 
 
 
 
-#Create User Signal
+# Create User Signal
 def Create_User_Signal(user):
 
     #Create a profile for the user

@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 #from . import resorce
 from .resorce import SecureShell,Create_User_Signal
+from cryptography.fernet import Fernet
 
 # import subprocess 
 # import os
@@ -92,7 +93,7 @@ def getLocalPath(request):
         login_instance = SecureShell(host_name,port_number,user_name,password,current_profile)
 
         #use the login instance to receive the response
-        server_reponse = login_instance.sshLogin()
+        server_reponse = login_instance.ssh_login()
         
 
         if server_reponse != 'Error':
@@ -105,10 +106,10 @@ def getLocalPath(request):
                 dir_new = dir.replace("\r", "").replace("\n", "")
                 dir_list.append(dir_new)
 
-            #Get the current path 
+            # Get the current path 
             current_dir_path = server_reponse[1][0].replace("\r", "").replace("\n", "")
 
-            #Get the os
+            # Get the os
             current_os = server_reponse[0]
 
             return JsonResponse({'status':'success', 'dir_list':dir_list, 'current_dir_path':current_dir_path,'current_os':current_os})
@@ -125,7 +126,18 @@ def cdIntoDir(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
 
-        #Intended Path
         intended_path = request.POST.get('intended_path')
+        host_name = request.POST.get('host_name')
+
+        # The device instance with host_name = host_name
+        ssh_device = models.SSH_Devices.objects.get(host_name = host_name)
+
+        # Call the SecureShell class
+        ssh_instance = SecureShell(ssh_device.host_name,ssh_device.host_port,ssh_device.host_username,ssh_device.host_password)
+        # call the window_command function
+        server_response = ssh_instance.windows_command(intended_path)
+
+        print(server_response)
 
         return JsonResponse({'status':'success','path':intended_path})
+    
