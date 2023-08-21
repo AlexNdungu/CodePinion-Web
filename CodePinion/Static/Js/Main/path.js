@@ -190,7 +190,7 @@ function fill_nav_with_dirs(dir_list_members){
     }
 
     // Get All the dir navigation buttons
-    let all_dir_nav_btns = document.getElementsByClassName('the_clickable_and_inner_dir');
+    let all_dir_nav_btns = document.getElementsByClassName('clickable_ssh_directory');
     // Get all dir names
     let all_dir_names = document.getElementsByClassName('clickable_directory_name');
     // Get the login_user
@@ -257,7 +257,7 @@ function fill_checks_with_dirs(dir_list_members){
     }
 
     //Now give all the dirs click events
-    let all_dirs_checks = document.getElementsByClassName('ind_checked_and_choosen_dir');
+    let all_dirs_checks = document.getElementsByClassName('ind_checked_and_choosen_dir'); 
     let all_checks_for_dirs = document.getElementsByClassName('checkbox_for_this_dir');
     let svg_check_dir_ticks = document.getElementsByClassName('svg_check_dir_tick');
     let svg_check_containers = document.getElementsByClassName('check_dir');

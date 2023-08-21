@@ -6,7 +6,7 @@ export function enterSshDir(all_dir_nav_btns,all_dir_names,inner_subdirectories,
     // Click event to the navigation buttons ssh
     for(let nav = 0; nav < all_dir_nav_btns.length; nav++ ){
 
-        all_dir_nav_btns[nav].addEventListener('click', ()=> {
+        all_dir_nav_btns[nav].addEventListener('click', (event)=> {
 
             let folder_index = nav;
 
@@ -55,9 +55,6 @@ function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_conta
 
     // Show the sub directories section
     inner_subdirectories[index_value].style.display = 'flex';
-
-    console.log(inner_subdirectories_container[index_value])
-
 
     $(inner_subdirectories_container[index_value]).empty();
 
