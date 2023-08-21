@@ -141,7 +141,9 @@ class SecureShell:
             ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
 
             # This variable will store the cd command to enter into a new directory
-            cd_entry_command = 'dir ' + cd_path + ' /D /B /AD'
+            cd_entry_command = 'dir ' + '"' + cd_path + '"' + ' /D /B /AD'
+
+            print(cd_entry_command)
 
             stdin, stdout, stderr = ssh_client.exec_command(cd_entry_command)
 

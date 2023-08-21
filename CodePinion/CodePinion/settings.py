@@ -14,6 +14,10 @@ from pathlib import Path
 import os
 from Code1.secret import PostgreSQL_password
 
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
+
 #To load Css Correctly
 import mimetypes
 
