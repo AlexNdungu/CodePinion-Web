@@ -307,10 +307,27 @@
     justify-content: flex-start;
     padding-left: 20px;
     padding-right: 20px;
+    overflow-x: auto;
+    margin-right: 10px;
+}
+
+.ssh_path_indicate::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
+.ssh_path_indicate::-webkit-scrollbar-track {
+    background: #ACACAC;
+}
+
+.ssh_path_indicate::-webkit-scrollbar-thumb {
+    background-color: #406CEE;
+    border-radius: 2px;
 }
 
 .ssh_path_indicate svg {
-    width: 26px;
+    min-width: 26px;
+    max-width: 26px;
     fill: #414141;
     margin-right: 10px;
 }
@@ -318,6 +335,7 @@
 .ssh_path_indicate span {
     color: #414141;
     font-size: 15px;
+    white-space: nowrap;
 }
 
 
