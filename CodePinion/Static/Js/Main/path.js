@@ -58,8 +58,9 @@ let linux_icon = document.getElementById('linux_icon');
 let choosen_dir_show = document.getElementById('the_selected_path_show');
 
 //This fuction acts as the dir cd function
-//Import the fuction enterSshDir from dir_navigation.js file
+//Import from dir_navigation.js file
 import { enterSshDir } from './dir_navigate.js';
+import { backToPrevDir } from './dir_navigate.js';
 
 //Get the CSRF token
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
@@ -118,7 +119,7 @@ function login_popup_effects(span,svg,loader) {
 }
 
 //This function will fill the ssh navigation with dirs
-export function fill_nav_with_dirs(dir_list_members){
+export function fill_nav_with_dirs(parent_dir,dir_list_members){
 
     $('#select_ssh_directory_navigation').empty();
 
@@ -207,8 +208,13 @@ export function fill_nav_with_dirs(dir_list_members){
     // Get all enter into directory buttons
     let enter_into_directory_btns = document.getElementsByClassName('inner_dir_enter');
 
-    //Use the imported function
+    // Use the imported functions
+    // This function will enter into the directory
     enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns,csrf,login_user);
+
+    // This function will go back to the previous directory
+    backToPrevDir(parent_dir,csrf,login_user)
+
 }
 
 //This fuction fill the check dir section with the dirs
@@ -337,10 +343,10 @@ login_ssh.addEventListener('click', ()=> {
 
     let ssh_inputs_empty = false;
 
-    //Check if any input is empty and change ssh_inputs_empty to true
+    // Check if any input is empty and change ssh_inputs_empty to true
     for(let a = 0; a < log_ssh_input_icon_inputs.length;a++){
 
-        log_ssh_input_icons[a].style.border = '1.5px solid #D9D9D9';
+        log_ssh_input_icons[a].style.border = '2px solid #D9D9D9';
 
         if(log_ssh_input_icon_inputs[a].value == ''){
 
@@ -352,21 +358,21 @@ login_ssh.addEventListener('click', ()=> {
 
     }
 
-    //If no input is empty
+    // If no input is empty
     if(ssh_inputs_empty == false){
 
-        //Call the function that affect the login popup
+        // Call the function that affect the login popup
         login_popup_effects('none','none','flex')
             
-        //Now we perform the ajax call
+        // Now we perform the ajax call
 
-        //First we create form data
+        // First we create form data
         let formData = new FormData();
 
-        //Append the csrf token
+        // Append the csrf token
         formData.append('csrfmiddlewaretoken', csrf[0].value);
 
-        //Append hostname,username and password
+        // Append hostname,username and password
         formData.append('host_name',host_name.value);
         formData.append('port_number',port_number.value);
         formData.append('user_name',user_name.value);
@@ -382,12 +388,12 @@ login_ssh.addEventListener('click', ()=> {
 
                 if(response.status == 'success'){
 
-                    //On success
+                    // On success
                     
-                    //Call the function that affect the login popup
+                    // Call the function that affect the login popup
                     login_popup_effects('flex','flex','none');
 
-                    //Success popup
+                    // Success popup
                     success_popup.style.display = 'flex';
 
                     setTimeout(function(){
@@ -396,23 +402,28 @@ login_ssh.addEventListener('click', ()=> {
                         
                     },5000);
 
-                    //Remove login popup
+                    // Remove login popup
                     ssh_login_form.style.display = 'none';
-                    //Show the ssh filing system
+                    // Show the ssh filing system
                     ssh_file_system.style.display = 'flex';
 
-                    //Now we display the name as required
+                    // Now we display the name as required
                     user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
 
-                    //Now we add all the directories to the navigation
-                    const dir_list_members = response.dir_list;
-                    //Call the fuction which adds the dirs to navs
-                    fill_nav_with_dirs(dir_list_members);
+                    // Get the parent dir
+                    // Now lets add the current path to the interface
+                    const current_path_dir = response.current_dir_path;
+                    current_working_dir.innerHTML = current_path_dir
 
-                    //Now we add the checkable dirs
+                    // Now we add all the directories to the navigation
+                    const dir_list_members = response.dir_list;
+                    // Call the fuction which adds the dirs to navs
+                    fill_nav_with_dirs(current_path_dir,dir_list_members);
+
+                    // Now we add the checkable dirs
                     fill_checks_with_dirs(dir_list_members)
 
-                    //Change the os icons
+                    // Change the os icons
                     if (response.current_os == 'Windows'){
 
                         windows_icon.style.display = 'flex';
@@ -424,9 +435,6 @@ login_ssh.addEventListener('click', ()=> {
 
                     }
 
-                    //Now lets add the current path to the interface
-                    const current_path_dir = response.current_dir_path;
-                    current_working_dir.innerHTML = current_path_dir
 
                 }
                 else if(response.status == 'fail'){

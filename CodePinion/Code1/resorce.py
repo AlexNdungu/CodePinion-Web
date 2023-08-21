@@ -21,7 +21,7 @@ class SecureShell:
         self.profile = profile
 
     # Save ssh device
-    def save_device(self,os):
+    def save_device(self,server_home,os):
 
         # Get the os
         device_os = models.SSH_Supported.objects.get(os_name = os)
@@ -35,6 +35,7 @@ class SecureShell:
             host_port = self.port,
             host_username = self.username,
             host_password = self.password,
+            server_home_dir = server_home,
             last_connected = datetime.now()
         )
 
@@ -121,6 +122,9 @@ class SecureShell:
             # First append the os returned
             out_put.append(what_is_os)
 
+            # Define home directory
+            home_directory = ''
+
             for command in commands:
 
                 index = commands.index(command)
@@ -130,10 +134,10 @@ class SecureShell:
                     stdin, stdout, stderr = ssh_client.exec_command(command)
 
                     # Clean the current directory
-                    return_path = self.clean_server_response(current_directory = stdout.readlines()[0])
+                    home_directory = self.clean_server_response(current_directory = stdout.readlines()[0])
 
                     # Append directory to out_put
-                    out_put.append(return_path)
+                    out_put.append(home_directory)
 
                 elif index == 1:
 
@@ -156,7 +160,7 @@ class SecureShell:
 
             else:
 
-                self.save_device(what_is_os)
+                self.save_device(home_directory,what_is_os)
 
             return out_put
     

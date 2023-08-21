@@ -73,26 +73,24 @@ def ConnectSafe(request):
 def getLocalPath(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-            
-        #ssh_process = request.POST.get('ssh_activity')
 
-        #Host name
+        # Host name
         host_name = request.POST.get('host_name')
-        #Port Number
+        # Port Number
         port_number = int(request.POST.get('port_number'))
-        #User name
+        # User name
         user_name = request.POST.get('user_name')
-        #password
+        # password
         password = request.POST.get('password')
-        #get the current profile
+        # get the current profile
         current_profile = models.Profile.objects.get(user = request.user)
 
         print(current_profile)
 
-        #Call class
+        # Call class
         login_instance = SecureShell(host_name,port_number,user_name,password,current_profile)
 
-        #use the login instance to receive the response
+        # Use the login instance to receive the response
         server_reponse = login_instance.ssh_login()
 
 

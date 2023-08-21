@@ -62,8 +62,8 @@ class SSH_Devices(models.Model):
     host_name = models.CharField(max_length=20, verbose_name='Device Name')
     host_port = models.IntegerField(verbose_name='Port Number', default=22)
     host_username = models.CharField(max_length=20, verbose_name='Host Username')
-    #host_password = models.CharField(max_length=128, verbose_name='Host Password')
     host_password = EncryptedTextField(verbose_name='Host Password')
+    server_home_dir = models.TextField(verbose_name='Server Home Directory', default='/home')
 
     # The last time user was connected to the device
     last_connected = models.DateTimeField(verbose_name='Lastly Connected')

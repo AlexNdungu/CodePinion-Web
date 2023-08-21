@@ -187,9 +187,6 @@ export function backToPrevDir(parent_dir,csrf,login_user){
     // The current ssh dir
     let current_dir_path = document.getElementById('current_directory_ssh_dispayer').innerHTML;
 
-    // Get the host name from login_user
-    let host_name = login_user.split('@')[1];
-
     // Check if the current dir is the root dir
     if(current_dir_path == parent_dir){
 
@@ -211,11 +208,18 @@ export function backToPrevDir(parent_dir,csrf,login_user){
         // Click event to the back button
         back_btn.addEventListener('click', ()=> {
 
+            // Get the host name from login_user
+            let host_name = login_user.split('@')[1];
+
+            // Get the previous directory path
+            let remove_current_dir = current_dir_path.lastIndexOf("\\");
+            let previous_directory_path = str.slice(0, remove_current_dir);
+
             // First we create form data
             let formData = new FormData();
 
             formData.append('csrfmiddlewaretoken', csrf[0].value);
-            formData.append('current_path',current_dir_path);
+            formData.append('current_path',previous_directory_path);
             formData.append('host_name',host_name);
 
             $.ajax({
