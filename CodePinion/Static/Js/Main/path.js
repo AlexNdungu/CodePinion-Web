@@ -118,7 +118,7 @@ function login_popup_effects(span,svg,loader) {
 }
 
 //This function will fill the ssh navigation with dirs
-function fill_nav_with_dirs(dir_list_members){
+export function fill_nav_with_dirs(dir_list_members){
 
     $('#select_ssh_directory_navigation').empty();
 
@@ -204,13 +204,15 @@ function fill_nav_with_dirs(dir_list_members){
     let inner_subdirectories_container = document.getElementsByClassName('minor_dir_them_section');
     // Get the empty directory showing div
     let clickable_folder_is_empty = document.getElementsByClassName('clickable_folder_is_empty');
+    // Get all enter into directory buttons
+    let enter_into_directory_btns = document.getElementsByClassName('inner_dir_enter');
 
     //Use the imported function
-    enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,csrf,login_user);
+    enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns,csrf,login_user);
 }
 
 //This fuction fill the check dir section with the dirs
-function fill_checks_with_dirs(dir_list_members){
+export function fill_checks_with_dirs(dir_list_members){
 
     $('#check_choosen_directory_section').empty();
 

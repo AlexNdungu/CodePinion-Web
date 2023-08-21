@@ -1,61 +1,10 @@
-export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,csrf,login_user){
-    
-    // Get the host name from login_user
-    let host_name = login_user.split('@')[1];
+// Importing the functions from path.js
+import { fill_nav_with_dirs } from './path.js';
+import { fill_checks_with_dirs } from './path.js';
 
-    // Click event to the navigation buttons ssh
-    for(let nav = 0; nav < all_dir_nav_btns.length; nav++ ){
+// Helper fuctions below
 
-        all_dir_nav_btns[nav].addEventListener('click', (event)=> {
-
-            //Show the spinner
-            all_dir_nav_btns_spinner[nav].style.display = 'flex';
-
-            let folder_index = nav;
-
-            // The current ssh dir
-            let current_dir_path = document.getElementById('current_directory_ssh_dispayer').innerHTML;
-
-            let intended_dir_path = current_dir_path + "\\" + all_dir_names[nav].innerHTML;
-
-            console.log(intended_dir_path)
-
-            // First we create form data
-            let formData = new FormData();
-
-            formData.append('csrfmiddlewaretoken', csrf[0].value);
-            formData.append('intended_path',intended_dir_path);
-            formData.append('host_name',host_name);
-
-            $.ajax({
-                type:'POST',
-                url:'/cdDir/',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response){
-
-                    // On success
-
-                    enterSubDir(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
-
-                    all_dir_nav_btns_spinner[nav].style.display = 'none';
-
-
-                },
-                error: function(error){
-
-                    
-                }
-            });    
-
-            });
-
-    };
-
-}
-
-
+// This function is used to display sub directories
 function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,sub_dir_list){
 
     // The popup messages
@@ -111,5 +60,111 @@ function enterSubDir(index_value,inner_subdirectories,inner_subdirectories_conta
         }
 
     }
+
+}
+
+// This function is used to enter the directory and work with its sub directories
+function usedSubDir(enter_buttons,sub_dir_list){
+
+    // The popup messages
+    let empty_folder_popup = document.getElementById('information_popup');
+
+    let success_folder_popup = document.getElementById('success_popup');
+    let success_folder_popup_message = document.getElementById('pop_success_auth_ssh_message');
+
+    // Check if sub_dir_list is empty
+    if(sub_dir_list.length == 0){
+
+        // Show the sub directories section
+        empty_folder_popup.style.display = 'flex';
+
+        setTimeout(() => {
+            empty_folder_popup.style.display = 'none';
+        }, 5000);
+
+    }
+    else{
+
+        success_folder_popup.style.display = 'flex';
+        success_folder_popup_message.innerHTML = 'Successfully Entered The Directory !';
+
+        setTimeout(() => {
+            success_folder_popup.style.display = 'none';
+        }, 5000);
+
+        for(let enter = 0; enter < enter_buttons.length; enter++){
+
+            enter_buttons[enter].addEventListener('click', ()=> {
+
+                // Call the import function
+                fill_nav_with_dirs(sub_dir_list);
+                fill_checks_with_dirs(sub_dir_list);
+
+            })
+
+
+        }       
+
+    }
+
+}
+
+export function enterSshDir(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns,csrf,login_user){
+    
+    // Get the host name from login_user
+    let host_name = login_user.split('@')[1];
+
+    // Click event to the navigation buttons ssh
+    for(let nav = 0; nav < all_dir_nav_btns.length; nav++ ){
+
+        all_dir_nav_btns[nav].addEventListener('click', ()=> {
+
+            //Show the spinner
+            all_dir_nav_btns_spinner[nav].style.display = 'flex';
+
+            let folder_index = nav;
+
+            // The current ssh dir
+            let current_dir_path = document.getElementById('current_directory_ssh_dispayer').innerHTML;
+
+            let intended_dir_path = current_dir_path + "\\" + all_dir_names[nav].innerHTML;
+
+            console.log(intended_dir_path)
+
+            // First we create form data
+            let formData = new FormData();
+
+            formData.append('csrfmiddlewaretoken', csrf[0].value);
+            formData.append('intended_path',intended_dir_path);
+            formData.append('host_name',host_name);
+
+            $.ajax({
+                type:'POST',
+                url:'/cdDir/',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response){
+
+                    // On success
+                    all_dir_nav_btns_spinner[nav].style.display = 'none';
+
+                    // Call the function to display the sub directories
+                    enterSubDir(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
+
+                    // Call the function to work with the sub directories
+                    usedSubDir(enter_into_directory_btns,response.sub_dirs)
+
+
+                },
+                error: function(error){
+
+                    
+                }
+            });    
+
+            });
+
+    };
 
 }
