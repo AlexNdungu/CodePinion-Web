@@ -99,67 +99,6 @@ function viewSubDirs(index_value,inner_subdirectories,inner_subdirectories_conta
 
 }
 
-// This function is used to enter the directory and work with its sub directories
-// function usedSubDir(parent_dir,enter_buttons,intended_dir_path,sub_dir_list){
-
-//     // The popup messages
-//     let empty_folder_popup = document.getElementById('information_popup');
-
-//     let success_folder_popup = document.getElementById('success_popup');
-//     let success_folder_popup_message = document.getElementById('pop_success_auth_ssh_message');
-
-//     // Take the current path
-//     let current_dir_path = document.getElementById('current_directory_ssh_dispayer');
-
-//     let back_btn = document.getElementById('back_dir_btn');
-//     let select_h3_show = document.getElementById('h3_show_after_dir_change');
-
-//     // Check if sub_dir_list is empty
-//     if(sub_dir_list.length == 0){
-
-//         // Show the sub directories section
-//         empty_folder_popup.style.display = 'flex';
-
-//         setTimeout(() => {
-//             empty_folder_popup.style.display = 'none';
-//         }, 5000);
-
-//     }
-//     else{
-
-//         // Show success message
-//         success_folder_popup.style.display = 'flex';
-//         success_folder_popup_message.innerHTML = 'Successfully Entered The Directory !';
-
-//         setTimeout(() => {
-//             success_folder_popup.style.display = 'none';
-//         }, 5000);
-
-
-//         for(let enter = 0; enter < enter_buttons.length; enter++){
-
-//             enter_buttons[enter].addEventListener('click', ()=> {
-
-//                 // Call the import function
-//                 fill_nav_with_dirs(parent_dir,intended_dir_path,sub_dir_list);
-//                 fill_checks_with_dirs(sub_dir_list);
-
-//                 // Update the path
-//                 current_dir_path.innerHTML = intended_dir_path;
-
-//                 // Show the back button
-//                 back_btn.style.display = 'flex';
-//                 // Hide the select h3
-//                 select_h3_show.style.display = 'none';
-
-//             })
-
-//         }       
-
-//     }
-
-// }
-
 
 // This fuction is used to interact with the directory navigation buttons
 export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty){
@@ -204,8 +143,7 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
                 // Call the function to display the sub directories
                 viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,intended_dir_path,object.subdirectories);
 
-                // Call the function to work with the sub directories
-                // usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,object.subdirectories);
+                
             }
 
             else{
@@ -230,10 +168,6 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
 
                         // Call the function to display the sub directories
                         viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,intended_dir_path,response.sub_dirs);
-
-                        // Call the function to work with the sub directories
-                        // usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,response.sub_dirs);
-
 
                     },
                     error: function(error){
