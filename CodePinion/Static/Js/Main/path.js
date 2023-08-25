@@ -57,6 +57,11 @@ let linux_icon = document.getElementById('linux_icon');
 // Choosen dir
 let choosen_dir_show = document.getElementById('the_selected_path_show');
 
+// This button will close the ssh section and past path to the main page
+let close_ssh_section = document.getElementById('close_ssh_filing');
+let close_ssh_filing_svg_red = document.getElementById('close_ssh_filing_svg_red');
+let close_ssh_filing_svg_green = document.getElementById('close_ssh_filing_svg_green');
+
 // This object will store current_path, list_of_subdirs and
 export const past_directories = new Map();
 
@@ -285,29 +290,34 @@ export function fill_checks_with_dirs(dir_list_members){
 
             for(let num_check = 0; num_check < all_checks_for_dirs.length; num_check++){
 
-                //Uncheck the checkbox
+                // Uncheck the checkbox
                 all_checks_for_dirs[num_check].checked = false;
-                //Hide the chech tick
+                // Hide the chech tick
                 svg_check_dir_ticks[num_check].style.visibility = 'hidden';
-                //Change border of check tick container
+                // Change border of check tick container
                 svg_check_containers[num_check].classList.remove('svg_check_containers_hover');
-                //Return background to original
+                // Return background to original
                 if(all_dirs_checks[num_check].classList.contains('ind_onchecked_and_choosen_dir')){
                     all_dirs_checks[num_check].classList.remove('ind_onchecked_and_choosen_dir');
                 }
 
             }
 
-            //Check the checkbox
+            // Check the checkbox
             all_checks_for_dirs[num_dir].checked = true;
-            //Display the tick
+            // Display the tick
             svg_check_dir_ticks[num_dir].style.visibility = 'visible';
-            //Change border of check tick container
+            // Change border of check tick container
             svg_check_containers[num_dir].classList.add('svg_check_containers_hover');
-            //Change styling of checked dir
+            // Change styling of checked dir
             all_dirs_checks[num_dir].classList.add('ind_onchecked_and_choosen_dir');
-            //Change selected path
+            // Change selected path
             choosen_dir_show.innerHTML = current_working_dir.innerHTML + "\\" + individual_divs_names[num_dir].innerHTML;
+
+            // Change the background of the close ssh section button
+            close_ssh_section.classList.add('close_ssh_filing_active');
+            close_ssh_filing_svg_red.style.display = 'none';
+            close_ssh_filing_svg_green.style.display = 'flex';
 
         });
 
@@ -332,6 +342,11 @@ export function fill_checks_with_dirs(dir_list_members){
             }
 
         }
+
+        // Change the background of the close ssh section button
+        close_ssh_section.classList.remove('close_ssh_filing_active');
+        close_ssh_filing_svg_red.style.display = 'flex';
+        close_ssh_filing_svg_green.style.display = 'none';
 
         //Remove the selected dir
         choosen_dir_show.innerHTML = "";

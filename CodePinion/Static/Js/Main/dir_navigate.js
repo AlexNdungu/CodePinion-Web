@@ -79,6 +79,14 @@ function viewSubDirs(index_value,inner_subdirectories,inner_subdirectories_conta
 
             enter_into_directory_btns[enter].addEventListener('click', ()=> {
 
+                // Entry message
+                success_folder_popup.style.display = 'flex';
+                success_folder_popup_message.innerHTML = 'Successfully Entered The Directory !';
+
+                setTimeout(() => {
+                    success_folder_popup.style.display = 'none';
+                }, 5000);
+
                 // Call the import function
                 fill_nav_with_dirs(intended_dir_path,sub_dir_list);
                 fill_checks_with_dirs(sub_dir_list);
@@ -143,7 +151,6 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
                 // Call the function to display the sub directories
                 viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,intended_dir_path,object.subdirectories);
 
-                
             }
 
             else{
@@ -164,6 +171,13 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
                     success: function(response){
 
                         // On success
+
+                        // Add the directory to the past directories
+                        past_directories.get(host_name).push({
+                            subdirectories: response.sub_dirs,
+                            directoryPath: intended_dir_path
+                        });
+
                         all_dir_nav_btns_spinner[nav].style.display = 'none';
 
                         // Call the function to display the sub directories

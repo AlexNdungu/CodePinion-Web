@@ -428,9 +428,17 @@
     justify-content: center;
 }
 
+.close_ssh_filing_active {
+    background-color: #2CA631;
+}
+
 .close_ssh_filing svg {
     width: 30px;
     fill: #F3F3F3;
+}
+
+#close_ssh_filing_svg_green {
+    display: none;
 }
 
 /* Select Working Folder */
