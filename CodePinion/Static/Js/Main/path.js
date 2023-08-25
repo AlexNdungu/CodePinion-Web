@@ -1,6 +1,6 @@
-//Collecting The Directory to be connected to Code Pinion
+// Collecting The Directory to be connected to Code Pinion
 
-//select the  message
+// select the  message
 let success_popup = document.getElementById('success_popup');
 let not_selected = document.getElementById('not_selected');
 //
@@ -8,25 +8,25 @@ let pop_error_auth_ssh = document.getElementById('pop_error_auth_ssh');
 let pop_error_auth_ssh_message = document.getElementById('pop_error_auth_ssh_message');
 
 
-//Call the login for and file system
+// Call the login for and file system
 let ssh_login_form = document.getElementById('ssh_login_popup');
 let ssh_file_system = document.getElementById('choose_path_ssh_section');
 
 
-//The collect path button
+// The collect path button
 let launch_ssh_login_form = document.getElementById('select-path-btn-connect');
 let close_ssh_login_form = document.getElementById('close_ssh_form');
 //
 let paste_path = document.getElementById('selected-path');
 
 
-//get the post ssh credentials
+// get the post ssh credentials
 let login_ssh = document.getElementById('post_ssh_credentials'); 
 //
 let edit_port = document.getElementById('edit_default_port');
 let check_edit_input = document.getElementById('engage_port_editor');
 let show_default_port = document.getElementById('show_default_port');
-//let port_input_edit = document.getElementById('engage_port_editor');
+// let port_input_edit = document.getElementById('engage_port_editor');
 //
 let ssh_login_loader_spin = document.getElementById('loader_ssh_log');
 let login_ssh_span = document.querySelector('#post_ssh_credentials span');
@@ -37,25 +37,28 @@ let port_number = document.getElementById('port_number');
 let user_name = document.getElementById('user_name');
 let password = document.getElementById('password');
 
-//Check if the ssh credential inputs are empty
+// Check if the ssh credential inputs are empty
 //
 let log_ssh_input_icons = document.querySelectorAll('.log_ssh_input_icon');
 let log_ssh_input_icon_inputs = document.querySelectorAll('.log_ssh_input_icon input:not([type=\"checkbox\"])');
 
 
-//Get all the elements in the ssh filing system
+// Get all the elements in the ssh filing system
 let user_dir_indicate = document.getElementById('slash_user_view');
-//let list_ssh_navigation = document.getElementById('select_ssh_directory_navigation');
+// let list_ssh_navigation = document.getElementById('select_ssh_directory_navigation');
 
-//This will be used to uncheck the checked
+// This will be used to uncheck the checked
 let check_dir_section_for_unchecking = document.getElementById('check_choosen_directory_section');
-//Current path dir 
+// Current path dir 
 let current_working_dir = document.getElementById('current_directory_ssh_dispayer');
-//select the wimdows and linux icons
+// select the wimdows and linux icons
 let windows_icon = document.getElementById('windows_icon');
 let linux_icon = document.getElementById('linux_icon');
 // Choosen dir
 let choosen_dir_show = document.getElementById('the_selected_path_show');
+
+// This object will store current_path, list_of_subdirs and
+const ssh_dir_info = new Map();
 
 // This fuction acts as the dir cd function
 // Import from dir_navigation.js file
@@ -433,6 +436,14 @@ login_ssh.addEventListener('click', ()=> {
                         linux_icon.style.display = 'flex';
 
                     }
+
+                    // Update the ssh_dir_info
+                    ssh_dir_info.set(host_name.value, {
+                        subdirectories: dir_list_members,
+                        directoryPath: current_path_dir
+                    });
+
+                    console.log(ssh_dir_info);
 
 
                 }
