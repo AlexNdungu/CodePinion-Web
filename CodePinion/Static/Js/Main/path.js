@@ -58,7 +58,7 @@ let linux_icon = document.getElementById('linux_icon');
 let choosen_dir_show = document.getElementById('the_selected_path_show');
 
 // This object will store current_path, list_of_subdirs and
-const ssh_dir_info = new Map();
+export const ssh_dir_info = new Map();
 
 // This fuction acts as the dir cd function
 // Import from dir_navigation.js file
@@ -443,13 +443,11 @@ login_ssh.addEventListener('click', ()=> {
                         directoryPath: current_path_dir
                     });
 
-                    console.log(ssh_dir_info);
-
 
                 }
                 else if(response.status == 'fail'){
 
-                    //On success
+                    //On fail
                     //Call the function that affect the login popup
                     login_popup_effects('flex','flex','none')
 
@@ -468,7 +466,20 @@ login_ssh.addEventListener('click', ()=> {
             },
             error: function(error){
 
-                
+                //On fail
+                //Call the function that affect the login popup
+                login_popup_effects('flex','flex','none')
+
+                //Success popup
+                pop_error_auth_ssh_message.innerHTML = 'Fatal Error Occured. Try Again In A Few Minutes';
+                pop_error_auth_ssh.style.display = 'flex';
+
+                setTimeout(function(){
+
+                    pop_error_auth_ssh.style.display = 'none';
+                    
+                },5000);
+
             }
 
         });   

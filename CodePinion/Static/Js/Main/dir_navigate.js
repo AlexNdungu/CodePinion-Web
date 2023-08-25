@@ -1,10 +1,12 @@
 // Get the CSRF token
 let csrf1 = document.getElementsByName('csrfmiddlewaretoken');
 
-
 // Importing the functions from path.js
 import { fill_nav_with_dirs } from './path.js';
 import { fill_checks_with_dirs } from './path.js';
+
+// Import ssh_dir_info
+import { ssh_dir_info } from './path.js';
 
 // Helper fuctions below
 
@@ -172,6 +174,8 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
                 contentType: false,
                 success: function(response){
 
+                    console.log(ssh_dir_info);
+
                     // On success
                     all_dir_nav_btns_spinner[nav].style.display = 'none';
 
@@ -222,7 +226,7 @@ export function backToPrevDir(parent_dir,current_dir_path){
     }
     else{
 
-        
+
 
         // // Hide h3 tag
         // select_h3_show.style.display = 'none';
