@@ -356,6 +356,25 @@ export function fill_checks_with_dirs(dir_list_members){
 }
 
 
+// This click function will paste the path to the main page
+close_ssh_section.addEventListener('click', ()=> {
+
+    let selected_dir = document.getElementById('the_selected_path_show').innerHTML;
+    let ssh_file_system = document.getElementById('choose_path_ssh_section');
+
+    // Hide the ssh filing system
+    ssh_file_system.style.display = 'none';
+
+    if(selected_dir != ''){
+        
+    }
+    else{
+        
+    }
+
+
+});
+
 // This click function logs the user to the server
 login_ssh.addEventListener('click', ()=> {
 

@@ -419,13 +419,19 @@
 
 /* Close the ssh filing system */
 .close_ssh_filing {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background-color: #C53B3B;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+.close_ssh_filing:hover {
+    transform: scale(1.1);
 }
 
 .close_ssh_filing_active {
@@ -1550,23 +1556,15 @@
 
 }
 
-.select-path {
+.select-path,.select-path-device {
     width: 100%;
     height: 70px;
     padding-top: 15px;
-}
-
-.select-path:nth-child(1){
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
-.select-path:nth-child(3){
-    display: none; /* Flex when connected with ssh */
-    align-items: center;
-    justify-content: flex-start;
-}
 
 /* Select path btn */
 
@@ -1648,7 +1646,7 @@
 }
 
 .path-details {
-    display: none; /* Flex when connected with ssh */
+    display: flex; /* Flex when connected with ssh */
     color: #8F8F8F;
     font-size: 15px;
     margin-top: 10px;
