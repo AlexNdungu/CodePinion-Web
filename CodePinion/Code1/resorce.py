@@ -99,6 +99,7 @@ class SecureShell:
                     what_is_os = os 
                     break
 
+            print(what_is_os)
             # This if statement changes command depending on whether os is windows or linux
             if what_is_os == "Windows":
 

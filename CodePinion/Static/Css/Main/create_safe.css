@@ -1575,10 +1575,6 @@
     justify-content: flex-start;
 }
 
-.select-path-device {
-    display: flex; /* Flex to make changes to path and ssh device selection */
-}
-
 /* Select path btn */
 
 .select-path-btn,.select-path-btn-server {
@@ -1646,10 +1642,32 @@
     width: 400px;
     height: 50px;
     padding: 15px;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     border-radius: 10px;
     background-color: #F3F3F3;
     border: 2px solid #414141;
+}
+
+.path-pasted span {
+    white-space: nowrap;
+}
+
+.path-pasted::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
+.path-pasted::-webkit-scrollbar-track {
+    background: #ACACAC;
+}
+
+.path-pasted::-webkit-scrollbar-thumb {
+    background-color: #406CEE;
+    border-radius: 2px;
 }
 
 /* The path itself */

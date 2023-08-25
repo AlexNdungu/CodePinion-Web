@@ -369,6 +369,12 @@ close_ssh_section.addEventListener('click', ()=> {
 
     if(selected_dir != ''){
 
+        console.log('clicked')
+
+        // Get the host name from login_user
+        let host_name = document.getElementById('slash_user_view').innerHTML.split('@')[1];
+
+        // This is the section which will appear on the main page
         let ssh_dir_and_device = `
             <div class="select-path-device">
 
@@ -377,7 +383,7 @@ close_ssh_section.addEventListener('click', ()=> {
 
                     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M19 0h-14c-2.762 0-5 2.239-5 5v14c0 2.761 2.238 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-8 17.882l-6-.838v-4.044h6v4.882zm0-5.882h-6v-5.044l6-.838v5.882zm8 7l-7-.978v-5.022h7v6zm0-7h-7v-6.022l7-.978v7z"/></svg>
 
-                    <span>192.168.100.9</span>
+                    <span>${host_name}</span>
 
                 </div>
 
@@ -392,7 +398,7 @@ close_ssh_section.addEventListener('click', ()=> {
                 <div class="path-pasted">
 
                     <!--Path pasted here-->
-                    <span ></span>
+                    <span>${selected_dir}</span>
 
                 </div>
 
@@ -400,7 +406,7 @@ close_ssh_section.addEventListener('click', ()=> {
         `
 
         // Append the selected dir and path to the main page
-        $("#select_ssh_directory_navigation").append(ssh_dir_and_device);
+        $("#selected-path-and-ssh-devices").append(ssh_dir_and_device);
       
     }
 

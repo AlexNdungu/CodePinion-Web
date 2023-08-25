@@ -67,7 +67,13 @@ def CreateSafe(request):
 
 #New Safe Connected To Existing Project Folder
 def ConnectSafe(request):
-    return render(request, 'Main/connect_safe.html')
+
+    current_profile = models.Profile.objects.get(user = request.user)
+
+    # Get list of ssh devices
+    ssh_devices = models.SSH_Devices.objects.filter(profile = current_profile)
+
+    return render(request, 'Main/connect_safe.html', {'ssh_devices':ssh_devices})
 
 #Login to ssh
 def getLocalPath(request):
