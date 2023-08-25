@@ -125,7 +125,7 @@ function login_popup_effects(span,svg,loader) {
 }
 
 // This function will fill the ssh navigation with dirs
-export function fill_nav_with_dirs(parent_dir,current_dir,dir_list_members){
+export function fill_nav_with_dirs(current_dir,dir_list_members){
 
     $('#select_ssh_directory_navigation').empty();
 
@@ -209,13 +209,11 @@ export function fill_nav_with_dirs(parent_dir,current_dir,dir_list_members){
     let inner_subdirectories_container = document.getElementsByClassName('minor_dir_them_section');
     // Get the empty directory showing div
     let clickable_folder_is_empty = document.getElementsByClassName('clickable_folder_is_empty');
-    // Get all enter into directory buttons
-    let enter_into_directory_btns = document.getElementsByClassName('inner_dir_enter');
     
 
     // Use the imported functions
     // This function will enter into the directory
-    interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns);
+    interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty);
 
     // This function will go back to the previous directory
     backToPrevDir(current_dir)
@@ -394,6 +392,25 @@ login_ssh.addEventListener('click', ()=> {
                 if(response.status == 'success'){
 
                     // On success
+
+                    // Get the parent dir
+                    // Now lets add the current path to the interface
+                    const current_path_dir = response.current_dir_path;
+                    current_working_dir.innerHTML = current_path_dir
+
+                    // Now we add all the directories to the navigation
+                    const dir_list_members = response.dir_list;
+
+                    // Update the host_and_home_dir
+                    host_and_home_dir.set(host_name.value, current_path_dir);
+
+                    // Update the ssh_dir_info
+                    past_directories.set(host_name.value, [
+                        {
+                          subdirectories: dir_list_members,
+                          directoryPath: current_path_dir
+                        }
+                    ]);
                     
                     // Call the function that affect the login popup
                     login_popup_effects('flex','flex','none');
@@ -415,15 +432,8 @@ login_ssh.addEventListener('click', ()=> {
                     // Now we display the name as required
                     user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
 
-                    // Get the parent dir
-                    // Now lets add the current path to the interface
-                    const current_path_dir = response.current_dir_path;
-                    current_working_dir.innerHTML = current_path_dir
-
-                    // Now we add all the directories to the navigation
-                    const dir_list_members = response.dir_list;
                     // Call the fuction which adds the dirs to navs
-                    fill_nav_with_dirs(current_path_dir,current_path_dir,dir_list_members);
+                    fill_nav_with_dirs(current_path_dir,dir_list_members);
 
                     // Now we add the checkable dirs
                     fill_checks_with_dirs(dir_list_members)
@@ -439,16 +449,6 @@ login_ssh.addEventListener('click', ()=> {
                         linux_icon.style.display = 'flex';
 
                     }
-
-                    // Update the host_and_home_dir
-                    host_and_home_dir.set(host_name.value, current_path_dir);
-
-                    // Update the ssh_dir_info
-                    past_directories.set(host_name.value, {
-                        folderName: user_name.value,
-                        directoryPath: current_path_dir,
-                        subdirectories: dir_list_members
-                    });
 
 
                 }

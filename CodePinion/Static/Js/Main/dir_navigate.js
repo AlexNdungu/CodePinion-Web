@@ -12,13 +12,19 @@ import { host_and_home_dir } from './path.js';
 // Helper fuctions below
 
 // This function is used to display sub directories
-function viewSubDirs(index_value,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,sub_dir_list){
+function viewSubDirs(index_value,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,intended_dir_path,sub_dir_list){
 
     // The popup messages
     let empty_folder_popup = document.getElementById('information_popup');
 
     let success_folder_popup = document.getElementById('success_popup');
     let success_folder_popup_message = document.getElementById('pop_success_auth_ssh_message');
+
+    let back_btn = document.getElementById('back_dir_btn');
+
+    // Take the current path
+    let current_dir_path = document.getElementById('current_directory_ssh_dispayer');
+    let select_h3_show = document.getElementById('h3_show_after_dir_change');
 
     // Show the sub directories section
     inner_subdirectories[index_value].style.display = 'flex';
@@ -66,53 +72,15 @@ function viewSubDirs(index_value,inner_subdirectories,inner_subdirectories_conta
 
         }
 
-    }
+        // Get all enter into directory buttons
+        let enter_into_directory_btns = document.getElementsByClassName('inner_dir_enter');
 
-}
+        for(let enter = 0; enter < enter_into_directory_btns.length; enter++){
 
-// This function is used to enter the directory and work with its sub directories
-function usedSubDir(parent_dir,enter_buttons,intended_dir_path,sub_dir_list){
-
-    // The popup messages
-    let empty_folder_popup = document.getElementById('information_popup');
-
-    let success_folder_popup = document.getElementById('success_popup');
-    let success_folder_popup_message = document.getElementById('pop_success_auth_ssh_message');
-
-    // Take the current path
-    let current_dir_path = document.getElementById('current_directory_ssh_dispayer');
-
-    let back_btn = document.getElementById('back_dir_btn');
-    let select_h3_show = document.getElementById('h3_show_after_dir_change');
-
-    // Check if sub_dir_list is empty
-    if(sub_dir_list.length == 0){
-
-        // Show the sub directories section
-        empty_folder_popup.style.display = 'flex';
-
-        setTimeout(() => {
-            empty_folder_popup.style.display = 'none';
-        }, 5000);
-
-    }
-    else{
-
-        // Show success message
-        success_folder_popup.style.display = 'flex';
-        success_folder_popup_message.innerHTML = 'Successfully Entered The Directory !';
-
-        setTimeout(() => {
-            success_folder_popup.style.display = 'none';
-        }, 5000);
-
-
-        for(let enter = 0; enter < enter_buttons.length; enter++){
-
-            enter_buttons[enter].addEventListener('click', ()=> {
+            enter_into_directory_btns[enter].addEventListener('click', ()=> {
 
                 // Call the import function
-                fill_nav_with_dirs(parent_dir,intended_dir_path,sub_dir_list);
+                fill_nav_with_dirs(intended_dir_path,sub_dir_list);
                 fill_checks_with_dirs(sub_dir_list);
 
                 // Update the path
@@ -125,15 +93,76 @@ function usedSubDir(parent_dir,enter_buttons,intended_dir_path,sub_dir_list){
 
             })
 
-        }       
+        }
 
     }
 
 }
 
+// This function is used to enter the directory and work with its sub directories
+// function usedSubDir(parent_dir,enter_buttons,intended_dir_path,sub_dir_list){
+
+//     // The popup messages
+//     let empty_folder_popup = document.getElementById('information_popup');
+
+//     let success_folder_popup = document.getElementById('success_popup');
+//     let success_folder_popup_message = document.getElementById('pop_success_auth_ssh_message');
+
+//     // Take the current path
+//     let current_dir_path = document.getElementById('current_directory_ssh_dispayer');
+
+//     let back_btn = document.getElementById('back_dir_btn');
+//     let select_h3_show = document.getElementById('h3_show_after_dir_change');
+
+//     // Check if sub_dir_list is empty
+//     if(sub_dir_list.length == 0){
+
+//         // Show the sub directories section
+//         empty_folder_popup.style.display = 'flex';
+
+//         setTimeout(() => {
+//             empty_folder_popup.style.display = 'none';
+//         }, 5000);
+
+//     }
+//     else{
+
+//         // Show success message
+//         success_folder_popup.style.display = 'flex';
+//         success_folder_popup_message.innerHTML = 'Successfully Entered The Directory !';
+
+//         setTimeout(() => {
+//             success_folder_popup.style.display = 'none';
+//         }, 5000);
+
+
+//         for(let enter = 0; enter < enter_buttons.length; enter++){
+
+//             enter_buttons[enter].addEventListener('click', ()=> {
+
+//                 // Call the import function
+//                 fill_nav_with_dirs(parent_dir,intended_dir_path,sub_dir_list);
+//                 fill_checks_with_dirs(sub_dir_list);
+
+//                 // Update the path
+//                 current_dir_path.innerHTML = intended_dir_path;
+
+//                 // Show the back button
+//                 back_btn.style.display = 'flex';
+//                 // Hide the select h3
+//                 select_h3_show.style.display = 'none';
+
+//             })
+
+//         }       
+
+//     }
+
+// }
+
 
 // This fuction is used to interact with the directory navigation buttons
-export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns){
+export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty){
     
     // Get the login_user
     let login_user = document.getElementById('slash_user_view').innerHTML
@@ -157,7 +186,7 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
             let intended_dir_path = current_dir_path + "\\" + all_dir_names[nav].innerHTML;
 
             // Get the home directory
-            let parent_dir = host_and_home_dir.get(host_name);
+            // let parent_dir = host_and_home_dir.get(host_name);
 
             // Check if directory has been accessed earlier
             let the_past_dirs = past_directories.get(host_name);
@@ -166,16 +195,17 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
                 return obj.directoryPath === intended_dir_path;
             });
 
+
             // Check if the object exists
             if (object) {
 
                 all_dir_nav_btns_spinner[nav].style.display = 'none';
 
                 // Call the function to display the sub directories
-                viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,object.subdirectories);
+                viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,intended_dir_path,object.subdirectories);
 
                 // Call the function to work with the sub directories
-                usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,object.subdirectories);
+                // usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,object.subdirectories);
             }
 
             else{
@@ -199,10 +229,10 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
                         all_dir_nav_btns_spinner[nav].style.display = 'none';
 
                         // Call the function to display the sub directories
-                        viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
+                        viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,intended_dir_path,response.sub_dirs);
 
                         // Call the function to work with the sub directories
-                        usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,response.sub_dirs);
+                        // usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,response.sub_dirs);
 
 
                     },
@@ -227,6 +257,11 @@ export function backToPrevDir(current_dir_path){
     let back_btn = document.getElementById('back_dir_btn');
     let select_h3_show = document.getElementById('h3_show_after_dir_change');
 
+    // Get the login_user
+    let login_user = document.getElementById('slash_user_view').innerHTML
+    // Get the host name 
+    let host_name = login_user.split('@')[1];
+
     // Get the home directory
     let parent_dir = host_and_home_dir.get(host_name);
 
@@ -242,22 +277,22 @@ export function backToPrevDir(current_dir_path){
     }
     else{
 
+        // Hide h3 tag
+        select_h3_show.style.display = 'none';
+        // Show the back button
+        back_btn.style.display = 'flex';
+
         // Get the previous directory path
         let remove_current_dir = current_dir_path.lastIndexOf("\\");
         let previous_directory_path = current_dir_path.slice(0, remove_current_dir);
 
-        // Check if directory has been accessed earlier
+
         let the_past_dirs = past_directories.get(host_name);
 
         let object = the_past_dirs.find(function (obj) {
             return obj.directoryPath === previous_directory_path;
         });
 
-        // Hide h3 tag
-        select_h3_show.style.display = 'none';
-
-        // Show the back button
-        back_btn.style.display = 'flex';
 
         // Click event to the back button
         back_btn.addEventListener('click', ()=> {
@@ -265,7 +300,7 @@ export function backToPrevDir(current_dir_path){
             if (object) {
 
                 // Call the import function
-                fill_nav_with_dirs(parent_dir,object.subdirectories);
+                fill_nav_with_dirs(previous_directory_path,object.subdirectories);
                 fill_checks_with_dirs(object.subdirectories);
     
                 // Update the path
@@ -273,42 +308,40 @@ export function backToPrevDir(current_dir_path){
                 
             }
 
-            // Get the login_user
-            let login_user = document.getElementById('slash_user_view').innerHTML
+            else{
 
-            // Get the host name from login_user
-            let host_name = login_user.split('@')[1];
+                // First we create form data
+                let formData = new FormData();
 
-            // First we create form data
-            let formData = new FormData();
+                formData.append('csrfmiddlewaretoken', csrf1[0].value);
+                formData.append('intended_path',previous_directory_path);
+                formData.append('host_name',host_name);
 
-            formData.append('csrfmiddlewaretoken', csrf1[0].value);
-            formData.append('current_path',previous_directory_path);
-            formData.append('host_name',host_name);
+                $.ajax({
+                    type:'POST',
+                    url:'/cdDir/',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response){
 
-            $.ajax({
-                type:'POST',
-                url:'/cdDir/',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response){
+                        // On success
 
-                    // On success
+                        // Call the import function
+                        fill_nav_with_dirs(previous_directory_path,response.sub_dirs);
+                        fill_checks_with_dirs(response.sub_dirs);
 
-                    // Call the import function
-                    fill_nav_with_dirs(parent_dir,response.sub_dirs);
-                    fill_checks_with_dirs(response.sub_dirs);
+                        // Update the path
+                        document.getElementById('current_directory_ssh_dispayer').innerHTML = previous_directory_path;
 
-                    // Update the path
-                    document.getElementById('current_directory_ssh_dispayer').innerHTML = response.current_dir;
+                    },
+                    error: function(error){
 
-                },
-                error: function(error){
+                        
+                    }
+                });
 
-                    
-                }
-            });
+            }
 
         });    
 
