@@ -218,7 +218,7 @@ export function fill_nav_with_dirs(parent_dir,current_dir,dir_list_members){
     interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns);
 
     // This function will go back to the previous directory
-    backToPrevDir(parent_dir,current_dir)
+    backToPrevDir(current_dir)
 
 }
 
