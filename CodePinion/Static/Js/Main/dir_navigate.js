@@ -1,3 +1,7 @@
+// Get the CSRF token
+let csrf1 = document.getElementsByName('csrfmiddlewaretoken');
+
+
 // Importing the functions from path.js
 import { fill_nav_with_dirs } from './path.js';
 import { fill_checks_with_dirs } from './path.js';
@@ -105,7 +109,7 @@ function usedSubDir(parent_dir,enter_buttons,intended_dir_path,sub_dir_list){
             enter_buttons[enter].addEventListener('click', ()=> {
 
                 // Call the import function
-                fill_nav_with_dirs(parent_dir,sub_dir_list);
+                fill_nav_with_dirs(parent_dir,intended_dir_path,sub_dir_list);
                 fill_checks_with_dirs(sub_dir_list);
 
                 // Update the path
@@ -118,16 +122,19 @@ function usedSubDir(parent_dir,enter_buttons,intended_dir_path,sub_dir_list){
 
             })
 
-
         }       
 
     }
 
 }
 
+
 // This fuction is used to interact with the directory navigation buttons
-export function interactWithCmd(parent_dir,all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns,csrf,login_user){
+export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns){
     
+    // Get the login_user
+    let login_user = document.getElementById('slash_user_view').innerHTML
+
     // Get the host name from login_user
     let host_name = login_user.split('@')[1];
 
@@ -135,6 +142,8 @@ export function interactWithCmd(parent_dir,all_dir_nav_btns,all_dir_nav_btns_spi
     for(let nav = 0; nav < all_dir_nav_btns.length; nav++ ){
 
         all_dir_nav_btns[nav].addEventListener('click', ()=> {
+
+            console.log(csrf1[0].value);
 
             //Show the spinner
             all_dir_nav_btns_spinner[nav].style.display = 'flex';
@@ -151,7 +160,7 @@ export function interactWithCmd(parent_dir,all_dir_nav_btns,all_dir_nav_btns_spi
             // First we create form data
             let formData = new FormData();
 
-            formData.append('csrfmiddlewaretoken', csrf[0].value);
+            formData.append('csrfmiddlewaretoken', csrf1[0].value);
             formData.append('intended_path',intended_dir_path);
             formData.append('host_name',host_name);
 
@@ -168,6 +177,9 @@ export function interactWithCmd(parent_dir,all_dir_nav_btns,all_dir_nav_btns_spi
 
                     // Call the function to display the sub directories
                     viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
+
+                    // Home directory
+                    let parent_dir = response.home_dir;
 
                     // Call the function to work with the sub directories
                     usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,response.sub_dirs)
@@ -186,8 +198,9 @@ export function interactWithCmd(parent_dir,all_dir_nav_btns,all_dir_nav_btns_spi
 
 }
 
-//This function takes you back to the previous directory
-export function backToPrevDir(parent_dir,current_dir_path,csrf,login_user){
+
+// This function takes you back to the previous directory
+export function backToPrevDir(parent_dir,current_dir_path){
 
     let back_btn = document.getElementById('back_dir_btn');
     let select_h3_show = document.getElementById('h3_show_after_dir_change');
@@ -203,62 +216,66 @@ export function backToPrevDir(parent_dir,current_dir_path,csrf,login_user){
         // Show h3 tag
         select_h3_show.style.display = 'flex';
 
-        //Hide the back button
+        // Hide the back button
         back_btn.style.display = 'none';
 
     }
     else{
 
-        // Hide h3 tag
-        select_h3_show.style.display = 'none';
+        
 
-        //Show the back button
-        back_btn.style.display = 'flex';
+        // // Hide h3 tag
+        // select_h3_show.style.display = 'none';
 
-        // Click event to the back button
-        back_btn.addEventListener('click', ()=> {
+        // // Show the back button
+        // back_btn.style.display = 'flex';
 
+        // // Click event to the back button
+        // back_btn.addEventListener('click', ()=> {
 
-            // Get the host name from login_user
-            let host_name = login_user.split('@')[1];
+        //     // Get the login_user
+        //     let login_user = document.getElementById('slash_user_view').innerHTML
 
-            // Get the previous directory path
-            let remove_current_dir = current_dir_path.lastIndexOf("\\");
-            let previous_directory_path = current_dir_path.slice(0, remove_current_dir);
+        //     // Get the host name from login_user
+        //     let host_name = login_user.split('@')[1];
 
-            // First we create form data
-            let formData = new FormData();
+        //     // Get the previous directory path
+        //     let remove_current_dir = current_dir_path.lastIndexOf("\\");
+        //     let previous_directory_path = current_dir_path.slice(0, remove_current_dir);
 
-            formData.append('csrfmiddlewaretoken', csrf[0].value);
-            formData.append('current_path',previous_directory_path);
-            formData.append('host_name',host_name);
+        //     // First we create form data
+        //     let formData = new FormData();
 
-            $.ajax({
-                type:'POST',
-                url:'/cdDir/',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response){
+        //     formData.append('csrfmiddlewaretoken', csrf1[0].value);
+        //     formData.append('current_path',previous_directory_path);
+        //     formData.append('host_name',host_name);
 
-                    // On success
-                    console.log(response);
+        //     $.ajax({
+        //         type:'POST',
+        //         url:'/cdDir/',
+        //         data: formData,
+        //         processData: false,
+        //         contentType: false,
+        //         success: function(response){
 
-                    // Call the import function
-                    fill_nav_with_dirs(parent_dir,response.sub_dirs);
-                    fill_checks_with_dirs(response.sub_dirs);
+        //             // On success
+        //             console.log(response);
 
-                    // Update the path
-                    document.getElementById('current_directory_ssh_dispayer').innerHTML = response.current_dir;
+        //             // Call the import function
+        //             fill_nav_with_dirs(parent_dir,response.sub_dirs);
+        //             fill_checks_with_dirs(response.sub_dirs);
 
-                },
-                error: function(error){
+        //             // Update the path
+        //             document.getElementById('current_directory_ssh_dispayer').innerHTML = response.current_dir;
+
+        //         },
+        //         error: function(error){
 
                     
-                }
-            });
+        //         }
+        //     });
 
-        });    
+        // });    
 
     }
 

@@ -54,18 +54,18 @@ let current_working_dir = document.getElementById('current_directory_ssh_dispaye
 //select the wimdows and linux icons
 let windows_icon = document.getElementById('windows_icon');
 let linux_icon = document.getElementById('linux_icon');
-//Choosen dir
+// Choosen dir
 let choosen_dir_show = document.getElementById('the_selected_path_show');
 
-//This fuction acts as the dir cd function
-//Import from dir_navigation.js file
+// This fuction acts as the dir cd function
+// Import from dir_navigation.js file
 import { interactWithCmd } from './dir_navigate.js';
 import { backToPrevDir } from './dir_navigate.js';
 
-//Get the CSRF token
+// Get the CSRF token
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 
-//This click fuctions display and hide the login form
+// This click fuctions display and hide the login form
 launch_ssh_login_form.addEventListener('click', ()=> {
 
     //Display the login ssh form
@@ -82,9 +82,9 @@ close_ssh_login_form.addEventListener('click', ()=> {
 
 
 
-//Helper fuctions
+// Helper fuctions
 
-//This fuction will activate or deactivate port number edit
+// This fuction will activate or deactivate port number edit
 edit_port.addEventListener('click', ()=> {
 
     //edit_default_active
@@ -108,7 +108,7 @@ edit_port.addEventListener('click', ()=> {
 
 })
 
-//This fuction either displays or hides the elements in the login form popup
+// This fuction either displays or hides the elements in the login form popup
 function login_popup_effects(span,svg,loader) {
 
     //Here we remove the writings in the button and add a spinner
@@ -118,8 +118,8 @@ function login_popup_effects(span,svg,loader) {
 
 }
 
-//This function will fill the ssh navigation with dirs
-export function fill_nav_with_dirs(parent_dir,dir_list_members){
+// This function will fill the ssh navigation with dirs
+export function fill_nav_with_dirs(parent_dir,current_dir,dir_list_members){
 
     $('#select_ssh_directory_navigation').empty();
 
@@ -197,8 +197,6 @@ export function fill_nav_with_dirs(parent_dir,dir_list_members){
     let all_dir_nav_btns_spinner = document.getElementsByClassName('clickable_dir_spinner');
     // Get all dir names
     let all_dir_names = document.getElementsByClassName('clickable_directory_name');
-    // Get the login_user
-    let login_user = document.getElementById('slash_user_view').innerHTML
     // Get the inner subdirectories
     let inner_subdirectories = document.getElementsByClassName('inner_clicked_dir');
     // Get the container holding all the inner subdirectories
@@ -207,19 +205,18 @@ export function fill_nav_with_dirs(parent_dir,dir_list_members){
     let clickable_folder_is_empty = document.getElementsByClassName('clickable_folder_is_empty');
     // Get all enter into directory buttons
     let enter_into_directory_btns = document.getElementsByClassName('inner_dir_enter');
-    // Get the current directory
-    let current_dir = document.getElementById('current_directory_ssh_dispayer').innerHTML;
+    
 
     // Use the imported functions
     // This function will enter into the directory
-    interactWithCmd(parent_dir,all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns,csrf,login_user);
+    interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,enter_into_directory_btns);
 
     // This function will go back to the previous directory
-    backToPrevDir(parent_dir,current_dir,csrf,login_user)
+    backToPrevDir(parent_dir,current_dir)
 
 }
 
-//This fuction fill the check dir section with the dirs
+// This fuction fill the check dir section with the dirs
 export function fill_checks_with_dirs(dir_list_members){
 
     $('#check_choosen_directory_section').empty();
@@ -340,7 +337,7 @@ export function fill_checks_with_dirs(dir_list_members){
 }
 
 
-//This click function logs the user to the server
+// This click function logs the user to the server
 login_ssh.addEventListener('click', ()=> {
 
     let ssh_inputs_empty = false;
@@ -420,7 +417,7 @@ login_ssh.addEventListener('click', ()=> {
                     // Now we add all the directories to the navigation
                     const dir_list_members = response.dir_list;
                     // Call the fuction which adds the dirs to navs
-                    fill_nav_with_dirs(current_path_dir,dir_list_members);
+                    fill_nav_with_dirs(current_path_dir,current_path_dir,dir_list_members);
 
                     // Now we add the checkable dirs
                     fill_checks_with_dirs(dir_list_members)
