@@ -1556,6 +1556,16 @@
 
 }
 
+/* Here is where all the ssh devices and paths will be dispayed */
+.selected-path-and-ssh-devices {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .select-path,.select-path-device {
     width: 100%;
     height: 70px;
@@ -1565,6 +1575,9 @@
     justify-content: flex-start;
 }
 
+.select-path-device {
+    display: flex; /* Flex to make changes to path and ssh device selection */
+}
 
 /* Select path btn */
 

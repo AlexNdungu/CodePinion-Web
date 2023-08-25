@@ -362,16 +362,47 @@ close_ssh_section.addEventListener('click', ()=> {
     let selected_dir = document.getElementById('the_selected_path_show').innerHTML;
     let ssh_file_system = document.getElementById('choose_path_ssh_section');
 
+    $('#selected-path-and-ssh-devices').empty();
+
     // Hide the ssh filing system
     ssh_file_system.style.display = 'none';
 
     if(selected_dir != ''){
-        
-    }
-    else{
-        
-    }
 
+        let ssh_dir_and_device = `
+            <div class="select-path-device">
+
+                <!--The select button-->
+                <div class="select-path-btn-server">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M19 0h-14c-2.762 0-5 2.239-5 5v14c0 2.761 2.238 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-8 17.882l-6-.838v-4.044h6v4.882zm0-5.882h-6v-5.044l6-.838v5.882zm8 7l-7-.978v-5.022h7v6zm0-7h-7v-6.022l7-.978v7z"/></svg>
+
+                    <span>192.168.100.9</span>
+
+                </div>
+
+                <!--The separation line-->
+                <div class="path-separation">
+
+                    <div></div>
+
+                </div>
+
+                <!--See path selected-->
+                <div class="path-pasted">
+
+                    <!--Path pasted here-->
+                    <span ></span>
+
+                </div>
+
+            </div>
+        `
+
+        // Append the selected dir and path to the main page
+        $("#select_ssh_directory_navigation").append(ssh_dir_and_device);
+      
+    }
 
 });
 
