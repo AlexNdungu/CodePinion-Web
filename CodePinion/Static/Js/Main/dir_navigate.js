@@ -5,8 +5,9 @@ let csrf1 = document.getElementsByName('csrfmiddlewaretoken');
 import { fill_nav_with_dirs } from './path.js';
 import { fill_checks_with_dirs } from './path.js';
 
-// Import ssh_dir_info
-import { ssh_dir_info } from './path.js';
+// Import ssh_dir_info and host_and_home_dir
+import { past_directories } from './path.js';
+import { host_and_home_dir } from './path.js';
 
 // Helper fuctions below
 
@@ -145,8 +146,6 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
 
         all_dir_nav_btns[nav].addEventListener('click', ()=> {
 
-            console.log(csrf1[0].value);
-
             //Show the spinner
             all_dir_nav_btns_spinner[nav].style.display = 'flex';
 
@@ -157,46 +156,65 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
 
             let intended_dir_path = current_dir_path + "\\" + all_dir_names[nav].innerHTML;
 
-            console.log(intended_dir_path)
+            // Get the home directory
+            let parent_dir = host_and_home_dir.get(host_name);
 
-            // First we create form data
-            let formData = new FormData();
+            // Check if directory has been accessed earlier
+            let the_past_dirs = past_directories.get(host_name);
 
-            formData.append('csrfmiddlewaretoken', csrf1[0].value);
-            formData.append('intended_path',intended_dir_path);
-            formData.append('host_name',host_name);
-
-            $.ajax({
-                type:'POST',
-                url:'/cdDir/',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response){
-
-                    console.log(ssh_dir_info);
-
-                    // On success
-                    all_dir_nav_btns_spinner[nav].style.display = 'none';
-
-                    // Call the function to display the sub directories
-                    viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
-
-                    // Home directory
-                    let parent_dir = response.home_dir;
-
-                    // Call the function to work with the sub directories
-                    usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,response.sub_dirs)
-
-
-                },
-                error: function(error){
-
-                    
-                }
-            });    
-
+            let object = the_past_dirs.find(function (obj) {
+                return obj.directoryPath === intended_dir_path;
             });
+
+            // Check if the object exists
+            if (object) {
+
+                all_dir_nav_btns_spinner[nav].style.display = 'none';
+
+                // Call the function to display the sub directories
+                viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,object.subdirectories);
+
+                // Call the function to work with the sub directories
+                usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,object.subdirectories)
+            }
+
+            else{
+
+                // First we create form data
+                let formData = new FormData();
+
+                formData.append('csrfmiddlewaretoken', csrf1[0].value);
+                formData.append('intended_path',intended_dir_path);
+                formData.append('host_name',host_name);
+
+                $.ajax({
+                    type:'POST',
+                    url:'/cdDir/',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response){
+
+                        // On success
+                        all_dir_nav_btns_spinner[nav].style.display = 'none';
+
+                        // Call the function to display the sub directories
+                        viewSubDirs(folder_index,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty,response.sub_dirs);
+
+                        // Call the function to work with the sub directories
+                        usedSubDir(parent_dir,enter_into_directory_btns,intended_dir_path,response.sub_dirs);
+
+
+                    },
+                    error: function(error){
+
+                        
+                    }
+                });    
+
+            }
+            
+        });
 
     };
 

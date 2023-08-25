@@ -123,5 +123,5 @@ def cdIntoDir(request):
         # call the windows_command function
         server_response = ssh_instance.windows_command(intended_path)
 
-        return JsonResponse({'status':'success','sub_dirs':server_response,'path':intended_path,'home_dir':ssh_device.server_home_dir})
+        return JsonResponse({'status':'success','sub_dirs':server_response,'path':intended_path})
     

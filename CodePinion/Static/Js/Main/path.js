@@ -58,7 +58,10 @@ let linux_icon = document.getElementById('linux_icon');
 let choosen_dir_show = document.getElementById('the_selected_path_show');
 
 // This object will store current_path, list_of_subdirs and
-export const ssh_dir_info = new Map();
+export const past_directories = new Map();
+
+// This object stores host name and home dir
+export const host_and_home_dir = new Map();
 
 // This fuction acts as the dir cd function
 // Import from dir_navigation.js file
@@ -437,10 +440,14 @@ login_ssh.addEventListener('click', ()=> {
 
                     }
 
+                    // Update the host_and_home_dir
+                    host_and_home_dir.set(host_name.value, current_path_dir);
+
                     // Update the ssh_dir_info
-                    ssh_dir_info.set(host_name.value, {
-                        subdirectories: dir_list_members,
-                        directoryPath: current_path_dir
+                    past_directories.set(host_name.value, {
+                        folderName: user_name.value,
+                        directoryPath: current_path_dir,
+                        subdirectories: dir_list_members
                     });
 
 
