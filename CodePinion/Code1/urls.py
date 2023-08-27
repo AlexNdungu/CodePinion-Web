@@ -10,13 +10,16 @@ urlpatterns = [
     path('left_nav/',views.LeftNav, name='left-nav'),
 
     #Sign up url
-    path('signup/',views.signUp, name='sign_up'),
+    path('',views.signUp, name='sign_up'),
+
+    #Create new user
+    path('createNewUser/', views.createNewUser, name='create_new_user'),
 
     #Sign in url
     path('signin/',views.signIn, name='signin'),
 
     #Home Url
-    path('', views.Home, name='home'),
+    path('dash/', views.Home, name='home'),
     
     #Safes Url
     path('safes/', views.Safes, name='safes'),

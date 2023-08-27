@@ -1,30 +1,32 @@
-//Collecting The Directory to be connected to Code Pinion
+// Collecting The Directory to be connected to Code Pinion
 
-//select the  message
+// select the  message
 let success_popup = document.getElementById('success_popup');
 let not_selected = document.getElementById('not_selected');
-let pop_error = document.getElementById('pop_error');
+//
+let pop_error_auth_ssh = document.getElementById('pop_error_auth_ssh');
+let pop_error_auth_ssh_message = document.getElementById('pop_error_auth_ssh_message');
 
 
-//Call the login for and file system
+// Call the login for and file system
 let ssh_login_form = document.getElementById('ssh_login_popup');
 let ssh_file_system = document.getElementById('choose_path_ssh_section');
 
 
-//The collect path button
+// The collect path button
 let launch_ssh_login_form = document.getElementById('select-path-btn-connect');
 let close_ssh_login_form = document.getElementById('close_ssh_form');
 //
 let paste_path = document.getElementById('selected-path');
 
 
-//get the post ssh credentials
+// get the post ssh credentials
 let login_ssh = document.getElementById('post_ssh_credentials'); 
 //
 let edit_port = document.getElementById('edit_default_port');
 let check_edit_input = document.getElementById('engage_port_editor');
 let show_default_port = document.getElementById('show_default_port');
-let port_input_edit = document.getElementById('engage_port_editor');
+// let port_input_edit = document.getElementById('engage_port_editor');
 //
 let ssh_login_loader_spin = document.getElementById('loader_ssh_log');
 let login_ssh_span = document.querySelector('#post_ssh_credentials span');
@@ -35,24 +37,46 @@ let port_number = document.getElementById('port_number');
 let user_name = document.getElementById('user_name');
 let password = document.getElementById('password');
 
+// Check if the ssh credential inputs are empty
+//
+let log_ssh_input_icons = document.querySelectorAll('.log_ssh_input_icon');
+let log_ssh_input_icon_inputs = document.querySelectorAll('.log_ssh_input_icon input:not([type=\"checkbox\"])');
 
-//Get all the elements in the ssh filing system
+
+// Get all the elements in the ssh filing system
 let user_dir_indicate = document.getElementById('slash_user_view');
-//let list_ssh_navigation = document.getElementById('select_ssh_directory_navigation');
-//let check_dir_section = document.getElementById('check_choosen_directory_section');
-//Current path dir 
+// let list_ssh_navigation = document.getElementById('select_ssh_directory_navigation');
+
+// This will be used to uncheck the checked
+let check_dir_section_for_unchecking = document.getElementById('check_choosen_directory_section');
+// Current path dir 
 let current_working_dir = document.getElementById('current_directory_ssh_dispayer');
-//Choosen dir
+// select the wimdows and linux icons
+let windows_icon = document.getElementById('windows_icon');
+let linux_icon = document.getElementById('linux_icon');
+// Choosen dir
 let choosen_dir_show = document.getElementById('the_selected_path_show');
 
-//This fuction acts as the dir cd function
-//Import the fuction enterSshDir from dir_navigation.js file
-import { enterSshDir } from './dir_navigate.js';
+// This button will close the ssh section and past path to the main page
+let close_ssh_section = document.getElementById('close_ssh_filing');
+let close_ssh_filing_svg_red = document.getElementById('close_ssh_filing_svg_red');
+let close_ssh_filing_svg_green = document.getElementById('close_ssh_filing_svg_green');
 
-//Get the CSRF token
+// This object will store current_path, list_of_subdirs and
+export const past_directories = new Map();
+
+// This object stores host name and home dir
+export const host_and_home_dir = new Map();
+
+// This fuction acts as the dir cd function
+// Import from dir_navigation.js file
+import { interactWithCmd } from './dir_navigate.js';
+import { backToPrevDir } from './dir_navigate.js';
+
+// Get the CSRF token
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 
-//This click fuctions display and hide the login form
+// This click fuctions display and hide the login form
 launch_ssh_login_form.addEventListener('click', ()=> {
 
     //Display the login ssh form
@@ -69,9 +93,9 @@ close_ssh_login_form.addEventListener('click', ()=> {
 
 
 
-//Helper fuctions
+// Helper fuctions
 
-//This fuction will activate or deactivate port number edit
+// This fuction will activate or deactivate port number edit
 edit_port.addEventListener('click', ()=> {
 
     //edit_default_active
@@ -95,7 +119,7 @@ edit_port.addEventListener('click', ()=> {
 
 })
 
-//This fuction either displays or hides the elements in the login form popup
+// This fuction either displays or hides the elements in the login form popup
 function login_popup_effects(span,svg,loader) {
 
     //Here we remove the writings in the button and add a spinner
@@ -105,8 +129,8 @@ function login_popup_effects(span,svg,loader) {
 
 }
 
-//This function will fill the ssh navigation with dirs
-function fill_nav_with_dirs(dir_list_members){
+// This function will fill the ssh navigation with dirs
+export function fill_nav_with_dirs(current_dir,dir_list_members){
 
     $('#select_ssh_directory_navigation').empty();
 
@@ -119,17 +143,30 @@ function fill_nav_with_dirs(dir_list_members){
                 <div class="the_clickable_and_inner_dir">
 
                     <div class="clickable_ssh_directory">
-
                         
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
 
                         <span class="clickable_directory_name" >${dir_list_members[oneDIR]}</span>
 
+                        <div class="clickable_dir_spinner"></div>
+
                     </div>
 
-                    <div class="inner_clicked_dir">
+                    <div class="inner_clicked_dir"> 
 
                         <div class="drop_inner_dir">
+
+                            <div class="clickable_folder_is_empty">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M384 480h48c11.4 0 21.9-6 27.6-15.9l112-192c5.8-9.9 5.8-22.1 .1-32.1S555.5 224 544 224H144c-11.4 0-21.9 6-27.6 15.9L48 357.1V96c0-8.8 7.2-16 16-16H181.5c4.2 0 8.3 1.7 11.3 4.7l26.5 26.5c21 21 49.5 32.8 79.2 32.8H416c8.8 0 16 7.2 16 16v32h48V160c0-35.3-28.7-64-64-64H298.5c-17 0-33.3-6.7-45.3-18.7L226.7 50.7c-12-12-28.3-18.7-45.3-18.7H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H87.7 384z"/></svg>
+
+                            </div>
+
+                            <div class="minor_dir_them_section">
+
+                                <!--Subdirectories will appear here-->
+
+                            </div>
 
                             <div class="close_enter_inner_dir_btns">
 
@@ -151,18 +188,6 @@ function fill_nav_with_dirs(dir_list_members){
 
                             </div>
 
-                            <div class="minor_dir_them_section">
-
-                                <div class="minor_dir">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
-
-                                    <span>CodePinion</span>
-
-                                </div>
-
-                            </div>
-
                         </div>
                         
                     </div>
@@ -177,17 +202,31 @@ function fill_nav_with_dirs(dir_list_members){
 
     }
 
-    //Get All the dir navigation buttons
-    let all_dir_nav_btns = document.getElementsByClassName('the_clickable_and_inner_dir');
-    //Get all dir names
+    // Get All the dir navigation buttons
+    let all_dir_nav_btns = document.getElementsByClassName('clickable_ssh_directory');
+    // Get all the spinner
+    let all_dir_nav_btns_spinner = document.getElementsByClassName('clickable_dir_spinner');
+    // Get all dir names
     let all_dir_names = document.getElementsByClassName('clickable_directory_name');
+    // Get the inner subdirectories
+    let inner_subdirectories = document.getElementsByClassName('inner_clicked_dir');
+    // Get the container holding all the inner subdirectories
+    let inner_subdirectories_container = document.getElementsByClassName('minor_dir_them_section');
+    // Get the empty directory showing div
+    let clickable_folder_is_empty = document.getElementsByClassName('clickable_folder_is_empty');
+    
 
-    //Use the imported function
-    enterSshDir(all_dir_nav_btns,all_dir_names,csrf);
+    // Use the imported functions
+    // This function will enter into the directory
+    interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_dir_names,inner_subdirectories,inner_subdirectories_container,clickable_folder_is_empty);
+
+    // This function will go back to the previous directory
+    backToPrevDir(current_dir)
+
 }
 
-//This fuction fill the check dir section with the dirs
-function fill_checks_with_dirs(dir_list_members){
+// This fuction fill the check dir section with the dirs
+export function fill_checks_with_dirs(dir_list_members){
 
     $('#check_choosen_directory_section').empty();
 
@@ -239,7 +278,7 @@ function fill_checks_with_dirs(dir_list_members){
     }
 
     //Now give all the dirs click events
-    let all_dirs_checks = document.getElementsByClassName('ind_checked_and_choosen_dir');
+    let all_dirs_checks = document.getElementsByClassName('ind_checked_and_choosen_dir'); 
     let all_checks_for_dirs = document.getElementsByClassName('checkbox_for_this_dir');
     let svg_check_dir_ticks = document.getElementsByClassName('svg_check_dir_tick');
     let svg_check_containers = document.getElementsByClassName('check_dir');
@@ -251,110 +290,278 @@ function fill_checks_with_dirs(dir_list_members){
 
             for(let num_check = 0; num_check < all_checks_for_dirs.length; num_check++){
 
-                //Uncheck the checkbox
+                // Uncheck the checkbox
                 all_checks_for_dirs[num_check].checked = false;
-                //Hide the chech tick
+                // Hide the chech tick
                 svg_check_dir_ticks[num_check].style.visibility = 'hidden';
-                //Change border of check tick container
+                // Change border of check tick container
                 svg_check_containers[num_check].classList.remove('svg_check_containers_hover');
-                //Return background to original
+                // Return background to original
                 if(all_dirs_checks[num_check].classList.contains('ind_onchecked_and_choosen_dir')){
                     all_dirs_checks[num_check].classList.remove('ind_onchecked_and_choosen_dir');
                 }
 
             }
 
-            //Check the checkbox
+            // Check the checkbox
             all_checks_for_dirs[num_dir].checked = true;
-            //Display the tick
+            // Display the tick
             svg_check_dir_ticks[num_dir].style.visibility = 'visible';
-            //Change border of check tick container
+            // Change border of check tick container
             svg_check_containers[num_dir].classList.add('svg_check_containers_hover');
-            //Change styling of checked dir
+            // Change styling of checked dir
             all_dirs_checks[num_dir].classList.add('ind_onchecked_and_choosen_dir');
-            //Change selected path
+            // Change selected path
             choosen_dir_show.innerHTML = current_working_dir.innerHTML + "\\" + individual_divs_names[num_dir].innerHTML;
+
+            // Change the background of the close ssh section button
+            close_ssh_section.classList.add('close_ssh_filing_active');
+            close_ssh_filing_svg_red.style.display = 'none';
+            close_ssh_filing_svg_green.style.display = 'flex';
 
         });
 
     }
 
 
+    //If the parent dir is clicked, uncheck the checked dir
+    check_dir_section_for_unchecking.addEventListener('click', function(event){
+        if (check_dir_section_for_unchecking !== event.target) return;
+      
+        for(let num_check = 0; num_check < all_checks_for_dirs.length; num_check++){
+
+            //Uncheck the checkbox
+            all_checks_for_dirs[num_check].checked = false;
+            //Hide the chech tick
+            svg_check_dir_ticks[num_check].style.visibility = 'hidden';
+            //Change border of check tick container
+            svg_check_containers[num_check].classList.remove('svg_check_containers_hover');
+            //Return background to original
+            if(all_dirs_checks[num_check].classList.contains('ind_onchecked_and_choosen_dir')){
+                all_dirs_checks[num_check].classList.remove('ind_onchecked_and_choosen_dir');
+            }
+
+        }
+
+        // Change the background of the close ssh section button
+        close_ssh_section.classList.remove('close_ssh_filing_active');
+        close_ssh_filing_svg_red.style.display = 'flex';
+        close_ssh_filing_svg_green.style.display = 'none';
+
+        //Remove the selected dir
+        choosen_dir_show.innerHTML = "";
+      
+    }, false);
 
 }
 
 
-//This click function logs the user to the server
+// This click function will paste the path to the main page
+close_ssh_section.addEventListener('click', ()=> {
+
+    let selected_dir = document.getElementById('the_selected_path_show').innerHTML;
+    let ssh_file_system = document.getElementById('choose_path_ssh_section');
+
+    $('#selected-path-and-ssh-devices').empty();
+
+    // Hide the ssh filing system
+    ssh_file_system.style.display = 'none';
+
+    if(selected_dir != ''){
+
+        console.log('clicked')
+
+        // Get the host name from login_user
+        let host_name = document.getElementById('slash_user_view').innerHTML.split('@')[1];
+
+        // This is the section which will appear on the main page
+        let ssh_dir_and_device = `
+            <div class="select-path-device">
+
+                <!--The select button-->
+                <div class="select-path-btn-server">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M19 0h-14c-2.762 0-5 2.239-5 5v14c0 2.761 2.238 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-8 17.882l-6-.838v-4.044h6v4.882zm0-5.882h-6v-5.044l6-.838v5.882zm8 7l-7-.978v-5.022h7v6zm0-7h-7v-6.022l7-.978v7z"/></svg>
+
+                    <span>${host_name}</span>
+
+                </div>
+
+                <!--The separation line-->
+                <div class="path-separation">
+
+                    <div></div>
+
+                </div>
+
+                <!--See path selected-->
+                <div class="path-pasted">
+
+                    <!--Path pasted here-->
+                    <span>${selected_dir}</span>
+
+                </div>
+
+            </div>
+        `
+
+        // Append the selected dir and path to the main page
+        $("#selected-path-and-ssh-devices").append(ssh_dir_and_device);
+      
+    }
+
+});
+
+// This click function logs the user to the server
 login_ssh.addEventListener('click', ()=> {
 
-    //Call the function that affect the login popup
-    login_popup_effects('none','none','flex')
-    
-    //Now we perform the ajax call
+    let ssh_inputs_empty = false;
 
-    //First we create form data
-    let formData = new FormData();
+    // Check if any input is empty and change ssh_inputs_empty to true
+    for(let a = 0; a < log_ssh_input_icon_inputs.length;a++){
 
-    //Append the csrf token
-    formData.append('csrfmiddlewaretoken', csrf[0].value);
+        log_ssh_input_icons[a].style.border = '2px solid #D9D9D9';
 
-    //Append hostname,username and password
-    formData.append('host_name',host_name.value);
-    formData.append('port_number',port_number.value);
-    formData.append('user_name',user_name.value);
-    formData.append('password',password.value);
-    formData.append('ssh_activity','Login');
+        if(log_ssh_input_icon_inputs[a].value == ''){
 
-    $.ajax({
-        type:'POST',
-        url:'/getPath/',
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function(response){
+            log_ssh_input_icons[a].style.border = '2px solid #C53B3B';
 
-            //On success
+            ssh_inputs_empty = true;
 
-            //Success popup
-            success_popup.style.visibility = 'visible';
-
-            setTimeout(function(){
-
-                success_popup.style.visibility = 'hidden';
-                
-            },2500);
-
-            
-            //Call the function that affect the login popup
-            login_popup_effects('flex','flex','none')
-
-            //Remove login popup
-            ssh_login_form.style.display = 'none';
-            //Show the ssh filing system
-            ssh_file_system.style.display = 'flex';
-
-            //Now we display the name as required
-            user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
-
-            //Now we add all the directories to the navigation
-            const dir_list_members = response.dir_list;
-            //Call the fuction which adds the dirs to navs
-            fill_nav_with_dirs(dir_list_members);
-
-            //Now we add the checkable dirs
-            fill_checks_with_dirs(dir_list_members)
-
-            //Now lets add the current path to the interface
-            const current_path_dir = response.current_dir_path;
-            current_working_dir.innerHTML = current_path_dir
-
-            //change username
-            console.log(dir_list_members)
-
-        },
-        error: function(error){
-
-            
         }
-    });    
+
+    }
+
+    // If no input is empty
+    if(ssh_inputs_empty == false){
+
+        // Call the function that affect the login popup
+        login_popup_effects('none','none','flex')
+            
+        // Now we perform the ajax call
+
+        // First we create form data
+        let formData = new FormData();
+
+        // Append the csrf token
+        formData.append('csrfmiddlewaretoken', csrf[0].value);
+
+        // Append hostname,username and password
+        formData.append('host_name',host_name.value);
+        formData.append('port_number',port_number.value);
+        formData.append('user_name',user_name.value);
+        formData.append('password',password.value);
+
+        $.ajax({
+            type:'POST',
+            url:'/getPath/',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response){
+
+                if(response.status == 'success'){
+
+                    // On success
+
+                    // Get the parent dir
+                    // Now lets add the current path to the interface
+                    const current_path_dir = response.current_dir_path;
+                    current_working_dir.innerHTML = current_path_dir
+
+                    // Now we add all the directories to the navigation
+                    const dir_list_members = response.dir_list;
+
+                    // Update the host_and_home_dir
+                    host_and_home_dir.set(host_name.value, current_path_dir);
+
+                    // Update the ssh_dir_info
+                    past_directories.set(host_name.value, [
+                        {
+                          subdirectories: dir_list_members,
+                          directoryPath: current_path_dir
+                        }
+                    ]);
+                    
+                    // Call the function that affect the login popup
+                    login_popup_effects('flex','flex','none');
+
+                    // Success popup
+                    success_popup.style.display = 'flex';
+
+                    setTimeout(function(){
+
+                        success_popup.style.display = 'none';
+                        
+                    },5000);
+
+                    // Remove login popup
+                    ssh_login_form.style.display = 'none';
+                    // Show the ssh filing system
+                    ssh_file_system.style.display = 'flex';
+
+                    // Now we display the name as required
+                    user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
+
+                    // Call the fuction which adds the dirs to navs
+                    fill_nav_with_dirs(current_path_dir,dir_list_members);
+
+                    // Now we add the checkable dirs
+                    fill_checks_with_dirs(dir_list_members)
+
+                    // Change the os icons
+                    if (response.current_os == 'Windows'){
+
+                        windows_icon.style.display = 'flex';
+
+                    }
+                    else if(response.current_os == 'Linux'){
+
+                        linux_icon.style.display = 'flex';
+
+                    }
+
+
+                }
+                else if(response.status == 'fail'){
+
+                    //On fail
+                    //Call the function that affect the login popup
+                    login_popup_effects('flex','flex','none')
+
+                    //Success popup
+                    pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';
+                    pop_error_auth_ssh.style.display = 'flex';
+
+                    setTimeout(function(){
+
+                        pop_error_auth_ssh.style.display = 'none';
+                        
+                    },5000);
+
+                }
+
+            },
+            error: function(error){
+
+                //On fail
+                //Call the function that affect the login popup
+                login_popup_effects('flex','flex','none')
+
+                //Success popup
+                pop_error_auth_ssh_message.innerHTML = 'Fatal Error Occured. Try Again In A Few Minutes';
+                pop_error_auth_ssh.style.display = 'flex';
+
+                setTimeout(function(){
+
+                    pop_error_auth_ssh.style.display = 'none';
+                    
+                },5000);
+
+            }
+
+        });   
+
+    }
+
 })

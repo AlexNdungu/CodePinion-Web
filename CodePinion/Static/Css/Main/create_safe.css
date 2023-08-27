@@ -1,6 +1,145 @@
+/* The signin pop up message section */
+.signIn_Message_pop {
+    position: absolute;
+    padding-left: 10px;
+    display: none; /* Flex to edit */
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#pop_error_auth_ssh {
+    width: 100%;
+    height: 50px;
+    background-color: #FBEFEB;
+    border: 1px solid #FC5758;
+    fill: #FC5758;
+    top: -60px;
+}
+
+#success_popup {
+    height: 50px;
+    right: 30px;
+    top: 110px;
+    background-color: #F1F8F4;
+    border: 1px solid #CFE8D3;
+    fill: #50DC6C;
+    z-index: 4;
+}
+
+#information_popup {
+    height: 50px;
+    right: 30px;
+    top: 110px;
+    background-color: #FDF7EC;
+    border: 1px solid #F5E0B8;
+    fill: #FEC022;
+    z-index: 4;
+}
+
+
+.sign_pop_outer {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+#pop_error_auth_ssh .sign_pop_outer{
+    background-color: #FC5758;
+}
+
+#success_popup .sign_pop_outer{
+    background-color: #50DC6C;
+    margin-right: 10px;
+}
+
+#information_popup .sign_pop_outer{
+    background-color: #FEC022;
+    margin-right: 10px;
+}
+
+.sign_pop_inner {
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.sign_pop_inner svg {
+    width: 17px;
+}
+
+#information_popup .sign_pop_inner svg {
+    width: 2.2px;
+}
+
+.sign_pop_message {
+    height: 100%;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#pop_error_auth_ssh .sign_pop_message {
+    color: #FC5758;
+}
+
+#success_popup .sign_pop_message {
+    color: #50DC6C;
+}
+
+#information_popup .sign_pop_message {
+    color: #FEC022;
+}
+
+
+.pop_close {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.pop_close:hover {
+    background-color: #fff;
+}
+
+.pop_close svg {
+    width: 25px;
+}
+
+#pop_error_auth_ssh .pop_close svg {
+    fill: #FC5758;
+}
+
+#success_popup .pop_close svg {
+    fill: #50DC6C;
+}
+
+#information_popup .pop_close svg {
+    fill: #FEC022;
+}
+
+
+
 /* Popup Sections */
 
-#success_popup,#not_selected,#pop_error {
+#not_selected,#pop_error {
     position: absolute;
     right: 30px;
     width: max-content;
@@ -16,10 +155,6 @@
     background-color: white;
 }
 
-#success_popup {
-    border: 2px solid #2CA631;
-}
-
 #not_selected {
     border: 2px solid #406CEE;
 }
@@ -28,7 +163,7 @@
     border: 2px solid #E44F26;
 }
 
-.success_message,.unselected_message,.error_message {
+.unselected_message,.error_message {
     font-size: 18px;
 }
 
@@ -54,10 +189,6 @@
     margin-right: 20px;
 }
 
-.check_icon {
-    background-color: #2CA631;
-}
-
 .check_icon_unselected {
     background-color: #406CEE;
 }
@@ -66,8 +197,7 @@
     background-color: #E44F26;
 }
 
-
-.check_icon svg,.check_icon_unselected svg,.pop_error_icon svg {
+.check_icon_unselected svg,.pop_error_icon svg {
     width: 30px;
     fill: #F3F3F3;
 }
@@ -135,26 +265,26 @@
     align-items: center;
     justify-content: flex-start;
     border-radius: 10px;
-    padding-left: 20px;
+    padding-left: 5px;
     background-color: #F3F3F3;
     color: #414141;
     font-size: 16px;
 }
 
-/* the slash */
-.slash_user {
-    width: 2px;
-    height: 35px;
-    transform: rotate(20deg);
-    margin-left: 10px;
+.user_indicate_section svg {
+    width: 40px;
+    fill: #414141;
     margin-right: 10px;
-    background-color: #414141;
 }
 
-.user_indicate_section svg {
-    width: 23px;
-    fill: #414141;
+#windows_icon {
+    display: none;
 }
+
+#linux_icon {
+    display: none;
+}
+
 
 
 /* Path search and current path section */
@@ -177,10 +307,27 @@
     justify-content: flex-start;
     padding-left: 20px;
     padding-right: 20px;
+    overflow-x: auto;
+    margin-right: 10px;
+}
+
+.ssh_path_indicate::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
+.ssh_path_indicate::-webkit-scrollbar-track {
+    background: #ACACAC;
+}
+
+.ssh_path_indicate::-webkit-scrollbar-thumb {
+    background-color: #406CEE;
+    border-radius: 2px;
 }
 
 .ssh_path_indicate svg {
-    width: 26px;
+    min-width: 26px;
+    max-width: 26px;
     fill: #414141;
     margin-right: 10px;
 }
@@ -188,6 +335,7 @@
 .ssh_path_indicate span {
     color: #414141;
     font-size: 15px;
+    white-space: nowrap;
 }
 
 
@@ -271,18 +419,32 @@
 
 /* Close the ssh filing system */
 .close_ssh_filing {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background-color: #C53B3B;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+.close_ssh_filing:hover {
+    transform: scale(1.1);
+}
+
+.close_ssh_filing_active {
+    background-color: #2CA631;
 }
 
 .close_ssh_filing svg {
     width: 30px;
     fill: #F3F3F3;
+}
+
+#close_ssh_filing_svg_green {
+    display: none;
 }
 
 /* Select Working Folder */
@@ -310,11 +472,37 @@
     color: #414141;
 }
 
+/* The previous directory button */
+#back_dir_btn {
+    height: 40px;
+    width: 200px;
+    display: none; /* Flex to change back directory button */
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    background-color: #414141;
+    color: #f3f3f3;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+#back_dir_btn:hover {
+    background-color: #406CEE;
+}
+
+#back_dir_btn svg {
+    fill: #F3F3F3;
+    width: 30px;
+}
+
+
 /* Read the selected path */
 .view_selected_path {
-    width: 500px;
+    width: fit-content;
+    min-width: 400px;
     height: 40px;
     padding-left: 20px;
+    padding-right: 20px;
     border-radius: 10px;
     border: 1.5px solid #8F8F8F;
     display: flex;
@@ -372,21 +560,55 @@
     width: 100%;
     max-height: 300px;
     padding-left: 20px;
+    padding-top: 10px;
 }
 
 /* The inner section containing buttons and dirs */
 
 .drop_inner_dir {
+    position: relative;
     width: calc(100% - 10px);
     max-height: 100%;
     border-radius: 10px;
-    border: 1.5px solid #414141;
+    border: 1.5px solid #D9D9D9;
     padding-bottom: 5px;
 }
 
 .drop_inner_dir:hover {
     border: 1.5px solid #406CEE;
 }
+
+/* Empty folder */
+.clickable_folder_is_empty {
+    position: absolute;
+    display: none; /* flex to make changes to empty folder */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+}
+
+.clickable_folder_is_empty svg {
+    width: 15px;
+    fill: #414141;
+}
+
+/* Define a keyframe animation for the up and down movement */
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(2);
+      }
+  }
+  
+  /* Apply the animation to the svg element */
+  .clickable_folder_is_empty svg {
+    animation: bounce 2s ease-in-out infinite;
+  }
 
 
 /* These button will close or enter onto the dir */
@@ -474,6 +696,7 @@
 
 /* Clickable ssh directory */
 .clickable_ssh_directory {
+    position: relative;
     width: calc(100% - 10px);
     height: 45px;
     border-radius: 7px;
@@ -506,6 +729,31 @@
 
 .clickable_ssh_directory:hover > svg {
     fill: #406CEE;
+}
+
+/* The clickable dir spinner */
+/* Define a keyframe animation for the spinner */
+@keyframes spin1 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Apply the animation to the class clickable_dir_spinner */
+.clickable_dir_spinner {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    border: 3px solid #8F8F8F;
+    border-top-color: #406CEE;
+    border-radius: 50%;
+    animation: spin1 0.4s linear infinite;
 }
 
 
@@ -639,10 +887,12 @@
 
 
 .inner_ssh_login_popup {
+    position: relative;
     width: calc(100% - 20px);
     height: calc(100% - 20px);
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgba(65, 65, 65,0.4);
@@ -650,6 +900,7 @@
 
 /* The ssh login form */
 .ssh_login_form {
+    position: relative;
     width: 600px;
     height: 420px; /* Change height from 350px */
     border-radius: 10px;
@@ -674,17 +925,15 @@
     position: absolute;
     width: 50px;
     height: 50px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #F3F3F3;
+    background: none;
     border: 1px solid #C53B3B;
     fill: #C53B3B;
-    top: -25px;
-    right: -25px;
+    top: 25px;
+    right: 25px;
     transition: 0.1s ease-in;
     cursor: pointer;
 }
@@ -739,6 +988,11 @@
     border: 1.5px solid #D9D9D9;
 }
 
+/* Focus within */
+.log_ssh_input_icon:focus-within {
+    border: 2px solid #406CEE;
+}
+
 /* The icon */
 .ssh_log_ic {
     width: 40px;
@@ -768,6 +1022,7 @@
     border: none;
     outline: none;
 }
+
 
 /* The port section */
 .default_input_port {
@@ -872,7 +1127,7 @@
 
 /* The hover effect */
 .connect_ssh_btn:hover {
-     background-color: #406CEE;
+     background-color: #2CA631;
 } 
 
 /* The loader */
@@ -897,6 +1152,140 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+/* Alraedy connected ssh devices  */
+.ssh_available_devices {
+    width: 600px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+/* The previously connected devices */
+.ssh_available_device {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+.ssh_available_device:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+
+.ssh_available_device:hover > .ssh_device_icon_and_details > .ssh_dev_os_icon{
+    fill: #406CEE;
+}
+
+
+/* Device os and details */
+.ssh_device_icon_and_details,.ssh_device_edit_and_connect_both {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Device os icon */
+.ssh_dev_os_icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: #414141;
+    transition: 0.2s ease-in;
+}
+
+.ssh_dev_os_icon svg {
+    width: 50px;
+    height: 50px;
+}
+
+/* The ssh devce login details */
+
+.ssh_dev_login_detail {
+    position: relative;
+    height: 50px;
+    margin-right: 5px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid #B5B5B5;
+}
+
+
+/* Detail icon */
+.ssh_dev_login_detail_icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: #414141;
+}
+
+.ssh_dev_login_detail_icon svg {
+    width: 17px;
+    fill: #F3F3F3;
+}
+
+/* The ssh detail span */
+.ssh_dev_login_detail span{
+    padding: 10px;
+    padding-left: 40px;
+    color: #414141;
+}
+
+
+/* Edit SSH device details */
+.ssh_device_edit_and_connect {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #414141;
+    border-radius: 10px;
+    transition: 0.2s ease-in;
+}
+
+.ssh_device_edit_and_connect:nth-child(1):hover{
+    background-color: #406CEE;
+}
+
+.ssh_device_edit_and_connect:nth-child(2):hover{
+    background-color: #2CA631;
+}
+
+.ssh_device_edit_and_connect svg {
+    width: 22px;
+    fill: #F3F3F3;
+}
+
 
 
 
@@ -1126,10 +1515,10 @@
 }
 
 .check-click div {
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
     border-radius: 3px;
-    background-color: #414141;
+    background-color: #406CEE;
     visibility: hidden;
 }
 
@@ -1167,9 +1556,20 @@
 
 }
 
-.select-path {
+/* Here is where all the ssh devices and paths will be dispayed */
+.selected-path-and-ssh-devices {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.select-path,.select-path-device {
     width: 100%;
     height: 70px;
+    padding-top: 15px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1177,7 +1577,7 @@
 
 /* Select path btn */
 
-.select-path-btn {
+.select-path-btn,.select-path-btn-server {
     width: fit-content;
     height: 50px;
     border-radius: 10px;
@@ -1185,19 +1585,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
     fill: #F3F3F3;
     color: #F3F3F3;
     transition: 0.1s ease-in;
     cursor: pointer;
 }
 
+.select-path-btn{
+    padding: 20px;
+}
+
+.select-path-btn-server{
+    padding-left: 5px;
+    padding-right: 20px;
+}
+
+.select-path-btn svg {
+    width: 24px;
+}
+
+.select-path-btn-server svg {
+    width: 40px;
+}
+
+
 /* Hover effect */
-.select-path-btn:hover {
+.select-path-btn:hover, .select-path-btn-server:hover {
     background-color: #414141;
 }
 
-.select-path-btn span {
+.select-path-btn span,.select-path-btn-server span {
     font-weight: 500;
     font-size: 17px;
     margin-left: 10px;
@@ -1225,10 +1642,32 @@
     width: 400px;
     height: 50px;
     padding: 15px;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     border-radius: 10px;
     background-color: #F3F3F3;
     border: 2px solid #414141;
+}
+
+.path-pasted span {
+    white-space: nowrap;
+}
+
+.path-pasted::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
+.path-pasted::-webkit-scrollbar-track {
+    background: #ACACAC;
+}
+
+.path-pasted::-webkit-scrollbar-thumb {
+    background-color: #406CEE;
+    border-radius: 2px;
 }
 
 /* The path itself */
@@ -1238,6 +1677,7 @@
 }
 
 .path-details {
+    display: flex; /* Flex when connected with ssh */
     color: #8F8F8F;
     font-size: 15px;
     margin-top: 10px;

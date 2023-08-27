@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from Code1.secret import PostgreSQL_password
+
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
 
 #To load Css Correctly
 import mimetypes
@@ -34,6 +39,8 @@ DEBUG = True
 ALLOWED_HOSTS = ["codepinion.com","www.codepinion.com","https://codepinion.com" ,"localhost", "127.0.0.1"]
 
 
+SITE_ID = 1
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,8 +50,29 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #Apps
     'Code1',
+
+    #Google Auth
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google'
 ]
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google":{
+        "SCOPE":[
+            "profile",
+            "email"
+        ],
+        "AUTH_PARAMS": {"access_type":"online"}
+    }
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,8 +110,11 @@ WSGI_APPLICATION = 'CodePinion.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Code-Pinion',
+        'USER': 'postgres',
+        'PASSWORD': PostgreSQL_password,
+        'HOST': 'localhost'
     }
 }
 
@@ -130,7 +161,26 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Static')
 ]
 
+MEDIA_URL = '/Media/'
+
+MEDIA_ROOT = BASE_DIR / 'Media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#Authentication backends
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend"
+)
+
+
+#Login and Out Urls
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
+SOCIALACCOUNT_LOGIN_ON_GET=True

@@ -2,7 +2,7 @@
 
 ---
 
-### **[CodePinion](https://codepinion.com/home)** is a platform :
+### **[CodePinion](https://codepinion.com)** is a platform :
 
 - That allows you to **store and access your project’s source code** from any device with internet access.
 - That allows you to **edit and run your code** without having to download it locally, provided that the project’s **requirements** are already installed.
@@ -22,24 +22,11 @@
 
 ---
 
-### **Theme Colours**
-
-- <span style="color:#406CEE">#406CEE</span> 
-- <span style="color:#F3F3F3">#F3F3F3</span> 
-- <span style="color:#ACACAC">#ACACAC</span> 
-- <span style="color:#8F8F8F">#8F8F8F</span> 
-- <span style="color:#C53B3B">#C53B3B</span> 
-- <span style="color:#E44F26">#E44F26</span> 
-- <span style="color:#F7DF1E">#F7DF1E</span> 
-
----
-
-
 ### **Codepinion and Django**
 
-**Django Framework** - [Django](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+ [**Django Framework**](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
 
-> **_NOTE:_**  **Codepinion** is built ontop of Django and other Python modules. Read [Requirements.txt](https://github.com/AlexNdungu/CodePinion-V1.2/blob/ssh/CodePinion/requirements.txt).
+> **_NOTE:_**  **Codepinion** is built ontop of Django and other Python modules. Read [Requirements.txt](https://github.com/AlexNdungu/CodePinion-V1.2/blob/ssh/requirements.txt).
 
 ```
 # Assuming python is installed
@@ -53,7 +40,7 @@ pip install django
 
 ### **Databases Structure &rarr; (CodePinion and PostgreSQL)**
 
-**PostgreSQL** - [PostgreSQL](https://www.postgresql.org/) is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
+[**PostgreSQL**](https://www.postgresql.org/) is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
 
 ```
 # Assuming Django is already installed
@@ -89,7 +76,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-<br/>
+<!---
 
 | Label                                       | Meaning      |
 |---------------------------------------------|--------------|
@@ -101,9 +88,10 @@ python manage.py migrate
 
 <img src="CodePinion\Static\Images\DB_Design.png" alt="drawing" width="100%"/> 
 
-<br/>
+-->
+
 
 ### **Filing System &rarr; (CodePinion and Secure Shell Protocol)**
 
-**Secure Shell (SSH)** - [SSH (Secure Shell)](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server) - protocol uses encryption to secure the connection between a client and a server. All user authentication, commands, output, and file transfers are encrypted to protect against attacks in the network.
+[**Secure Shell (SSH)**](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server) - protocol uses encryption to secure the connection between a client and a server. All user authentication, commands, output, and file transfers are encrypted to protect against attacks in the network.
 
