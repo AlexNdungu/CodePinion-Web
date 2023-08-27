@@ -171,7 +171,7 @@ MEDIA_ROOT = BASE_DIR / 'Media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#Authentication backends
+# Authentication backends
 
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
@@ -179,7 +179,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
-#Login and Out Urls
+# Login and Out Urls
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
