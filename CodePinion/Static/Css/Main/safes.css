@@ -53,7 +53,7 @@
 }
 
 .search-part {
-    width: 500px;
+    width: 400px;
     height: 45px;
     display: flex;
     align-items: center;
@@ -69,7 +69,7 @@
 
 /* The search input */
 #search-safe-input {
-    width: 400px;
+    width: 300px;
     height: 100%;
     border: none;
     outline: none;
@@ -98,7 +98,7 @@
 .filter_btn {
     width: max-content;
     height: 45px;
-    padding: 20px;
+    padding: 10px;
     margin-left: 20px;
     border-radius: 10px;
     display: flex;
@@ -112,7 +112,7 @@
 .filter_btn svg {
     width: 25px;
     fill: #414141;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 /* New safe btn */
@@ -192,17 +192,17 @@
 /* The safe state */
 
 .safe-state {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
 .safe-state svg {
-    width: 20px;
+    width: 17px;
     fill: #406CEE;
 }
 
@@ -220,9 +220,9 @@
 
 .stats-view {
     width: max-content;
-    height: 45px;
+    height: 35px;
     margin-left: 10px;
-    border-radius: 10px;
+    border-radius: 6px;
     background-color: white;
     display: flex;
     align-items: center;
@@ -311,18 +311,18 @@
 
 .commit-time {
     width: fit-content;
-    height: 45px;
-    padding: 20px;
+    height: 40px;
+    padding: 15px;
     background-color: white;
     fill: #406CEE;
     color: #406CEE;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
 .commit-time svg {
-    width: 23px;
+    width: 21px;
     margin-right: 10px;
 }
