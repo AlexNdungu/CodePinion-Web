@@ -20,22 +20,7 @@ let close_ssh_login_form = document.getElementById('close_ssh_form');
 let paste_path = document.getElementById('selected-path');
 
 
-// get the post ssh credentials
-let login_ssh = document.getElementById('post_ssh_credentials'); 
-//
-let edit_port = document.getElementById('edit_default_port');
-let check_edit_input = document.getElementById('engage_port_editor');
-let show_default_port = document.getElementById('show_default_port');
-// let port_input_edit = document.getElementById('engage_port_editor');
-//
-let ssh_login_loader_spin = document.getElementById('loader_ssh_log');
-let login_ssh_span = document.querySelector('#post_ssh_credentials span');
-let login_ssh_svg = document.querySelector('#post_ssh_credentials svg');
-//
-let host_name = document.getElementById('host_name');
-let port_number = document.getElementById('port_number');
-let user_name = document.getElementById('user_name');
-let password = document.getElementById('password');
+
 
 // Check if the ssh credential inputs are empty
 //
@@ -98,29 +83,6 @@ close_ssh_login_form.addEventListener('click', ()=> {
 
 // Helper fuctions
 
-// This fuction will activate or deactivate port number edit
-edit_port.addEventListener('click', ()=> {
-
-    //edit_default_active
-
-    if(check_edit_input.checked == false){
-
-        check_edit_input.checked = true; //Check the edit toggle checkbox
-        edit_port.classList.add('edit_default_active'); //Button is blue since edit is on
-        show_default_port.style.display = 'none'; //Edit active hence default show is hidden
-        port_number.style.display = 'flex'; //Edit active hence input is shown
-    }
-    else{
-
-        check_edit_input.checked = false; //uncheck the edit toggle checkbox
-        edit_port.classList.remove('edit_default_active'); //Button is blue since edit is off
-        show_default_port.style.display = 'flex'; //Edit inactive hence default show is shown
-        port_number.style.display = 'none'; //Edit inactive hence input is hidden
-        port_number.value = '22';
-    }
-
-
-})
 
 // This fuction either displays or hides the elements in the login form popup
 function login_popup_effects(span,svg,loader) {
@@ -381,19 +343,32 @@ close_ssh_section.addEventListener('click', ()=> {
     let selected_dir = document.getElementById('the_selected_path_show').innerHTML;
     let ssh_file_system = document.getElementById('choose_path_ssh_section');
 
+    // Get the show user and current path
+    let current_path = document.getElementById('current_directory_ssh_dispayer');
+    // Set current path to empty string
+    current_path.innerHTML = '';
+
+    // Get the host name from login_user
+    let logged_in_user = document.getElementById('slash_user_view').innerHTML;
+
+    // Empty the section where the selected path will be shown
     $('#selected-path-and-ssh-devices').empty();
 
     // Empty the ssh navigation and select section
     $('#select_ssh_directory_navigation').empty();
     $('#check_choosen_directory_section').empty();
 
+    // Reset past_directories,host_and_home_dir and host_and_os
+    past_directories.clear();
+    host_and_home_dir.clear();
+    host_and_os.clear();
+
     // Hide the ssh filing system
     ssh_file_system.style.display = 'none';
 
     if(selected_dir != ''){
 
-        // Get the host name from login_user
-        let host_name = document.getElementById('slash_user_view').innerHTML.split('@')[1];
+        let host_name = logged_in_user.split('@')[1];
 
         // This is the section which will appear on the main page
         let ssh_dir_and_device = `
@@ -431,164 +406,11 @@ close_ssh_section.addEventListener('click', ()=> {
       
     }
 
-});
-
-// This click function logs the user to the server
-login_ssh.addEventListener('click', ()=> {
-
-    let ssh_inputs_empty = false;
-
-    // Check if any input is empty and change ssh_inputs_empty to true
-    for(let a = 0; a < log_ssh_input_icon_inputs.length;a++){
-
-        log_ssh_input_icons[a].style.border = '2px solid #D9D9D9';
-
-        if(log_ssh_input_icon_inputs[a].value == ''){
-
-            log_ssh_input_icons[a].style.border = '2px solid #C53B3B';
-
-            ssh_inputs_empty = true;
-
-        }
-
-    }
-
-    // If no input is empty
-    if(ssh_inputs_empty == false){
-
-        // Call the function that affect the login popup
-        login_popup_effects('none','none','flex')
-            
-        // Now we perform the ajax call
-
-        // First we create form data
-        let formData = new FormData();
-
-        // Append the csrf token
-        formData.append('csrfmiddlewaretoken', csrf[0].value);
-
-        // Append hostname,username and password
-        formData.append('host_name',host_name.value);
-        formData.append('port_number',port_number.value);
-        formData.append('user_name',user_name.value);
-        formData.append('password',password.value);
-
-        $.ajax({
-            type:'POST',
-            url:'/getPath/',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response){
-
-                if(response.status == 'success'){
-
-                    // On success
-
-                    // Get the parent dir
-                    // Now lets add the current path to the interface
-                    const current_path_dir = response.current_dir_path.trim();
-                    current_working_dir.innerHTML = current_path_dir
-
-                    // Now we add all the directories to the navigation
-                    const dir_list_members = response.dir_list;
-
-                    // Update the host_and_home_dir
-                    host_and_home_dir.set(host_name.value, current_path_dir);
-
-                    // Update the host_and_os
-                    host_and_os.set(host_name.value, response.current_os);
-
-                    // Update the ssh_dir_info
-                    past_directories.set(host_name.value, [
-                        {
-                          subdirectories: dir_list_members,
-                          directoryPath: current_path_dir
-                        }
-                    ]);
-                    
-                    // Call the function that affect the login popup
-                    login_popup_effects('flex','flex','none');
-
-                    // Success popup
-                    success_popup.style.display = 'flex';
-
-                    setTimeout(function(){
-
-                        success_popup.style.display = 'none';
-                        
-                    },5000);
-
-                    // Remove login popup
-                    ssh_login_form.style.display = 'none';
-                    // Show the ssh filing system
-                    ssh_file_system.style.display = 'flex';
-
-                    // Now we display the name as required
-                    user_dir_indicate.innerHTML = user_name.value + "@" + host_name.value;
-
-                    // Call the fuction which adds the dirs to navs
-                    fill_nav_with_dirs(current_path_dir,dir_list_members);
-
-                    // Now we add the checkable dirs
-                    fill_checks_with_dirs(dir_list_members)
-
-                    // Change the os icons
-                    if (response.current_os == 'Windows'){
-
-                        windows_icon.style.display = 'flex';
-
-                    }
-                    else if(response.current_os == 'Linux'){
-
-                        linux_icon.style.display = 'flex';
-
-                    }
-
-
-                }
-                else if(response.status == 'fail'){
-
-                    //On fail
-                    //Call the function that affect the login popup
-                    login_popup_effects('flex','flex','none')
-
-                    //Success popup
-                    pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';
-                    pop_error_auth_ssh.style.display = 'flex';
-
-                    setTimeout(function(){
-
-                        pop_error_auth_ssh.style.display = 'none';
-                        
-                    },5000);
-
-                }
-
-            },
-            error: function(error){
-
-                //On fail
-                //Call the function that affect the login popup
-                login_popup_effects('flex','flex','none')
-
-                //Success popup
-                pop_error_auth_ssh_message.innerHTML = 'Fatal Error Occured. Try Again In A Few Minutes';
-                pop_error_auth_ssh.style.display = 'flex';
-
-                setTimeout(function(){
-
-                    pop_error_auth_ssh.style.display = 'none';
-                    
-                },5000);
-
-            }
-
-        });   
-
-    }
+    // Clear the logged in user
+    logged_in_user = '';
 
 });
+
 
 // This function will contain the ssh login which will be called if user has a ssh device added
 function ssh_login_exist(){

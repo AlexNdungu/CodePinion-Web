@@ -880,7 +880,7 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: none;  /* Pop in and out */
+    display: flex;  /* Pop in and out */
     align-items: center;
     justify-content: center;
 }
