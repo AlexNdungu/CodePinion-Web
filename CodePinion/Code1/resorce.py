@@ -208,7 +208,8 @@ class SecureShell:
             ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
 
             # This variable will store the cd command to enter into a new directory
-            cd_entry_command = "find" + " " + cd_path + " -maxdepth 1 -type d -printf '%f\n'" #find /home/user1/Documents -maxdepth 1 -type d -printf '%f\n'
+            cd_entry_command = "find" + " " + cd_path + " -maxdepth 1 -mindepth 1 -type d -printf '%f\n'" #find /home/user1/Documents -maxdepth 1 -mindepth 1 -type d -printf '%f\n'
+
 
             stdin, stdout, stderr = ssh_client.exec_command(cd_entry_command)
 

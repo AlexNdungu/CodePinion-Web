@@ -248,9 +248,27 @@ export function backToPrevDir(current_dir_path){
         back_btn.style.display = 'flex';
 
         // Get the previous directory path
-        let remove_current_dir = current_dir_path.lastIndexOf("\\");
-        let previous_directory_path = current_dir_path.slice(0, remove_current_dir);
+        let previous_directory_path = ''
 
+        // Get the host name from login_user
+        let host_name = document.getElementById('slash_user_view').innerHTML.split('@')[1];
+        let host_os = host_and_os.get(host_name);
+
+        // Check os type to determine the path
+        if(host_os == 'Windows'){
+
+            // Get the previous directory path
+            let remove_current_dir = current_dir_path.lastIndexOf("\\");
+            previous_directory_path = current_dir_path.slice(0, remove_current_dir);
+
+        }
+        else if(host_os == 'Linux'){
+
+            // Get the previous directory path
+            let remove_current_dir = current_dir_path.lastIndexOf("/");
+            previous_directory_path = current_dir_path.slice(0, remove_current_dir);
+
+        }
 
         let the_past_dirs = past_directories.get(host_name);
 
