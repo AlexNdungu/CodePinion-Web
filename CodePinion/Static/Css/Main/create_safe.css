@@ -927,6 +927,61 @@
 }
 
 
+/* This section will appear if user doesnt have ssh device */
+.display_no_ssh_device {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.empty-ssh-devs {
+    width: 120px;
+    height: 120px;
+}
+
+.empty-ssh-devs img {
+    width: 100%;
+    height: 100%;
+}
+
+/* These button take you to create ssh device or docs */
+.read_docs_add_devise{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rd_btn {
+    width: 180px;
+    height: 100%;
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #414141;
+    fill: #f3f3f3;
+    color: #f3f3f3;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+.rd_btn:hover {
+    background-color: #406CEE;
+}
+
+
+
+
 /* Alraedy connected ssh devices  */
 .ssh_available_devices {
     position: relative;
@@ -948,7 +1003,7 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
-    background-color: #F3F3F3;
+    background-color: white;
     cursor: pointer;
     transition: 0.2s ease-in;
 }
