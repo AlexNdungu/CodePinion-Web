@@ -68,6 +68,9 @@ export const past_directories = new Map();
 // This object stores host name and home dir
 export const host_and_home_dir = new Map();
 
+// This object stores host name and os
+export const host_and_os = new Map();
+
 // This fuction acts as the dir cd function
 // Import from dir_navigation.js file
 import { interactWithCmd } from './dir_navigate.js';
@@ -311,8 +314,24 @@ export function fill_checks_with_dirs(dir_list_members){
             svg_check_containers[num_dir].classList.add('svg_check_containers_hover');
             // Change styling of checked dir
             all_dirs_checks[num_dir].classList.add('ind_onchecked_and_choosen_dir');
-            // Change selected path
-            choosen_dir_show.innerHTML = current_working_dir.innerHTML + "\\" + individual_divs_names[num_dir].innerHTML;
+
+            // Change selected path depending on the os of the host
+
+            // Get the host name from login_user
+            let host_name = document.getElementById('slash_user_view').innerHTML.split('@')[1];
+            let host_os = host_and_os.get(host_name);
+
+            // Check os type to determine the path
+            if(host_os == 'Windows'){
+            
+                choosen_dir_show.innerHTML = current_working_dir.innerHTML + "\\" + individual_divs_names[num_dir].innerHTML;
+
+            }
+            else if(host_os == 'Linux'){
+
+                choosen_dir_show.innerHTML = current_working_dir.innerHTML + "/" + individual_divs_names[num_dir].innerHTML;
+
+            }
 
             // Change the background of the close ssh section button
             close_ssh_section.classList.add('close_ssh_filing_active');
@@ -466,7 +485,7 @@ login_ssh.addEventListener('click', ()=> {
 
                     // Get the parent dir
                     // Now lets add the current path to the interface
-                    const current_path_dir = response.current_dir_path;
+                    const current_path_dir = response.current_dir_path.trim();
                     current_working_dir.innerHTML = current_path_dir
 
                     // Now we add all the directories to the navigation
@@ -474,6 +493,9 @@ login_ssh.addEventListener('click', ()=> {
 
                     // Update the host_and_home_dir
                     host_and_home_dir.set(host_name.value, current_path_dir);
+
+                    // Update the host_and_os
+                    host_and_os.set(host_name.value, response.current_os);
 
                     // Update the ssh_dir_info
                     past_directories.set(host_name.value, [
