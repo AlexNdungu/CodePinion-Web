@@ -414,14 +414,22 @@ function ssh_login_exist(){
         let ssh_login_btns = document.getElementsByClassName('ssh_device_edit_and_connect_enter');
         // Get the host names
         let ssh_host_names = document.getElementsByClassName('ssh_host_names');
+        // Get the login spinners
+        let ssh_login_spinners = document.getElementsByClassName('loader_ssh_log');
+        // Get the connect icons
+        let ssh_connect_icons = document.getElementsByClassName('loader_ssh_log_opposite');
  
         // Add click events to all the ssh login buttons
         for(let num_ssh = 0; num_ssh < ssh_login_btns.length; num_ssh++){
 
             ssh_login_btns[num_ssh].addEventListener('click', ()=> {
             
-
                 // Now we perform the ajax call
+
+                // Show the spinner
+                ssh_login_spinners[num_ssh].style.display = 'flex';
+                // Hide the connect icon
+                ssh_connect_icons[num_ssh].style.display = 'none';
 
                 // Grt the host name
                 let clicked_host_name = ssh_host_names[num_ssh].innerHTML;
@@ -469,6 +477,11 @@ function ssh_login_exist(){
                                 }
                             ]);
 
+                            // Hide the spinner
+                            ssh_login_spinners[num_ssh].style.display = 'none';
+                            // Show the connect icon
+                            ssh_connect_icons[num_ssh].style.display = 'flex';
+
                             // Success popup
                             success_popup.style.display = 'flex';
 
@@ -510,7 +523,12 @@ function ssh_login_exist(){
 
                             //On fail
 
-                            //Success popup
+                            // Hide the spinner
+                            ssh_login_spinners[num_ssh].style.display = 'none';
+                            // Show the connect icon
+                            ssh_connect_icons[num_ssh].style.display = 'flex';
+
+                            // The error pop
                             pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';
                             pop_error_auth_ssh.style.display = 'flex';
 
@@ -525,7 +543,14 @@ function ssh_login_exist(){
                     },
                     error: function(error){
 
-                        //Success popup
+                        //On fail
+
+                        // Hide the spinner
+                        ssh_login_spinners[num_ssh].style.display = 'none';
+                        // Show the connect icon
+                        ssh_connect_icons[num_ssh].style.display = 'flex';
+
+                        // The error pop
                         pop_error_auth_ssh_message.innerHTML = 'Fatal Error Occured. Try Again In A Few Minutes';
                         pop_error_auth_ssh.style.display = 'flex';
 
