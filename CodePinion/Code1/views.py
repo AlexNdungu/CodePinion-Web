@@ -7,10 +7,6 @@ from django.http import JsonResponse
 from .resorce import SecureShell,Create_User_Signal
 from cryptography.fernet import Fernet
 
-# import subprocess 
-# import os
-
-
 # Create your views here.
 
 #The Inherited upper Navigation Rendering Function

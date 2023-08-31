@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-wx8tk0+7gfn%y+cr$2#2114kpz--_3ogmj2uo1pw_3(!3ks)@q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["codepinion.com","www.codepinion.com","https://codepinion.com" ,"localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["codepinion.com","www.codepinion.com","https://codepinion.com" ,"localhost", "127.0.0.1","192.168.100.4"]
 
 
 SITE_ID = 1

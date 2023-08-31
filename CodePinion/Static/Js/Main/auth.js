@@ -445,3 +445,14 @@ create_user.addEventListener('click', ()=> {
     }
 
 });
+
+
+// Create an onload function
+window.onload = function() {
+
+   console.log('Width: ' + window.innerWidth)
+   console.log('Height: ' + window.innerHeight)
+
+   //1484
+
+};

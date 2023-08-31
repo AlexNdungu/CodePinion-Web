@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cryptography.fernet import Fernet
 from fernet_fields import EncryptedTextField
-# Here I will create the tables in the databases
+
 
 # User Profile
 class Profile(models.Model):
