@@ -219,7 +219,6 @@ class SecureShell:
             # Clean the return list
             return_list = self.clean_server_response(stdout.readlines())
 
-
             return return_list
         
         except paramiko.ssh_exception.AuthenticationException:
@@ -232,11 +231,11 @@ class SecureShell:
 
         if os == 'Windows':
 
-            self.windows_command(cd_path)
+            return self.windows_command(cd_path)
 
         elif os == 'Linux':
 
-            self.linux_command(cd_path)
+            return self.linux_command(cd_path)
 
     
 

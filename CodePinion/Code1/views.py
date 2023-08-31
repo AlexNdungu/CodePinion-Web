@@ -117,8 +117,6 @@ def cdIntoDir(request):
         intended_path = request.POST.get('intended_path')
         host_name = request.POST.get('host_name')
 
-        print(intended_path)
-
         # The device instance with host_name = host_name
         ssh_device = models.SSH_Devices.objects.get(host_name = host_name)
 
