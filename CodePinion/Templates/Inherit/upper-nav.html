@@ -50,7 +50,7 @@
                 </div>
 
                 <!--The cancel button-->
-                <div class="cancel-in-nav">
+                <div class="cancel-in-nav" id="cancel-in-nav"">
 
                     <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
 
@@ -96,6 +96,17 @@
 
     </div>
 
+    <!--The scipt that will toggle the navigation-->
+    <script>
+
+        // Get the toggle button
+        let cancel_in_nav = document.getElementById("cancel-in-nav");
+
+        // The navigation status is of
+        var nav_on = false;
+
+    </script>
+
     <!--The div holding all the sections-->
     <div class="main-body">
 
@@ -108,6 +119,14 @@
                 <!--The logo section-->
                 <div class="logo-section">
 
+                    <!--The open navigation btn-->
+                    <div class="open-navigation-btn">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+
+                    </div>
+
+                    <!--The logo-->
                     <img class="logo-image" src="{% static '\Images\logo1.jpg' %}" alt="codepinion-logo">
 
                 </div>
