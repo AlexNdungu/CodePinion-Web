@@ -7,20 +7,13 @@ let not_selected = document.getElementById('not_selected');
 let pop_error_auth_ssh = document.getElementById('pop_error_auth_ssh');
 let pop_error_auth_ssh_message = document.getElementById('pop_error_auth_ssh_message');
 
-
 // Call the login for and file system
 let ssh_login_form = document.getElementById('ssh_login_popup');
 let ssh_file_system = document.getElementById('choose_path_ssh_section');
 
-
 // The collect path button
 let launch_ssh_login_form = document.getElementById('select-path-btn-connect');
 let close_ssh_login_form = document.getElementById('close_ssh_form');
-//
-let paste_path = document.getElementById('selected-path');
-
-
-
 
 // Check if the ssh credential inputs are empty
 //
@@ -82,7 +75,6 @@ close_ssh_login_form.addEventListener('click', ()=> {
 
 
 // Helper fuctions
-
 
 // This fuction either displays or hides the elements in the login form popup
 function login_popup_effects(span,svg,loader) {
