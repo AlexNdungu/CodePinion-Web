@@ -9,18 +9,25 @@
 
 /* The pie chart section */
 .pie-chart-section {
-    width: 350px;
+    width: 400px;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    background-color: aqua;
+}
+
+.inner-pie-section {
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #F3F3F3;
 }
 
 
 /* home-right-section */
 .home-right-section {
-    width: calc(100% - 350px);
+    width: calc(100% - 400px);
     height: 100%;
 }
 

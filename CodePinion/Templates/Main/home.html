@@ -23,35 +23,46 @@
         <!--the pie chart section-->
         <div class="pie-chart-section">
 
-            <canvas id="pie-chart-section" ></canvas>
+            <div class="inner-pie-section">
+
+                <!--The graph appears here-->
+                <canvas id="pie-chart-section" ></canvas>
+
+            </div>
 
         </div>
 
-
+        <!--This script will display the pie chart-->
         <script>
             const language_pie_chart = document.getElementById('pie-chart-section');
           
             new Chart(language_pie_chart, {
-              type: 'pie',
-              data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                  label: '# of Votes',
-                  data: [12, 19, 3, 5, 2, 3],
-                  borderWidth: 1
-                }]
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: true
-                  }
-                }
-              }
+                type: 'pie',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: 'Programming Languages',
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            align: 'start',
+                            textDirection: 'ltr'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Programming Languages Chart'
+                        },
+                       
+                    }
+                },
             });
-          </script>
-
-        
+        </script>
 
         <!--The lower right section-->
         <div class="home-right-section">
