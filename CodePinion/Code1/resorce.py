@@ -41,17 +41,6 @@ class SecureShell:
 
         ssh_device.save()
 
-    # Decodes password from database
-    # def decode_password(self):
-
-    #     #Decrpt the password
-    #     key = Fernet.generate_key()
-    #     f = Fernet(key)
-    #     plain_pass = f.decrypt(self.password)
-    #     plain_pass = plain_pass.decode()
-        
-    #     return plain_pass
-
 
     def clean_server_response(self,server_response_list=[],current_directory=None):
 

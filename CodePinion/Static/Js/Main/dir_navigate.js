@@ -130,7 +130,23 @@ export function interactWithCmd(all_dir_nav_btns,all_dir_nav_btns_spinner,all_di
             // The current ssh dir
             let current_dir_path = document.getElementById('current_directory_ssh_dispayer').innerHTML;
 
-            let intended_dir_path = current_dir_path + "\\" + all_dir_names[nav].innerHTML;
+            let intended_dir_path = ''
+
+            // Get the host name from login_user
+            let host_name = document.getElementById('slash_user_view').innerHTML.split('@')[1];
+            let host_os = host_and_os.get(host_name);
+
+            // Check os type to determine the path
+            if(host_os == 'Windows'){
+            
+                intended_dir_path = current_dir_path + "\\" + all_dir_names[nav].innerHTML;
+
+            }
+            else if(host_os == 'Linux'){
+
+                intended_dir_path = current_dir_path + "/" + all_dir_names[nav].innerHTML;
+
+            }
 
             // Get the home directory
             // let parent_dir = host_and_home_dir.get(host_name);
