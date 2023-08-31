@@ -5,9 +5,10 @@ let csrf1 = document.getElementsByName('csrfmiddlewaretoken');
 import { fill_nav_with_dirs } from './path.js';
 import { fill_checks_with_dirs } from './path.js';
 
-// Import ssh_dir_info and host_and_home_dir
+// Import ssh_dir_info, host_and_home_dir and host_and_os
 import { past_directories } from './path.js';
 import { host_and_home_dir } from './path.js';
+import { host_and_os } from './path.js';
 
 // Helper fuctions below
 

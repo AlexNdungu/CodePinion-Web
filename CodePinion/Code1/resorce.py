@@ -162,7 +162,7 @@ class SecureShell:
         except paramiko.ssh_exception.AuthenticationException:
 
             return 'Error'
-        
+
 
     # This method will be pass Windows commands
     def windows_command(self,cd_path):
@@ -194,6 +194,51 @@ class SecureShell:
         except paramiko.ssh_exception.AuthenticationException:
 
             return 'Error'
+
+
+    # This method will be pass linux commands
+    def linux_command(self,cd_path):
+
+        try:
+
+            ssh_client = paramiko.SSHClient()
+
+            ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+            ssh_client.connect(hostname=self.hostname,port=self.port,username=self.username, password=self.password)
+
+            # This variable will store the cd command to enter into a new directory
+            cd_entry_command = "find" + " " + cd_path + " -maxdepth 1 -type d -printf '%f\n'" #find /home/user1/Documents -maxdepth 1 -type d -printf '%f\n'
+
+            stdin, stdout, stderr = ssh_client.exec_command(cd_entry_command)
+
+            time.sleep(5)
+
+            ssh_client.close()
+
+            # Clean the return list
+            return_list = self.clean_server_response(stdout.readlines())
+
+
+            return return_list
+        
+        except paramiko.ssh_exception.AuthenticationException:
+
+            return 'Error' 
+
+
+    # This method will be call either windows_command or linux_command
+    def server_command(self,os,cd_path):
+
+        if os == 'Windows':
+
+            self.windows_command(cd_path)
+
+        elif os == 'Linux':
+
+            self.linux_command(cd_path)
+
+    
 
 
 

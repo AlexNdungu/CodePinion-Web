@@ -117,13 +117,16 @@ def cdIntoDir(request):
         intended_path = request.POST.get('intended_path')
         host_name = request.POST.get('host_name')
 
+        print(intended_path)
+
         # The device instance with host_name = host_name
         ssh_device = models.SSH_Devices.objects.get(host_name = host_name)
 
         # Call the SecureShell class
         ssh_instance = SecureShell(ssh_device.host_name,ssh_device.host_port,ssh_device.host_username,ssh_device.host_password)
-        # call the windows_command function
-        server_response = ssh_instance.windows_command(intended_path)
+
+        # call the  function
+        server_response = ssh_instance.server_command(ssh_device.device_os.os_name,intended_path)
 
         return JsonResponse({'status':'success','sub_dirs':server_response})
     
