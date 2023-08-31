@@ -85,8 +85,8 @@ class SecureShell:
             what_is_os = ""
 
             find_os = [
-                ('Windows', 'dir'),
-                ('Linux', 'uname')
+                ('Windows', 'cd'),
+                ('Linux', 'pwd')
             ]
 
             # This loop passes the two commands in find_os and append the corresponding command to its os
@@ -134,8 +134,12 @@ class SecureShell:
                         
                     stdin, stdout, stderr = ssh_client.exec_command(command)
 
-                    # Clean the current directory
-                    home_directory = self.clean_server_response(current_directory = stdout.readlines()[0])
+                    home_directory = stdout.readlines()[0] 
+
+                    #print(home_directory)
+
+                    # Clean the current directory 
+                    # home_directory = self.clean_server_response(current_directory = stdout.readlines())
 
                     # Append directory to out_put
                     out_put.append(home_directory)
@@ -149,6 +153,9 @@ class SecureShell:
 
                     # Append directory to out_put
                     out_put.append(return_list)
+
+
+            #print(out_put)
 
             time.sleep(5)
 
