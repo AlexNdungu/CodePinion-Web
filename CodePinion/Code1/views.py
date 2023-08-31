@@ -82,17 +82,15 @@ def getLocalPath(request):
 
         # Host name
         host_name = request.POST.get('host_name')
-        # Port Number
-        port_number = int(request.POST.get('port_number'))
-        # User name
-        user_name = request.POST.get('user_name')
-        # password
-        password = request.POST.get('password')
+
+        # The device instance with host_name = host_name
+        ssh_device = models.SSH_Devices.objects.get(host_name = host_name)
+        
         # get the current profile
         current_profile = models.Profile.objects.get(user = request.user)
 
         # Call class
-        login_instance = SecureShell(host_name,port_number,user_name,password,current_profile)
+        login_instance = SecureShell(ssh_device.host_name,ssh_device.host_port,ssh_device.host_username,ssh_device.host_password,current_profile)
 
         # Use the login instance to receive the response
         server_reponse = login_instance.ssh_login()
@@ -100,7 +98,7 @@ def getLocalPath(request):
 
         if server_reponse != 'Error':
 
-            return JsonResponse({'status':'success', 'dir_list':server_reponse[2], 'current_dir_path':server_reponse[1],'current_os':server_reponse[0]})
+            return JsonResponse({'status':'success', 'dir_list':server_reponse[2], 'current_dir_path':server_reponse[1],'current_os':server_reponse[0],'host_username':ssh_device.host_username})
         
         else:
 

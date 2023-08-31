@@ -79,6 +79,7 @@ import { backToPrevDir } from './dir_navigate.js';
 // Get the CSRF token
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 
+
 // This click fuctions display and hide the login form
 launch_ssh_login_form.addEventListener('click', ()=> {
 
@@ -93,7 +94,6 @@ close_ssh_login_form.addEventListener('click', ()=> {
     ssh_login_form.style.display = 'none';
 
 });
-
 
 
 // Helper fuctions
@@ -383,12 +383,14 @@ close_ssh_section.addEventListener('click', ()=> {
 
     $('#selected-path-and-ssh-devices').empty();
 
+    // Empty the ssh navigation and select section
+    $('#select_ssh_directory_navigation').empty();
+    $('#check_choosen_directory_section').empty();
+
     // Hide the ssh filing system
     ssh_file_system.style.display = 'none';
 
     if(selected_dir != ''){
-
-        console.log('clicked')
 
         // Get the host name from login_user
         let host_name = document.getElementById('slash_user_view').innerHTML.split('@')[1];
@@ -586,4 +588,154 @@ login_ssh.addEventListener('click', ()=> {
 
     }
 
-})
+});
+
+// This function will contain the ssh login which will be called if user has a ssh device added
+function ssh_login_exist(){
+
+    // Check if the user has any ssh device
+    if(ssh_devices.length > 0){
+
+        // Get the ssh login buttons
+        let ssh_login_btns = document.getElementsByClassName('ssh_device_edit_and_connect_enter');
+        // Get the host names
+        let ssh_host_names = document.getElementsByClassName('ssh_host_names');
+ 
+        // Add click events to all the ssh login buttons
+        for(let num_ssh = 0; num_ssh < ssh_login_btns.length; num_ssh++){
+
+            ssh_login_btns[num_ssh].addEventListener('click', ()=> {
+            
+
+                // Now we perform the ajax call
+
+                // Grt the host name
+                let clicked_host_name = ssh_host_names[num_ssh].innerHTML;
+
+                // First we create form data
+                let formData = new FormData();
+
+                // Append the csrf token
+                formData.append('csrfmiddlewaretoken', csrf[0].value);
+
+                // Append hostname,username and password
+                formData.append('host_name',clicked_host_name);
+
+                $.ajax({
+                    type:'POST',
+                    url:'/getPath/',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response){
+
+                        if(response.status == 'success'){
+
+                            // On success
+
+                            // Get the parent dir
+                            // Now lets add the current path to the interface
+                            const current_path_dir = response.current_dir_path.trim();
+                            current_working_dir.innerHTML = current_path_dir
+
+                            // Now we add all the directories to the navigation
+                            const dir_list_members = response.dir_list;
+
+                            // Update the host_and_home_dir
+                            host_and_home_dir.set(clicked_host_name, current_path_dir);
+
+                            // Update the host_and_os
+                            host_and_os.set(clicked_host_name, response.current_os);
+
+                            // Update the ssh_dir_info
+                            past_directories.set(clicked_host_name, [
+                                {
+                                subdirectories: dir_list_members,
+                                directoryPath: current_path_dir
+                                }
+                            ]);
+
+                            // Success popup
+                            success_popup.style.display = 'flex';
+
+                            setTimeout(function(){
+
+                                success_popup.style.display = 'none';
+                                
+                            },5000);
+
+                            // Remove login popup
+                            ssh_login_form.style.display = 'none';
+                            // Show the ssh filing system
+                            ssh_file_system.style.display = 'flex';
+
+                            // Now we display the name as required
+                            user_dir_indicate.innerHTML = response.host_username + "@" + ssh_host_names[num_ssh].innerHTML;
+
+                            // Call the fuction which adds the dirs to navs
+                            fill_nav_with_dirs(current_path_dir,dir_list_members);
+
+                            // Now we add the checkable dirs
+                            fill_checks_with_dirs(dir_list_members)
+
+                            // Change the os icons
+                            if (response.current_os == 'Windows'){
+
+                                windows_icon.style.display = 'flex';
+
+                            }
+                            else if(response.current_os == 'Linux'){
+
+                                linux_icon.style.display = 'flex';
+
+                            }
+
+
+                        }
+                        else if(response.status == 'fail'){
+
+                            //On fail
+
+                            //Success popup
+                            pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';
+                            pop_error_auth_ssh.style.display = 'flex';
+
+                            setTimeout(function(){
+
+                                pop_error_auth_ssh.style.display = 'none';
+                                
+                            },5000);
+
+                        }
+
+                    },
+                    error: function(error){
+
+                        //Success popup
+                        pop_error_auth_ssh_message.innerHTML = 'Fatal Error Occured. Try Again In A Few Minutes';
+                        pop_error_auth_ssh.style.display = 'flex';
+
+                        setTimeout(function(){
+
+                            pop_error_auth_ssh.style.display = 'none';
+                            
+                        },5000);
+
+                    }
+
+                });   
+            });
+
+        }
+
+    }
+    
+}
+
+// Call the ssh login device onload
+window.onload = function() {
+    
+    // call the ssh login exist function
+    ssh_login_exist();
+    
+};
