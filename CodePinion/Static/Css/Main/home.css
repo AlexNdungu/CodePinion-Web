@@ -143,7 +143,7 @@
 
 .pinned-safes {
     width: 100%;
-    height: calc(100% - 45px);
+    height: fit-content;
     padding-left: 10px;
     padding-top: 10px;
     border-top-right-radius: 10px;
@@ -157,10 +157,11 @@
 /* The pinned safe single */
 
 .the-pinned-safe {
-    width: 600px;
-    height: 210px;
+    width: 500px;
+    height: 170px;
     border-radius: 10px;
     margin-right: 10px;
+    margin-bottom: 10px;
     background-color: #E4E4E4;
 }
 
@@ -178,6 +179,7 @@
 
 .pin-safe-up h2 {
     color: #406CEE;
+    font-size: 20px;
     margin-right: 10px;
 }
 
@@ -191,9 +193,9 @@
 }
 
 .visible-detail {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -202,8 +204,8 @@
 
 .visible-detail svg {
     fill: #406CEE;
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
 }
 
 /* The pin stars and watchers */
@@ -218,18 +220,18 @@
 }
 
 .pin-stats-watches svg {
-    width: 24px;
+    width: 18px;
 }
 
 /* The pin detail section */
 
 .pin-more-details {
     width: max-content;
-    height: 45px;
+    height: 35px;
     padding-right: 20px;
     padding-left: 20px;
     margin-left: 10px;
-    border-radius: 10px;
+    border-radius: 6px;
     color: #406CEE;
     fill: #406CEE;
     display: flex;
@@ -240,7 +242,7 @@
 
 .pin-more-details span {
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
 }
 
@@ -305,17 +307,17 @@
 
 .last-update-details {
     width: max-content;
-    height: 45px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 20px;
 }
 
 .last-update-details svg {
-    width: 24px;
+    width: 22px;
     fill: #406CEE;
 }
 
