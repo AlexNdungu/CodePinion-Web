@@ -136,8 +136,6 @@ class SecureShell:
 
                     home_directory = stdout.readlines()[0] 
 
-                    #print(home_directory)
-
                     # Clean the current directory 
                     # home_directory = self.clean_server_response(current_directory = stdout.readlines())
 
@@ -155,7 +153,7 @@ class SecureShell:
                     out_put.append(return_list)
 
 
-            #print(out_put)
+            print(out_put)
 
             time.sleep(5)
 

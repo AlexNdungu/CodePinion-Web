@@ -102,8 +102,6 @@ def getLocalPath(request):
 
         if server_reponse != 'Error':
 
-            print(server_reponse)
-
             return JsonResponse({'status':'success', 'dir_list':server_reponse[2], 'current_dir_path':server_reponse[1],'current_os':server_reponse[0]})
         
         else:
