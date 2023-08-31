@@ -475,7 +475,7 @@
 /* The previous directory button */
 #back_dir_btn {
     height: 40px;
-    width: 200px;
+    width: 100px;
     display: none; /* Flex to change back directory button */
     align-items: center;
     justify-content: space-evenly;
