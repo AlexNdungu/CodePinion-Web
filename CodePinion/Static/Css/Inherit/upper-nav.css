@@ -11,8 +11,64 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5px;
     background-color: rgba(65, 65, 65,0.4)
 }
+
+.inherited-main-navigation {
+    width: 300px;
+    height: calc(100% - 10px);
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* Navigation top section */
+.inherited-main-navigation-top {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* The navigation logo */
+.logo-in-nav{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+
+.logo-in-nav img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Cancel navigation */
+.cancel-in-nav {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: #414141;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.cancel-in-nav:hover {
+    background-color: #F3F3F3;
+}
+
+.cancel-in-nav svg {
+    width: 22px;
+}
+
 
 /* The main div */
 .main-body {
