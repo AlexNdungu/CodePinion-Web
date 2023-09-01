@@ -26,8 +26,9 @@
 
 /* The container that contains all the safes and filter option */
 .safes-section {
-    width: calc(100% - 400px);
+    width: calc(100% - 410px);
     height: 100%;
+    margin-right: 10px;
     border-radius: 10px;
     background-color: #F3F3F3;
 }
@@ -449,10 +450,11 @@
 
     .search-section {
         width: 100%;
+        padding-left: 10px;
     }
 
     .search-part {
-        width: calc(100% - 20px);
+        width: calc(100% - 10px);
         height: 35px;
     }
 
@@ -467,10 +469,16 @@
     }
 
     /* The filet buttons */
+
+    .filters-and-new-safe {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
     .filter_btn {
         height: 35px;
         padding: 10px;
-        margin-left: 20px;
+        margin-left: 10px;
         border-radius: 7px;
         font-size: 12px;
     }
@@ -490,7 +498,15 @@
         height: 10px;
     }
 
+    .separation-line div {
+        width: calc(100% - 20px);
+    }
+
     /* THE SAFE SECTION */
+
+    .single-safe {
+        width: calc(100% - 20px);
+    }
     
     .safe-name-state h2 {
         font-size: 15px;
