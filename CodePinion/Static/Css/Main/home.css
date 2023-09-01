@@ -269,6 +269,10 @@
     color: #8F8F8F;
 }
 
+.pin-safe-about span {
+    font-size: 15px;
+}
+
 
 /* Pin safe down section */
 
@@ -423,5 +427,32 @@
         width: 16px;
     }
 
+    /* The Safe About */
+    .pin-safe-about span {
+        font-size: 13px;
+    }
+
+    /* The lang images */
+
+    .pin-lang-single {
+        width: 25px;
+        height: 24px;
+        margin-right: 7px;
+    }
+
+    /* The last date of update */
+    .last-update-details {
+        height: 30px;
+        padding: 15px;
+    }
+    
+    .last-update-details svg {
+        width: 19px;
+    }
+    
+    .last-update-details span {
+        font-size: 14px;
+        margin-left: 10px;
+    }
 
 }
