@@ -525,7 +525,6 @@ form {
     }
 
     /* EMAIL */
-    /* The email input */
     
     /* The email container */
     .email_input {
@@ -597,8 +596,25 @@ form {
 /* width max=1030 */
 @media screen and (max-width: 1030px) {
 
-    
+    /* MAIN CONTAINER */
+
+    .inner_actual_form {
+        width: 65%;
+    }
+
+    /* EMAIL */
+
+    /* The email input */
+    .email_input input{
+        width: 220px;
+    }
    
+    /* PASSWORD */
+
+    /* Password input concidering the show password button */
+    .pass_input_lock input{
+        width: 200px;
+    }
 
 }
 
