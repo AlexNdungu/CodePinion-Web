@@ -559,3 +559,47 @@
     }
 
 }
+
+
+/* Width max=950px */
+@media screen and (max-width: 950px) {
+
+    /* INHERITED SECTION */
+    .lower-section {
+        height: fit-content !important;
+    }
+
+    .inherited-upper-nav-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* THE PIE SECTION */
+    .pie-chart-section {
+        width: 100%;
+    }
+
+    .inner-pie-section {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* THE SEARCH SECTION */
+    .safes-section {
+        width: calc(100% - 20px);
+        margin-top: 10px;
+        margin-right: 0px;
+    }
+
+    .search-and-buttons {
+        height: 120px;
+    }
+
+    .search-part {
+        height: 40px;
+    }
+
+
+}
