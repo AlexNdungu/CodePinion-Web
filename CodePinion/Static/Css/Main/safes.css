@@ -621,6 +621,57 @@
 }
 
 
+/* Width max=420px */
+@media screen and (max-width:420px){
+    
+    /* THE SAFE SECTION */
+    .safe-name-state {
+        padding-left: 10px;
+    }
+
+    .stars-watchers-section {
+        padding-right: 10px;
+    }
+
+    .about-safe {
+        padding-left: 10px;
+    }
+
+    .langs {
+        padding-left: 10px;
+    }
+
+    .scheduled-commit {
+        padding-right: 10px;
+    }
+
+}
+
+
+/* Width max=380px */
+@media screen and (max-width:380px){
+    
+    /* THE FILTER BUTTONS */
+
+    .filter_btn {
+        height: 30px;
+        padding: 7px;
+    }
+
+    .filter_btn svg {
+        width: 17px;
+    }
+
+    .new-safe svg {
+        width: 15px;
+    }
+
+    .commit-time {
+        font-size: 10px;
+    }
+}
+
+
 /* Width max=300px */
 @media screen and (max-width:300px){
     
@@ -632,7 +683,7 @@
     /* THE SEARCH SECTION */
 
     .search-and-buttons {
-        height: 90px;
+        height: 50px;
     }
 
     .search-part {
@@ -642,6 +693,11 @@
 
     .search-part svg {
         width: 15px;
+    }
+
+    /* THE FILTER BUTTON */
+    .filters-and-new-safe {
+        display: none;
     }
 
     /* SAFE SECTION */
