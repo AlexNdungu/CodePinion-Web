@@ -634,7 +634,7 @@
     /* THE PIE SECTION */
 
     .pie-chart-section {
-        height: 330px;
+        height: fit-content !important;
     }
     
 }
@@ -642,6 +642,12 @@
 
 /* Width max=420px */
 @media screen and (max-width: 420px){
+
+    /* THE PIE SECTION */
+
+    .pie-chart-section {
+        height: 400px !important;
+    }
 
     /* PINNED SAFES */
 
@@ -654,6 +660,16 @@
 
 /* Width max=300px */
 @media screen and (max-width: 300px){
+
+    /* THE PIE SECTION */
+
+    .pie-chart-section {
+        height: fit-content !important;
+    }
+
+    .inner-pie-section {
+        height: fit-content !important;
+    }
 
     /* PINNED SAFES */
 

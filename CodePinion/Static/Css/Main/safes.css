@@ -603,3 +603,30 @@
 
 
 }
+
+
+/* Width max=550px */
+@media screen and (max-width:550px){
+    
+    /* THE SEARCH SECTION */
+    .search-and-buttons {
+        height: 100px;
+    }
+
+    /* THE SAFE SECTION */
+    .single-safe {
+        height: 130px;
+    }
+
+}
+
+
+/* Width max=300px */
+@media screen and (max-width:300px){
+    
+    /* THE PIE SECTION */
+    .inner-pie-section {
+        height: fit-content !important;
+    }
+
+}
