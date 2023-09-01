@@ -476,3 +476,34 @@ form {
     font-weight: 600;
     margin-left: 5px;
 }
+
+
+/* RESPONSIVE WEBSITE USING BOTH WIDTH AND HEIGHT */
+
+/* Width max=1370  */
+@media screen and (max-width: 1370px) {
+
+    /* The email input field */
+    .email_input input {
+        width: 260px;
+    }
+
+    /* Password input concidering the show password button */
+    .pass_input_lock input{
+        width: 240px;
+    }
+   
+}
+
+/* Height max=650px */
+
+@media screen and (max-height: 650px) {
+
+    /* Actual inner form */
+    .inner_actual_form {
+        width: 60%;
+        height: 100%;
+        padding-top: 40px;
+    }
+   
+}
