@@ -114,7 +114,7 @@
                         </div>
 
                         <!--More input detail-->
-                        <div class="input_detail">
+                        <div class="input_detail input_detail_log">
 
                             <div></div>
                             <span>Email Is Valid</span>
@@ -129,7 +129,7 @@
                         </div>
 
                         <!--More input detail-->
-                        <div class="input_detail">
+                        <div class="input_detail input_detail_log">
 
                             <div></div>
                             <span>Email Is Valid</span>
@@ -144,6 +144,76 @@
                         </div>
 
                     </form>
+
+                    <!--This style will affect the responsiveness in signin alone-->
+                    <style>
+
+                        /* The sections arround forgot paasword */
+                        .input_detail_log{
+                            height: 12px;
+                        }
+
+                        /* Width max=1370px */
+                        @media only screen and (max-width: 1370px){
+
+                            /* The sections arround forgot paasword */
+                            .input_detail_log{
+                                height: 5px;
+                            }
+
+                            /* Forgot password */
+
+                            .forgot_pass span a {
+                                font-size: 14px;
+                            }
+
+                        }
+
+                        /* Width max=1030 */
+                        @media only screen and (max-width: 1030px){
+
+                            /* Forgot password */
+
+                            .forgot_pass span a {
+                                font-size: 13px;
+                            }
+
+                        }
+
+                        /* Width max=950px */
+                        @media only screen and (max-width: 950px){
+
+                            /* Forgot password */
+
+                            .forgot_pass span a {
+                                font-size: 15px;
+                            }
+
+                        }
+
+                        /* Width max=420px */
+                        @media only screen and (max-width: 420px){
+
+                            /* Forgot password */
+
+                            .forgot_pass span a {
+                                font-size: 12px;
+                            }
+
+                        }
+
+                        /* Width max=300 */
+                        @media only screen and (max-width: 300px){
+
+                            /* Forgot password */
+
+                            .forgot_pass span a {
+                                font-size: 10px;
+                            }
+
+                        }
+
+                    </style>
 
                     <!--Have dont account-->
                     <div class="have_dont_account">
