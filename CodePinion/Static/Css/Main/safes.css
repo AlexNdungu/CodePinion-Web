@@ -629,4 +629,46 @@
         height: fit-content !important;
     }
 
+    /* THE SEARCH SECTION */
+
+    .search-and-buttons {
+        height: 90px;
+    }
+
+    .search-part {
+        height: 30px;
+        border-radius: 6px;
+    }
+
+    .search-part svg {
+        width: 15px;
+    }
+
+    /* SAFE SECTION */
+    .single-safe {
+        height: 120px;
+    }
+
+    .safe-name-state h2 {
+        font-size: 12px;
+    }
+
+    .safe-state {
+        width: 20px;
+        height: 20px;
+    }
+
+    .safe-state svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    .ind-safe-lang {
+        margin-right: 5px;
+    }
+
+    .stats-view,.commit-time {
+        display: none;
+    }
+
 }
