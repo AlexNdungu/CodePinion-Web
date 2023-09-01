@@ -619,6 +619,119 @@ form {
 }
 
 
+/* Width max=950 */
+@media screen and (max-width: 950px) {
+
+    /* THE LOGO CONTAINER */
+    .sign_playGround {
+        display: none;
+    }
+
+    /* THE FORM CONTAINER */
+
+    /* The login form section */
+    .signin_section {
+        width: 100%;
+    }
+
+    /* TOP INTO WORDS */
+    .inner_actual_form h3 {
+        font-size: 23px;
+    }
+
+    .enter_det_span {
+        font-size: 16px;
+    }
+
+    /* GOOGLE */
+    .with_google {
+        height: 50px;
+        border-radius: 10px;
+        margin-top: 30px;
+    }
+
+    .with_google img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .with_google span {
+        font-size: 17px;
+    }
+
+    /* OR */
+    .or_email {
+        height: 50px;
+        font-size: 20px;
+    }
+
+    /* EMAIL */
+    
+    /* The email container */
+    .email_input {
+        height: 50px;
+        border-radius: 10px;    
+    }
+
+    .email_input svg {
+        width: 24px;
+    }
+
+    /* The email input */
+    .email_input input{
+        width: 300px;
+        font-size: 16px;
+    }
+
+    /* PASSWORD */
+
+    /* Padlock svg */
+    .password_input svg {
+        width: 24px;
+    }
+
+    /* The password container */
+    .password_input {
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    /* Password input concidering the show password button */
+    .pass_input_lock input{
+        width: 300px;
+        font-size: 16px;
+    }
+
+    /* View password */
+    .view_pass {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .password_input .view_pass svg {
+        width: 20px;
+    }
+
+
+    /* CREATE USER */
+    /* Create user button */
+    .create_user {
+        height: 50px;
+        border-radius: 10px;
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    /* DONT HAVE ACCOUNT */
+    .have_dont_account {
+        height: 70px;
+        font-size: 16px;
+    }
+
+}
+
+
 
 /* WITH HEIGHT */
 
