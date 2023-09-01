@@ -48,7 +48,10 @@
 .inner_actual_form {
     width: 60%;
     height: 100%;
-    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding-top: 150px; */
 }
 
 .inner_actual_form h3 {
@@ -499,11 +502,6 @@ form {
 
 @media screen and (max-height: 650px) {
 
-    /* Actual inner form */
-    .inner_actual_form {
-        width: 60%;
-        height: 100%;
-        padding-top: 40px;
-    }
+    
    
 }
