@@ -242,6 +242,10 @@
         height: 80px;
     }
 
+    .upper-nav {
+        border-radius: 7px;
+    }
+    
     /* The toggle button */
     .open-navigation-btn {
         width: 30px;
@@ -277,4 +281,110 @@
         width: 16px;
     }
 
+}
+
+
+/* Width max=550px */
+@media only screen and (max-width: 550px) {
+    
+    /* THE MAIN NAVIGATION */
+
+    /* The logo and toggle button container */
+    .logo-section {
+        padding-left: 10px;
+    }
+
+    .upper-nav {
+        border-radius: 5px;
+    }
+
+    /* THE TOGGLE BUTTON */
+    
+    /* The toggle button */
+    .open-navigation-btn {
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+    }
+
+    .open-navigation-btn svg {
+        width: 13px;
+    }
+
+    /* The logo */
+    .logo-image {
+        width: 35px;
+        border-radius: 5px;
+    }
+
+    /* USER SECTION */
+
+    /* The user contain section */
+    .user-section {
+        padding-right: 10px;
+    }
+
+    .theme-btn,.notif-btn {
+        margin: 0;
+    }
+
+    #logged-user-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* NAVIGATION ITEMS */
+    .inherited-main-navigation-item {
+        height: 35px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+}
+
+
+/* Width max=370px */
+@media only screen and (max-width: 370px) {
+
+    /* THE TOGGLE BUTTON */
+    
+    /* The toggle button */
+    .open-navigation-btn {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .open-navigation-btn svg {
+        width: 10px;
+    }
+
+    /* The light mode and notification */
+    .theme-btn, .notif-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .theme-btn svg, .notif-btn svg {
+        width: 14px;
+        fill: #ACACAC;
+    }
+
+    /* The logo */
+    .logo-image {
+        width: 30px;
+        border-radius: 6px;
+    }
+
+    /* USER SECTION */
+    #logged-user-image {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* NAVIGATION ITEMS */
+    .inherited-main-navigation-item {
+        height: 30px;
+        border-radius: 3px;
+        font-size: 10px;
+    }
 }
