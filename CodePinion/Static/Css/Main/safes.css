@@ -435,3 +435,111 @@
     }
 
 }
+
+
+/* Width max=1030px */
+@media screen and (max-width: 1030px) {
+
+    /* THE SEARCH SECTION */
+
+    .search-and-buttons {
+        height: 100px;
+        flex-direction: column;
+    }
+
+    .search-section {
+        width: 100%;
+    }
+
+    .search-part {
+        width: calc(100% - 20px);
+        height: 35px;
+    }
+
+    .search-part svg {
+        width: 17px;
+    }
+
+    /* The search input */
+    #search-safe-input {
+        width: calc(100% - 60px);
+        font-size: 12px;
+    }
+
+    /* The filet buttons */
+    .filter_btn {
+        height: 35px;
+        padding: 10px;
+        margin-left: 20px;
+        border-radius: 7px;
+        font-size: 12px;
+    }
+
+    .filter_btn svg {
+        width: 20px;
+        margin-left: 5px;
+    }
+
+    .new-safe svg {
+        fill: #D9D9D9;
+        width: 17px;
+    }
+
+    /* THE LINE SEPARATION */
+    .separation-line {
+        height: 10px;
+    }
+
+    /* THE SAFE SECTION */
+    
+    .safe-name-state h2 {
+        font-size: 15px;
+    }
+
+    /* The safe state */
+
+    .safe-state {
+        width: 25px;
+        height: 25px;
+    }
+
+    .safe-state svg {
+        width: 12px;
+    }
+
+    /* stars and watchers */
+    .stats-view {
+        height: 25px;
+        padding: 10px;
+        font-size: 12px;
+    }
+    
+    .stats-view svg {
+        width: 12px;
+        margin-right: 5px;
+    }
+
+    /* About safe section */
+    .about-safe {
+        font-size: 12px;
+    }
+
+    /* The individual Safe langauge */
+    .ind-safe-lang {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Commit time */
+    .commit-time {
+        height: 25px;
+        padding: 10px;
+        font-size: 12px;
+    }
+    
+    .commit-time svg {
+        width: 15px;
+        margin-right: 5px;
+    }
+
+}
