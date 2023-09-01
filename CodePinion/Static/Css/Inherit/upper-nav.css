@@ -388,3 +388,32 @@
         font-size: 10px;
     }
 }
+
+/* Width max=300px */
+@media only screen and (max-width: 300px) {
+    
+    /* The logo */
+    .logo-image {
+        width: 30px;
+        border-radius: 5px;
+    }
+
+    /* USER SECTION */
+    #logged-user-image {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* NAVIGATION */
+    .inherited-main-navigation {
+        width: calc(100% - 5px);
+    }
+
+    /* NAVIGATION ITEMS */
+    .inherited-main-navigation-item {
+        height: 25px;
+        border-radius: 3px;
+        font-size: 8px;
+    }
+}
+
