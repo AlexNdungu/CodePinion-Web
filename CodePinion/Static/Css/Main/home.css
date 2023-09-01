@@ -385,13 +385,14 @@
 
 /* WITH WIDTH */
 
-/* Width max=1370  */
+/* Width max=1370px  */
 @media screen and (max-width: 1370px){
 
     /* THE PINNED SAFE */
 
     .the-pinned-safe {
         width: 460px;
+        height: 150px;
     }
 
     /* The safe name */
@@ -413,7 +414,6 @@
     /* The pin detail section */
 
     .pin-more-details {
-        width: max-content;
         height: 30px;
         padding-right: 10px;
         padding-left: 10px;
@@ -454,5 +454,138 @@
         font-size: 14px;
         margin-left: 10px;
     }
+
+}
+
+/* Width max=1290px */
+@media screen and (max-width: 1290px){
+
+    /* THE PINNED SAFE */
+
+    .the-pinned-safe {
+        width: 420px;
+        height: 140px;
+    }
+
+    /* The safe name */
+    .pin-safe-up h2 {
+        font-size: 16px;
+    }
+
+    /* The safe lock */
+    .visible-detail {
+        width: 25px;
+        height: 25px;
+    }
+
+    .visible-detail svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    /* The pin detail section */
+
+    .pin-more-details {
+        height: 28px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .pin-more-details span {
+        font-size: 12px;
+    }
+
+    .pin-stats-watches svg {
+        width: 15px;
+    }
+
+    /* The Safe About */
+    .pin-safe-about span {
+        font-size: 13px;
+    }
+
+    /* The lang images */
+
+    .pin-lang-single {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+
+    /* The last date of update */
+    .last-update-details {
+        height: 28px;
+        padding: 10px;
+    }
+    
+    .last-update-details svg {
+        width: 16px;
+    }
+    
+    .last-update-details span {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+
+}
+
+/* Width max=1030px */
+@media screen and (max-width: 1030px){
+
+    /* THE PIE SECTION */
+
+    .pie-chart-section {
+        height: 100%;
+    }
+
+    .inner-pie-section {
+        height: 100%;
+    }
+
+    /* THE STAT SECTION */
+
+    /* The stat details section */
+    .stats-details-section {
+        width: 100%;
+        height: max-content;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    /* The stat details themeselves */
+
+    .the-stats {
+        width: 100%;
+        height: 100px;
+        margin-right: 0;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .the-stats h5{
+        font-size: 17px;
+    }
+
+    .the-stats svg {
+        width: 30px;
+    }
+
+    .the-stats div {
+        height: 50%;
+    }
+
+    .stat-nums span {
+        font-size: 21px;
+    }
+
+    /* THE PINNED SAFE */
+
+    .the-pinned-safe {
+        width: 100%;
+    }
+
+    
 
 }
