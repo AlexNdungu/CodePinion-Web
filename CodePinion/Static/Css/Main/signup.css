@@ -945,6 +945,7 @@ form {
 
 }
 
+
 /* Width max=370 */
 @media screen and (max-width: 370px) {
 
@@ -1047,6 +1048,113 @@ form {
     .have_dont_account {
         height: 40px;
         font-size: 12px;
+    }
+
+}
+
+
+/* Width max=300 */
+@media screen and (max-width: 300px) {
+
+    /* MAIN CONTAINER */
+
+    .inner_actual_form {
+        width: 83%;
+    }
+
+    /* TOP INTO WORDS */
+    .inner_actual_form h3 {
+        font-size: 14px;
+    }
+
+    .enter_det_span {
+        font-size: 11px;
+    }
+
+    /* GOOGLE */
+    .with_google {
+        height: 25px;
+        border-radius: 6px;
+        margin-top: 20px;
+    }
+
+    .with_google img {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .with_google span {
+        font-size: 11px;
+    }
+
+    /* OR */
+    .or_email {
+        height: 25px;
+        font-size: 13px;
+    }
+
+    /* EMAIL */
+    
+    /* The email container */
+    .email_input {
+        height: 25px;
+        border-radius: 6px;
+    }
+
+    .email_input svg {
+        width: 12px;
+    }
+
+    /* The email input */
+    .email_input input{
+        width: 180px;
+        font-size: 11px;
+    }
+
+    /* PASSWORD */
+
+    /* Padlock svg */
+    .password_input svg {
+        width: 12px;
+    }
+
+    /* The password container */
+    .password_input {
+        height: 25px;
+        border-radius: 6px;
+    }
+
+    /* Password input concidering the show password button */
+    .pass_input_lock input{
+        width: 150px;
+        font-size: 11px;
+    }
+
+    /* View password */
+    .view_pass {
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
+    }
+
+    .password_input .view_pass svg {
+        width: 10px;
+    }
+
+    /* CREATE USER */
+    /* Create user button */
+    .create_user {
+        height: 25px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+       
+    }
+
+    /* DONT HAVE ACCOUNT */
+    .have_dont_account {
+        height: 35px;
+        font-size: 11px;
     }
 
 }
