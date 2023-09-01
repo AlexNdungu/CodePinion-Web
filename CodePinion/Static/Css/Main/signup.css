@@ -732,7 +732,111 @@ form {
 }
 
 
+/* Width max=550 */
+@media screen and (max-width: 550px) {
 
+    /* MAIN CONTAINER */
+
+    .inner_actual_form {
+        width: 70%;
+    }
+
+    /* TOP INTO WORDS */
+    .inner_actual_form h3 {
+        font-size: 20px;
+    }
+
+    .enter_det_span {
+        font-size: 14px;
+    }
+
+    /* GOOGLE */
+    .with_google {
+        height: 40px;
+        border-radius: 6px;
+        margin-top: 20px;
+    }
+
+    .with_google img {
+        width: 25px;
+        height: 24px;
+    }
+    
+    .with_google span {
+        font-size: 14px;
+    }
+
+    /* OR */
+    .or_email {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    /* EMAIL */
+    
+    /* The email container */
+    .email_input {
+        height: 40px;
+        border-radius: 6px;
+    }
+
+    .email_input svg {
+        width: 18px;
+    }
+
+    /* The email input */
+    .email_input input{
+        width: 260px;
+        font-size: 14px;
+    }
+
+    /* PASSWORD */
+
+    /* Padlock svg */
+    .password_input svg {
+        width: 18px;
+    }
+
+    /* The password container */
+    .password_input {
+        height: 40px;
+        border-radius: 6px;
+    }
+
+    /* Password input concidering the show password button */
+    .pass_input_lock input{
+        width: 240px;
+        font-size: 14px;
+    }
+
+    /* View password */
+    .view_pass {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+    }
+
+    .password_input .view_pass svg {
+        width: 16px;
+    }
+
+    /* CREATE USER */
+    /* Create user button */
+    .create_user {
+        height: 40px;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 700;
+       
+    }
+
+    /* DONT HAVE ACCOUNT */
+    .have_dont_account {
+        height: 60px;
+        font-size: 15px;
+    }
+
+}
 /* WITH HEIGHT */
 
 /* Height max=650px */
