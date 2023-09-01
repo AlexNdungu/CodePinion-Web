@@ -440,7 +440,7 @@ create_user.addEventListener('click', ()=> {
     }
     else{
         
-        console.log('cannot create')
+        // console.log('cannot create')
 
     }
 
@@ -448,11 +448,11 @@ create_user.addEventListener('click', ()=> {
 
 
 // Create an onload function
-window.onload = function() {
+// window.onload = function() {
 
-   console.log('Width: ' + window.innerWidth)
-   console.log('Height: ' + window.innerHeight)
+//    console.log('Width: ' + window.innerWidth)
+//    console.log('Height: ' + window.innerHeight)
 
-   //1484
+//    //1484
 
-};
+// };
