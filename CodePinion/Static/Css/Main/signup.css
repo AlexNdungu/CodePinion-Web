@@ -213,6 +213,10 @@ form {
     transition: 0.2s ease-in;
 }
 
+.email_input svg {
+    width: 24px;
+}
+
 /* Hover and focus effect */
 .email_input:hover {
     border: 2px solid #406CEE;
@@ -483,20 +487,124 @@ form {
 
 /* RESPONSIVE WEBSITE USING BOTH WIDTH AND HEIGHT */
 
+
+/* WITH WIDTH */
+
 /* Width max=1370  */
 @media screen and (max-width: 1370px) {
 
-    /* The email input field */
-    .email_input input {
+    /* TOP INTO WORDS */
+    .inner_actual_form h3 {
+        font-size: 21px;
+    }
+
+    .enter_det_span {
+        font-size: 15px;
+    }
+
+    /* GOOGLE */
+    .with_google {
+        height: 40px;
+        margin-top: 20px;
+        border-radius: 6px;
+    }
+
+    .with_google img {
+        width: 25px;
+        height: 24px;
+    }
+    
+    .with_google span {
+        font-size: 15px;
+    }
+
+    /* OR */
+    .or_email {
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* EMAIL */
+    /* The email input */
+    
+    /* The email container */
+    .email_input {
+        height: 40px;
+        border-radius: 6px;
+    }
+
+    .email_input svg {
+        width: 18px;
+    }
+
+    /* The email input */
+    .email_input input{
         width: 260px;
+        font-size: 15px;
+    }
+
+    /* PASSWORD */
+
+    /* Padlock svg */
+    .password_input svg {
+        width: 18px;
+    }
+
+    /* The password container */
+    .password_input {
+        height: 40px;
+        border-radius: 6px;
     }
 
     /* Password input concidering the show password button */
     .pass_input_lock input{
-        width: 240px;
+        width: 260px;
+        font-size: 15px;
     }
-   
+
+    /* View password */
+    .view_pass {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+    }
+
+    .password_input .view_pass svg {
+        width: 16px;
+    }
+
+
+    /* CREATE USER */
+    /* Create user button */
+    .create_user {
+        height: 40px;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 700;
+       
+    }
+
+    /* DONT HAVE ACCOUNT */
+    .have_dont_account {
+        height: 60px;
+        font-size: 15px;
+    }
+
+        
 }
+
+
+/* width max=1030 */
+@media screen and (max-width: 1030px) {
+
+    
+   
+
+}
+
+
+
+/* WITH HEIGHT */
 
 /* Height max=650px */
 
