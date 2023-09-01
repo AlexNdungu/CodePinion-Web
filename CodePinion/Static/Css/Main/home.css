@@ -457,6 +457,7 @@
 
 }
 
+
 /* Width max=1290px */
 @media screen and (max-width: 1290px){
 
@@ -529,6 +530,7 @@
 
 }
 
+
 /* Width max=1030px */
 @media screen and (max-width: 1030px){
 
@@ -550,7 +552,7 @@
         height: max-content;
         flex-direction: column;
         justify-content: flex-start;
-        padding: 10px;
+        padding-bottom: 0;
     }
 
     /* The stat details themeselves */
@@ -559,6 +561,7 @@
         width: 100%;
         height: 100px;
         margin-right: 0;
+        margin-bottom: 10px;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -586,6 +589,100 @@
         width: 100%;
     }
 
+}
+
+
+/* Width max=950px */
+@media screen and (max-width: 950px){
+
+    /* THE INHERITING SECTION  */
+    .lower-section {
+        height: fit-content !important;
+    }
+    
+    /* THE MAIN SECTION */
+
+    /* The inherited section */
+    .inherited-upper-nav-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* THE PIE SECTION */
+
+    .pie-chart-section {
+        width: 100%;
+        height: 450px;
+    }
+    
+    /* THE STAT AND SAFE SECTION */
+    .home-right-section {
+        width: 100%;
+        padding-left: 10px;
+        margin-top: 10px;
+    }
     
 
+}
+
+
+/* Width max=550px */
+@media screen and (max-width: 550px){
+
+    /* THE PIE SECTION */
+
+    .pie-chart-section {
+        height: 330px;
+    }
+    
+}
+
+
+/* Width max=420px */
+@media screen and (max-width: 420px){
+
+    /* PINNED SAFES */
+
+    .the-pinned-safe {
+        height: 140px;
+    }
+
+}
+
+
+/* Width max=300px */
+@media screen and (max-width: 300px){
+
+    /* PINNED SAFES */
+
+    .the-pinned-safe {
+        height: 120px;
+    }
+
+    .pin-safe-up h2 {
+        font-size: 12px;
+    }
+
+    .visible-detail {
+        width: 20px;
+        height: 20px;
+    }
+
+    .visible-detail svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    .pin-more-details {
+        display: none;
+    }
+
+    .last-update-details {
+        display: none;
+    }
+
+    
+    
 }
