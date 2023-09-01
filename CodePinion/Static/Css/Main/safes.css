@@ -3,21 +3,21 @@
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
 /* The pie chart section */
 .pie-chart-section {
     width: 400px;
-    height: 100%;
+    height: fit-content;
     display: flex;
     align-items: flex-start;
     justify-content: center;
 }
 
 .inner-pie-section {
-    height: calc(100% - 20px);
+    height: fit-content;
     width: calc(100% - 20px);
     border-radius: 10px;
     padding: 10px;
@@ -65,7 +65,8 @@
 
 .search-part svg {
     fill: #414141;
-}
+    width: 23px;
+} 
 
 /* The search input */
 #search-safe-input {
@@ -74,7 +75,6 @@
     border: none;
     outline: none;
     margin-left: 10px;
-    padding-left: 10px;
     background: none;
     color: #406CEE;
     font-size: 16px;
@@ -129,7 +129,7 @@
 /* The separation line */
 .separation-line {
     width: 100%;
-    height: 30px;
+    height: 15px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -249,6 +249,7 @@
     justify-content: flex-start;
     padding-left: 20px;
     color: #8F8F8F;
+    font-size: 15px;
 }
 
 /* The Safes Languages and Last Commite time */
@@ -320,9 +321,117 @@
     align-items: center;
     justify-content: center;
     border-radius: 6px;
+    font-size: 15px;
 }
 
 .commit-time svg {
     width: 21px;
     margin-right: 10px;
+}
+
+
+/* RESPONSIVE WEBSITE USING BOTH WIDTH */
+
+/* WITH WIDTH */
+
+/* Width max=1370  */
+@media screen and (max-width: 1370px) {
+
+    /* THE SEARCH SECTION */
+
+    .search-and-buttons {
+        height: 60px;
+    }
+
+    .search-part {
+        width: 350px;
+        height: 40px;
+    }
+
+    .search-part svg {
+        width: 20px;
+    }
+
+    /* The search input */
+    #search-safe-input {
+        width: 250px;
+        font-size: 14px;
+    }
+
+    /* The filet buttons */
+    .filter_btn {
+        height: 40px;
+        padding: 10px;
+        margin-left: 20px;
+        border-radius: 7px;
+        font-size: 14px;
+    }
+
+    .filter_btn svg {
+        width: 23px;
+        margin-left: 7px;
+    }
+
+    .new-safe svg {
+        fill: #D9D9D9;
+        width: 21px;
+    }
+
+    /* THE LINE SEPARATION */
+    .separation-line {
+        height: 10px;
+    }
+
+    /* THE SAFE SECTION */
+    
+    .safe-name-state h2 {
+        font-size: 17px;
+    }
+
+    /* The safe state */
+
+    .safe-state {
+        width: 28px;
+        height: 28px;
+    }
+
+    .safe-state svg {
+        width: 13px;
+    }
+
+    /* stars and watchers */
+    .stats-view {
+        height: 28px;
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .stats-view svg {
+        width: 14px;
+        margin-right: 5px;
+    }
+
+    /* About safe section */
+    .about-safe {
+        font-size: 14px;
+    }
+
+    /* The individual Safe langauge */
+    .ind-safe-lang {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Commit time */
+    .commit-time {
+        height: 28px;
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .commit-time svg {
+        width: 17px;
+        margin-right: 5px;
+    }
+
 }
