@@ -264,4 +264,17 @@
         height: 45px;
     }
 
+    /* The navigation items */
+    /* Navigation item */
+    .inherited-main-navigation-item {
+        height: 40px;
+        border-radius: 7px;
+        font-size: 14px;
+    }
+
+
+    .inherited-main-navigation-item svg {
+        width: 16px;
+    }
+
 }
