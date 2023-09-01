@@ -65,6 +65,23 @@
     font-size: 16px;
 }
 
+
+
+/* The logo section */
+.logo_auth {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 30px; */
+}
+
+.logo_auth img {
+    height: 50px;
+}
+
 /* Continue with google */
 
 .with_google {
@@ -488,7 +505,6 @@ form {
 
 /* RESPONSIVE WEBSITE USING BOTH WIDTH AND HEIGHT */
 
-
 /* WITH WIDTH */
 
 /* Width max=1370  */
@@ -628,6 +644,11 @@ form {
         display: none;
     }
 
+    /* THE MINI LOGO */
+    .logo_auth {
+        display: flex;
+    }
+
     /* THE FORM CONTAINER */
 
     /* The login form section */
@@ -736,6 +757,11 @@ form {
 /* Width max=550 */
 @media screen and (max-width: 550px) {
 
+    /* THE MINI LOGO */
+
+    .logo_auth img {
+        height: 45px;
+    }
     /* MAIN CONTAINER */
 
     .inner_actual_form {
@@ -842,6 +868,11 @@ form {
 
 /* Width max=420 */
 @media screen and (max-width: 420px) {
+
+    /* THE MINI LOGO */
+    .logo_auth img {
+        height: 40px;
+    }
 
     /* MAIN CONTAINER */
 
@@ -1057,6 +1088,16 @@ form {
 /* Width max=300 */
 @media screen and (max-width: 300px) {
 
+    /* THE MINI LOGO */
+
+    .logo_auth {
+        height: 75px;
+    }
+
+    .logo_auth img {
+        height: 30px;
+    }
+
     /* MAIN CONTAINER */
 
     .inner_actual_form {
@@ -1158,15 +1199,4 @@ form {
         font-size: 11px;
     }
 
-}
-
-
-/* WITH HEIGHT */
-
-/* Height max=650px */
-
-@media screen and (max-height: 650px) {
-
-    
-   
 }
