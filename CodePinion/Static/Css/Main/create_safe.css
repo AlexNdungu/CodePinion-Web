@@ -1627,6 +1627,23 @@
 }
 
 
+/* Width max=950px */
+@media screen and (max-width: 950px) {
+    
+    /* SEARCH AND PATH OF SSH LOGGED */
+
+    .ssh_search_and_file_layout {
+        display: none;
+    }
+
+    .ssh_path_indicate {
+        width: 100%;
+    }
+
+}
+
+
+
 /* Width max=610 */
 @media screen and (max-width: 610px) {
 
