@@ -1968,3 +1968,65 @@
     }
     
 }
+
+
+/* Width max=330px */
+@media screen and (max-width: 330px) {
+
+    /* SSH CONNECTING */
+
+    .ssh_available_device {
+        width: calc(100% - 330px);
+        height: 40px;
+    }
+
+    .ssh_dev_os_icon svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ssh_dev_login_detail_icon {
+        display: none;
+    }
+
+    .ssh_dev_login_detail span {
+        font-size: 13px;
+        white-space: nowrap;
+        padding-left: 10px;
+
+    }
+
+    .ssh_device_edit_and_connect {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ssh_device_edit_and_connect svg {
+        width: 14px;
+    }
+
+    .ssh_dev_login_detail {
+        height: 30px;
+    }
+    
+
+    .display_no_ssh_device {
+        width: calc(100% - 330px);
+    }
+
+    /* Heading section */
+    .heading_and_headDetails h3 {
+        font-size: 14px;
+    }
+
+    /* Dont have ssh devices */
+    .rd_btn {
+        font-size: 11px;
+    }
+
+    .rd_btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+}
