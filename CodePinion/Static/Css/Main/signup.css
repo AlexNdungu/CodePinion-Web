@@ -556,7 +556,7 @@ form {
     /* The email input */
     .email_input input{
         width: 260px;
-        font-size: 15px;
+        font-size: 16px;
     }
 
     /* PASSWORD */
@@ -575,7 +575,7 @@ form {
     /* Password input concidering the show password button */
     .pass_input_lock input{
         width: 260px;
-        font-size: 15px;
+        font-size: 16px;
     }
 
     /* View password */
@@ -702,7 +702,6 @@ form {
     /* The email input */
     .email_input input{
         width: 300px;
-        font-size: 16px;
     }
 
     /* PASSWORD */
@@ -749,6 +748,22 @@ form {
     .have_dont_account {
         height: 70px;
         font-size: 16px;
+    }
+
+}
+
+
+/* Width max=610 */
+@media screen and (max-width: 610px) {
+    
+    /* THE EMAIL SECTION */
+    .email_input input {
+        width: 270px;
+    }
+
+    /* THE PASSWORD SECTION */
+    .pass_input_lock input {
+        width: 250px;
     }
 
 }
