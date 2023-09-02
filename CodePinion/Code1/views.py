@@ -13,10 +13,6 @@ from cryptography.fernet import Fernet
 def UpperNav(request):
     return render(request,'Inherit/upper-nav.html')
 
-#The Navigation Rendering Function
-def LeftNav(request):
-    return render(request,'Inherit/left-nav.html')
-
 #Sign up page
 def signUp(request):
     return render(request,'Main/signup.html')
