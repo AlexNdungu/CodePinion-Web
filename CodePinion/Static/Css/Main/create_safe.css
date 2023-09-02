@@ -1140,8 +1140,6 @@
 
 
 
-
-
 /* The safe creation form section */
 
 .create_form {
@@ -1596,3 +1594,137 @@
 
 /* WITH WIDTH */
 
+/* Width max=610 */
+@media screen and (max-width: 610px) {
+
+    /* THE SSH DEVICE SECTION AND CONNECT */
+    .ssh_available_device {
+        width: calc(100% - 60px);
+    }
+
+    .display_no_ssh_device {
+        width: calc(100% - 60px);
+    }
+    
+    /* THE MAIN CREATE SAFE CONTAINER */
+
+    .create_form {
+        width: 100%;
+    }
+
+    /* The heading */
+    .heading_and_headDetails {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 10px;
+    }
+
+    /* Select account */
+    .select_account_add_safe_name {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 10px;
+    }
+
+    .account-select {
+        height: 45px;
+        border-radius: 6px;
+    }
+
+    .account-profile {
+        width: 35px;
+        height: 35px;
+    }
+
+    .account-profile img {
+        border-radius: 6px;
+    }
+
+    /* Separator btwn account and safe name */
+    .the-separator {
+        width: 50px;
+    }
+
+    /* safe name input */
+    .safe-name-section input {
+        height: 45px;
+        border-radius: 6px;
+    }
+
+    /* THE DESCRIPTION SECTION */
+
+    .description-section {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+    }
+
+    .inspiration {
+        flex-direction: column;
+        padding-left: 10px;
+    }
+
+    .inspiration p {
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+
+    .Description {
+        padding-left: 10px;
+    }
+
+    /* The description input */
+    .description-input {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        height: 45px;
+        border-radius: 6px;
+    }
+
+    /* PRIVATE OR PUBLIC */
+    .private-or-public {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+    }
+
+    .private {
+        padding-left: 10px;
+    }
+
+    /* PATH SECTION */
+    .safe-path-section {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+    }
+
+    .select-path {
+        padding-left: 10px;
+    }
+
+    .path-details {
+        padding-left: 10px;
+    }
+
+    /* INFO SECTION */
+    .new-safe-privacy {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+
+    /* CREATE SAFE */
+    .create-safe-section {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+
+}
+
+/* Width max=550px */
+@media only screen and (max-width: 550px) {
+
+    
+
+}
