@@ -1799,6 +1799,17 @@
 
     /* THE SSH DEVICE SECTION */
 
+    /* Error message */
+    #pop_error_auth_ssh {
+        width: calc(100% - 120px);
+    }
+
+    #pop_error_auth_ssh_message {
+        font-size: 14px;
+    }
+
+    /* Devices */
+
     .ssh_available_device {
         width: calc(100% - 120px);
         height: 50px;
@@ -1945,6 +1956,40 @@
     
     /* THE SSH DEVICE SECTION */
 
+    /* Error message */
+    #pop_error_auth_ssh {
+        width: calc(100% - 230px);
+    }
+
+    #pop_error_auth_ssh_message {
+        font-size: 14px;
+    }
+
+    .sign_pop_outer {
+        width: 30px;
+        height: 30px;
+    }
+
+    .sign_pop_inner {
+        width: 18px;
+        height: 18px;
+    }
+
+    .sign_pop_inner svg {
+        width: 12px;
+    }
+
+    .pop_close {
+        width: 30px;
+        height: 30px;
+    }
+
+    .pop_close svg {
+        width: 22px;
+    }
+
+    /* Devices */
+
     .ssh_available_device {
         width: calc(100% - 230px);
     }
@@ -2018,6 +2063,11 @@
 
     /* SSH CONNECTING */
 
+    /* Error message */
+    #pop_error_auth_ssh {
+        width: calc(100% - 260px);
+    }
+
     .ssh_available_device {
         width: calc(100% - 260px);
     }
@@ -2038,6 +2088,17 @@
 @media screen and (max-width: 370px) {
 
     /* SSH CONNECTING */
+
+    /* Error message */
+    #pop_error_auth_ssh {
+        width: calc(100% - 300px);
+    }
+
+    #pop_error_auth_ssh_message {
+        font-size: 13px;
+    }
+
+    /* Devices */
 
     .ssh_available_device {
         width: calc(100% - 300px);
@@ -2088,28 +2149,6 @@
         font-size: 13px;
     }
 
-    .sign_pop_outer {
-        width: 30px;
-        height: 30px;
-    }
-
-    .sign_pop_inner {
-        width: 18px;
-        height: 18px;
-    }
-
-    .sign_pop_inner svg {
-        width: 12px;
-    }
-
-    .pop_close {
-        width: 30px;
-        height: 30px;
-    }
-
-    .pop_close svg {
-        width: 22px;
-    }
 
     /* The Devices */
 
@@ -2179,6 +2218,18 @@
 @media screen and (max-width: 300px) {
 
     /* SSH CONNECTING */
+
+    /* Error message */
+    #pop_error_auth_ssh {
+        width: calc(100% - 340px);
+    }
+
+    #pop_error_auth_ssh_message {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    /* Devices */
 
     .ssh_available_device {
         width: calc(100% - 340px);
