@@ -223,9 +223,10 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: flex; /* Flex for upgrade */
+    display: none; /* Flex for upgrade */
     align-items: center;
     justify-content: center;
+    top: 0;
 }
 
 .inner_choose_path_ssh {
@@ -1601,6 +1602,8 @@
 
 /* RESPONSIVE WEBSITE USING BOTH WIDTH */
 
+/* THE MAX WIDTH OF SUPPORT IS 720PX */
+
 /* WITH WIDTH */
 
 /* Width max = 1030px = 1100px */
@@ -1641,7 +1644,6 @@
     }
 
 }
-
 
 
 /* Width max=610 */
