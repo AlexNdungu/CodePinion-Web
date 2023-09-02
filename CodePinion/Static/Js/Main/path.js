@@ -440,7 +440,7 @@ function ssh_login_exist(){
                     ssh_connect_icons[num_ssh].style.display = 'flex';
 
                     // The error pop
-                    pop_error_auth_ssh_message.innerHTML = 'Your Device’s Screen Size Is Too Small To Run This Application. Please Try Using A Device With A Larger Screen Size.';
+                    pop_error_auth_ssh_message.innerHTML = 'Your Device’s Screen Size Is Too Small To Run This Application.';
 
                     // Add padding=10px to the error message
                     pop_error_auth_ssh_message.style.padding = '10px';
