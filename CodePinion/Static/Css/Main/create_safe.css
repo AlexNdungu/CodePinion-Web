@@ -975,6 +975,12 @@
     transition: 0.2s ease-in;
 }
 
+.rd_btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+
 .rd_btn:hover {
     background-color: #406CEE;
 }
@@ -1556,6 +1562,7 @@
 
 .new-safe-privacy svg {
     width: 24px;
+    margin-right: 5px;
     fill: #8F8F8F;
 }
 
@@ -1722,8 +1729,54 @@
 
 }
 
+
 /* Width max=550px */
 @media only screen and (max-width: 550px) {
+
+    /* THE SSH DEVICE SECTION */
+
+    .ssh_available_device {
+        width: calc(100% - 120px);
+        height: 50px;
+    }
+
+    .ssh_dev_login_detail {
+        height: 40px;
+    }
+
+    .ssh_dev_os_icon {
+        width: 40px;
+        margin-right: 10px;
+        margin-left: 5px;
+    }
+
+    .ssh_dev_login_detail_icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .ssh_dev_login_detail_icon svg {
+        width: 12px;
+    }
+
+    .ssh_dev_login_detail span {
+        padding-left: 30px;
+    }
+
+    .ssh_device_edit_and_connect {
+        width: 35px;
+        height: 35px;
+        margin-right: 5px;
+    }
+
+    .ssh_device_edit_and_connect svg {
+        width: 19px;
+    }
+
+    /* User no ssh device */
+    .display_no_ssh_device {
+        width: calc(100% - 120px);
+    }
 
     /* ACCOUNT SELECTION AND SAFE NAME */
 
@@ -1820,4 +1873,98 @@
         width: 25px;
     }
 
+}
+
+
+/* Width max=420 and 500 */
+@media screen and (max-width: 500px) {
+    
+    /* THE SSH DEVICE SECTION */
+
+    .ssh_available_device {
+        width: calc(100% - 230px);
+    }
+
+    .ssh_dev_login_detail:nth-child(2) {
+        display: none;
+    }
+
+    /* User no ssh device */
+    .display_no_ssh_device {
+        width: calc(100% - 230px);
+        height: 200px;
+    }
+
+    .empty-ssh-devs {
+        width: 90px;
+        height: 90px;
+    }
+
+    .rd_btn {
+        width: 150px;
+        height: 40px;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .rd_btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* THE CREATE SAFE SECTION */
+
+    /* The heading */
+    .heading_and_headDetails h3 {
+        font-size: 17px;
+    }
+
+
+    /* ACCOUNT AND SAFE NAME */
+
+    .acc-label {
+        font-size: 15px;
+    }
+
+    .inspiration, .Description {
+        font-size: 14px;
+    }
+
+    /* PRIVATE AND PUBLIC */
+    .check-click {
+        border-radius: 5px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .private svg {
+        width: 15px;
+    }
+
+    .pp-name {
+        font-size: 15px;
+    }
+
+
+}
+
+
+/* Width max=380px */
+@media screen and (max-width: 380px) {
+
+    /* SSH CONNECTING */
+
+    .ssh_available_device {
+        width: calc(100% - 260px);
+    }
+
+    .display_no_ssh_device {
+        width: calc(100% - 260px);
+    }
+
+    /* Heading section */
+    .heading_and_headDetails h3 {
+        font-size: 15px;
+    }
+    
 }
