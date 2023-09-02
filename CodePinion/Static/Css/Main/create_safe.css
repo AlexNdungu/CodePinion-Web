@@ -223,7 +223,7 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: none; /* Flex for upgrade */
+    display: flex; /* Flex for upgrade */
     align-items: center;
     justify-content: center;
 }
@@ -399,6 +399,7 @@
     transform: scale(0.9);
     fill: #8F8F8F;
     margin-right: 10px;
+    max-width: 24px;
 }
 
 /* The search bar input */
@@ -1601,6 +1602,30 @@
 /* RESPONSIVE WEBSITE USING BOTH WIDTH */
 
 /* WITH WIDTH */
+
+/* Width max = 1030px = 1100px */
+@media screen and (max-width: 1100px) {
+
+    /* SSH LOGGED SECTION */
+
+    .ssh_path_indicate {
+        width: 50%;
+    }
+
+    .ssh_search_and_file_layout {
+        width: 50%;
+    }
+
+    .ssh_folder_layout {
+        display: none;
+    }
+    
+    .ssh_folder_search {
+        width: 100%;
+    }
+    
+}
+
 
 /* Width max=610 */
 @media screen and (max-width: 610px) {
