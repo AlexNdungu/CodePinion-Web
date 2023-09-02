@@ -1116,6 +1116,31 @@ form {
 }
 
 
+/* Width max=330 */
+@media screen and (max-width: 330px) {
+
+    /* THE LOGO SMALL */
+    .logo_auth {
+        height: 60px;
+    }
+
+    .logo_auth img {
+        height: 35px;
+    }
+
+    /* EMAIL SECTION */
+    .email_input input {
+        width: 180px;
+    }
+
+    /* PASSWORD SECTION */
+    .pass_input_lock input {
+        width: 160px;
+    }
+
+}
+
+
 /* Width max=300 */
 @media screen and (max-width: 300px) {
 
