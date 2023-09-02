@@ -424,102 +424,157 @@ function ssh_login_exist(){
 
             ssh_login_btns[num_ssh].addEventListener('click', ()=> {
             
-                // Now we perform the ajax call
-
                 // Show the spinner
                 ssh_login_spinners[num_ssh].style.display = 'flex';
                 // Hide the connect icon
                 ssh_connect_icons[num_ssh].style.display = 'none';
 
-                // Grt the host name
-                let clicked_host_name = ssh_host_names[num_ssh].innerHTML;
+                // Here check if device is support by checking if device width is less than 720
+                if(window.innerWidth < 720){
 
-                // First we create form data
-                let formData = new FormData();
+                    // Device is not supported
 
-                // Append the csrf token
-                formData.append('csrfmiddlewaretoken', csrf[0].value);
+                    // Hide the spinner
+                    ssh_login_spinners[num_ssh].style.display = 'none';
+                    // Show the connect icon
+                    ssh_connect_icons[num_ssh].style.display = 'flex';
 
-                // Append hostname,username and password
-                formData.append('host_name',clicked_host_name);
+                    // The error pop
+                    pop_error_auth_ssh_message.innerHTML = 'Your Device’s Screen Size Is Too Small To Run This Application. Please Try Using A Device With A Larger Screen Size.';
 
-                $.ajax({
-                    type:'POST',
-                    url:'/getPath/',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response){
+                    // Add padding=10px to the error message
+                    pop_error_auth_ssh_message.style.padding = '10px';
 
-                        if(response.status == 'success'){
+                    // Give the error message top of -70px
+                    pop_error_auth_ssh.style.top = '-90px';
 
-                            // On success
+                    pop_error_auth_ssh.style.display = 'flex';
 
-                            // Get the parent dir
-                            // Now lets add the current path to the interface
-                            const current_path_dir = response.current_dir_path.trim();
-                            current_working_dir.innerHTML = current_path_dir
+                    setTimeout(function(){
 
-                            // Now we add all the directories to the navigation
-                            const dir_list_members = response.dir_list;
+                        pop_error_auth_ssh.style.display = 'none';
 
-                            // Update the host_and_home_dir
-                            host_and_home_dir.set(clicked_host_name, current_path_dir);
+                        pop_error_auth_ssh.style.top = '-60px';
+                        
+                    },5000);
 
-                            // Update the host_and_os
-                            host_and_os.set(clicked_host_name, response.current_os);
+                }
 
-                            // Update the ssh_dir_info
-                            past_directories.set(clicked_host_name, [
-                                {
-                                subdirectories: dir_list_members,
-                                directoryPath: current_path_dir
+                else{
+
+                    // Device is supported
+
+                    // Get the host name
+                    let clicked_host_name = ssh_host_names[num_ssh].innerHTML;
+
+                    // First we create form data
+                    let formData = new FormData();
+
+                    // Append the csrf token
+                    formData.append('csrfmiddlewaretoken', csrf[0].value);
+
+                    // Append hostname,username and password
+                    formData.append('host_name',clicked_host_name);
+
+                    $.ajax({
+                        type:'POST',
+                        url:'/getPath/',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response){
+
+                            if(response.status == 'success'){
+
+                                // On success
+
+                                // Get the parent dir
+                                // Now lets add the current path to the interface
+                                const current_path_dir = response.current_dir_path.trim();
+                                current_working_dir.innerHTML = current_path_dir
+
+                                // Now we add all the directories to the navigation
+                                const dir_list_members = response.dir_list;
+
+                                // Update the host_and_home_dir
+                                host_and_home_dir.set(clicked_host_name, current_path_dir);
+
+                                // Update the host_and_os
+                                host_and_os.set(clicked_host_name, response.current_os);
+
+                                // Update the ssh_dir_info
+                                past_directories.set(clicked_host_name, [
+                                    {
+                                    subdirectories: dir_list_members,
+                                    directoryPath: current_path_dir
+                                    }
+                                ]);
+
+                                // Hide the spinner
+                                ssh_login_spinners[num_ssh].style.display = 'none';
+                                // Show the connect icon
+                                ssh_connect_icons[num_ssh].style.display = 'flex';
+
+                                // Success popup
+                                success_popup.style.display = 'flex';
+
+                                setTimeout(function(){
+
+                                    success_popup.style.display = 'none';
+                                    
+                                },5000);
+
+                                // Remove login popup
+                                ssh_login_form.style.display = 'none';
+                                // Show the ssh filing system
+                                ssh_file_system.style.display = 'flex';
+
+                                // Now we display the name as required
+                                user_dir_indicate.innerHTML = response.host_username + "@" + ssh_host_names[num_ssh].innerHTML;
+
+                                // Call the fuction which adds the dirs to navs
+                                fill_nav_with_dirs(current_path_dir,dir_list_members);
+
+                                // Now we add the checkable dirs
+                                fill_checks_with_dirs(dir_list_members)
+
+                                // Change the os icons
+                                if (response.current_os == 'Windows'){
+
+                                    windows_icon.style.display = 'flex';
+
                                 }
-                            ]);
+                                else if(response.current_os == 'Linux'){
 
-                            // Hide the spinner
-                            ssh_login_spinners[num_ssh].style.display = 'none';
-                            // Show the connect icon
-                            ssh_connect_icons[num_ssh].style.display = 'flex';
+                                    linux_icon.style.display = 'flex';
 
-                            // Success popup
-                            success_popup.style.display = 'flex';
+                                }
 
-                            setTimeout(function(){
-
-                                success_popup.style.display = 'none';
-                                
-                            },5000);
-
-                            // Remove login popup
-                            ssh_login_form.style.display = 'none';
-                            // Show the ssh filing system
-                            ssh_file_system.style.display = 'flex';
-
-                            // Now we display the name as required
-                            user_dir_indicate.innerHTML = response.host_username + "@" + ssh_host_names[num_ssh].innerHTML;
-
-                            // Call the fuction which adds the dirs to navs
-                            fill_nav_with_dirs(current_path_dir,dir_list_members);
-
-                            // Now we add the checkable dirs
-                            fill_checks_with_dirs(dir_list_members)
-
-                            // Change the os icons
-                            if (response.current_os == 'Windows'){
-
-                                windows_icon.style.display = 'flex';
 
                             }
-                            else if(response.current_os == 'Linux'){
+                            else if(response.status == 'fail'){
 
-                                linux_icon.style.display = 'flex';
+                                //On fail
+
+                                // Hide the spinner
+                                ssh_login_spinners[num_ssh].style.display = 'none';
+                                // Show the connect icon
+                                ssh_connect_icons[num_ssh].style.display = 'flex';
+
+                                // The error pop
+                                pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';
+                                pop_error_auth_ssh.style.display = 'flex';
+
+                                setTimeout(function(){
+
+                                    pop_error_auth_ssh.style.display = 'none';
+                                    
+                                },5000);
 
                             }
 
-
-                        }
-                        else if(response.status == 'fail'){
+                        },
+                        error: function(error){
 
                             //On fail
 
@@ -529,7 +584,7 @@ function ssh_login_exist(){
                             ssh_connect_icons[num_ssh].style.display = 'flex';
 
                             // The error pop
-                            pop_error_auth_ssh_message.innerHTML = 'Authentication Error. Try Other Credentials';
+                            pop_error_auth_ssh_message.innerHTML = 'Fatal Error Occured. Try Again In A Few Minutes';
                             pop_error_auth_ssh.style.display = 'flex';
 
                             setTimeout(function(){
@@ -540,29 +595,10 @@ function ssh_login_exist(){
 
                         }
 
-                    },
-                    error: function(error){
+                    });   
 
-                        //On fail
+                };
 
-                        // Hide the spinner
-                        ssh_login_spinners[num_ssh].style.display = 'none';
-                        // Show the connect icon
-                        ssh_connect_icons[num_ssh].style.display = 'flex';
-
-                        // The error pop
-                        pop_error_auth_ssh_message.innerHTML = 'Fatal Error Occured. Try Again In A Few Minutes';
-                        pop_error_auth_ssh.style.display = 'flex';
-
-                        setTimeout(function(){
-
-                            pop_error_auth_ssh.style.display = 'none';
-                            
-                        },5000);
-
-                    }
-
-                });   
             });
 
         }
