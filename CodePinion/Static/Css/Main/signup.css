@@ -881,6 +881,22 @@ form {
 }
 
 
+/* Width max=500 */
+@media screen and (max-width: 500px) {
+    
+    /* THE EMAIL SECTION */
+    .email_input input {
+        width: 240px;
+    }
+
+    /* THE PASSWORD SECTION */
+    .pass_input_lock input {
+        width: 210px;
+    }
+
+}
+
+
 /* Width max=420 */
 @media screen and (max-width: 420px) {
 
