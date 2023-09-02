@@ -883,6 +883,7 @@
     display: none;  /* Pop in and out */
     align-items: center;
     justify-content: center;
+    top: 0;
 }
 
 
@@ -1949,8 +1950,8 @@
 }
 
 
-/* Width max=380px */
-@media screen and (max-width: 380px) {
+/* Width max=380px and 400px */
+@media screen and (max-width: 400px) {
 
     /* SSH CONNECTING */
 
@@ -1967,6 +1968,46 @@
         font-size: 15px;
     }
     
+}
+
+
+/* Width max=350px */
+@media screen and (max-width: 370px) {
+
+    /* SSH CONNECTING */
+
+    .ssh_available_device {
+        width: calc(100% - 300px);
+    }
+
+    .display_no_ssh_device {
+        width: calc(100% - 300px);
+    }
+
+    .ssh_dev_login_detail span {
+        font-size: 14px;
+    }
+
+    /* Heading section */
+    .heading_and_headDetails h3 {
+        font-size: 14px;
+    }
+
+    /* Dont have ssh devices */
+    .rd_btn {
+        font-size: 12px;
+    }
+
+    .rd_btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* PRIVATE AND PUBLIC */
+    .elaborate-choice, .inspiration, .path-details, .new-safe-privacy span {
+        font-size: 13px;
+    }
+
 }
 
 
@@ -2028,5 +2069,51 @@
         width: 16px;
         height: 16px;
     }
-    
+
+    /* PRIVATE AND PUBLIC */
+    .elaborate-choice, .inspiration, .path-details, .new-safe-privacy span {
+        font-size: 13px;
+    }
+
+}
+
+
+/* Width max=300px */
+@media screen and (max-width: 300px) {
+
+    /* SSH CONNECTING */
+
+    .ssh_available_device {
+        width: calc(100% - 340px);
+    }
+
+    .display_no_ssh_device {
+        width: calc(100% - 340px);
+    }
+
+    /* Heading section */
+    .heading_and_headDetails h3 {
+        font-size: 13px;
+    }
+
+    .heading_and_headDetails span {
+        color: #8F8F8F;
+        font-size: 12px;
+    }
+
+    /* Dont have ssh devices */
+    .rd_btn {
+        font-size: 10px;
+    }
+
+    .rd_btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* PRIVATE AND PUBLIC */
+    .elaborate-choice, .inspiration, .path-details, .new-safe-privacy span {
+        font-size: 12px;
+    }
+
 }
