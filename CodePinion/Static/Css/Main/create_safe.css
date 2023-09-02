@@ -1758,4 +1758,66 @@
         width: calc(100% - 10px);
     }
 
+
+    /* PRIVATE OR PUBLIC */
+    .check-click {
+        width: 17px;
+        height: 17px;
+    }
+
+    .check-click div {
+        width: 10px;
+        height: 10px;
+    }
+
+    .private svg {
+        width: 16px;
+    }
+
+    .pp-name {
+        font-size: 16px;
+    }
+
+    .elaborate-choice {
+        font-size: 14px;
+    }
+
+    /* CONNECT SERVER SECTION */
+    .select-path-btn {
+        height: 45px;
+        border-radius: 6px;
+    }
+
+    .select-path-btn svg {
+        width: 20px;
+    }    
+    
+    .select-path-btn span {
+        font-size: 15px;
+    }
+
+    .path-details {
+        font-size: 14px;
+    }
+
+    /* INFO SECTION */
+    .new-safe-privacy svg {
+        width: 20px;
+    }
+
+    .new-safe-privacy span {
+        font-size: 14px;
+    }
+
+    /* CREATE SAFE */
+    .create-safe-btn {
+        height: 45px;
+        border-radius: 6px;
+        font-size: 15px;
+    }
+
+    .create-safe-btn svg {
+        width: 25px;
+    }
+
 }
