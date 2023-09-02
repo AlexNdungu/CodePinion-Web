@@ -445,16 +445,11 @@ function ssh_login_exist(){
                     // Add padding=10px to the error message
                     pop_error_auth_ssh_message.style.padding = '10px';
 
-                    // Give the error message top of -70px
-                    pop_error_auth_ssh.style.top = '-90px';
-
                     pop_error_auth_ssh.style.display = 'flex';
 
                     setTimeout(function(){
 
                         pop_error_auth_ssh.style.display = 'none';
-
-                        pop_error_auth_ssh.style.top = '-60px';
                         
                     },5000);
 

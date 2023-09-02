@@ -10,14 +10,15 @@
 }
 
 #pop_error_auth_ssh {
-    display: none;
+    display: flex;
     width: 100%;
     min-height: 50px;
     height: fit-content;
     background-color: #FBEFEB;
     border: 1px solid #FC5758;
     fill: #FC5758;
-    top: -60px;
+    position: relative;
+    margin-bottom: 10px;
 }
 
 #success_popup {
@@ -2077,6 +2078,40 @@
 @media screen and (max-width: 330px) {
 
     /* SSH CONNECTING */
+
+    /* Error message */
+    #pop_error_auth_ssh {
+        width: calc(100% - 330px);
+    }
+
+    #pop_error_auth_ssh_message {
+        font-size: 13px;
+    }
+
+    .sign_pop_outer {
+        width: 30px;
+        height: 30px;
+    }
+
+    .sign_pop_inner {
+        width: 18px;
+        height: 18px;
+    }
+
+    .sign_pop_inner svg {
+        width: 12px;
+    }
+
+    .pop_close {
+        width: 30px;
+        height: 30px;
+    }
+
+    .pop_close svg {
+        width: 22px;
+    }
+
+    /* The Devices */
 
     .ssh_available_device {
         width: calc(100% - 330px);
