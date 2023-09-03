@@ -389,23 +389,29 @@ function create_new_user(){
         contentType: false,
         success: function(response){
 
-            //If The user exists
+            // If The user exists
            if(response.status == 'exists'){
 
-                //Show the error message
+                // Show the error message
                 user_exists_pop.style.display = 'flex';
 
-                //Error on email
+                // Error on email
                 email_container.classList.remove('valid_input');
                 email_container.classList.add('invalid_input');
 
-                //Default email and passwords
-                //Default password 1
+                // Default email and passwords
+                // Default password 1
                 default_pass(password_errors_div,password_error_message,password_input_1,pass1_signup);
-                //default password 2
+                // default password 2
                 default_pass(password_errors_div1,password_error_message1,password_input_2,pass2_signup);
 
            }
+            else if(response.status == 'created'){
+
+                // Redirect to the dashboard
+                window.location.href = "/dash";
+
+            }
            
         },
         error: function(error){

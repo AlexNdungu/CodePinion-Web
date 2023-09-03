@@ -306,3 +306,4 @@ def Create_User_Signal(user):
     profile.save()
     user.save()
 
+    return user

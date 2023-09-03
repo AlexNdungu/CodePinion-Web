@@ -1,11 +1,13 @@
 from django.contrib.auth.models import User
+from django.urls import reverse
 from . import models
 #
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+
 from django.http import JsonResponse
 #from . import resorce
 from .resorce import SecureShell,Create_User_Signal
-from cryptography.fernet import Fernet
 
 # Create your views here.
 
@@ -27,19 +29,25 @@ def createNewUser(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        #Now we check if the user exists
+        # Now we check if the user exists
         if User.objects.filter(email=email).exists():
             
             return JsonResponse({'status':'exists'})
 
         else:
 
-            #Create the user
+            # Create the user
             user = User.objects.create_user(username=email, email=email, password=password)
 
-            #call the create user signal
+            # call the create user signal
             Create_User_Signal(user)
 
+            # Check if the user is logged in
+            if not request.user.is_authenticated:
+                # Login the user
+                login(request,user,backend='django.contrib.auth.backends.ModelBackend')
+
+            # Redirect the user to the dash page
             return JsonResponse({'status':'created'})
 
 #Sign in page
@@ -49,6 +57,7 @@ def signIn(request):
 #The Home Rendering Function
 def Home(request):
     return render(request, 'Main/home.html')
+    
 #The Safes Rendering Fuction
 def Safes(request):
     return render(request,'Main/safes.html')
