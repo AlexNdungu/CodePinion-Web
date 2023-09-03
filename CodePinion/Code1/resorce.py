@@ -303,6 +303,6 @@ def Create_User_Signal(user):
     profile.full_name = suggest_username
 
     # Save the changes to the database
-    user.save()
     profile.save()
+    user.save()
 
