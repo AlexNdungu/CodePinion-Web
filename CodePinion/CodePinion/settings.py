@@ -180,6 +180,7 @@ AUTHENTICATION_BACKENDS = (
 
 
 # Login and Out Urls
+LOGIN_URL = "/signin/"
 LOGIN_REDIRECT_URL = "/dash/"
 LOGOUT_REDIRECT_URL = "/"
 

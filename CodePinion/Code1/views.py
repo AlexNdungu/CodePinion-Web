@@ -4,6 +4,7 @@ from . import models
 #
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 
 from django.http import JsonResponse
 #from . import resorce
@@ -17,7 +18,13 @@ def UpperNav(request):
 
 #Sign up page
 def signUp(request):
-    return render(request,'Main/signup.html')
+
+    # Check if user is authenticated
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        return render(request,'Main/signup.html')
+        
 
 #Create new user
 def createNewUser(request):
@@ -50,23 +57,36 @@ def createNewUser(request):
             # Redirect the user to the dash page
             return JsonResponse({'status':'created'})
 
+
 #Sign in page
 def signIn(request):
-    return render(request,'Main/signin.html')
+
+    # Check if user is authenticated
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        return render(request,'Main/signin.html')
+
 
 #The Home Rendering Function
+@login_required
 def Home(request):
     return render(request, 'Main/home.html')
-    
+
+
 #The Safes Rendering Fuction
+@login_required
 def Safes(request):
     return render(request,'Main/safes.html')
+
 
 #New Safe And New Folder
 def CreateSafe(request):
     return render(request, 'Main/create_safe.html')     
 
+
 #New Safe Connected To Existing Project Folder
+@login_required
 def ConnectSafe(request):
 
     current_profile = models.Profile.objects.get(user = request.user)
@@ -75,6 +95,7 @@ def ConnectSafe(request):
     ssh_devices = models.SSH_Devices.objects.filter(profile = current_profile)
 
     return render(request, 'Main/connect_safe.html', {'ssh_devices':ssh_devices})
+
 
 #Login to ssh
 def getLocalPath(request):
