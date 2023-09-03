@@ -7,16 +7,16 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 
 from django.http import JsonResponse
-#from . import resorce
+# from . import resorce
 from .resorce import SecureShell,Create_User_Signal
 
 # Create your views here.
 
-#The Inherited upper Navigation Rendering Function
+# The Inherited upper Navigation Rendering Function
 def UpperNav(request):
     return render(request,'Inherit/upper-nav.html')
 
-#Sign up page
+# Sign up page
 def signUp(request):
 
     # Check if user is authenticated
@@ -26,7 +26,7 @@ def signUp(request):
         return render(request,'Main/signup.html')
         
 
-#Create new user
+# Create new user
 def createNewUser(request):
 
     #Email will always be unique for any user
@@ -58,7 +58,7 @@ def createNewUser(request):
             return JsonResponse({'status':'created'})
 
 
-#Sign in page
+# Sign in page
 def signIn(request):
 
     # Check if user is authenticated
@@ -68,24 +68,19 @@ def signIn(request):
         return render(request,'Main/signin.html')
 
 
-#The Home Rendering Function
+# The Home Rendering Function
 @login_required
 def Home(request):
     return render(request, 'Main/home.html')
 
 
-#The Safes Rendering Fuction
+# The Safes Rendering Fuction
 @login_required
 def Safes(request):
     return render(request,'Main/safes.html')
 
 
-#New Safe And New Folder
-def CreateSafe(request):
-    return render(request, 'Main/create_safe.html')     
-
-
-#New Safe Connected To Existing Project Folder
+# New Safe Connected To Existing Project Folder
 @login_required
 def ConnectSafe(request):
 
@@ -97,7 +92,7 @@ def ConnectSafe(request):
     return render(request, 'Main/connect_safe.html', {'ssh_devices':ssh_devices})
 
 
-#Login to ssh
+# Login to ssh
 def getLocalPath(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -129,7 +124,7 @@ def getLocalPath(request):
             return JsonResponse({'status':'fail', 'Error Message':error_message})
 
 
-#Enter Intender Dir
+# Enter Intender Dir
 def cdIntoDir(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -147,4 +142,10 @@ def cdIntoDir(request):
         server_response = ssh_instance.server_command(ssh_device.device_os.os_name,intended_path)
 
         return JsonResponse({'status':'success','sub_dirs':server_response})
+
+
+# New Safe And New Folder
+def CreateSafe(request):
+    return render(request, 'Main/create_safe.html')     
+
     
