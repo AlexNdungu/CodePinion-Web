@@ -947,6 +947,37 @@ form {
 /* Width max=420 */
 @media screen and (max-width: 420px) {
 
+     /* The Sign In Error */
+
+     .signIn_Message_pop {
+        height: 35px;
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+
+    .sign_pop_message {
+        font-size: 12px;
+    }
+
+    .sign_pop_outer {
+        width: 27px;
+        height: 27px;
+    }
+
+    .sign_pop_inner {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sign_pop_inner svg {
+        width: 14px;
+    }
+
+    .pop_close {
+        width: 30px;
+        height: 30px;
+    }
+
     /* THE MINI LOGO */
     .logo_auth img {
         height: 40px;
@@ -1057,7 +1088,7 @@ form {
 
 
 /* Width max=370 */
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 380px) {
 
     /* MAIN CONTAINER */
 
@@ -1165,6 +1196,7 @@ form {
 
 /* Width max=330 */
 @media screen and (max-width: 330px) {
+
 
     /* THE LOGO SMALL */
     .logo_auth {
