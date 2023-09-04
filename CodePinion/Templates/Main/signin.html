@@ -28,6 +28,8 @@
 </head>
 <body>
 
+    {% load socialaccount %}
+
     <!--The main sign in body-->
     <div class="sign_body">
 
@@ -53,13 +55,15 @@
                     <span class="enter_det_span" >Continue Managing Your Projects and Tasks.</span>
 
                     <!--Login with google-->
-                    <div class="with_google">
+                    <a href="{% provider_login_url 'google' %}">
+                        <div class="with_google">
 
-                        <img src="{% static '\Images\google.png' %}" alt="google_sign">
+                            <img src="{% static '\Images\google.png' %}" alt="google_sign">
 
-                        <span>Continue With Google</span>
+                            <span>Login With Google</span>
 
-                    </div>
+                        </div>
+                    </a>
 
                     <!--Or section-->
                     <div class="or_email">
