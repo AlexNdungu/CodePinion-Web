@@ -225,7 +225,7 @@ function compare_pass(){
 };
 
 
-export function default_pass(password_errors_container,password_error_out,pass_input,pass_sign){
+function default_pass(password_errors_container,password_error_out,pass_input,pass_sign){
 
     //Reduce the message div
     password_errors_container.style.height = '20px';
@@ -371,7 +371,6 @@ user_creation_error_pop_close.addEventListener('click', ()=> {
 });
 
 
-
 //This fuction creates new user
 function create_new_user(){
 
@@ -469,21 +468,6 @@ create_user.addEventListener('click', ()=> {
         create_new_user();
 
     }
-    else{
-        
-        // console.log('cannot create')
-
-    }
 
 });
 
-
-// Create an onload function
-// window.onload = function() {
-
-//    console.log('Width: ' + window.innerWidth)
-//    console.log('Height: ' + window.innerHeight)
-
-//    //1484
-
-// };

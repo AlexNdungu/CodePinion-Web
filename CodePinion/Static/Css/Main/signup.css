@@ -618,6 +618,20 @@ form {
        
     }
 
+    /* Spinner */
+    .sign_spinner {
+        width: 30px;
+        height: 30px;
+        border-top-color: #406CEE;
+        animation: loading 1s ease infinite;
+    }
+    
+    @keyframes loading {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+
     /* DONT HAVE ACCOUNT */
     .have_dont_account {
         height: 60px;
@@ -910,6 +924,21 @@ form {
     /* THE PASSWORD SECTION */
     .pass_input_lock input {
         width: 210px;
+    }
+
+    /* Log Spinner */
+    .sign_spinner {
+        width: 25px;
+        height: 25px;
+        border: 3px solid #dddddd;
+        border-top-color: #406CEE;
+        animation: loading 1s ease infinite;
+    }
+    
+    @keyframes loading {
+      to {
+        transform: rotate(1turn);
+      }
     }
 
 }
@@ -1264,7 +1293,21 @@ form {
         border-radius: 6px;
         font-size: 11px;
         font-weight: 700;
-       
+    }
+
+    /* Spinner */
+    /* Log Spinner */
+    .sign_spinner {
+        width: 20px;
+        height: 20px;
+        border-top-color: #406CEE;
+        animation: loading 1s ease infinite;
+    }
+    
+    @keyframes loading {
+      to {
+        transform: rotate(1turn);
+      }
     }
 
     /* DONT HAVE ACCOUNT */

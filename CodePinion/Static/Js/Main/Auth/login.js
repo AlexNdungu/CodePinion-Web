@@ -14,11 +14,13 @@ let csrf = document.getElementsByName('csrfmiddlewaretoken');
 // Get spinner and sign_text
 let spinner = document.getElementById("sign_spinner");
 let sign_text = document.getElementById("sign_text");
+let log_message = document.getElementById("log_message");
 
 // View password
 let viewPassword = document.getElementById("viewPassword");
 let eye_pass_opens = document.getElementById("eye_pass_open");
 let eye_pass_closes = document.getElementById("eye_pass_close");
+let password_input = document.getElementById('password_input');
 
 // Email regex
 const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -169,6 +171,8 @@ login_button.addEventListener('click', ()=>{
 
                     // Show the error message
                     user_exists_pop.style.display = 'flex';
+                    // Show the error message
+                    log_message.innerHTML = "User Not Found !";
 
                     // Error on email
                     email_container.classList.remove('valid_input');
@@ -179,8 +183,7 @@ login_button.addEventListener('click', ()=>{
 
                         window.location.href = "/";
 
-                    },2000);
-                    
+                    },2000);  
 
                 }
 
@@ -195,13 +198,15 @@ login_button.addEventListener('click', ()=>{
                     sign_text.style.display = 'flex';
 
                     // Show the error message
-                    wrong_pass_pop.style.display = 'flex';
+                    user_exists_pop.style.display = 'flex';
+                    // Show the error message
+                    log_message.innerHTML = "Incorrect Password !";
 
-                    //Error on email
+                    // Error on email
                     email_container.classList.remove('valid_input');
 
-                    //Default email and passwords
-                    //default_pass(password_errors_div,password_error_message,password_input_1,pass1_signup);
+                    // Highlight password
+                    password_input.classList.add('invalid_input');
 
                 }
                 
@@ -224,12 +229,9 @@ login_button.addEventListener('click', ()=>{
 
                 //Show the error message
                 user_creation_error_pop.style.display = 'flex';
-
-                //Error on email
-                email_container.classList.remove('valid_input');
-
-                //Default email and passwords
-                default_pass(password_errors_div,password_error_message,password_input_1,pass1_signup);
+                // Show the error message
+                log_message.innerHTML = "Fatal Error. Try Again !";
+                
                 
             }
         }); 
