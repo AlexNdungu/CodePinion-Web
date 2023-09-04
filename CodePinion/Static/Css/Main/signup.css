@@ -483,6 +483,24 @@ form {
     background-color: #406CEE;
 }
 
+/* The sign spinner */
+
+.sign_spinner {
+    display: none;
+    width: 35px;
+    height: 35px;
+    border: 4px solid #dddddd;
+    border-top-color: #406CEE;
+    border-radius: 50%;
+    animation: loading 1s ease infinite;
+  }
+  
+  @keyframes loading {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
 
 /* Have an account or not */
 .have_dont_account {

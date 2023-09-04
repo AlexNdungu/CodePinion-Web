@@ -248,7 +248,9 @@
                         <!--create user-->
                         <div class="create_user" id="create_user" >
 
-                            <span>Create An Account</span>
+                            <span id="sign_text" >Create An Account</span>
+
+                            <div class="sign_spinner" id="sign_spinner"></div>
 
                         </div>
 
@@ -258,7 +260,7 @@
                     <div class="have_dont_account">
 
                         <span>Have An Account ?</span>
-                        <span><a href="#">Log In</a></span>
+                        <span><a href="{% url 'signin' %}">Log In</a></span>
 
                     </div>
 

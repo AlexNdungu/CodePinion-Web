@@ -1,23 +1,23 @@
-//Here, collected the signup inputs, then check if inputs are valid
-//The required elements
+// Here, collected the signup inputs, then check if inputs are valid
+// The required elements
 let email_signup = document.getElementById('email_sign');
 let pass1_signup = document.getElementById('pass1');
 let pass2_signup = document.getElementById('pass2');
 let pass_inputs = document.getElementsByClassName('pass_input_place');
 
-//Get the CSRF token
+// Get the CSRF token
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 
-//The sign in button
+// The sign in button
 let create_user = document.getElementById('create_user');
 
-//See paswords buttons
+// See paswords buttons
 let view_passes = document.getElementsByClassName('view_pass');
 //
 let eye_pass_opens = document.getElementsByClassName('eye_pass_open');
 let eye_pass_closes = document.getElementsByClassName('eye_pass_close');
 
-//This input div will show password error
+// This input div will show password error
 let password_errors_div = document.getElementById('password_errors_div');
 let password_error_message = document.getElementById('password_error_message');
 //
@@ -27,21 +27,25 @@ let password_error_message1 = document.getElementById('password_error_message1')
 let email_errors_div = document.getElementById('email_errors_div');
 let email_error_message = document.getElementById('email_error_message');
 
-//The password border containers
+// The password border containers
 let password_input_1 = document.getElementById('password_input_1');
 let password_input_2 = document.getElementById('password_input_2');
 
-//The signin popups
+// The spinner and the text
+let spinner = document.getElementById('sign_spinner');
+let sign_text = document.getElementById('sign_text');
+
+// The signin popups
 let user_exists_pop = document.getElementById('user_exists_pop');
 let user_exists_pop_close = document.getElementById('user_exists_pop_close');
 //
 let user_creation_error_pop = document.getElementById('user_creation_error_pop');
 let user_creation_error_pop_close = document.getElementById('user_creation_error_pop_close');
 
-//Input containers
+// Input containers
 let email_container = document.getElementById('email_input');
 
-//Valid Formats
+// Valid Formats
 const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const lengthRegex = /.{8,}/; 
 const uppercaseRegex = /[A-Z]/;
@@ -371,6 +375,13 @@ user_creation_error_pop_close.addEventListener('click', ()=> {
 //This fuction creates new user
 function create_new_user(){
 
+    // Disable the button
+    create_user.style.pointerEvents = 'none';
+
+    // Show the spinner
+    spinner.style.display = 'flex';
+    sign_text.style.display = 'none';
+
     //First we create form data
     let formData = new FormData();
 
@@ -391,6 +402,13 @@ function create_new_user(){
 
             // If The user exists
            if(response.status == 'exists'){
+
+                // Enable the button
+                create_user.style.pointerEvents = 'auto';
+
+                // Hide the spinner
+                spinner.style.display = 'none';
+                sign_text.style.display = 'flex';
 
                 // Show the error message
                 user_exists_pop.style.display = 'flex';
@@ -415,6 +433,13 @@ function create_new_user(){
            
         },
         error: function(error){
+
+            // Enable the button
+            create_user.style.pointerEvents = 'auto';
+
+            // Hide the spinner
+            spinner.style.display = 'none';
+            sign_text.style.display = 'flex';
 
             //Show the error message
             user_creation_error_pop.style.display = 'flex';
