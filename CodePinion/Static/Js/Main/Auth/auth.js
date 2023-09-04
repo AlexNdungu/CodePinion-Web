@@ -146,7 +146,7 @@ for(let a =0; a < view_passes.length; a++){
 
     view_passes[a].addEventListener('click', ()=> {
 
-        pass_inputs
+        //pass_inputs
         //Change password to input
         if(pass_inputs[a].getAttribute("type") == 'password'){
 
@@ -169,7 +169,7 @@ for(let a =0; a < view_passes.length; a++){
 
         }
 
-    })
+    });
 
 }
 
