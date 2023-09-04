@@ -362,7 +362,7 @@ form {
     display: flex;
 }
 
-#eye_pass1_close,#eye_pass1_close1 {
+#eye_pass1_close,#eye_pass1_close1,#eye_pass_close {
     display: none;
 }
 
