@@ -5,17 +5,6 @@ from .resorce import Create_User_Signal
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.utils.http import url_has_allowed_host_and_scheme
 
-
-# @receiver(user_signed_up)
-# def google_auth_username(request, **kwargs):
-
-#     #Get the user instance created
-#     user = kwargs['user']
-
-#     #Call create user function
-#     Create_User_Signal(user=user)
-
-
 # Create an class adapter that customises user registration
 
 class RegisterAdapter(DefaultSocialAccountAdapter):
