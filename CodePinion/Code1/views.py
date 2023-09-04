@@ -68,6 +68,38 @@ def signIn(request):
         return render(request,'Main/signin.html')
 
 
+# Sign in user
+def signInUser(request):
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        # Check if the user exists
+        if User.objects.filter(email=email).exists():
+
+            # Get the user
+            user = User.objects.get(email=email)
+
+            # Check if the password is correct
+            if user.check_password(password):
+
+                # Login the user
+                login(request,user,backend='django.contrib.auth.backends.ModelBackend')
+
+                # Redirect the user to the dash page
+                return JsonResponse({'status':'found'})
+
+            else:
+
+                return JsonResponse({'status':'wrong_password'})
+
+        else:
+
+            return JsonResponse({'status':'not_found'})
+
+
 # The Home Rendering Function
 @login_required
 def Home(request):

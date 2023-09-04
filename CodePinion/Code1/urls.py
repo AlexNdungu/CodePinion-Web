@@ -3,32 +3,35 @@ from . import views
 
 urlpatterns = [
 
-    #Upper Navigation Inherit Url
+    # Upper Navigation Inherit Url
     path('upperNav/', views.UpperNav, name='upper-nav'),
 
-    #Sign up url
+    # Sign up url
     path('',views.signUp, name='sign_up'),
 
-    #Create new user
+    # Create new user
     path('createNewUser/', views.createNewUser, name='create_new_user'),
 
-    #Sign in url
+    # Sign in url
     path('signin/',views.signIn, name='signin'),
 
-    #Home Url
+    # Sign in u
+    path('signinUser/', views.signInUser, name='signin_user'),
+
+    # Home Url
     path('dash/', views.Home, name='home'),
     
-    #Safes Url
+    # Safes Url
     path('safes/', views.Safes, name='safes'),
 
-    #New Safe and New Folder Url
+    # New Safe and New Folder Url
     path('create_safe/', views.CreateSafe, name='create_safe_folder'),
 
-    #New Safe Connected to Existing Project Folder Url
+    # New Safe Connected to Existing Project Folder Url
     path('connect_safe/', views.ConnectSafe, name='connect_safe_folder'),
-    #Get local path
+    # Get local path
     path('getPath/', views.getLocalPath, name='get_local_path_connect'),
 
-    #Enter Intended Dir
+    # Enter Intended Dir
     path('cdDir/',views.cdIntoDir,name='enter_into_dir'),
 ]

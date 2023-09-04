@@ -225,7 +225,7 @@ function compare_pass(){
 };
 
 
-function default_pass(password_errors_container,password_error_out,pass_input,pass_sign){
+export function default_pass(password_errors_container,password_error_out,pass_input,pass_sign){
 
     //Reduce the message div
     password_errors_container.style.height = '20px';

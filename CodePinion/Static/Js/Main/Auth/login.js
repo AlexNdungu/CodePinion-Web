@@ -2,6 +2,18 @@
 // Get the Email and Password
 let email = document.getElementById("log_email");
 let password = document.getElementById("log_password");
+let login_button = document.getElementById("login_button");
+
+// Import the default_pass function
+// For the sake of the function
+let password_valid = false;
+
+// Get the CSRF token
+let csrf = document.getElementsByName('csrfmiddlewaretoken');
+
+// Get spinner and sign_text
+let spinner = document.getElementById("sign_spinner");
+let sign_text = document.getElementById("sign_text");
 
 // View password
 let viewPassword = document.getElementById("viewPassword");
@@ -17,9 +29,6 @@ let email_errors_div = document.getElementById('email_errors_div');
 let email_error_message = document.getElementById('email_error_message');
 
 // focusout event that checks if the email is valid
-
-
-
 email.addEventListener('focusout', ()=> {
 
     if(email.value != ''){
@@ -112,4 +121,119 @@ viewPassword.addEventListener("click", () => {
         //Button background
         viewPassword.classList.remove('view_pass_active');
     }
+});
+
+
+// Click event to login user
+login_button.addEventListener('click', ()=>{
+
+    // Check if the email is empty and valid and also check if password is empty
+    if(email.value != '' && email.value.match(mailformat) && password.value != ''){
+
+        // Send data to server
+
+        // Disable the button
+        login_button.style.pointerEvents = 'none';
+
+        // Show the spinner
+        spinner.style.display = 'flex';
+        sign_text.style.display = 'none';
+
+        //First we create form data
+        let formData = new FormData();
+
+        //Append the csrf token
+        formData.append('csrfmiddlewaretoken', csrf[0].value);
+
+        //Append hostname,username and password
+        formData.append('email',email.value);
+        formData.append('password',password.value);
+
+        $.ajax({
+            type:'POST',
+            url:'/signinUser/',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response){
+
+                // If The user doesnt exists
+                if(response.status == 'not_found'){
+
+                    // Enable the button
+                    login_button.style.pointerEvents = 'auto';
+
+                    // Hide the spinner
+                    spinner.style.display = 'none';
+                    sign_text.style.display = 'flex';
+
+                    // Show the error message
+                    user_exists_pop.style.display = 'flex';
+
+                    // Error on email
+                    email_container.classList.remove('valid_input');
+                    email_container.classList.add('invalid_input');
+
+                    // Redirection to the home page
+                    setTimeout(()=>{
+
+                        window.location.href = "/";
+
+                    },2000);
+                    
+
+                }
+
+                // If password is wrong
+                else if(response.status == 'wrong_password'){
+
+                    // Enable the button
+                    login_button.style.pointerEvents = 'auto';
+
+                    // Hide the spinner
+                    spinner.style.display = 'none';
+                    sign_text.style.display = 'flex';
+
+                    // Show the error message
+                    wrong_pass_pop.style.display = 'flex';
+
+                    //Error on email
+                    email_container.classList.remove('valid_input');
+
+                    //Default email and passwords
+                    //default_pass(password_errors_div,password_error_message,password_input_1,pass1_signup);
+
+                }
+                
+                else if(response.status == 'found'){
+
+                    // Redirect to the dashboard
+                    window.location.href = "/dash";
+
+                }
+            
+            },
+            error: function(error){
+
+                // Enable the button
+                login_button.style.pointerEvents = 'auto';
+
+                // Hide the spinner
+                spinner.style.display = 'none';
+                sign_text.style.display = 'flex';
+
+                //Show the error message
+                user_creation_error_pop.style.display = 'flex';
+
+                //Error on email
+                email_container.classList.remove('valid_input');
+
+                //Default email and passwords
+                default_pass(password_errors_div,password_error_message,password_input_1,pass1_signup);
+                
+            }
+        }); 
+
+    }
+
 });
