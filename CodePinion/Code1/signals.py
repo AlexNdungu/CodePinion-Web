@@ -1,5 +1,7 @@
-from allauth.account.signals import user_signed_up
 from . import models
+from django.urls import reverse
+from django.contrib.auth.models import User
+from django.shortcuts import render
 from django.dispatch import receiver
 from .resorce import Create_User_Signal
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
@@ -9,23 +11,38 @@ from django.utils.http import url_has_allowed_host_and_scheme
 
 class RegisterAdapter(DefaultSocialAccountAdapter):
 
+    # Override the save_user method
     def save_user(self, request, sociallogin, form=None):
 
-        # Get the user from the social login
-        user = sociallogin.user
+        # Check the process is signup or signin
+        if sociallogin.state.get('process') == 'signup' or sociallogin.state.get('process') == 'signin':
 
-        # Set username to email
-        user.username = user.email
+            # Check if user already exists
+            if User.objects.filter(email=sociallogin.user.email).exists():
 
-        # Save the user
-        user.save()
+                # Call the super method to execute the default save_user logic
+                super().save_user(request, sociallogin, form)
 
-        # Call create user function
-        Create_User_Signal(user=user)
+                #Return the user
+                return user
+            
+            else:
 
-        # Call the super method to execute the default save_user logic
-        super().save_user(request, sociallogin, form=form)
+                # Get the user from the social login
+                user = sociallogin.user
 
-        #Return the user
-        return user
-    
+                # Set username to email
+                user.username = user.email
+
+                # Save the user
+                user.save()
+
+                # Call create user function
+                Create_User_Signal(user=user)
+
+                # Call the super method to execute the default save_user logic
+                super().save_user(request, sociallogin, form)
+
+                #Return the user
+                return user
+

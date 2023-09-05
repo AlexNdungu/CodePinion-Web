@@ -23,7 +23,7 @@ def signUp(request):
     if request.user.is_authenticated:
         return redirect('home')
     else:
-        return render(request,'Main/signup.html')
+        return render(request,'Main/signup.html', {'error':''})
         
 
 # Create new user
@@ -65,7 +65,7 @@ def signIn(request):
     if request.user.is_authenticated:
         return redirect('home')
     else:
-        return render(request,'Main/signin.html')
+        return render(request,'Main/signin.html',{'error':''})
 
 
 # Sign in user
