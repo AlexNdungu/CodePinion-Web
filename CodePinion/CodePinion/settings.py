@@ -70,7 +70,6 @@ SOCIALACCOUNT_PROVIDERS = {
             "email"
         ],
         "AUTH_PARAMS": {"access_type":"online"},
-        "EMAIL_AUTHENTICATION": True,
     }
 }
 
