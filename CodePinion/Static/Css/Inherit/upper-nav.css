@@ -214,12 +214,36 @@
     height: 55px;
     margin-left: 10px;
     object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in;
 }
 
 #logged-user-image img {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: inherit;
+}
+
+/* Show this if image is not there */
+.profile_pic_absent {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: #414141;
+    color: #F3F3F3;
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+/* Hover */
+#logged-user-image:hover > .profile_pic_absent {
+    background-color: #406CEE;
 }
 
 /* The lower section */
