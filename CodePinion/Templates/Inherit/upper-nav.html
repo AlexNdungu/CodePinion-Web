@@ -140,13 +140,19 @@
                     <!--The logged in user-->
                     <div id="logged-user-image" class="logged-user">
 
-                        <div class="profile_pic_absent">
+                        {% if request.user.profile.profile_url %}
 
-                            <span>{{ request.user.username|first|capfirst }}</span>
+                            <img src="{% static '\Images\user.jpg' %}" alt="logged-user">
 
-                        </div>
+                        {% else %}
 
-                        <!-- <img src="{% static '\Images\user.jpg' %}" alt="logged-user"> -->
+                            <div class="profile_pic_absent">
+
+                                <span>{{ request.user.username|first|capfirst }}</span>
+
+                            </div>
+
+                        {% endif %}
 
                     </div>
 
