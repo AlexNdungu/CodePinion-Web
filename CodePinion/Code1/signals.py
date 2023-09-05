@@ -1,11 +1,7 @@
-from . import models
-from django.urls import reverse
 from django.contrib.auth.models import User
-from django.shortcuts import render
-from django.dispatch import receiver
 from .resorce import Create_User_Signal
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
-from django.utils.http import url_has_allowed_host_and_scheme
+from allauth.socialaccount.models import SocialAccount
 
 # Create an class adapter that customises user registration
 
@@ -20,11 +16,28 @@ class RegisterAdapter(DefaultSocialAccountAdapter):
             # Check if user already exists
             if User.objects.filter(email=sociallogin.user.email).exists():
 
-                # Call the super method to execute the default save_user logic
-                super().save_user(request, sociallogin, form)
+                # Get the user from the social login
+                user = User.objects.get(email=sociallogin.user.email)
 
-                #Return the user
-                return user
+                # Check if user is authenticated using 0auth
+                if user.socialaccount_set.filter(provider=sociallogin.account.provider).exists():
+
+                    # Call the super method to execute the default save_user logic
+                    super().save_user(request, sociallogin, form)
+
+                    # Return the user
+                    return user
+
+                else:
+
+                    # Add the social account to the user
+                    sociallogin.connect(request, user)
+
+                    # Call the super method to execute the default save_user logic
+                    super().save_user(request, sociallogin, form)
+
+                    # Return the user
+                    return user
             
             else:
 

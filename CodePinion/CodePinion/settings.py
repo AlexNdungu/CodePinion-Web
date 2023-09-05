@@ -69,9 +69,11 @@ SOCIALACCOUNT_PROVIDERS = {
             "profile",
             "email"
         ],
-        "AUTH_PARAMS": {"access_type":"online"}
+        "AUTH_PARAMS": {"access_type":"online"},
+        "EMAIL_AUTHENTICATION": True,
     }
 }
+
 
 
 MIDDLEWARE = [
