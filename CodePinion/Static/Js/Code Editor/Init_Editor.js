@@ -132,7 +132,6 @@ let line_number = 1;
 editor.init(index,line_number);
 
 // Create a new line when enter is pressed
-
 document.addEventListener('keydown', function(event) {
 
     let all_lines = document.querySelectorAll(".editor_code_line");
