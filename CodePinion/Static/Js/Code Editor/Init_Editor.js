@@ -7,18 +7,23 @@ class CodePinionEditor {
     }
 
     // Initialize the editor
-    init() {
+    init(index,line_number) {
 
         // Clear the editor
         this.container.innerHTML = "";
 
         // Create first line
-        this.new_line();
-        
+        this.new_line(index,line_number);
+
+        // Call the at_focus_line function
+        this.at_focus_line();
+
     }
 
     // Create a new line
-    new_line() {
+    new_line(index,line_number) {
+
+        let line_number_elements = '';
 
         // This is the single line
         let single_line = `
@@ -26,7 +31,7 @@ class CodePinionEditor {
 
                 <div class="editor_number">
                     <div class="editor_number_line">
-                        <p class="line_number" >87</p>
+                        <p class="line_number" ></p>
                     </div>
                 </div>
 
@@ -45,35 +50,58 @@ class CodePinionEditor {
         console.log(hasLines);
 
         // If the editor has lines
-        if(hasLines) {
-            // Add a new line
-            this.container.innerHTML += single_line;
-        }
-        else {
-
+        if(!hasLines) {
             // Create the first line
             this.container.innerHTML = single_line;
+
+            // Get the line number
+            line_number_elements = document.getElementsByClassName(" line_number");
+
+            console.log(line_number_elements)
+            
         }
+        else {
+            // Add a new line
+            this.container.innerHTML += single_line;
+
+            // Get the line number
+            line_number_elements = document.getElementsByClassName(" line_number");
+
+            // Count the number of lines
+
+        }
+
+        // Call the monitor line number
+        this.monitor_line_number(line_number_elements,index,line_number,);
+
+    }
+
+    // Monitore the current line being edited
+    at_focus_line() {
+
+        let focusIndex = 0;
+
+        // Get all the lines
+        let all_lines = document.querySelectorAll(".editor_code_line");
+
+        // Create a focus event on all_lines
+
+        for (let i = 0; i < all_lines.length; i++) {
+            all_lines[i].addEventListener('focus', function(event) {
+                // Get the index of the clicked div
+                focusIndex = i;
+              
+            });
+        }
+
+        return focusIndex;
 
     }
 
     // Monitor line number
-    monitor_line_number() {
+    monitor_line_number(number_element,line_index,line_number) {
 
-        
-
-        // // Get the editor code
-        // const editor_code = document.getElementsByClassName("editor_code_line");
-
-        // // Loop through the editor code
-        // for(let i = 0; i < editor_code.length; i++) {
-
-        //     // Get the line number
-        //     const line_number = editor_code[i].getElementsByClassName("line_number")[0];
-
-        //     // Set the line number
-        //     line_number.innerHTML = i + 1;
-        // }
+        number_element[line_index].innerHTML = line_number;
 
     }
 
@@ -90,7 +118,24 @@ window.onload = function () {
     // Initialise the class
     const editor = new CodePinionEditor(the_editor);
 
+    // define current line indwx and numbering
+    let index = 0;
+    let line_number = 1;
+
     // Initialize the editor
-    editor.init();
+    editor.init(index,line_number);
+
+    // Create a new line when enter is pressed
+    document.onkeydown = function (e) {
+        if (e.keyCode == 13) {
+            // index++;
+            // line_number++;
+            // editor.new_line(index,line_number);
+            //console.log(editor.at_focus_line());
+            index = editor.at_focus_line();
+            line_number = index + 1;
+            editor.new_line(index,line_number);
+        }
+    }
 
 }
