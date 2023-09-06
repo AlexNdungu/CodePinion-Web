@@ -112,6 +112,11 @@ def Safes(request):
     return render(request,'Main/safes.html')
 
 
+# Code Editor Rendering Function
+def CodeEditor(request):
+    return render(request, 'Main/Editor.html')
+
+
 # New Safe Connected To Existing Project Folder
 @login_required
 def ConnectSafe(request):

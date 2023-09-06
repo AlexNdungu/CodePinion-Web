@@ -24,6 +24,9 @@ urlpatterns = [
     # Safes Url
     path('safes/', views.Safes, name='safes'),
 
+    # Code Editor Url
+    path('codeEditor/', views.CodeEditor, name='code_editor'),
+
     # New Safe and New Folder Url
     path('create_safe/', views.CreateSafe, name='create_safe_folder'),
 
