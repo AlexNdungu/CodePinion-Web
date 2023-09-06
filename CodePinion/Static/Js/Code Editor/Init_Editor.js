@@ -84,13 +84,20 @@ class CodePinionEditor {
         // Create a focus event on all_lines
         for (let i = 0; i < all_lines.length; i++) {
             all_lines[i].addEventListener('focus', function(event) {
+
+                // Remove the class is_focused from all lines
+                for (let i = 0; i < all_lines.length; i++) {
+                    // Check if any line has a class called is_focused
+                    if(all_lines[i].classList.contains("is_focused")) {
+                        // Remove the class
+                        all_lines[i].classList.remove("is_focused");
+                    }
+                }
+
                 // Get the index of the clicked div
                 focusIndexNew = i;
-
-                console.log("Focus index: " + focusIndexNew);
-
                 // Add to that line class called is_focused
-                //all_lines[focusIndexNew].classList.add("is_focused");
+                all_lines[focusIndexNew].classList.add("is_focused");
               
             });
         }
@@ -102,9 +109,6 @@ class CodePinionEditor {
     // Monitor line number
     monitor_line_number(number_element,line_index,line_number) {
 
-        //console.log("Element: " + number_element);
-        //console.log("Line index: " + line_index);
-
         number_element[line_index].innerHTML = line_number;
 
     }
@@ -113,29 +117,53 @@ class CodePinionEditor {
 
 
 
-// Onload function
-//window.onload = function () {
+// get the Editor container
+const the_editor = document.getElementById("the_editor");
 
-    // get the Editor container
-    const the_editor = document.getElementById("the_editor");
-    
-    // Initialise the class
-    const editor = new CodePinionEditor(the_editor);
+// Initialise the class
+const editor = new CodePinionEditor(the_editor);
 
-    // define current line indwx and numbering
-    let index = 0;
-    let line_number = 1;
+// define current line indwx and numbering
+let index = 0;
+let line_number = 1;
 
-    // Initialize the editor
-    editor.init(index,line_number);
+// Initialize the editor
+editor.init(index,line_number);
 
-    // Create a new line when enter is pressed
-    document.onkeydown = function (e) {
-        if (e.keyCode == 13) {
-            index = focusIndexNew + 1;
+// Create a new line when enter is pressed
+document.onkeydown = function (e) {
+
+    let all_lines = document.querySelectorAll(".editor_code_line");
+
+    let FocusStatus = false
+
+    if (e.keyCode == 13) {
+
+        for (let i = 0; i < all_lines.length; i++) {
+            // Check if any line has a class called is_focused
+            if(all_lines[i].classList.contains("is_focused")) {
+
+                // Change the focus status to true
+                FocusStatus = true;
+                
+            }
+            else{
+                FocusStatus = false;
+            }
+        }
+
+        // Check if any line has a class called is_focused
+        if(FocusStatus == true) {
+            
+            index = editor.at_focus_line() + 1;
             line_number = index + 1;
             editor.new_line(index,line_number);
-        }
-    }
 
-//}
+        }
+        else{
+            console.log("No line is focused");
+        }
+
+
+    }
+}
