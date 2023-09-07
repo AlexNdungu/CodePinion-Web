@@ -89,7 +89,6 @@ class CodePinionEditor {
         
     }
 
-
     // Monitore the current line being edited
     at_focus_click() {
 
@@ -171,7 +170,6 @@ class CodePinionEditor {
     }
 
 }
-
 
 
 // get the Editor container
