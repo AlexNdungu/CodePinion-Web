@@ -40,9 +40,7 @@ class CodePinionEditor {
                 </div>
 
                 <div class="editor_code">
-                    <div class="editor_code_line" contenteditable="True">
-                        <span>print("Hello World")</span>
-                    </div>
+                    <div class="editor_code_line" contenteditable="True"></div>
                 </div>
 
             </div>
@@ -86,6 +84,9 @@ class CodePinionEditor {
 
         // call the focus on the new line
         this.at_focus_new_line(index);
+
+        // Call the line theme
+        this.line_theme();
         
     }
 
@@ -128,7 +129,7 @@ class CodePinionEditor {
 
         }
 
-        // Call at focus line
+        // Call at focus line to renew the focus
         this.at_focus_click();
 
     }
@@ -190,7 +191,16 @@ class CodePinionEditor {
         setTimeout(function() {
             all_lines[index].click();
             all_lines[index].focus();
+
         }, 1);
+
+        // Add Typing cursor at the end of the line
+        let range = document.createRange(); // create a range object
+        range.selectNodeContents(all_lines[index]); // select the entire content of the div
+        range.collapse(false); // collapse the range to the end point
+        let sel = window.getSelection(); // get the selection object
+        sel.removeAllRanges(); // remove any existing selections
+        sel.addRange(range);
      
 
     }
@@ -222,7 +232,53 @@ class CodePinionEditor {
 
     }
 
+    // Monitor the theme
+    line_theme() {
+
+        const divs = document.querySelectorAll('.editor_code_line');
+
+        // loop over each div and add the event listener
+        for (let i = 0; i < divs.length; i++) {
+            divs[i].addEventListener('keyup', (event) => {
+
+                const text = event.target.textContent;
+
+                const keywords = ['def', 'class'];
+
+                for (const keyword of keywords) {
+
+                    const regex = new RegExp(`\\b${keyword}\\b`, 'g');
+                    const matches = regex.exec(text);
+
+                    if (matches) {
+                    
+                        for (const match of matches) {
+
+                            const start = text.indexOf(match);
+
+                            const end = start + match.length;
+
+                            const highlight = document.createElement('span');
+
+                            highlight.classList.add('keyword');
+                            highlight.textContent = match;
+
+                            console.log(String(highlight.outerHTML));
+
+                            //divs[i].appendChild(highlight);
+
+                            divs[i].innerHTML = divs[i].textContent.slice(0, start) + String(highlight.outerHTML) + divs[i].textContent.slice(end);
+                        }
+                    }
+                }
+
+            });
+        }
+
+    }
+
 }
+
 
 
 // Get the Editor container
@@ -242,6 +298,8 @@ editor.init(index,line_number);
 document.addEventListener('keydown', function(event) {
 
     if (event.key === 'Enter') {
+
+        event.preventDefault();
 
         // Check if any line has a class called is_focused
         if(FocusStatus == true) {
@@ -266,22 +324,38 @@ document.addEventListener('keydown', function(event) {
 
     if (event.key === 'Backspace') {
 
+        //event.preventDefault();
+
         index = editor.at_focus_click();
 
-        // Check if any line has a class called is_focused
-        if(FocusStatus == true) {
+        // Check if the line is empty
+        let all_lines = document.querySelectorAll(".editor_code_line");
 
-            if(index <= 0) {
-                return;
+        let trimmed = all_lines[index].innerHTML.trim();
+
+        console.log(trimmed.length);
+        console.log(trimmed);
+
+        // Check if any line has a class called is_focused
+        if(FocusStatus == true) {        
+
+            if(trimmed.length == 0) {
+
+                if(index <= 0) {
+                    return;
+                }
+                else {
+                    // Remove the line
+                    editor.remove_line(index);
+                }
+                
             }
             else {
-                // Remove the line
-                editor.remove_line(index);
+                return;
             }
 
         }
         else{
-            console.log("No line is focused");
             return;
         }
 
