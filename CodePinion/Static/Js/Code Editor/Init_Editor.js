@@ -260,7 +260,7 @@ class CodePinionEditor {
 
                             const highlight = document.createElement('span');
 
-                            highlight.classList.add('keyword');
+                            highlight.classList.add('Keywords');
                             highlight.textContent = match;
 
                             console.log(String(highlight.outerHTML));
