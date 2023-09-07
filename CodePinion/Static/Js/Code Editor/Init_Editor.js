@@ -89,8 +89,55 @@ class CodePinionEditor {
         
     }
 
+    // Remove a line
+    remove_line(index) {
+
+        // Get all the line containers
+        let all_line_containers = document.querySelectorAll(".editor_number_code");
+
+        // Check if removing a line at the end or in between
+        const all_lines = document.querySelectorAll(".editor_code_line");
+        const lastDivIndex = all_lines.length - 1;
+
+        // Define index of previous line
+        let previous_line_index = index - 1;
+
+        // Call at focus new line
+        this.at_focus_new_line(previous_line_index);
+
+        if(index == lastDivIndex){
+            // Simply remove the line at the end
+
+            all_line_containers[index].remove();
+
+        }
+        else {
+
+            // Remove the line in between
+
+            all_line_containers[index].remove();
+
+            // Update the line number
+            let line_number_elements = document.getElementsByClassName("line_number");
+            
+            // Define the new line number
+            let new_line_number = index + 1;
+            
+            // Call the monitor line number
+            this.monitor_line_number(line_number_elements,previous_line_index,new_line_number);
+
+        }
+
+        // Call at focus line
+        this.at_focus_click();
+
+    }
+
     // Monitore the current line being edited
     at_focus_click() {
+
+        // Get all the new line containers
+        let all_line_containers = document.querySelectorAll(".editor_number_code");
 
         // Get all the lines
         let all_lines = document.querySelectorAll(".editor_code_line");
@@ -106,6 +153,9 @@ class CodePinionEditor {
                         // Remove the class
                         all_lines[i].classList.remove("is_focused");
 
+                        // Remove the focusing color
+                        all_line_containers[i].classList.remove("show_focused");
+
                         // Change the focus status to false
                         FocusStatus = false;
 
@@ -116,6 +166,9 @@ class CodePinionEditor {
                 focusIndex = i;
                 // Change the focus status to true
                 FocusStatus = true;
+
+                // Remove the focusing color
+                all_line_containers[focusIndex].classList.add("show_focused");
 
                 // Add to that line class called is_focused
                 all_lines[focusIndex].classList.add("is_focused");
@@ -172,7 +225,7 @@ class CodePinionEditor {
 }
 
 
-// get the Editor container
+// Get the Editor container
 const the_editor = document.getElementById("the_editor");
 
 // Initialise the class
@@ -201,8 +254,36 @@ document.addEventListener('keydown', function(event) {
         }
         else{
             console.log("No line is focused");
+            return;
         }
 
     }
 });
 
+
+// Remove a line
+document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'Backspace') {
+
+        index = editor.at_focus_click();
+
+        // Check if any line has a class called is_focused
+        if(FocusStatus == true) {
+
+            if(index <= 0) {
+                return;
+            }
+            else {
+                // Remove the line
+                editor.remove_line(index);
+            }
+
+        }
+        else{
+            console.log("No line is focused");
+            return;
+        }
+
+    }
+});
