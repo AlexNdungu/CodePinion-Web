@@ -58,8 +58,20 @@ class CodePinionEditor {
             
         }
         else {
-            // Add a new line
-            this.container.innerHTML += single_line;
+
+            // Check whether line is to be added at the end or in between
+            const all_lines = document.querySelectorAll(".editor_code_line");
+
+            const lastDivIndex = all_lines.length - 1;
+
+            if(index == lastDivIndex + 1) {
+                // Add a new line at the end
+                this.container.innerHTML += single_line;
+            }
+            else {
+                // Add the line in between      
+                this.container.children[index].insertAdjacentHTML('afterend', single_line);
+            }
 
         }
 
@@ -125,6 +137,7 @@ class CodePinionEditor {
         // click the new line after 1 second
         setTimeout(function() {
             all_lines[index].click();
+            all_lines[index].focus();
         }, 1);
      
 
@@ -133,8 +146,27 @@ class CodePinionEditor {
     // Monitor line number
     monitor_line_number(number_element,line_index,line_number) {
 
-        // Set the line number
-        number_element[line_index].innerHTML = line_number;
+        // Get the last line index
+        const all_lines = document.querySelectorAll(".editor_code_line");
+
+        const lastDivIndex = all_lines.length - 1;
+
+        // Check if numbering is at the middle or end
+        if(line_index == lastDivIndex + 1){
+            // Set the line number at the end
+            number_element[line_index].innerHTML = line_number;
+        }
+        else {
+
+            // Set the line number at the end
+            number_element[line_index].innerHTML = line_number;
+
+            // Update the line number
+            for (let i = line_index; i < number_element.length; i++) {
+                number_element[i].innerHTML = i + 1;
+            }
+
+        }
 
     }
 
