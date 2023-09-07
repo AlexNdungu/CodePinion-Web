@@ -87,10 +87,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    cursor: none;
 }
 
 /* Themes */
 
-.Keywords {
+.keywords {
     color: #2B59DF;
+}
+
+.regular {
+    color: #767676;
 }

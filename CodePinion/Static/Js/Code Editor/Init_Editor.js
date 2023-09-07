@@ -86,7 +86,8 @@ class CodePinionEditor {
         this.at_focus_new_line(index);
 
         // Call the line theme
-        this.line_theme();
+        this.line_theme(index);
+
         
     }
 
@@ -105,6 +106,9 @@ class CodePinionEditor {
 
         // Call at focus new line
         this.at_focus_new_line(previous_line_index);
+
+        // Call the line theme
+        this.line_theme(previous_line_index);
 
         if(index == lastDivIndex){
             // Simply remove the line at the end
@@ -173,6 +177,7 @@ class CodePinionEditor {
 
                 // Add to that line class called is_focused
                 all_lines[focusIndex].classList.add("is_focused");
+
               
             });
         }
@@ -233,49 +238,55 @@ class CodePinionEditor {
     }
 
     // Monitor the theme
-    line_theme() {
+    line_theme(index) {
 
-        const divs = document.querySelectorAll('.editor_code_line');
+        // Get all the line inputs
+        let line_inputs = document.querySelectorAll('.editor_code_line');
 
-        // loop over each div and add the event listener
-        for (let i = 0; i < divs.length; i++) {
-            divs[i].addEventListener('keyup', (event) => {
+        // Create a span
+        let newSpan = document.createElement('span');
+        newSpan.classList.add('regular');
+        line_inputs[index].appendChild(newSpan);
 
-                const text = event.target.textContent;
+        line_inputs[index].addEventListener('keyup', (event) => {
 
-                const keywords = ['def', 'class'];
+            const text = event.target.textContent;
 
-                for (const keyword of keywords) {
+            const keywords = ['def', 'class'];
 
-                    const regex = new RegExp(`\\b${keyword}\\b`, 'g');
-                    const matches = regex.exec(text);
+            for (const keyword of keywords) {
 
-                    if (matches) {
-                    
-                        for (const match of matches) {
+                const regex = new RegExp(`\\b${keyword}\\b`, 'g');
+                const matches = regex.exec(text);
 
-                            const start = text.indexOf(match);
+                console.log(matches);
 
-                            const end = start + match.length;
+                // If any match is found
+                if (matches !== null) {
 
-                            const highlight = document.createElement('span');
+                    console.log('matches found');
+                
+                    // Change the color of the keyword
+                    newSpan.setAttribute('class', 'keywords');
 
-                            highlight.classList.add('Keywords');
-                            highlight.textContent = match;
+                    break;
 
-                            console.log(String(highlight.outerHTML));
-
-                            //divs[i].appendChild(highlight);
-
-                            divs[i].innerHTML = divs[i].textContent.slice(0, start) + String(highlight.outerHTML) + divs[i].textContent.slice(end);
-                        }
-                    }
                 }
+                else {
 
-            });
-        }
+                    console.log('matches not found');
+                    // Change the color of the keyword
+                    newSpan.setAttribute('class', 'regular');
+
+                    break;
+                }
+            }
+
+        });
 
     }
+
+
 
 }
 
@@ -332,9 +343,6 @@ document.addEventListener('keydown', function(event) {
         let all_lines = document.querySelectorAll(".editor_code_line");
 
         let trimmed = all_lines[index].innerHTML.trim();
-
-        console.log(trimmed.length);
-        console.log(trimmed);
 
         // Check if any line has a class called is_focused
         if(FocusStatus == true) {        
