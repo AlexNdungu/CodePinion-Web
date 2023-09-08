@@ -298,18 +298,19 @@ class CodePinionEditor {
             }
 
             // When space is created
-            // if (event.keyCode === 32) {
+            if (event.keyCode === 32) {
 
-            //     if(actievSpan.className == "keywords") {
+                if(activeSpan.className == "keywords") {
 
-            //         // Create a new span
-            //         let newSpan = document.createElement('span');
-            //         newSpan.classList.add('regular');
-            //         line_inputs[index].appendChild(newSpan);
+                    // Create a new span
+                    let newSpan = document.createElement('span');
+                    newSpan.classList.add('regular');
+                    newSpan.textContent = "\u00A0";
+                    line_inputs[index].appendChild(newSpan);
 
-            //     }
+                }
         
-            // }
+            }
 
         });
 
