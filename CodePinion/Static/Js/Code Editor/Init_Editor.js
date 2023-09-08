@@ -253,12 +253,10 @@ class CodePinionEditor {
         line_inputs[index].addEventListener('keyup', (event) => {
 
             //const text = event.target.textContent;
-
             const activeSpan = document.activeElement.querySelector("span");
 
             const text = activeSpan.textContent;
             //console.log(event.target.children[0].className);
-
             //console.log(actievSpan.className);
 
             for (const keyword of keywords) {
@@ -269,15 +267,12 @@ class CodePinionEditor {
                 // If any match is found
                 if (matches !== null) {
 
-                    //console.log(text);
-                    //console.log(keyword);
-
                     if (text.length > keyword.length) {
                 
                         // Get the rest of the text without the keyword
                         let restOfText = text.replace(/\S*$/, "");
-                        activeSpan.textContent = restOfText;
-                        
+                        let newRestOfText = restOfText.replace(" ", "\u00A0");
+                        activeSpan.textContent = newRestOfText;
 
                         // Create a new span
                         let newSpan = document.createElement('span');
@@ -287,9 +282,12 @@ class CodePinionEditor {
 
                     }
 
-                    // Change the color of the keyword
-                    //activeSpan.setAttribute('class', 'keywords');
+                    else {
 
+                        // Change the color of the keyword
+                        activeSpan.setAttribute('class', 'keywords');
+
+                    }
                 }
                 else {
 
