@@ -243,6 +243,8 @@ class CodePinionEditor {
         // Get all the line inputs
         let line_inputs = document.querySelectorAll('.editor_code_line');
 
+        const keywords = ['def', 'class'];
+
         // Create a span
         let newSpan = document.createElement('span');
         newSpan.classList.add('regular');
@@ -250,37 +252,66 @@ class CodePinionEditor {
 
         line_inputs[index].addEventListener('keyup', (event) => {
 
-            const text = event.target.textContent;
+            //const text = event.target.textContent;
 
-            const keywords = ['def', 'class'];
+            const activeSpan = document.activeElement.querySelector("span");
+
+            const text = activeSpan.textContent;
+            //console.log(event.target.children[0].className);
+
+            //console.log(actievSpan.className);
 
             for (const keyword of keywords) {
 
                 const regex = new RegExp(`\\b${keyword}\\b`, 'g');
                 const matches = regex.exec(text);
 
-                console.log(matches);
-
                 // If any match is found
                 if (matches !== null) {
 
-                    console.log('matches found');
-                
-                    // Change the color of the keyword
-                    newSpan.setAttribute('class', 'keywords');
+                    //console.log(text);
+                    //console.log(keyword);
 
-                    break;
+                    if (text.length > keyword.length) {
+                
+                        // Get the rest of the text without the keyword
+                        let restOfText = text.replace(/\S*$/, "");
+                        activeSpan.textContent = restOfText;
+                        
+
+                        // Create a new span
+                        let newSpan = document.createElement('span');
+                        newSpan.classList.add('keywords');
+                        newSpan.textContent = keyword;
+                        line_inputs[index].appendChild(newSpan);
+
+                    }
+
+                    // Change the color of the keyword
+                    //activeSpan.setAttribute('class', 'keywords');
 
                 }
                 else {
 
-                    console.log('matches not found');
                     // Change the color of the keyword
-                    newSpan.setAttribute('class', 'regular');
+                    activeSpan.setAttribute('class', 'regular');
 
-                    break;
                 }
             }
+
+            // When space is created
+            // if (event.keyCode === 32) {
+
+            //     if(actievSpan.className == "keywords") {
+
+            //         // Create a new span
+            //         let newSpan = document.createElement('span');
+            //         newSpan.classList.add('regular');
+            //         line_inputs[index].appendChild(newSpan);
+
+            //     }
+        
+            // }
 
         });
 
