@@ -268,17 +268,38 @@ class CodePinionEditor {
                 if (matches !== null) {
 
                     if (text.length > keyword.length) {
-                
-                        // Get the rest of the text without the keyword
-                        let restOfText = text.replace(/\S*$/, "");
-                        let newRestOfText = restOfText.replace(" ", "\u00A0");
-                        activeSpan.textContent = newRestOfText;
 
-                        // Create a new span
-                        let newSpan = document.createElement('span');
-                        newSpan.classList.add('keywords');
-                        newSpan.textContent = keyword;
-                        line_inputs[index].appendChild(newSpan);
+                        console.log(text);
+
+                        if(text === keyword + "\u00A0") {
+                            console.log("Keyword with space");
+
+                            // Add the key word to the active span
+                            activeSpan.textContent = keyword;
+
+                            // Create a new span
+                            let newSpan = document.createElement('span');
+                            newSpan.classList.add('regular');
+                            newSpan.textContent = "\u00A0";
+                            line_inputs[index].appendChild(newSpan);
+
+                        }
+                        else {
+                            console.log("Keyword without space");
+                        
+                
+                            // Get the rest of the text without the keyword
+                            let restOfText = text.replace(/\S*$/, "");
+                            let newRestOfText = restOfText.replace(" ", "\u00A0");
+                            activeSpan.textContent = newRestOfText;
+
+                            // Create a new span
+                            let newSpan = document.createElement('span');
+                            newSpan.classList.add('keywords');
+                            newSpan.textContent = keyword;
+                            line_inputs[index].appendChild(newSpan);
+
+                        }
 
                     }
 
@@ -289,28 +310,39 @@ class CodePinionEditor {
 
                     }
                 }
-                else {
+                //else {
 
                     // Change the color of the keyword
-                    activeSpan.setAttribute('class', 'regular');
+                    //activeSpan.setAttribute('class', 'regular');
 
-                }
+                //}
             }
 
             // When space is created
-            if (event.keyCode === 32) {
+            //if (event.keyCode === 32) {
 
-                if(activeSpan.className == "keywords") {
+                //console.log("Space created");
+
+                //console.log(activeSpan);
+
+                //if(activeSpan.className == "keywords") {
+
+                    //console.log("Keyword span");
 
                     // Create a new span
-                    let newSpan = document.createElement('span');
-                    newSpan.classList.add('regular');
-                    newSpan.textContent = "\u00A0";
-                    line_inputs[index].appendChild(newSpan);
+                    // let newSpan = document.createElement('span');
+                    // newSpan.classList.add('regular');
+                    // newSpan.textContent = "hello";
+                    // line_inputs[index].appendChild(newSpan);
 
-                }
+                //}
+                //else if(activeSpan.className == "regular") {
+
+                    //console.log("Regular span");
+
+                //}
         
-            }
+            //}
 
         });
 
