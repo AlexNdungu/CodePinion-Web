@@ -251,7 +251,6 @@ class CodePinionEditor {
 
         line_inputs[index].addEventListener('keyup', (event) => {
 
-            //const text = event.target.textContent;
             const activeSpan = document.activeElement.querySelector("span");
 
             const text = activeSpan.textContent;
@@ -362,8 +361,6 @@ class CodePinionEditor {
         });
 
     }
-
-
 
 }
 
