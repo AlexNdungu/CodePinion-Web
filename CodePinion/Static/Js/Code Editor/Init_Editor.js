@@ -206,7 +206,6 @@ class CodePinionEditor {
         let sel = window.getSelection(); // get the selection object
         sel.removeAllRanges(); // remove any existing selections
         sel.addRange(range);
-     
 
     }
 
@@ -269,13 +268,13 @@ class CodePinionEditor {
 
                     if (text.length > keyword.length) {
 
-                        console.log(text);
-
+                        // if the keyword is followed by a space
                         if(text === keyword + "\u00A0") {
                             console.log("Keyword with space");
 
                             // Add the key word to the active span
                             activeSpan.textContent = keyword;
+                            activeSpan.setAttribute('class', 'keywords');
 
                             // Create a new span
                             let newSpan = document.createElement('span');
@@ -283,11 +282,19 @@ class CodePinionEditor {
                             newSpan.textContent = "\u00A0";
                             line_inputs[index].appendChild(newSpan);
 
+                            // set timeout to 1 second
+                            setTimeout(function() {
+                                line_inputs[index].focus();
+                            }, 1);
+                            
+                            //newSpan.focus();
+
                         }
+
+                        // if the keyword is not followed by a space
                         else {
                             console.log("Keyword without space");
                         
-                
                             // Get the rest of the text without the keyword
                             let restOfText = text.replace(/\S*$/, "");
                             let newRestOfText = restOfText.replace(" ", "\u00A0");
@@ -300,6 +307,14 @@ class CodePinionEditor {
                             line_inputs[index].appendChild(newSpan);
 
                         }
+
+                        // Add Typing cursor at the end of the line
+                        let range = document.createRange(); // create a range object
+                        range.selectNodeContents(line_inputs[index]); // select the entire content of the div
+                        range.collapse(false); // collapse the range to the end point
+                        let sel = window.getSelection(); // get the selection object
+                        sel.removeAllRanges(); // remove any existing selections
+                        sel.addRange(range);
 
                     }
 
