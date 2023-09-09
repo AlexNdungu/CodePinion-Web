@@ -253,13 +253,9 @@ class CodePinionEditor {
         // Add event listener to the line inputs
         line_inputs[index].addEventListener('keyup', (event) => {
 
-            //const activeSpan = document.activeElement.querySelector("span");
-
             let activeSpan = line_inputs[index].querySelector("span[id='active']");
 
             const text = activeSpan.textContent;
-            //console.log(text);
-            //console.log(activeSpan);
 
             for (const keyword of keywords) {
 
@@ -273,7 +269,7 @@ class CodePinionEditor {
 
                         // if the keyword is followed by a space
                         if(text === keyword + "\u00A0") {
-                            console.log("Keyword with space");
+                            //console.log("Keyword with space");
 
                             // Add the key word to the active span
                             activeSpan.textContent = keyword;
@@ -292,7 +288,7 @@ class CodePinionEditor {
 
                         // if the keyword is not followed by a space
                         else {
-                            console.log("Keyword without space");
+                            //console.log("Keyword without space");
                         
                             // Get the rest of the text without the keyword
                             let restOfText = text.replace(/\S*$/, "");
@@ -330,41 +326,43 @@ class CodePinionEditor {
 
                     }
                 }
-                //else {
+                else {
 
                     // Change the color of the keyword
-                    //activeSpan.setAttribute('class', 'regular');
+                    activeSpan.setAttribute('class', 'regular');
 
-                //}
+                }
             }
 
-            // When space is created
-            //if (event.keyCode === 32) {
+            // get all the childern of the line input
+            let all_spans = line_inputs[index].querySelectorAll("span");
 
-                //console.log("Space created");
-
-                //console.log(activeSpan);
-
-                //if(activeSpan.className == "keywords") {
-
-                    //console.log("Keyword span");
-
-                    // Create a new span
-                    // let newSpan = document.createElement('span');
-                    // newSpan.classList.add('regular');
-                    // newSpan.textContent = "hello";
-                    // line_inputs[index].appendChild(newSpan);
-
-                //}
-                //else if(activeSpan.className == "regular") {
-
-                    //console.log("Regular span");
-
-                //}
-        
-            //}
+            // call activate_clicked_span function
+            activate_clicked_span(all_spans);
 
         });
+
+        // Function that changes active status when span is clicked
+        function activate_clicked_span(all_spans){
+
+            // click event for all spans in all_spans
+            for (let i = 0; i < all_spans.length; i++) {
+
+                all_spans[i].addEventListener("click", function(event) {
+
+                    // Remove the id from the active span
+                    let activeSpan = line_inputs[index].querySelector("span[id='active']");
+                    activeSpan.removeAttribute("id");
+
+                    // Add the id to the clicked span
+                    all_spans[i].setAttribute("id", "active");
+
+                });
+
+            }
+
+        };
+            
 
     }
 
