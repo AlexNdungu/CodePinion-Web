@@ -247,15 +247,19 @@ class CodePinionEditor {
         // Create a span
         let newSpan = document.createElement('span');
         newSpan.classList.add('regular');
+        newSpan.setAttribute("id", "active");
         line_inputs[index].appendChild(newSpan);
 
+        // Add event listener to the line inputs
         line_inputs[index].addEventListener('keyup', (event) => {
 
-            const activeSpan = document.activeElement.querySelector("span");
+            //const activeSpan = document.activeElement.querySelector("span");
+
+            let activeSpan = line_inputs[index].querySelector("span[id='active']");
 
             const text = activeSpan.textContent;
-            //console.log(event.target.children[0].className);
-            //console.log(actievSpan.className);
+            //console.log(text);
+            //console.log(activeSpan);
 
             for (const keyword of keywords) {
 
@@ -274,11 +278,14 @@ class CodePinionEditor {
                             // Add the key word to the active span
                             activeSpan.textContent = keyword;
                             activeSpan.setAttribute('class', 'keywords');
+                            // remove id from the active span
+                            activeSpan.removeAttribute("id");
 
                             // Create a new span
                             let newSpan = document.createElement('span');
                             newSpan.classList.add('regular');
                             newSpan.textContent = "\u00A0";
+                            newSpan.setAttribute("id", "active");
                             line_inputs[index].appendChild(newSpan);
 
                             // set timeout to 1 second
@@ -286,7 +293,6 @@ class CodePinionEditor {
                                 line_inputs[index].focus();
                             }, 1);
                             
-                            //newSpan.focus();
 
                         }
 
@@ -298,11 +304,15 @@ class CodePinionEditor {
                             let restOfText = text.replace(/\S*$/, "");
                             let newRestOfText = restOfText.replace(" ", "\u00A0");
                             activeSpan.textContent = newRestOfText;
+                            // remove id from the active span
+                            activeSpan.removeAttribute("id");
+
 
                             // Create a new span
                             let newSpan = document.createElement('span');
                             newSpan.classList.add('keywords');
                             newSpan.textContent = keyword;
+                            newSpan.setAttribute("id", "active");
                             line_inputs[index].appendChild(newSpan);
 
                         }
