@@ -282,7 +282,8 @@ class CodePinionEditor {
                             newSpan.classList.add('regular');
                             newSpan.textContent = "\u00A0";
                             newSpan.setAttribute("id", "active");
-                            line_inputs[index].appendChild(newSpan);
+                            activeSpan.insertAdjacentElement('afterend', newSpan);
+                            //line_inputs[index].appendChild(newSpan);
 
                         }
 
@@ -305,7 +306,8 @@ class CodePinionEditor {
                             newSpan.classList.add('keywords');
                             newSpan.textContent = keyword;
                             newSpan.setAttribute("id", "active");
-                            line_inputs[index].appendChild(newSpan);
+                            activeSpan.insertAdjacentElement('afterend', newSpan);
+                            //line_inputs[index].appendChild(newSpan);
 
                         }
 
@@ -326,12 +328,12 @@ class CodePinionEditor {
 
                     }
                 }
-                else {
+                //else {
 
                     // Change the color of the keyword
-                    activeSpan.setAttribute('class', 'regular');
+                    //activeSpan.setAttribute('class', 'regular');
 
-                }
+                //}
             }
 
             // get all the childern of the line input
