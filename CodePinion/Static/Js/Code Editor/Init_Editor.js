@@ -288,12 +288,6 @@ class CodePinionEditor {
                             newSpan.setAttribute("id", "active");
                             line_inputs[index].appendChild(newSpan);
 
-                            // set timeout to 1 second
-                            setTimeout(function() {
-                                line_inputs[index].focus();
-                            }, 1);
-                            
-
                         }
 
                         // if the keyword is not followed by a space
@@ -302,7 +296,9 @@ class CodePinionEditor {
                         
                             // Get the rest of the text without the keyword
                             let restOfText = text.replace(/\S*$/, "");
-                            let newRestOfText = restOfText.replace(" ", "\u00A0");
+                            console.log(restOfText);
+                            let newRestOfText = restOfText.replaceAll(" ", "\u00A0");
+                            console.log(newRestOfText);
                             activeSpan.textContent = newRestOfText;
                             // remove id from the active span
                             activeSpan.removeAttribute("id");
