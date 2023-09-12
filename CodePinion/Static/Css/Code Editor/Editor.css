@@ -92,10 +92,14 @@
 
 /* Themes */
 
-.keywords {
+.keyword {
     color: #2B59DF;
 }
 
 .regular {
     color: #767676;
+}
+
+.punctuation {
+    color: #A3B0EB;
 }

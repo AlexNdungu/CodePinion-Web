@@ -1,8 +1,8 @@
 // Create a map with key as category and value as list of recerved word
 const reserved_words = new Map();
-reserved_words.set('keywords', ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']);
-reserved_words.set('operators',['+','-', '*','/','%','**','//','<','<=','>','>=','==','!='])
-reserved_words.set('punctuations', [',', '.', ';', ':', '(', '[', '{', ')', ']', '}'])
+reserved_words.set('keyword', ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']);
+reserved_words.set('operator',['+','-', '*','/','%','**','//','<','<=','>','>=','==','!='])
+reserved_words.set('punctuation', [',', '.', ';', ':', '(', '[', '{', ')', ']', '}'])
 //console.log(reserved_words);
 
 // Create a class editor
@@ -260,16 +260,13 @@ class CodePinionEditor {
         // Add event listener to the line inputs
         line_inputs[index].addEventListener('keyup', (event) => {
 
-            //console.log(event.target.querySelector("span[id='active']"));
-
             //let activeSpan = line_inputs[index].querySelector("span[id='active']");
 
             let activeSpan = event.target.querySelector("span[id='active']")
 
             const text = activeSpan.textContent;
 
-            //
-
+            // Function to check if words and punctuations are in the reserved words
             function getKeyByValueArray(map, member) { 
                 for (let [key, value] of map.entries()) { 
                     if (Array.isArray(value) && value.includes(member)) return key; 
@@ -277,7 +274,30 @@ class CodePinionEditor {
                 return null;
             }
 
-            console.log(getKeyByValueArray(reserved_words,text));
+            // Get the length of the sentence.
+            // Get the last character in the sentence. (help in getting panctuations)
+            let length = text.length;
+            let punct = text[length - 1];
+            console.log(punct);
+
+            // lets check for punctualtions
+            if (getKeyByValueArray(reserved_words,punct) == 'punctuation') {
+                console.log("Punctuations");
+
+                // Remove the last character and update text content
+                activeSpan.textContent = text.slice(0, -1);
+
+                // Create a new span
+                let newSpan = document.createElement('span');
+                newSpan.classList.add('punctuation');
+                newSpan.textContent = punct;
+                newSpan.setAttribute("id", "active");
+                activeSpan.insertAdjacentElement('afterend', newSpan);
+                
+            }
+            else{ 
+                console.log("Not Punctuations");
+            }
 
             //
 
