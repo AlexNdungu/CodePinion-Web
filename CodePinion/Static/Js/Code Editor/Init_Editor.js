@@ -257,6 +257,38 @@ class CodePinionEditor {
             return null;
         }
 
+        // Function move cursor to the end of the line
+        function moveCursorToEnd(line) {
+            // Add Typing cursor at the end of the line
+            let range = document.createRange(); // create a range object
+            range.selectNodeContents(line); // select the entire content of the div
+            range.collapse(false); // collapse the range to the end point
+            let sel = window.getSelection(); // get the selection object
+            sel.removeAllRanges(); // remove any existing selections
+            sel.addRange(range);
+        }
+
+        // Function that changes active status when span is clicked
+        function activate_clicked_span(all_spans){
+
+            // click event for all spans in all_spans
+            for (let i = 0; i < all_spans.length; i++) {
+
+                all_spans[i].addEventListener("click", function(event) {
+
+                    // Remove the id from the active span
+                    let activeSpan = line_inputs[index].querySelector("span[id='active']");
+                    activeSpan.removeAttribute("id");
+
+                    // Add the id to the clicked span
+                    all_spans[i].setAttribute("id", "active");
+
+                });
+
+            }
+
+        };
+
         // Create a span
         let newSpan = document.createElement('span');
         newSpan.classList.add('regular');
@@ -265,8 +297,6 @@ class CodePinionEditor {
 
         // Add event listener to the line inputs
         line_inputs[index].addEventListener('keyup', (event) => {
-
-            //let activeSpan = line_inputs[index].querySelector("span[id='active']");
 
             let activeSpan = event.target.querySelector("span[id='active']")
 
@@ -281,6 +311,26 @@ class CodePinionEditor {
             if(lastLetter == " " || lastLetter == "\u00A0") {
 
                 console.log("Space");
+
+                // check if active span has class regular
+                if(!activeSpan.classList.contains('regular')) {
+
+                    // Remove the space from text
+                    activeSpan.textContent = text.slice(0, -1);
+                    // Remove active id
+                    activeSpan.removeAttribute("id");
+
+                    // Create a new span
+                    let newSpan = document.createElement('span');
+                    newSpan.classList.add('regular');
+                    newSpan.textContent = '\u00A0';
+                    newSpan.setAttribute("id", "active");
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
+
+                }
+
+                // Call move cursor to end function
+                moveCursorToEnd(line_inputs[index]);
 
             }
             else {
@@ -377,46 +427,19 @@ class CodePinionEditor {
 
                 }
 
-                // Add Typing cursor at the end of the line
-                let range = document.createRange(); // create a range object
-                range.selectNodeContents(line_inputs[index]); // select the entire content of the div
-                range.collapse(false); // collapse the range to the end point
-                let sel = window.getSelection(); // get the selection object
-                sel.removeAllRanges(); // remove any existing selections
-                sel.addRange(range);
+                // Call move cursor to end function
+                moveCursorToEnd(line_inputs[index]);
 
             }
 
-            // // get all the childern of the line input
-            // let all_spans = line_inputs[index].querySelectorAll("span");
+            // get all the childern of the line input
+            let all_spans = line_inputs[index].querySelectorAll("span");
 
-            // // call activate_clicked_span function
-            // activate_clicked_span(all_spans);
+            // call activate_clicked_span function
+            activate_clicked_span(all_spans);
 
         });
-
-        // Function that changes active status when span is clicked
-        function activate_clicked_span(all_spans){
-
-            // click event for all spans in all_spans
-            for (let i = 0; i < all_spans.length; i++) {
-
-                all_spans[i].addEventListener("click", function(event) {
-
-                    // Remove the id from the active span
-                    let activeSpan = line_inputs[index].querySelector("span[id='active']");
-                    activeSpan.removeAttribute("id");
-
-                    // Add the id to the clicked span
-                    all_spans[i].setAttribute("id", "active");
-
-                });
-
-            }
-
-        };
             
-
     }
 
 }
