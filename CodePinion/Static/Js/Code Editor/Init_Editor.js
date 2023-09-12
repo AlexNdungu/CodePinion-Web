@@ -3,7 +3,7 @@ const reserved_words = new Map();
 reserved_words.set('keyword', ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']);
 reserved_words.set('operator',['+','-', '*','/','%','**','//','<','<=','>','>=','==','!='])
 reserved_words.set('punctuation', [',', '.', ';', ':', '(', '[', '{', ')', ']', '}'])
-//console.log(reserved_words);
+
 
 // Create a class editor
 
@@ -249,7 +249,13 @@ class CodePinionEditor {
         // Get all the line inputs
         let line_inputs = document.querySelectorAll('.editor_code_line');
 
-        const keywords = ['def', 'class'];
+        // Function to check if words and punctuations are in the reserved words
+        function getKeyByValueArray(map, member) { 
+            for (let [key, value] of map.entries()) { 
+                if (Array.isArray(value) && value.includes(member)) return key; 
+            }
+            return null;
+        }
 
         // Create a span
         let newSpan = document.createElement('span');
@@ -266,125 +272,190 @@ class CodePinionEditor {
 
             const text = activeSpan.textContent;
 
-            // Function to check if words and punctuations are in the reserved words
-            function getKeyByValueArray(map, member) { 
-                for (let [key, value] of map.entries()) { 
-                    if (Array.isArray(value) && value.includes(member)) return key; 
-                }
-                return null;
-            }
-
             // Get the length of the sentence.
             // Get the last character in the sentence. (help in getting panctuations)
             let length = text.length;
-            let punct = text[length - 1];
-            console.log(punct);
+            let lastLetter = text[length - 1];
+            console.log(lastLetter);
 
             // lets check for punctualtions
-            if (getKeyByValueArray(reserved_words,punct) == 'punctuation') {
+            if (getKeyByValueArray(reserved_words,lastLetter) == 'punctuation') {
                 console.log("Punctuations");
 
                 // Remove the last character and update text content
                 activeSpan.textContent = text.slice(0, -1);
+                // Remove active id 
+                activeSpan.removeAttribute("id");
+
+                // Create a new punctuation span
+                let spanPunc = document.createElement('span');
+                spanPunc.classList.add('punctuation');
+                spanPunc.textContent = lastLetter;
+                activeSpan.insertAdjacentElement('afterend', spanPunc);
 
                 // Create a new span
                 let newSpan = document.createElement('span');
-                newSpan.classList.add('punctuation');
-                newSpan.textContent = punct;
+                newSpan.classList.add('regular');
                 newSpan.setAttribute("id", "active");
-                activeSpan.insertAdjacentElement('afterend', newSpan);
+                spanPunc.insertAdjacentElement('afterend', newSpan);
                 
             }
             else{ 
-                console.log("Not Punctuations");
-            }
+                //console.log("Not Punctuations");
 
-            //
+                // Now lets check for operators
+                if (getKeyByValueArray(reserved_words,lastLetter) == 'operator') {
+                    console.log("Operators");
 
-            for (const keyword of keywords) {
+                    if(!activeSpan.classList.contains('operator')){
 
-                const regex = new RegExp(`\\b${keyword}\\b`, 'g');
-                const matches = regex.exec(text);
+                        // Remove the last character and update text content
+                        activeSpan.textContent = text.slice(0, -1);
+                        // Remove active id 
+                        activeSpan.removeAttribute("id");
 
-                // If any match is found
-                if (matches !== null) {
+                        // Create a new operator span
+                        let spanOperator = document.createElement('span');
+                        spanOperator.classList.add('operator');
+                        spanOperator.textContent = lastLetter;
+                        spanOperator.setAttribute("id", "active");
+                        activeSpan.insertAdjacentElement('afterend', spanOperator);
 
-                    if (text.length > keyword.length) {
+                    }
+                    else {
+                        console.log("Already Operator");
+                    }
 
-                        // if the keyword is followed by a space
-                        if(text === keyword + "\u00A0") {
-                            //console.log("Keyword with space");
+                }
+                else {
+                    //console.log("Not Operators");
 
-                            // Add the key word to the active span
-                            activeSpan.textContent = keyword;
-                            activeSpan.setAttribute('class', 'keywords');
-                            // remove id from the active span
-                            activeSpan.removeAttribute("id");
+                    let words = text.split(' ');
+                    let lastWord = words[words.length - 1];
+                    console.log('LastWord: ' + lastWord);
 
-                            // Create a new span
-                            let newSpan = document.createElement('span');
-                            newSpan.classList.add('regular');
-                            newSpan.textContent = "\u00A0";
-                            newSpan.setAttribute("id", "active");
-                            activeSpan.insertAdjacentElement('afterend', newSpan);
-                            //line_inputs[index].appendChild(newSpan);
+                    // Now lets check for if last word is a keyword
+                    if (getKeyByValueArray(reserved_words,lastWord)){
+                        console.log("is Keyword");
+
+                        // Check if length of text and keyword is same
+                        if(text.length == lastWord.length) {
+
+                            // Change the color of the keyword
+                            activeSpan.setAttribute('class', 'keyword');
 
                         }
-
-                        // if the keyword is not followed by a space
                         else {
-                            //console.log("Keyword without space");
-                        
-                            // Get the rest of the text without the keyword
+                            console.log("Not same length");
+
                             let restOfText = text.replace(/\S*$/, "");
                             console.log(restOfText);
                             let newRestOfText = restOfText.replaceAll(" ", "\u00A0");
-                            console.log(newRestOfText);
                             activeSpan.textContent = newRestOfText;
                             // remove id from the active span
                             activeSpan.removeAttribute("id");
 
-
                             // Create a new span
                             let newSpan = document.createElement('span');
-                            newSpan.classList.add('keywords');
-                            newSpan.textContent = keyword;
+                            newSpan.classList.add('keyword');
+                            newSpan.textContent = lastWord;
                             newSpan.setAttribute("id", "active");
                             activeSpan.insertAdjacentElement('afterend', newSpan);
-                            //line_inputs[index].appendChild(newSpan);
 
                         }
 
-                        // Add Typing cursor at the end of the line
-                        let range = document.createRange(); // create a range object
-                        range.selectNodeContents(line_inputs[index]); // select the entire content of the div
-                        range.collapse(false); // collapse the range to the end point
-                        let sel = window.getSelection(); // get the selection object
-                        sel.removeAllRanges(); // remove any existing selections
-                        sel.addRange(range);
-
                     }
 
-                    else {
-
-                        // Change the color of the keyword
-                        activeSpan.setAttribute('class', 'keywords');
-
-                    }
                 }
-                //else {
 
-                    // Change the color of the keyword
-                    //activeSpan.setAttribute('class', 'regular');
-
-                //}
             }
 
-            // get all the childern of the line input
-            let all_spans = line_inputs[index].querySelectorAll("span");
+            //
 
-            // call activate_clicked_span function
-            activate_clicked_span(all_spans);
+            // for (const keyword of keywords) {
+
+            //     const regex = new RegExp(`\\b${keyword}\\b`, 'g');
+            //     const matches = regex.exec(text);
+
+            //     // If any match is found
+            //     if (matches !== null) {
+
+            //         if (text.length > keyword.length) {
+
+            //             // if the keyword is followed by a space
+            //             if(text === keyword + "\u00A0") {
+            //                 //console.log("Keyword with space");
+
+            //                 // Add the key word to the active span
+            //                 activeSpan.textContent = keyword;
+            //                 activeSpan.setAttribute('class', 'keywords');
+            //                 // remove id from the active span
+            //                 activeSpan.removeAttribute("id");
+
+            //                 // Create a new span
+            //                 let newSpan = document.createElement('span');
+            //                 newSpan.classList.add('regular');
+            //                 newSpan.textContent = "\u00A0";
+            //                 newSpan.setAttribute("id", "active");
+            //                 activeSpan.insertAdjacentElement('afterend', newSpan);
+            //                 //line_inputs[index].appendChild(newSpan);
+
+            //             }
+
+            //             // if the keyword is not followed by a space
+            //             else {
+            //                 //console.log("Keyword without space");
+                        
+            //                 // Get the rest of the text without the keyword
+            //                 let restOfText = text.replace(/\S*$/, "");
+            //                 console.log(restOfText);
+            //                 let newRestOfText = restOfText.replaceAll(" ", "\u00A0");
+            //                 console.log(newRestOfText);
+            //                 activeSpan.textContent = newRestOfText;
+            //                 // remove id from the active span
+            //                 activeSpan.removeAttribute("id");
+
+
+            //                 // Create a new span
+            //                 let newSpan = document.createElement('span');
+            //                 newSpan.classList.add('keywords');
+            //                 newSpan.textContent = keyword;
+            //                 newSpan.setAttribute("id", "active");
+            //                 activeSpan.insertAdjacentElement('afterend', newSpan);
+            //                 //line_inputs[index].appendChild(newSpan);
+
+            //             }
+
+            //             // Add Typing cursor at the end of the line
+            //             let range = document.createRange(); // create a range object
+            //             range.selectNodeContents(line_inputs[index]); // select the entire content of the div
+            //             range.collapse(false); // collapse the range to the end point
+            //             let sel = window.getSelection(); // get the selection object
+            //             sel.removeAllRanges(); // remove any existing selections
+            //             sel.addRange(range);
+
+            //         }
+
+            //         else {
+
+            //             // Change the color of the keyword
+            //             activeSpan.setAttribute('class', 'keywords');
+
+            //         }
+            //     }
+            //     //else {
+
+            //         // Change the color of the keyword
+            //         //activeSpan.setAttribute('class', 'regular');
+
+            //     //}
+            // }
+
+            // // get all the childern of the line input
+            // let all_spans = line_inputs[index].querySelectorAll("span");
+
+            // // call activate_clicked_span function
+            // activate_clicked_span(all_spans);
 
         });
 
