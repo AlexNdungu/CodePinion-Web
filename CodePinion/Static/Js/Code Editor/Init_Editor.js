@@ -306,11 +306,10 @@ class CodePinionEditor {
             // Get the last character in the sentence. (help in getting panctuations)
             let length = text.length;
             let lastLetter = text[length - 1];
-            console.log(lastLetter);
 
-            if(lastLetter == " " || lastLetter == "\u00A0") {
+            if(lastLetter == "\u00A0") {
 
-                console.log("Space");
+                // replace the white space with a space
 
                 // check if active span has class regular
                 if(!activeSpan.classList.contains('regular')) {
@@ -335,12 +334,18 @@ class CodePinionEditor {
             }
             else {
 
-            // lets check for punctualtions
+                // lets check for punctualtions
                 if (getKeyByValueArray(reserved_words,lastLetter) == 'punctuation') {
-                    console.log("Punctuations");
 
                     // Remove the last character and update text content
-                    activeSpan.textContent = text.slice(0, -1);
+                    let secondLastLetter = text[length - 2];
+                    if(secondLastLetter == " ") {
+                        // Remove the last character and update text content
+                        activeSpan.textContent = text.slice(0, -2) + '\u00A0';
+                    }   
+                    else {
+                        activeSpan.textContent = text.slice(0, -1);
+                    }
                     // Remove active id 
                     activeSpan.removeAttribute("id");
 
@@ -358,16 +363,24 @@ class CodePinionEditor {
                     
                 }
                 else{ 
-                    //console.log("Not Punctuations");
 
                     // Now lets check for operators
                     if (getKeyByValueArray(reserved_words,lastLetter) == 'operator') {
-                        console.log("Operators");
 
                         if(!activeSpan.classList.contains('operator')){
 
                             // Remove the last character and update text content
-                            activeSpan.textContent = text.slice(0, -1);
+
+                            // Check if the second last charater is a space
+                            let secondLastLetter = text[length - 2];
+                            if(secondLastLetter == " ") {
+                                // Remove the last character and update text content
+                                activeSpan.textContent = text.slice(0, -2) + '\u00A0';
+                            }   
+                            else {
+                                activeSpan.textContent = text.slice(0, -1);
+                            }
+                            
                             // Remove active id 
                             activeSpan.removeAttribute("id");
 
@@ -379,21 +392,15 @@ class CodePinionEditor {
                             activeSpan.insertAdjacentElement('afterend', spanOperator);
 
                         }
-                        else {
-                            console.log("Already Operator");
-                        }
 
                     }
                     else {
-                        //console.log("Not Operators");
 
                         let words = text.split(' ');
                         let lastWord = words[words.length - 1];
-                        console.log('LastWord: ' + lastWord);
 
                         // Now lets check for if last word is a keyword
                         if (getKeyByValueArray(reserved_words,lastWord)){
-                            console.log("is Keyword");
 
                             // Check if length of text and keyword is same
                             if(text.length == lastWord.length) {
@@ -403,10 +410,8 @@ class CodePinionEditor {
 
                             }
                             else {
-                                console.log("Not same length");
 
                                 let restOfText = text.replace(/\S*$/, "");
-                                console.log(restOfText);
                                 let newRestOfText = restOfText.replaceAll(" ", "\u00A0");
                                 activeSpan.textContent = newRestOfText;
                                 // remove id from the active span
@@ -476,7 +481,6 @@ document.addEventListener('keydown', function(event) {
 
         }
         else{
-            console.log("No line is focused");
             return;
         }
 
