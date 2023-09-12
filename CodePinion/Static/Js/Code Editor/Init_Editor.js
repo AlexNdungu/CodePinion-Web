@@ -1,3 +1,10 @@
+// Create a map with key as category and value as list of recerved word
+const reserved_words = new Map();
+reserved_words.set('keywords', ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']);
+reserved_words.set('operators',['+','-', '*','/','%','**','//','<','<=','>','>=','==','!='])
+reserved_words.set('punctuations', [',', '.', ';', ':', '(', '[', '{', ')', ']', '}'])
+//console.log(reserved_words);
+
 // Create a class editor
 
 // Define the focus index
@@ -253,9 +260,26 @@ class CodePinionEditor {
         // Add event listener to the line inputs
         line_inputs[index].addEventListener('keyup', (event) => {
 
-            let activeSpan = line_inputs[index].querySelector("span[id='active']");
+            //console.log(event.target.querySelector("span[id='active']"));
+
+            //let activeSpan = line_inputs[index].querySelector("span[id='active']");
+
+            let activeSpan = event.target.querySelector("span[id='active']")
 
             const text = activeSpan.textContent;
+
+            //
+
+            function getKeyByValueArray(map, member) { 
+                for (let [key, value] of map.entries()) { 
+                    if (Array.isArray(value) && value.includes(member)) return key; 
+                }
+                return null;
+            }
+
+            console.log(getKeyByValueArray(reserved_words,text));
+
+            //
 
             for (const keyword of keywords) {
 
