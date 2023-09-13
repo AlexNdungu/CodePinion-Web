@@ -29,6 +29,39 @@ class CodePinionEditor {
         // Create first line
         this.new_line(index,line_number);
 
+        // Call on enter method
+        this.on_enter();
+
+        // Call on backspace method
+        this.on_backspace();
+
+    }
+
+    // Create a method on enter
+    on_enter() {
+
+        // When enter is pressed
+        document.addEventListener('keydown', function(event) {
+
+            if (event.key === 'Enter') {
+        
+                event.preventDefault();
+        
+                // Check if any line has a class called is_focused
+                if(FocusStatus == true) {
+                    
+                    // Create a new line
+                    index = editor.at_focus_click() + 1;
+                    line_number = index + 1;
+                    editor.new_line(index,line_number);
+        
+                }
+                else{
+                    return;
+                }
+        
+            }
+        });
     }
 
     // Create a new line
@@ -94,8 +127,51 @@ class CodePinionEditor {
 
         // Call the line theme
         this.line_theme(index);
-
         
+    }
+
+    // Create a method on backspace
+    on_backspace() {
+        
+        // When backspace is pressed
+        document.addEventListener('keydown', function(event) {
+
+            if (event.key === 'Backspace') {
+        
+                //event.preventDefault();
+        
+                index = editor.at_focus_click();
+        
+                // Check if the line is empty
+                let all_lines = document.querySelectorAll(".editor_code_line");
+        
+                let trimmed = all_lines[index].innerHTML.trim();
+        
+                // Check if any line has a class called is_focused
+                if(FocusStatus == true) {        
+        
+                    if(trimmed.length == 0) {
+        
+                        if(index <= 0) {
+                            return;
+                        }
+                        else {
+                            // Remove the line
+                            editor.remove_line(index);
+                        }
+                        
+                    }
+                    else {
+                        return;
+                    }
+        
+                }
+                else{
+                    return;
+                }
+        
+            }
+        });
     }
 
     // Remove a line
@@ -465,65 +541,65 @@ let line_number = 1;
 editor.init(index,line_number);
 
 // Create a new line when enter is pressed
-document.addEventListener('keydown', function(event) {
+// document.addEventListener('keydown', function(event) {
 
-    if (event.key === 'Enter') {
+//     if (event.key === 'Enter') {
 
-        event.preventDefault();
+//         event.preventDefault();
 
-        // Check if any line has a class called is_focused
-        if(FocusStatus == true) {
+//         // Check if any line has a class called is_focused
+//         if(FocusStatus == true) {
             
-            // Create a new line
-            index = editor.at_focus_click() + 1;
-            line_number = index + 1;
-            editor.new_line(index,line_number);
+//             // Create a new line
+//             index = editor.at_focus_click() + 1;
+//             line_number = index + 1;
+//             editor.new_line(index,line_number);
 
-        }
-        else{
-            return;
-        }
+//         }
+//         else{
+//             return;
+//         }
 
-    }
-});
+//     }
+// });
 
 
 // Remove a line
-document.addEventListener('keydown', function(event) {
+// document.addEventListener('keydown', function(event) {
 
-    if (event.key === 'Backspace') {
+//     if (event.key === 'Backspace') {
 
-        //event.preventDefault();
+//         event.preventDefault();
 
-        index = editor.at_focus_click();
+//         index = editor.at_focus_click();
 
-        // Check if the line is empty
-        let all_lines = document.querySelectorAll(".editor_code_line");
+//         Check if the line is empty
+//         let all_lines = document.querySelectorAll(".editor_code_line");
 
-        let trimmed = all_lines[index].innerHTML.trim();
+//         let trimmed = all_lines[index].innerHTML.trim();
 
-        // Check if any line has a class called is_focused
-        if(FocusStatus == true) {        
+//         Check if any line has a class called is_focused
+//         if(FocusStatus == true) {        
 
-            if(trimmed.length == 0) {
+//             if(trimmed.length == 0) {
 
-                if(index <= 0) {
-                    return;
-                }
-                else {
-                    // Remove the line
-                    editor.remove_line(index);
-                }
+//                 if(index <= 0) {
+//                     return;
+//                 }
+//                 else {
+//                     Remove the line
+//                     editor.remove_line(index);
+//                 }
                 
-            }
-            else {
-                return;
-            }
+//             }
+//             else {
+//                 return;
+//             }
 
-        }
-        else{
-            return;
-        }
+//         }
+//         else{
+//             return;
+//         }
 
-    }
-});
+//     }
+// });
