@@ -132,14 +132,11 @@ class CodePinionEditor {
 
     // Create a method on backspace
     on_backspace() {
-
         // When backspace is pressed
         document.addEventListener('keydown', function(event) {
 
             if (event.key === 'Backspace') {
-        
-                //event.preventDefault();
-        
+                
                 index = editor.at_focus_click();
 
                 // Get all the line inputs
@@ -156,6 +153,7 @@ class CodePinionEditor {
 
                 // Prevent delete of last span at line 0
                 if(index < 1 && spanIndex < 1 && activeSpan.textContent.length == 0) {
+                    // Dont delete the last span at line 0
                     event.preventDefault();
                 }
                 else{
@@ -414,8 +412,6 @@ class CodePinionEditor {
 
             if(lastLetter == "\u00A0") {
 
-                // replace the white space with a space
-
                 // check if active span has class regular
                 if(!activeSpan.classList.contains('regular')) {
 
@@ -501,11 +497,13 @@ class CodePinionEditor {
                     }
                     else {
 
-                        let words = text.split(' ');
+                        let words = text.trim().split(' ');
                         let lastWord = words[words.length - 1];
 
                         // Now lets check for if last word is a keyword
                         if (getKeyByValueArray(reserved_words,lastWord)){
+
+                            console.log("keyword");
 
                             // Check if length of text and keyword is same
                             if(text.length == lastWord.length) {
