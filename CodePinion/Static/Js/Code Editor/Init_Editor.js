@@ -132,7 +132,7 @@ class CodePinionEditor {
 
     // Create a method on backspace
     on_backspace() {
-        
+
         // When backspace is pressed
         document.addEventListener('keydown', function(event) {
 
@@ -141,9 +141,36 @@ class CodePinionEditor {
                 //event.preventDefault();
         
                 index = editor.at_focus_click();
+
+                // Get all the line inputs
+                let all_lines = document.querySelectorAll(".editor_code_line");
+
+                // Get the active span
+                let activeSpan = all_lines[index].querySelector("span[id='active']");
+
+                // Get all the spans in all_lines
+                let all_spans = all_lines[index].querySelectorAll("span");
+                let spanArray = $(all_spans);
+                // Find the index of the span with the id of active
+                let spanIndex = spanArray.index($("#active"));
+                // Display the result
+                console.log(spanIndex);
+
+                if(activeSpan.textContent.length == 0) {
+                    console.log("delete");
+
+                    // Move active span to the previous span
+                    if(spanIndex > 0) {
+                        let previousSpan = all_spans[spanIndex - 1];
+                        console.log(previousSpan);
+                        previousSpan.setAttribute("id", "active");
+                    }
+
+                    all_lines[index].removeChild(activeSpan);
+
+                }
         
                 // Check if the line is empty
-                let all_lines = document.querySelectorAll(".editor_code_line");
         
                 let trimmed = all_lines[index].innerHTML.trim();
         
