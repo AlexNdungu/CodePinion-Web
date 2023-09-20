@@ -382,7 +382,7 @@ class CodePinionEditor {
                 sel.removeAllRanges(); // remove any existing selections
                 sel.addRange(range);
             }
-            
+
         }
 
         // Function that changes active status when span is clicked
