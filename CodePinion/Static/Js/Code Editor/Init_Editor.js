@@ -438,30 +438,36 @@ class CodePinionEditor {
                 // lets check for punctualtions
                 if (getKeyByValueArray(reserved_words,lastLetter) == 'punctuation') {
 
-                    // Remove the last character and update text content
-                    let secondLastLetter = text[length - 2];
-                    if(secondLastLetter == " ") {
-                        // Remove the last character and update text content
-                        activeSpan.textContent = text.slice(0, -2) + '\u00A0';
-                    }   
-                    else {
-                        activeSpan.textContent = text.slice(0, -1);
+                    if(text == lastLetter) {
+                        // Change class to punctuation
+                        activeSpan.setAttribute('class', 'punctuation');
                     }
-                    // Remove active id 
-                    activeSpan.removeAttribute("id");
+                    else{
 
-                    // Create a new punctuation span
-                    let spanPunc = document.createElement('span');
-                    spanPunc.classList.add('punctuation');
-                    spanPunc.textContent = lastLetter;
-                    activeSpan.insertAdjacentElement('afterend', spanPunc);
+                        // Remove the last character and update text content
+                        let secondLastLetter = text[length - 2];
+                        if(secondLastLetter == " ") {
+                            // Remove the last character and update text content
+                            activeSpan.textContent = text.slice(0, -2) + '\u00A0';
+                        }   
+                        else {
+                            activeSpan.textContent = text.slice(0, -1);
+                        }
+                        // Remove active id 
+                        activeSpan.removeAttribute("id");
 
-                    // Create a new span
-                    let newSpan = document.createElement('span');
-                    newSpan.classList.add('regular');
-                    newSpan.setAttribute("id", "active");
-                    spanPunc.insertAdjacentElement('afterend', newSpan);
-                    
+                        // Create a new punctuation span
+                        let spanPunc = document.createElement('span');
+                        spanPunc.classList.add('punctuation');
+                        spanPunc.textContent = lastLetter;
+                        activeSpan.insertAdjacentElement('afterend', spanPunc);
+
+                        // Create a new span
+                        let newSpan = document.createElement('span');
+                        newSpan.classList.add('regular');
+                        newSpan.setAttribute("id", "active");
+                        spanPunc.insertAdjacentElement('afterend', newSpan);
+                    }
                 }
                 else{ 
 
