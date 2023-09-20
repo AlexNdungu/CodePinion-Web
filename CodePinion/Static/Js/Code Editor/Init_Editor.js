@@ -451,6 +451,27 @@ class CodePinionEditor {
                 moveCursorToEnd(line_inputs[index]);
             }
 
+            // When user continues typing after an operator
+            else if(activeSpan.classList.contains('operator') && lastLetter != "\u00A0" && getKeyByValueArray(reserved_words,lastLetter) != 'operator') {
+                        
+                    // Remove active id
+                    activeSpan.removeAttribute("id");
+    
+                    // Split the first and last letter in text
+                    let firstLetter = text.slice(0, -1);
+                    activeSpan.textContent = firstLetter;
+                    
+                    // Create a new span
+                    let newSpan = document.createElement('span');
+                    newSpan.classList.add('regular');
+                    newSpan.textContent = lastLetter;
+                    newSpan.setAttribute("id", "active");
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
+    
+                    // Call move cursor to end function
+                    moveCursorToEnd(line_inputs[index]);
+            }
+
             // When a user continues to type after creating a keyword
             else if(activeSpan.classList.contains('keyword') && getKeyByValueArray(reserved_words,text) != 'keyword') {
 
@@ -522,13 +543,12 @@ class CodePinionEditor {
                         console.log("operator");
 
                         if(text == lastLetter && activeSpan.classList.contains('regular')) {
+                            // Simply change the class to operator
                             activeSpan.setAttribute('class', 'operator');
                         }
                         else{
 
                             if(!activeSpan.classList.contains('operator')){
-
-                                // Remove the last character and update text content
 
                                 // Check if the second last charater is a space
                                 let secondLastLetter = text[length - 2];
