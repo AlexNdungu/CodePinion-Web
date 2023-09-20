@@ -410,29 +410,45 @@ class CodePinionEditor {
             let length = text.length;
             let lastLetter = text[length - 1];
 
-            if(lastLetter == "\u00A0") {
+            if(lastLetter == "\u00A0" && !activeSpan.classList.contains('regular')) {
 
-                // check if active span has class regular
-                if(!activeSpan.classList.contains('regular')) {
+                // Remove the space from text
+                activeSpan.textContent = text.slice(0, -1);
+                // Remove active id
+                activeSpan.removeAttribute("id");
 
-                    // Remove the space from text
-                    activeSpan.textContent = text.slice(0, -1);
-                    // Remove active id
-                    activeSpan.removeAttribute("id");
-
-                    // Create a new span
-                    let newSpan = document.createElement('span');
-                    newSpan.classList.add('regular');
-                    newSpan.textContent = '\u00A0';
-                    newSpan.setAttribute("id", "active");
-                    activeSpan.insertAdjacentElement('afterend', newSpan);
-
-                }
+                // Create a new span
+                let newSpan = document.createElement('span');
+                newSpan.classList.add('regular');
+                newSpan.textContent = '\u00A0';
+                newSpan.setAttribute("id", "active");
+                activeSpan.insertAdjacentElement('afterend', newSpan);
 
                 // Call move cursor to end function
                 moveCursorToEnd(line_inputs[index]);
 
             }
+
+            else if(activeSpan.classList.contains('punctuation') && lastLetter != "\u00A0") {
+                    
+                // Remove active id
+                activeSpan.removeAttribute("id");
+
+                // Split the first and last letter in text
+                let firstLetter = text.slice(0, -1);
+                activeSpan.textContent = firstLetter;
+                
+                // Create a new span
+                let newSpan = document.createElement('span');
+                newSpan.classList.add('regular');
+                newSpan.textContent = lastLetter;
+                newSpan.setAttribute("id", "active");
+                activeSpan.insertAdjacentElement('afterend', newSpan);
+
+                // Call move cursor to end function
+                moveCursorToEnd(line_inputs[index]);
+            }
+
             else {
 
                 // lets check for punctualtions
@@ -474,32 +490,40 @@ class CodePinionEditor {
                     // Now lets check for operators
                     if (getKeyByValueArray(reserved_words,lastLetter) == 'operator') {
 
-                        if(!activeSpan.classList.contains('operator')){
+                        console.log("operator");
 
-                            // Remove the last character and update text content
+                        if(text == lastLetter && activeSpan.classList.contains('regular')) {
+                            activeSpan.setAttribute('class', 'operator');
+                        }
+                        else{
 
-                            // Check if the second last charater is a space
-                            let secondLastLetter = text[length - 2];
-                            if(secondLastLetter == " ") {
+                            if(!activeSpan.classList.contains('operator')){
+
                                 // Remove the last character and update text content
-                                activeSpan.textContent = text.slice(0, -2) + '\u00A0';
-                            }   
-                            else {
-                                activeSpan.textContent = text.slice(0, -1);
+
+                                // Check if the second last charater is a space
+                                let secondLastLetter = text[length - 2];
+                                if(secondLastLetter == " ") {
+                                    // Remove the last character and update text content
+                                    activeSpan.textContent = text.slice(0, -2) + '\u00A0';
+                                }   
+                                else {
+                                    activeSpan.textContent = text.slice(0, -1);
+                                }
+                                
+                                // Remove active id 
+                                activeSpan.removeAttribute("id");
+
+                                // Create a new operator span
+                                let spanOperator = document.createElement('span');
+                                spanOperator.classList.add('operator');
+                                spanOperator.textContent = lastLetter;
+                                spanOperator.setAttribute("id", "active");
+                                activeSpan.insertAdjacentElement('afterend', spanOperator);
+
                             }
                             
-                            // Remove active id 
-                            activeSpan.removeAttribute("id");
-
-                            // Create a new operator span
-                            let spanOperator = document.createElement('span');
-                            spanOperator.classList.add('operator');
-                            spanOperator.textContent = lastLetter;
-                            spanOperator.setAttribute("id", "active");
-                            activeSpan.insertAdjacentElement('afterend', spanOperator);
-
                         }
-
                     }
                     else {
 
