@@ -362,13 +362,27 @@ class CodePinionEditor {
 
         // Function move cursor to the end of the line
         function moveCursorToEnd(line) {
-            // Add Typing cursor at the end of the line
-            let range = document.createRange(); // create a range object
-            range.selectNodeContents(line); // select the entire content of the div
-            range.collapse(false); // collapse the range to the end point
-            let sel = window.getSelection(); // get the selection object
-            sel.removeAllRanges(); // remove any existing selections
-            sel.addRange(range);
+
+            // Get all the line inputs
+            let all_lines = document.querySelectorAll(".editor_code_line");
+            let all_spans = all_lines[index].querySelectorAll("span");
+            let spanArray = $(all_spans);
+            // Find the index of the span with the id of active
+            let spanIndex = spanArray.index($("#active"));
+            // Get the last index of the array
+            let lastIndex = all_spans.length - 1;
+
+            // Check if user is typing at the end of the line
+            if(spanIndex == lastIndex) {
+                // Add Typing cursor at the end of the line
+                let range = document.createRange(); // create a range object
+                range.selectNodeContents(line); // select the entire content of the div
+                range.collapse(false); // collapse the range to the end point
+                let sel = window.getSelection(); // get the selection object
+                sel.removeAllRanges(); // remove any existing selections
+                sel.addRange(range);
+            }
+            
         }
 
         // Function that changes active status when span is clicked
