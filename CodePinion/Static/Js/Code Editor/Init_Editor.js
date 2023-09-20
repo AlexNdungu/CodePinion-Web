@@ -410,6 +410,7 @@ class CodePinionEditor {
             let length = text.length;
             let lastLetter = text[length - 1];
 
+            // When space is created in a special span
             if(lastLetter == "\u00A0" && !activeSpan.classList.contains('regular')) {
 
                 // Remove the space from text
@@ -429,6 +430,7 @@ class CodePinionEditor {
 
             }
 
+            // When user continues typing after a punctuation
             else if(activeSpan.classList.contains('punctuation') && lastLetter != "\u00A0") {
                     
                 // Remove active id
@@ -447,6 +449,33 @@ class CodePinionEditor {
 
                 // Call move cursor to end function
                 moveCursorToEnd(line_inputs[index]);
+            }
+
+            // When a user continues to type after creating a keyword
+            else if(activeSpan.classList.contains('keyword') && getKeyByValueArray(reserved_words,text) != 'keyword') {
+
+                // Get the span before the active span
+                let previousSpan = activeSpan.previousElementSibling;
+
+                if(previousSpan != null && previousSpan.classList.contains('regular')) {
+
+                    // Append text to the previous span text content
+                    previousSpan.textContent += text;
+
+                    // Remove active id from the active span
+                    activeSpan.removeAttribute("id");
+                    // Add active id to the previous span
+                    previousSpan.setAttribute("id", "active");
+
+                    // Remove the active span
+                    activeSpan.remove();
+
+                }
+                else{
+                    // Return the span class to regular
+                    activeSpan.setAttribute('class', 'regular');
+                }
+
             }
 
             else {
@@ -527,7 +556,7 @@ class CodePinionEditor {
                     }
                     else {
 
-                        let words = text.trim().split(' ');
+                        let words = text.trim().split(/\s+/);
                         let lastWord = words[words.length - 1];
 
                         // Now lets check for if last word is a keyword
