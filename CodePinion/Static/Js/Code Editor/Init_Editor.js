@@ -136,6 +136,8 @@ class CodePinionEditor {
         document.addEventListener('keydown', function(event) {
 
             if (event.key === 'Backspace') {
+
+                console.log("backspace");
                 
                 index = editor.at_focus_click();
 
@@ -151,14 +153,49 @@ class CodePinionEditor {
                 // Find the index of the span with the id of active
                 let spanIndex = spanArray.index($("#active"));
 
+                console.log('Line index: '+index);
+                console.log('span index: '+spanIndex);
+
+                const cursorPosition = window.getSelection().getRangeAt(0).startOffset;
+
                 // Prevent delete of last span at line 0
-                if(index < 1 && spanIndex < 1 && activeSpan.textContent.length == 0) {
-                    // Dont delete the last span at line 0
-                    event.preventDefault();
+                // if(index < 1 && spanIndex < 1 && activeSpan.textContent.length == 0) {
+                //     // Dont delete the last span at line 0
+                //     event.preventDefault();
+                // }
+                // else{
+                //     // Delete active span if empty
+                //     if(activeSpan.textContent.length == 1) {
+
+                //         event.preventDefault();
+
+                //         // Move active span to the previous span
+                //         if(spanIndex > 0) {
+                //             let previousSpan = all_spans[spanIndex - 1];
+                //             previousSpan.setAttribute("id", "active");
+                //         }
+
+                //         all_lines[index].removeChild(activeSpan);
+
+                //         console.log("remove span");
+
+                //     }
+                // }
+
+                if(index < 1 && spanIndex < 1 ) {
+
+                    if(activeSpan.textContent.length == 0){
+                        console.log("prevent delete");
+                        event.preventDefault();
+                    }
                 }
-                else{
-                    // Delete active span if empty
-                    if(activeSpan.textContent.length == 0) {
+                else {
+
+                    if(activeSpan.textContent.length == 1){
+                        console.log('next span: '+activeSpan.textContent.length);
+                        console.log("delete span");
+
+                        event.preventDefault();
 
                         // Move active span to the previous span
                         if(spanIndex > 0) {
@@ -169,6 +206,7 @@ class CodePinionEditor {
                         all_lines[index].removeChild(activeSpan);
 
                     }
+
                 }
         
                 // Check if the line is empty
@@ -708,67 +746,3 @@ let line_number = 1;
 
 // Initialize the editor
 editor.init(index,line_number);
-
-// Create a new line when enter is pressed
-// document.addEventListener('keydown', function(event) {
-
-//     if (event.key === 'Enter') {
-
-//         event.preventDefault();
-
-//         // Check if any line has a class called is_focused
-//         if(FocusStatus == true) {
-            
-//             // Create a new line
-//             index = editor.at_focus_click() + 1;
-//             line_number = index + 1;
-//             editor.new_line(index,line_number);
-
-//         }
-//         else{
-//             return;
-//         }
-
-//     }
-// });
-
-
-// Remove a line
-// document.addEventListener('keydown', function(event) {
-
-//     if (event.key === 'Backspace') {
-
-//         event.preventDefault();
-
-//         index = editor.at_focus_click();
-
-//         Check if the line is empty
-//         let all_lines = document.querySelectorAll(".editor_code_line");
-
-//         let trimmed = all_lines[index].innerHTML.trim();
-
-//         Check if any line has a class called is_focused
-//         if(FocusStatus == true) {        
-
-//             if(trimmed.length == 0) {
-
-//                 if(index <= 0) {
-//                     return;
-//                 }
-//                 else {
-//                     Remove the line
-//                     editor.remove_line(index);
-//                 }
-                
-//             }
-//             else {
-//                 return;
-//             }
-
-//         }
-//         else{
-//             return;
-//         }
-
-//     }
-// });
