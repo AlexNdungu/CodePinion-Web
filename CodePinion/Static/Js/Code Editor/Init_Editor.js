@@ -361,22 +361,14 @@ class CodePinionEditor {
         }
 
         // Function move cursor to the end of the line
-        function moveCursorToEnd(line) {
+        function moveCursorToEnd(createSpanStatus) {
 
-            // Get all the line inputs
-            let all_lines = document.querySelectorAll(".editor_code_line");
-            let all_spans = all_lines[index].querySelectorAll("span");
-            let spanArray = $(all_spans);
-            // Find the index of the span with the id of active
-            let spanIndex = spanArray.index($("#active"));
-            // Get the last index of the array
-            let lastIndex = all_spans.length - 1;
+            let activeSpan = document.querySelector("#active");
 
-            // Check if user is typing at the end of the line
-            if(spanIndex == lastIndex) {
-                // Add Typing cursor at the end of the line
+            if(createSpanStatus == true) {
+                console.log('create span');
                 let range = document.createRange(); // create a range object
-                range.selectNodeContents(line); // select the entire content of the div
+                range.selectNodeContents(activeSpan); // select the entire content of the div
                 range.collapse(false); // collapse the range to the end point
                 let sel = window.getSelection(); // get the selection object
                 sel.removeAllRanges(); // remove any existing selections
@@ -419,6 +411,8 @@ class CodePinionEditor {
 
             const text = activeSpan.textContent;
 
+            let spanCreate = false
+
             // Get the length of the sentence.
             // Get the last character in the sentence. (help in getting panctuations)
             let length = text.length;
@@ -439,8 +433,10 @@ class CodePinionEditor {
                 newSpan.setAttribute("id", "active");
                 activeSpan.insertAdjacentElement('afterend', newSpan);
 
+                // Change create span to true
+                spanCreate = true;
                 // Call move cursor to end function
-                moveCursorToEnd(line_inputs[index]);
+                moveCursorToEnd(spanCreate);
 
             }
 
@@ -461,8 +457,11 @@ class CodePinionEditor {
                 newSpan.setAttribute("id", "active");
                 activeSpan.insertAdjacentElement('afterend', newSpan);
 
+                // Change create span to true
+                spanCreate = true;
+
                 // Call move cursor to end function
-                moveCursorToEnd(line_inputs[index]);
+                moveCursorToEnd(spanCreate);
             }
 
             // When user continues typing after an operator
@@ -481,9 +480,12 @@ class CodePinionEditor {
                     newSpan.textContent = lastLetter;
                     newSpan.setAttribute("id", "active");
                     activeSpan.insertAdjacentElement('afterend', newSpan);
+
+                    // Change create span to true
+                    spanCreate = true;
     
                     // Call move cursor to end function
-                    moveCursorToEnd(line_inputs[index]);
+                    moveCursorToEnd(spanCreate);
             }
 
             // When a user continues to type after creating a keyword
@@ -547,6 +549,10 @@ class CodePinionEditor {
                         newSpan.classList.add('regular');
                         newSpan.setAttribute("id", "active");
                         spanPunc.insertAdjacentElement('afterend', newSpan);
+
+                        // Change create span to true
+                        spanCreate = true;
+
                     }
                 }
                 else{ 
@@ -584,6 +590,9 @@ class CodePinionEditor {
                                 spanOperator.setAttribute("id", "active");
                                 activeSpan.insertAdjacentElement('afterend', spanOperator);
 
+                                // Change create span to true
+                                spanCreate = true;
+
                             }
                             
                         }
@@ -620,6 +629,9 @@ class CodePinionEditor {
                                 newSpan.setAttribute("id", "active");
                                 activeSpan.insertAdjacentElement('afterend', newSpan);
 
+                                // Change create span to true
+                                spanCreate = true;
+
                             }
 
                         }
@@ -629,7 +641,7 @@ class CodePinionEditor {
                 }
 
                 // Call move cursor to end function
-                moveCursorToEnd(line_inputs[index]);
+                moveCursorToEnd(spanCreate);
 
             }
 
