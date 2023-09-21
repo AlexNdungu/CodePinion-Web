@@ -544,7 +544,7 @@ class CodePinionEditor {
                     nextSpan.remove();
 
                 }
-                
+
                 else{
                     // Return the span class to regular
                     activeSpan.setAttribute('class', 'regular');
