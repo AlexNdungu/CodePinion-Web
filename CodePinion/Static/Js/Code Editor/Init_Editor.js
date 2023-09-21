@@ -153,34 +153,10 @@ class CodePinionEditor {
                 // Find the index of the span with the id of active
                 let spanIndex = spanArray.index($("#active"));
 
-                console.log('Line index: '+index);
-                console.log('span index: '+spanIndex);
+                // console.log('Line index: '+index);
+                // console.log('span index: '+spanIndex);
 
-                const cursorPosition = window.getSelection().getRangeAt(0).startOffset;
-
-                // Prevent delete of last span at line 0
-                // if(index < 1 && spanIndex < 1 && activeSpan.textContent.length == 0) {
-                //     // Dont delete the last span at line 0
-                //     event.preventDefault();
-                // }
-                // else{
-                //     // Delete active span if empty
-                //     if(activeSpan.textContent.length == 1) {
-
-                //         event.preventDefault();
-
-                //         // Move active span to the previous span
-                //         if(spanIndex > 0) {
-                //             let previousSpan = all_spans[spanIndex - 1];
-                //             previousSpan.setAttribute("id", "active");
-                //         }
-
-                //         all_lines[index].removeChild(activeSpan);
-
-                //         console.log("remove span");
-
-                //     }
-                // }
+                //const cursorPosition = window.getSelection().getRangeAt(0).startOffset;
 
                 if(index < 1 && spanIndex < 1 ) {
 
