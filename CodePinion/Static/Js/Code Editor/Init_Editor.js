@@ -493,8 +493,11 @@ class CodePinionEditor {
 
                 // Get the span before the active span
                 let previousSpan = activeSpan.previousElementSibling;
+                // Get the class after the active span
+                let nextSpan = activeSpan.nextElementSibling;
 
-                if(previousSpan != null && previousSpan.classList.contains('regular')) {
+                // when the previous span is a regular span
+                if(previousSpan && previousSpan.classList.contains('regular') && (!nextSpan || !nextSpan.classList.contains('regular'))) {
 
                     // Append text to the previous span text content
                     previousSpan.textContent += text;
@@ -508,6 +511,40 @@ class CodePinionEditor {
                     activeSpan.remove();
 
                 }
+
+                else if(nextSpan && nextSpan.classList.contains('regular') && (!previousSpan || !previousSpan.classList.contains('regular'))){
+                    
+                    // Append text to the previous span text content
+                    nextSpan.textContent = text + nextSpan.textContent;
+
+                    // Remove active id from the active span
+                    activeSpan.removeAttribute("id");
+                    // Add active id to the previous span
+                    nextSpan.setAttribute("id", "active");
+
+                    // Remove the active span
+                    activeSpan.remove();
+
+                }
+
+                else if (previousSpan && previousSpan.classList.contains('regular') && nextSpan && nextSpan.classList.contains('regular')){
+
+                    // Append text to the previous span text content
+                    previousSpan.textContent += text + nextSpan.textContent;
+
+                    // Remove active id from the active span
+                    activeSpan.removeAttribute("id");
+                    // Add active id to the previous span
+                    previousSpan.setAttribute("id", "active");
+
+                    // Remove the active span
+                    activeSpan.remove();
+
+                    // Remove the next span
+                    nextSpan.remove();
+
+                }
+                
                 else{
                     // Return the span class to regular
                     activeSpan.setAttribute('class', 'regular');
