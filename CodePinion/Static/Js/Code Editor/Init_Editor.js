@@ -360,6 +360,27 @@ class CodePinionEditor {
 
     }
 
+    // Move cursor to the required position
+    moveCursorToPosition(createSpanStatus) {
+
+        let all_lines = document.querySelectorAll(".editor_code_line");
+
+        let lineIndex = editor.at_focus_click();
+
+        let activeSpan = all_lines[lineIndex].querySelector("span[id='active']");
+
+        if(createSpanStatus == true) {
+            console.log('create span');
+            let range = document.createRange(); // create a range object
+            range.selectNodeContents(activeSpan); // select the entire content of the div
+            range.collapse(false); // collapse the range to the end point
+            let sel = window.getSelection(); // get the selection object
+            sel.removeAllRanges(); // remove any existing selections
+            sel.addRange(range);
+        }
+
+    }
+
     // Monitor the theme
     line_theme(index) {
 
@@ -372,23 +393,6 @@ class CodePinionEditor {
                 if (Array.isArray(value) && value.includes(member)) return key; 
             }
             return null;
-        }
-
-        // Function move cursor to the end of the line
-        function moveCursorToEnd(createSpanStatus) {
-
-            let activeSpan = document.querySelector("#active");
-
-            if(createSpanStatus == true) {
-                console.log('create span');
-                let range = document.createRange(); // create a range object
-                range.selectNodeContents(activeSpan); // select the entire content of the div
-                range.collapse(false); // collapse the range to the end point
-                let sel = window.getSelection(); // get the selection object
-                sel.removeAllRanges(); // remove any existing selections
-                sel.addRange(range);
-            }
-
         }
 
         // Function that changes active status when span is clicked
@@ -450,7 +454,7 @@ class CodePinionEditor {
                 // Change create span to true
                 spanCreate = true;
                 // Call move cursor to end function
-                moveCursorToEnd(spanCreate);
+                this.moveCursorToPosition(spanCreate);
 
             }
 
@@ -475,7 +479,7 @@ class CodePinionEditor {
                 spanCreate = true;
 
                 // Call move cursor to end function
-                moveCursorToEnd(spanCreate);
+                this.moveCursorToPosition(spanCreate);
             }
 
             // When user continues typing after an operator
@@ -499,7 +503,7 @@ class CodePinionEditor {
                     spanCreate = true;
     
                     // Call move cursor to end function
-                    moveCursorToEnd(spanCreate);
+                    this.moveCursorToPosition(spanCreate);
             }
 
             // When a user continues to type after creating a keyword
@@ -692,7 +696,7 @@ class CodePinionEditor {
                 }
 
                 // Call move cursor to end function
-                moveCursorToEnd(spanCreate);
+                this.moveCursorToPosition(spanCreate);
 
             }
 
