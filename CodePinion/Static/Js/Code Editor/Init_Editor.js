@@ -119,14 +119,16 @@ class CodePinionEditor {
         // Call the monitor line number
         this.monitor_line_number(line_number_elements,index,line_number,);
 
+        // call the focus on the new line
+        this.at_focus_line(index);
+
         // Call at focus line
         this.at_focus_click();
 
-        // call the focus on the new line
-        this.at_focus_new_line(index);
-
+        // Create new_line status
+        let new_line = true;
         // Call the line theme
-        this.line_theme(index);
+        this.line_theme(index,new_line);
         
     }
 
@@ -219,14 +221,10 @@ class CodePinionEditor {
         let previous_line_index = index - 1;
 
         // Call at focus new line
-        this.at_focus_new_line(previous_line_index);
-
-        // Call the line theme
-        this.line_theme(previous_line_index);
+        this.at_focus_line(previous_line_index);
 
         if(index == lastDivIndex){
             // Simply remove the line at the end
-
             all_line_containers[index].remove();
 
         }
@@ -248,7 +246,12 @@ class CodePinionEditor {
         }
 
         // Call at focus line to renew the focus
-        this.at_focus_click();
+        //this.at_focus_click();
+
+        // Create new_line status
+        let new_line = false;
+        // Call the line theme
+        this.line_theme(previous_line_index,new_line);
 
     }
 
@@ -301,10 +304,12 @@ class CodePinionEditor {
     }
 
     // Focus on the new line
-    at_focus_new_line(index) {
+    at_focus_line(index) {
 
         // Get all the lines
         let all_lines = document.querySelectorAll(".editor_code_line");
+
+        console.log(all_lines);
 
         // click the new line after 1 second
         setTimeout(function() {
@@ -372,7 +377,9 @@ class CodePinionEditor {
     }
 
     // Monitor the theme
-    line_theme(index) {
+    line_theme(index,new_line) {
+
+        console.log(index);
 
         // Get all the line inputs
         let line_inputs = document.querySelectorAll('.editor_code_line');
@@ -406,11 +413,13 @@ class CodePinionEditor {
 
         };
 
-        // Create a span
-        let newSpan = document.createElement('span');
-        newSpan.classList.add('regular');
-        newSpan.setAttribute("id", "active");
-        line_inputs[index].appendChild(newSpan);
+        if(new_line == true) {
+            // Create a span
+            let newSpan = document.createElement('span');
+            newSpan.classList.add('regular');
+            newSpan.setAttribute("id", "active");
+            line_inputs[index].appendChild(newSpan);
+        }
 
         // Add event listener to the line inputs
         line_inputs[index].addEventListener('keyup', (event) => {
