@@ -134,10 +134,8 @@ class CodePinionEditor {
         // Call at focus line
         this.at_focus_click();
 
-        // Create new_line status
-        //let new_line = true;
         // Call the line theme
-        //this.line_theme(index,new_line);
+        //this.line_theme(index);
 
         // Create a new span in the new line
         let line_inputs = document.querySelectorAll('.editor_code_line');
@@ -151,12 +149,8 @@ class CodePinionEditor {
         document.addEventListener('keydown', function(event) {
 
             if (event.key === 'Backspace') {
-
-                console.log("backspace");
                 
                 index = editor.at_focus_click();
-
-                console.log(index);
 
                 // Get all the line inputs
                 let all_lines = document.querySelectorAll(".editor_code_line");
@@ -170,15 +164,11 @@ class CodePinionEditor {
                 // Find the index of the span with the id of active
                 let spanIndex = spanArray.index($("#active"));
 
-                // console.log('Line index: '+index);
-                // console.log('span index: '+spanIndex);
-
                 //const cursorPosition = window.getSelection().getRangeAt(0).startOffset;
 
                 if(index < 1 && spanIndex < 1 ) {
 
                     if(activeSpan.textContent.length == 0){
-                        console.log("prevent delete");
                         event.preventDefault();
                     }
                 }
@@ -187,7 +177,6 @@ class CodePinionEditor {
                 else if(index >= 1 && spanIndex < 1) {
 
                     if(activeSpan.textContent.length == 0){
-                        console.log("delete line");
 
                         event.preventDefault();
 
@@ -201,8 +190,6 @@ class CodePinionEditor {
                 else {
 
                     if(activeSpan.textContent.length == 1){
-                        console.log('next span: '+activeSpan.textContent.length);
-                        console.log("delete span");
 
                         event.preventDefault();
 
@@ -261,19 +248,15 @@ class CodePinionEditor {
         }
 
         // Call at focus line to renew the focus
-        //this.at_focus_click();
+        this.at_focus_click();
 
-        // Create new_line status
-        //let new_line = false;
         // Call the line theme
-        //this.line_theme(previous_line_index,new_line);
+        //this.line_theme(previous_line_index);
 
     }
 
     // Monitore the current line being edited
     at_focus_click() {
-
-        console.log("focus");
 
         // Get all the new line containers
         let all_line_containers = document.querySelectorAll(".editor_number_code");
@@ -284,8 +267,6 @@ class CodePinionEditor {
         // Create a focus event on all_lines
         for (let i = 0; i < all_lines.length; i++) {
             all_lines[i].addEventListener('click', function(event) {
-
-                console.log('click');
 
                 // Remove the class is_focused from all lines
                 for (let i = 0; i < all_lines.length; i++) {
@@ -314,10 +295,8 @@ class CodePinionEditor {
                 // Add to that line class called is_focused
                 all_lines[focusIndex].classList.add("is_focused");
 
-                // Call the line theme
-                //let new_line = true;
-                //editor.line_theme(focusIndex,new_line);
-
+                //call the line theme
+                editor.line_theme(focusIndex);
               
             });
         }
@@ -332,12 +311,9 @@ class CodePinionEditor {
         // Get all the lines
         let all_lines = document.querySelectorAll(".editor_code_line");
 
-        console.log(all_lines);
-
         // click the new line after 1 second
         setTimeout(function() {
             all_lines[index].click();
-            all_lines[index].focus();
 
         }, 1);
 
@@ -388,7 +364,6 @@ class CodePinionEditor {
         let activeSpan = all_lines[lineIndex].querySelector("span[id='active']");
 
         if(createSpanStatus == true) {
-            console.log('create span');
             let range = document.createRange(); // create a range object
             range.selectNodeContents(activeSpan); // select the entire content of the div
             range.collapse(false); // collapse the range to the end point
@@ -400,9 +375,7 @@ class CodePinionEditor {
     }
 
     // Monitor the theme
-    line_theme(index,new_line) {
-
-        console.log(index);
+    line_theme(index) {
 
         // Get all the line inputs
         let line_inputs = document.querySelectorAll('.editor_code_line');
@@ -435,14 +408,6 @@ class CodePinionEditor {
             }
 
         };
-
-        // if(new_line == true) {
-        //     // Create a span
-        //     let newSpan = document.createElement('span');
-        //     newSpan.classList.add('regular');
-        //     newSpan.setAttribute("id", "active");
-        //     line_inputs[index].appendChild(newSpan);
-        // }
 
         // Add event listener to the line inputs
         line_inputs[index].addEventListener('keyup', (event) => {
@@ -637,8 +602,6 @@ class CodePinionEditor {
                     // Now lets check for operators
                     if (getKeyByValueArray(reserved_words,lastLetter) == 'operator') {
 
-                        console.log("operator");
-
                         if(text == lastLetter && activeSpan.classList.contains('regular')) {
                             // Simply change the class to operator
                             activeSpan.setAttribute('class', 'operator');
@@ -681,8 +644,6 @@ class CodePinionEditor {
 
                         // Now lets check for if last word is a keyword
                         if (getKeyByValueArray(reserved_words,lastWord)){
-
-                            console.log("keyword");
 
                             // Check if length of text and keyword is same
                             if(text.length == lastWord.length) {
