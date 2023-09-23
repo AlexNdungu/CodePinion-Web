@@ -64,6 +64,15 @@ class CodePinionEditor {
         });
     }
 
+    // Create a method new span 
+    new_span(line_inputs,index) {
+        // Create a span
+        let newSpan = document.createElement('span');
+        newSpan.classList.add('regular');
+        newSpan.setAttribute("id", "active");
+        line_inputs[index].appendChild(newSpan);    
+    }
+
     // Create a new line
     new_line(index,line_number) {
 
@@ -126,9 +135,13 @@ class CodePinionEditor {
         this.at_focus_click();
 
         // Create new_line status
-        let new_line = true;
+        //let new_line = true;
         // Call the line theme
-        this.line_theme(index,new_line);
+        //this.line_theme(index,new_line);
+
+        // Create a new span in the new line
+        let line_inputs = document.querySelectorAll('.editor_code_line');
+        this.new_span(line_inputs,index);
         
     }
 
@@ -142,6 +155,8 @@ class CodePinionEditor {
                 console.log("backspace");
                 
                 index = editor.at_focus_click();
+
+                console.log(index);
 
                 // Get all the line inputs
                 let all_lines = document.querySelectorAll(".editor_code_line");
@@ -249,14 +264,16 @@ class CodePinionEditor {
         //this.at_focus_click();
 
         // Create new_line status
-        let new_line = false;
+        //let new_line = false;
         // Call the line theme
-        this.line_theme(previous_line_index,new_line);
+        //this.line_theme(previous_line_index,new_line);
 
     }
 
     // Monitore the current line being edited
     at_focus_click() {
+
+        console.log("focus");
 
         // Get all the new line containers
         let all_line_containers = document.querySelectorAll(".editor_number_code");
@@ -267,6 +284,8 @@ class CodePinionEditor {
         // Create a focus event on all_lines
         for (let i = 0; i < all_lines.length; i++) {
             all_lines[i].addEventListener('click', function(event) {
+
+                console.log('click');
 
                 // Remove the class is_focused from all lines
                 for (let i = 0; i < all_lines.length; i++) {
@@ -294,6 +313,10 @@ class CodePinionEditor {
 
                 // Add to that line class called is_focused
                 all_lines[focusIndex].classList.add("is_focused");
+
+                // Call the line theme
+                //let new_line = true;
+                //editor.line_theme(focusIndex,new_line);
 
               
             });
@@ -413,13 +436,13 @@ class CodePinionEditor {
 
         };
 
-        if(new_line == true) {
-            // Create a span
-            let newSpan = document.createElement('span');
-            newSpan.classList.add('regular');
-            newSpan.setAttribute("id", "active");
-            line_inputs[index].appendChild(newSpan);
-        }
+        // if(new_line == true) {
+        //     // Create a span
+        //     let newSpan = document.createElement('span');
+        //     newSpan.classList.add('regular');
+        //     newSpan.setAttribute("id", "active");
+        //     line_inputs[index].appendChild(newSpan);
+        // }
 
         // Add event listener to the line inputs
         line_inputs[index].addEventListener('keyup', (event) => {
