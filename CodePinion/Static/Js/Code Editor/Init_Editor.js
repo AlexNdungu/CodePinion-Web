@@ -165,6 +165,22 @@ class CodePinionEditor {
                         event.preventDefault();
                     }
                 }
+
+                // Here remove the line
+                else if(index >= 1 && spanIndex < 1) {
+
+                    if(activeSpan.textContent.length == 0){
+                        console.log("delete line");
+
+                        event.preventDefault();
+
+                        // Remove the line
+                        editor.remove_line(index);
+
+                    }
+
+                }
+
                 else {
 
                     if(activeSpan.textContent.length == 1){
@@ -183,32 +199,6 @@ class CodePinionEditor {
 
                     }
 
-                }
-        
-                // Check if the line is empty
-                let trimmed = all_lines[index].innerHTML.trim();
-        
-                // Check if any line has a class called is_focused
-                if(FocusStatus == true) {        
-        
-                    if(trimmed.length == 0) {
-        
-                        if(index <= 0) {
-                            return;
-                        }
-                        else {
-                            // Remove the line
-                            editor.remove_line(index);
-                        }
-                        
-                    }
-                    else {
-                        return;
-                    }
-        
-                }
-                else{
-                    return;
                 }
         
             }
