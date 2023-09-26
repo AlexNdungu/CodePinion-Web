@@ -87,7 +87,24 @@ class CodePinionEditor {
 
         editor_container.addEventListener("click", function(event) {
 
-            console.log(event.target);
+            if(event.target.localName == 'span'){
+
+                // Remove the id from the active span
+                let activeSpan = document.querySelector("span[id='active']");
+                activeSpan.removeAttribute("id");
+
+                // Add the id to the clicked span
+                event.target.setAttribute("id", "active");
+
+            }
+            else if(event.target.localName == 'div' && event.target.classList.contains('editor_code_line')){
+                // Remove the id from the active span
+                let activeSpan = document.querySelector("span[id='active']");
+                activeSpan.removeAttribute("id");
+
+                // Add id to the last span
+                event.target.lastChild.setAttribute("id", "active");
+            }
 
         });
 
