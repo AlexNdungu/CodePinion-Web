@@ -29,6 +29,9 @@ class CodePinionEditor {
         // Create first line
         this.new_line(index,line_number);
 
+        // call the line theme
+        this.line_theme();
+
         // Call on enter method
         this.on_enter();
 
@@ -134,12 +137,12 @@ class CodePinionEditor {
         // Call at focus line
         this.at_focus_click();
 
-        // Call the line theme
-        //this.line_theme(index);
-
         // Create a new span in the new line
         let line_inputs = document.querySelectorAll('.editor_code_line');
         this.new_span(line_inputs,index);
+
+        // Call the line theme
+        //this.line_theme();
         
     }
 
@@ -222,9 +225,6 @@ class CodePinionEditor {
         // Define index of previous line
         let previous_line_index = index - 1;
 
-        // Call at focus new line
-        this.at_focus_line(previous_line_index);
-
         if(index == lastDivIndex){
             // Simply remove the line at the end
             all_line_containers[index].remove();
@@ -247,11 +247,14 @@ class CodePinionEditor {
 
         }
 
+        // Call at focus new line
+        this.at_focus_line(previous_line_index);
+
         // Call at focus line to renew the focus
         this.at_focus_click();
 
         // Call the line theme
-        //this.line_theme(previous_line_index);
+        //this.line_theme();
 
     }
 
@@ -294,9 +297,6 @@ class CodePinionEditor {
 
                 // Add to that line class called is_focused
                 all_lines[focusIndex].classList.add("is_focused");
-
-                //call the line theme
-                editor.line_theme(focusIndex);
               
             });
         }
@@ -375,7 +375,9 @@ class CodePinionEditor {
     }
 
     // Monitor the theme
-    line_theme(index) {
+    line_theme() {
+
+        console.log("Theme is being monitored");
 
         // Get all the line inputs
         let line_inputs = document.querySelectorAll('.editor_code_line');
@@ -409,8 +411,11 @@ class CodePinionEditor {
 
         };
 
+        // Get the id of the code editor
+        let editor_id = document.getElementById("the_editor");
+
         // Add event listener to the line inputs
-        line_inputs[index].addEventListener('keyup', (event) => {
+        editor_id.addEventListener('input', (event) => {
 
             let activeSpan = event.target.querySelector("span[id='active']")
 
@@ -684,13 +689,13 @@ class CodePinionEditor {
             }
 
             // get all the childern of the line input
-            let all_spans = line_inputs[index].querySelectorAll("span");
+            //let all_spans = line_inputs[index].querySelectorAll("span");
 
             // call activate_clicked_span function
-            activate_clicked_span(all_spans);
+            //activate_clicked_span(all_spans);
 
         });
-            
+        
     }
 
 }
