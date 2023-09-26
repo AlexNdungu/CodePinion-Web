@@ -578,7 +578,6 @@ class CodePinionEditor {
                     let words = text.trim().split(/\s+/);
 
                     let wordLen = words.length;
-
                     for (let i = 0; i < wordLen; i++) {
 
                         let memberType = this.getKeyByValueArray(reserved_words,words[i]);
@@ -601,10 +600,6 @@ class CodePinionEditor {
                                 }
                             }
 
-                            // Print the new sentences to the console
-                            console.log(newSentences[0].join(' '));
-                            console.log(newSentences[1].join(' '));
-
                             // change text content of the active span to the first sentence#
                             activeSpan.textContent = newSentences[0].join(' ') + '\u00A0';
                             // remove id from the active span
@@ -621,6 +616,9 @@ class CodePinionEditor {
                             secondSentence.removeAttribute("id");
                             // insert the new span after the member class span
                             memberClass.insertAdjacentElement('afterend', secondSentence);
+
+                            // set span create to true
+                            spanCreate = true;
                             
                         }
 
