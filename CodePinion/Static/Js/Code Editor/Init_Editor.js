@@ -67,8 +67,17 @@ class CodePinionEditor {
         });
     }
 
+    new_span(content, className){
+        let newSpan = document.createElement('span');
+        newSpan.classList.add(className);
+        newSpan.textContent = content;
+        newSpan.setAttribute("id", "active");
+
+        return newSpan;
+    }
+
     // Create a method new span 
-    new_span(line_inputs,index) {
+    new_span2(line_inputs,index) {
         // Create a span
         let newSpan = document.createElement('span');
         newSpan.classList.add('regular');
@@ -139,7 +148,7 @@ class CodePinionEditor {
 
         // Create a new span in the new line
         let line_inputs = document.querySelectorAll('.editor_code_line');
-        this.new_span(line_inputs,index);
+        this.new_span2(line_inputs,index);
 
         // Call the line theme
         //this.line_theme();
@@ -359,7 +368,7 @@ class CodePinionEditor {
 
         let all_lines = document.querySelectorAll(".editor_code_line");
 
-        let lineIndex = editor.at_focus_click();
+        let lineIndex = this.at_focus_click();
 
         let activeSpan = all_lines[lineIndex].querySelector("span[id='active']");
 
@@ -376,8 +385,6 @@ class CodePinionEditor {
 
     // Monitor the theme
     line_theme() {
-
-        console.log("Theme is being monitored");
 
         // Get all the line inputs
         let line_inputs = document.querySelectorAll('.editor_code_line');
@@ -411,6 +418,9 @@ class CodePinionEditor {
 
         };
 
+        // New span
+        let newSpan = null;
+
         // Get the id of the code editor
         let editor_id = document.getElementById("the_editor");
 
@@ -436,11 +446,9 @@ class CodePinionEditor {
                 // Remove active id
                 activeSpan.removeAttribute("id");
 
-                // Create a new span
-                let newSpan = document.createElement('span');
-                newSpan.classList.add('regular');
-                newSpan.textContent = '\u00A0';
-                newSpan.setAttribute("id", "active");
+                // call new span function
+                newSpan = this.new_span('\u00A0','regular');
+
                 activeSpan.insertAdjacentElement('afterend', newSpan);
 
                 // Change create span to true
@@ -459,12 +467,10 @@ class CodePinionEditor {
                 // Split the first and last letter in text
                 let firstLetter = text.slice(0, -1);
                 activeSpan.textContent = firstLetter;
-                
-                // Create a new span
-                let newSpan = document.createElement('span');
-                newSpan.classList.add('regular');
-                newSpan.textContent = lastLetter;
-                newSpan.setAttribute("id", "active");
+
+                // call new span function
+                newSpan = this.new_span(lastLetter,'regular');
+
                 activeSpan.insertAdjacentElement('afterend', newSpan);
 
                 // Change create span to true
@@ -483,12 +489,10 @@ class CodePinionEditor {
                     // Split the first and last letter in text
                     let firstLetter = text.slice(0, -1);
                     activeSpan.textContent = firstLetter;
-                    
-                    // Create a new span
-                    let newSpan = document.createElement('span');
-                    newSpan.classList.add('regular');
-                    newSpan.textContent = lastLetter;
-                    newSpan.setAttribute("id", "active");
+
+                    // call new span function
+                    newSpan = this.new_span(lastLetter,'regular');
+
                     activeSpan.insertAdjacentElement('afterend', newSpan);
 
                     // Change create span to true
@@ -591,10 +595,9 @@ class CodePinionEditor {
                         spanPunc.textContent = lastLetter;
                         activeSpan.insertAdjacentElement('afterend', spanPunc);
 
-                        // Create a new span
-                        let newSpan = document.createElement('span');
-                        newSpan.classList.add('regular');
-                        newSpan.setAttribute("id", "active");
+                        // call new span function
+                        newSpan = this.new_span('', 'regular');
+
                         spanPunc.insertAdjacentElement('afterend', newSpan);
 
                         // Change create span to true
@@ -665,11 +668,9 @@ class CodePinionEditor {
                                 // remove id from the active span
                                 activeSpan.removeAttribute("id");
 
-                                // Create a new span
-                                let newSpan = document.createElement('span');
-                                newSpan.classList.add('keyword');
-                                newSpan.textContent = lastWord;
-                                newSpan.setAttribute("id", "active");
+                                // call new span function
+                                newSpan = this.new_span(lastWord, 'keyword');
+
                                 activeSpan.insertAdjacentElement('afterend', newSpan);
 
                                 // Change create span to true
