@@ -80,8 +80,6 @@ class CodePinionEditor {
     // Activate clicked span
     activate_clicked_span(){
 
-        console.log("activate clicked span");
-
         // get the editor container
         let editor_container = document.getElementById("the_editor");
 
@@ -98,6 +96,7 @@ class CodePinionEditor {
 
             }
             else if(event.target.localName == 'div' && event.target.classList.contains('editor_code_line')){
+
                 // Remove the id from the active span
                 let activeSpan = document.querySelector("span[id='active']");
                 activeSpan.removeAttribute("id");
@@ -108,30 +107,7 @@ class CodePinionEditor {
 
         });
 
-        // All the spans in the editor
-        // const allSpansInEditorCodeLines = document.querySelectorAll('.is_focused span');
-
-        // // click event for all spans in allSpansInEditorCodeLines
-        // let spans = allSpansInEditorCodeLines.length;
-        // for (let i = 0; i < spans; i++) {
-
-        //     allSpansInEditorCodeLines[i].addEventListener("click", function(event) {
-
-        //         console.log("clicked: "+event);
-
-        //         // Remove the id from the active span
-        //         let activeSpan = document.querySelector("span[id='active']");
-        //         activeSpan.removeAttribute("id");
-
-        //         // Add the id to the clicked span
-        //         allSpansInEditorCodeLines[i].setAttribute("id", "active");
-
-        //     });
-
-        // }
-
     }
-
 
     // Create a new line
     new_line(index,line_number) {
