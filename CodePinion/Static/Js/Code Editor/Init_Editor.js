@@ -67,14 +67,46 @@ class CodePinionEditor {
         });
     }
 
+    // Create new span
     new_span(content, className){
         let newSpan = document.createElement('span');
         newSpan.classList.add(className);
         newSpan.textContent = content;
         newSpan.setAttribute("id", "active");
 
+        // call activate_clicked_span function
+        this.activate_clicked_span();
+
         return newSpan;
     }
+
+    // Activate clicked span
+    activate_clicked_span(){
+
+        // All the spans in the editor
+        const allSpansInEditorCodeLines = document.querySelectorAll('.editor_code_line span');
+
+        // click event for all spans in allSpansInEditorCodeLines
+        let spans = allSpansInEditorCodeLines.length;
+        for (let i = 0; i < spans; i++) {
+
+            allSpansInEditorCodeLines[i].addEventListener("click", function(event) {
+
+                console.log("clicked: "+event.target);
+
+                // Remove the id from the active span
+                let activeSpan = document.querySelector("span[id='active']");
+                activeSpan.removeAttribute("id");
+
+                // Add the id to the clicked span
+                allSpansInEditorCodeLines[i].setAttribute("id", "active");
+
+            });
+
+        }
+
+    }
+
 
     // Create a new line
     new_line(index,line_number) {
@@ -142,8 +174,6 @@ class CodePinionEditor {
         let newSpan = this.new_span('','regular');
         line_inputs[index].appendChild(newSpan);
 
-        // Call the line theme
-        //this.line_theme();
         
     }
 
@@ -253,9 +283,6 @@ class CodePinionEditor {
 
         // Call at focus line to renew the focus
         this.at_focus_click();
-
-        // Call the line theme
-        //this.line_theme();
 
     }
 
@@ -375,42 +402,18 @@ class CodePinionEditor {
 
     }
 
+    // Compare textContent and map members
+    getKeyByValueArray(map, member) { 
+        for (let [key, value] of map.entries()) { 
+            if (Array.isArray(value) && value.includes(member)) return key; 
+        }
+        return null;
+    }
+
     // Monitor the theme
     line_theme() {
 
-        // Get all the line inputs
-        let line_inputs = document.querySelectorAll('.editor_code_line');
-
-        // Function to check if words and punctuations are in the reserved words
-        function getKeyByValueArray(map, member) { 
-            for (let [key, value] of map.entries()) { 
-                if (Array.isArray(value) && value.includes(member)) return key; 
-            }
-            return null;
-        }
-
-        // Function that changes active status when span is clicked
-        function activate_clicked_span(all_spans){
-
-            // click event for all spans in all_spans
-            for (let i = 0; i < all_spans.length; i++) {
-
-                all_spans[i].addEventListener("click", function(event) {
-
-                    // Remove the id from the active span
-                    let activeSpan = line_inputs[index].querySelector("span[id='active']");
-                    activeSpan.removeAttribute("id");
-
-                    // Add the id to the clicked span
-                    all_spans[i].setAttribute("id", "active");
-
-                });
-
-            }
-
-        };
-
-        // New span
+        // New span initialization
         let newSpan = null;
 
         // Get the id of the code editor
@@ -473,7 +476,7 @@ class CodePinionEditor {
             }
 
             // When user continues typing after an operator
-            else if(activeSpan.classList.contains('operator') && lastLetter != "\u00A0" && getKeyByValueArray(reserved_words,lastLetter) != 'operator') {
+            else if(activeSpan.classList.contains('operator') && lastLetter != "\u00A0" && this.getKeyByValueArray(reserved_words,lastLetter) != 'operator') {
                         
                     // Remove active id
                     activeSpan.removeAttribute("id");
@@ -495,7 +498,7 @@ class CodePinionEditor {
             }
 
             // When a user continues to type after creating a keyword
-            else if(activeSpan.classList.contains('keyword') && getKeyByValueArray(reserved_words,text) != 'keyword') {
+            else if(activeSpan.classList.contains('keyword') && this.getKeyByValueArray(reserved_words,text) != 'keyword') {
 
                 // Get the span before the active span
                 let previousSpan = activeSpan.previousElementSibling;
@@ -561,7 +564,7 @@ class CodePinionEditor {
             else {
 
                 // lets check for punctualtions
-                if (getKeyByValueArray(reserved_words,lastLetter) == 'punctuation') {
+                if (this.getKeyByValueArray(reserved_words,lastLetter) == 'punctuation') {
 
                     if(text == lastLetter) {
                         // Change class to punctuation
@@ -600,7 +603,7 @@ class CodePinionEditor {
                 else{ 
 
                     // Now lets check for operators
-                    if (getKeyByValueArray(reserved_words,lastLetter) == 'operator') {
+                    if (this.getKeyByValueArray(reserved_words,lastLetter) == 'operator') {
 
                         if(text == lastLetter && activeSpan.classList.contains('regular')) {
                             // Simply change the class to operator
@@ -640,7 +643,7 @@ class CodePinionEditor {
                         let lastWord = words[words.length - 1];
 
                         // Now lets check for if last word is a keyword
-                        if (getKeyByValueArray(reserved_words,lastWord)){
+                        if (this.getKeyByValueArray(reserved_words,lastWord)){
 
                             // Check if length of text and keyword is same
                             if(text.length == lastWord.length) {
@@ -677,12 +680,6 @@ class CodePinionEditor {
                 this.moveCursorToPosition(spanCreate);
 
             }
-
-            // get all the childern of the line input
-            //let all_spans = line_inputs[index].querySelectorAll("span");
-
-            // call activate_clicked_span function
-            //activate_clicked_span(all_spans);
 
         });
         
