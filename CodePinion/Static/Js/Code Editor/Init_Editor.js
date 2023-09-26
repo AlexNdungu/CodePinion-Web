@@ -76,15 +76,6 @@ class CodePinionEditor {
         return newSpan;
     }
 
-    // Create a method new span 
-    new_span2(line_inputs,index) {
-        // Create a span
-        let newSpan = document.createElement('span');
-        newSpan.classList.add('regular');
-        newSpan.setAttribute("id", "active");
-        line_inputs[index].appendChild(newSpan);    
-    }
-
     // Create a new line
     new_line(index,line_number) {
 
@@ -148,7 +139,8 @@ class CodePinionEditor {
 
         // Create a new span in the new line
         let line_inputs = document.querySelectorAll('.editor_code_line');
-        this.new_span2(line_inputs,index);
+        let newSpan = this.new_span('','regular');
+        line_inputs[index].appendChild(newSpan);
 
         // Call the line theme
         //this.line_theme();
@@ -632,10 +624,7 @@ class CodePinionEditor {
                                 activeSpan.removeAttribute("id");
 
                                 // Create a new operator span
-                                let spanOperator = document.createElement('span');
-                                spanOperator.classList.add('operator');
-                                spanOperator.textContent = lastLetter;
-                                spanOperator.setAttribute("id", "active");
+                                let spanOperator = this.new_span(lastLetter, 'operator')
                                 activeSpan.insertAdjacentElement('afterend', spanOperator);
 
                                 // Change create span to true
