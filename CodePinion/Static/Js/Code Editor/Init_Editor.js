@@ -568,110 +568,171 @@ class CodePinionEditor {
 
             else {
 
-                // lets check for punctualtions
-                if (this.getKeyByValueArray(reserved_words,lastLetter) == 'punctuation') {
+                // Get the cursor position
+                const selection = window.getSelection();
+                const range = selection.getRangeAt(0);
+                const cursorPosition = range.startOffset;
 
-                    if(text == lastLetter) {
-                        // Change class to punctuation
-                        activeSpan.setAttribute('class', 'punctuation');
-                    }
-                    else{
+                if(cursorPosition != length) {
 
-                        // Remove the last character and update text content
-                        let secondLastLetter = text[length - 2];
-                        if(secondLastLetter == " ") {
-                            // Remove the last character and update text content
-                            activeSpan.textContent = text.slice(0, -2) + '\u00A0';
-                        }   
-                        else {
-                            activeSpan.textContent = text.slice(0, -1);
+                    let words = text.trim().split(/\s+/);
+
+                    let wordLen = words.length;
+
+                    for (let i = 0; i < wordLen; i++) {
+
+                        let memberType = this.getKeyByValueArray(reserved_words,words[i]);
+
+                        // Check if word if in the reserved words
+                        if (memberType){
+
+                            // Create two new empty arrays to store the new sentences
+                            const newSentences = [[], []];
+
+                            // Iterate over the array of words and add each word to the corresponding new sentence array
+                            let currentSentenceIndex = 0;
+                            for (const word of words) {
+                                if (word == words[i]) {
+                                    // If the current word is a punctuation mark, start a new sentence
+                                    currentSentenceIndex++;
+                                } else {
+                                    // If the current word is not a punctuation mark, add it to the current sentence
+                                    newSentences[currentSentenceIndex].push(word);
+                                }
+                            }
+
+                            // Print the new sentences to the console
+                            console.log(newSentences[0].join(' '));
+                            console.log(newSentences[1].join(' '));
+
+                            // change text content of the active span to the first sentence#
+                            activeSpan.textContent = newSentences[0].join(' ') + '\u00A0';
+
+                            // create a new span with call of member type
+                            let memberClass = this.new_span(words[i], memberType);
+
+                            // insert the new span after the active span
+                            activeSpan.insertAdjacentElement('afterend', memberClass);
+
+                            // create a new span with the second sentence
+                            let secondSentence = this.new_span('\u00A0' + newSentences[1].join(' '), 'regular');
+                            
+                            // insert the new span after the member class span
+                            memberClass.insertAdjacentElement('afterend', secondSentence);
+                            
                         }
-                        // Remove active id 
-                        activeSpan.removeAttribute("id");
-
-                        // Create a new punctuation span
-                        let spanPunc = document.createElement('span');
-                        spanPunc.classList.add('punctuation');
-                        spanPunc.textContent = lastLetter;
-                        activeSpan.insertAdjacentElement('afterend', spanPunc);
-
-                        // call new span function
-                        newSpan = this.new_span('', 'regular');
-
-                        spanPunc.insertAdjacentElement('afterend', newSpan);
-
-                        // Change create span to true
-                        spanCreate = true;
 
                     }
+
                 }
-                else{ 
+                else{
 
-                    // Now lets check for operators
-                    if (this.getKeyByValueArray(reserved_words,lastLetter) == 'operator') {
+                    // lets check for punctualtions
+                    if (this.getKeyByValueArray(reserved_words,lastLetter) == 'punctuation') {
 
-                        if(text == lastLetter && activeSpan.classList.contains('regular')) {
-                            // Simply change the class to operator
-                            activeSpan.setAttribute('class', 'operator');
+                        if(text == lastLetter) {
+                            // Change class to punctuation
+                            activeSpan.setAttribute('class', 'punctuation');
                         }
                         else{
 
-                            if(!activeSpan.classList.contains('operator')){
-
-                                // Check if the second last charater is a space
-                                let secondLastLetter = text[length - 2];
-                                if(secondLastLetter == " ") {
-                                    // Remove the last character and update text content
-                                    activeSpan.textContent = text.slice(0, -2) + '\u00A0';
-                                }   
-                                else {
-                                    activeSpan.textContent = text.slice(0, -1);
-                                }
-                                
-                                // Remove active id 
-                                activeSpan.removeAttribute("id");
-
-                                // Create a new operator span
-                                let spanOperator = this.new_span(lastLetter, 'operator')
-                                activeSpan.insertAdjacentElement('afterend', spanOperator);
-
-                                // Change create span to true
-                                spanCreate = true;
-
+                            // Remove the last character and update text content
+                            let secondLastLetter = text[length - 2];
+                            if(secondLastLetter == " ") {
+                                // Remove the last character and update text content
+                                activeSpan.textContent = text.slice(0, -2) + '\u00A0';
+                            }   
+                            else {
+                                activeSpan.textContent = text.slice(0, -1);
                             }
-                            
+                            // Remove active id 
+                            activeSpan.removeAttribute("id");
+
+                            // Create a new punctuation span
+                            let spanPunc = document.createElement('span');
+                            spanPunc.classList.add('punctuation');
+                            spanPunc.textContent = lastLetter;
+                            activeSpan.insertAdjacentElement('afterend', spanPunc);
+
+                            // call new span function
+                            newSpan = this.new_span('', 'regular');
+
+                            spanPunc.insertAdjacentElement('afterend', newSpan);
+
+                            // Change create span to true
+                            spanCreate = true;
+
                         }
                     }
-                    else {
+                    else{ 
 
-                        let words = text.trim().split(/\s+/);
-                        let lastWord = words[words.length - 1];
+                        // Now lets check for operators
+                        if (this.getKeyByValueArray(reserved_words,lastLetter) == 'operator') {
 
-                        // Now lets check for if last word is a keyword
-                        if (this.getKeyByValueArray(reserved_words,lastWord)){
-
-                            // Check if length of text and keyword is same
-                            if(text.length == lastWord.length) {
-
-                                // Change the color of the keyword
-                                activeSpan.setAttribute('class', 'keyword');
-
+                            if(text == lastLetter && activeSpan.classList.contains('regular')) {
+                                // Simply change the class to operator
+                                activeSpan.setAttribute('class', 'operator');
                             }
-                            else {
+                            else{
 
-                                let restOfText = text.replace(/\S*$/, "");
-                                let newRestOfText = restOfText.replaceAll(" ", "\u00A0");
-                                activeSpan.textContent = newRestOfText;
-                                // remove id from the active span
-                                activeSpan.removeAttribute("id");
+                                if(!activeSpan.classList.contains('operator')){
 
-                                // call new span function
-                                newSpan = this.new_span(lastWord, 'keyword');
+                                    // Check if the second last charater is a space
+                                    let secondLastLetter = text[length - 2];
+                                    if(secondLastLetter == " ") {
+                                        // Remove the last character and update text content
+                                        activeSpan.textContent = text.slice(0, -2) + '\u00A0';
+                                    }   
+                                    else {
+                                        activeSpan.textContent = text.slice(0, -1);
+                                    }
+                                    
+                                    // Remove active id 
+                                    activeSpan.removeAttribute("id");
 
-                                activeSpan.insertAdjacentElement('afterend', newSpan);
+                                    // Create a new operator span
+                                    let spanOperator = this.new_span(lastLetter, 'operator')
+                                    activeSpan.insertAdjacentElement('afterend', spanOperator);
 
-                                // Change create span to true
-                                spanCreate = true;
+                                    // Change create span to true
+                                    spanCreate = true;
+
+                                }
+                                
+                            }
+                        }
+                        else {
+
+                            let words = text.trim().split(/\s+/);
+                            let lastWord = words[words.length - 1];
+
+                            // Now lets check for if last word is a keyword
+                            if (this.getKeyByValueArray(reserved_words,lastWord)){
+
+                                // Check if length of text and keyword is same
+                                if(text.length == lastWord.length) {
+
+                                    // Change the color of the keyword
+                                    activeSpan.setAttribute('class', 'keyword');
+
+                                }
+                                else {
+
+                                    let restOfText = text.replace(/\S*$/, "");
+                                    let newRestOfText = restOfText.replaceAll(" ", "\u00A0");
+                                    activeSpan.textContent = newRestOfText;
+                                    // remove id from the active span
+                                    activeSpan.removeAttribute("id");
+
+                                    // call new span function
+                                    newSpan = this.new_span(lastWord, 'keyword');
+
+                                    activeSpan.insertAdjacentElement('afterend', newSpan);
+
+                                    // Change create span to true
+                                    spanCreate = true;
+
+                                }
 
                             }
 
