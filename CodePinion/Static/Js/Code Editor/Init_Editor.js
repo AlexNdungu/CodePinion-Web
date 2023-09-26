@@ -74,36 +74,44 @@ class CodePinionEditor {
         newSpan.textContent = content;
         newSpan.setAttribute("id", "active");
 
-        // call activate_clicked_span function
-        this.activate_clicked_span();
-
         return newSpan;
     }
 
     // Activate clicked span
     activate_clicked_span(){
 
+        console.log("activate clicked span");
+
+        // get the editor container
+        let editor_container = document.getElementById("the_editor");
+
+        editor_container.addEventListener("click", function(event) {
+
+            console.log(event.target);
+
+        });
+
         // All the spans in the editor
-        const allSpansInEditorCodeLines = document.querySelectorAll('.editor_code_line span');
+        // const allSpansInEditorCodeLines = document.querySelectorAll('.is_focused span');
 
-        // click event for all spans in allSpansInEditorCodeLines
-        let spans = allSpansInEditorCodeLines.length;
-        for (let i = 0; i < spans; i++) {
+        // // click event for all spans in allSpansInEditorCodeLines
+        // let spans = allSpansInEditorCodeLines.length;
+        // for (let i = 0; i < spans; i++) {
 
-            allSpansInEditorCodeLines[i].addEventListener("click", function(event) {
+        //     allSpansInEditorCodeLines[i].addEventListener("click", function(event) {
 
-                console.log("clicked: "+event.target);
+        //         console.log("clicked: "+event);
 
-                // Remove the id from the active span
-                let activeSpan = document.querySelector("span[id='active']");
-                activeSpan.removeAttribute("id");
+        //         // Remove the id from the active span
+        //         let activeSpan = document.querySelector("span[id='active']");
+        //         activeSpan.removeAttribute("id");
 
-                // Add the id to the clicked span
-                allSpansInEditorCodeLines[i].setAttribute("id", "active");
+        //         // Add the id to the clicked span
+        //         allSpansInEditorCodeLines[i].setAttribute("id", "active");
 
-            });
+        //     });
 
-        }
+        // }
 
     }
 
@@ -398,6 +406,10 @@ class CodePinionEditor {
             let sel = window.getSelection(); // get the selection object
             sel.removeAllRanges(); // remove any existing selections
             sel.addRange(range);
+
+            // call activate_clicked_span function
+            this.activate_clicked_span();
+
         }
 
     }
