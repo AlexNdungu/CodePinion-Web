@@ -607,16 +607,18 @@ class CodePinionEditor {
 
                             // change text content of the active span to the first sentence#
                             activeSpan.textContent = newSentences[0].join(' ') + '\u00A0';
+                            // remove id from the active span
+                            activeSpan.removeAttribute("id");
 
                             // create a new span with call of member type
                             let memberClass = this.new_span(words[i], memberType);
-
                             // insert the new span after the active span
                             activeSpan.insertAdjacentElement('afterend', memberClass);
 
                             // create a new span with the second sentence
                             let secondSentence = this.new_span('\u00A0' + newSentences[1].join(' '), 'regular');
-                            
+                            // remove id from second sentence
+                            secondSentence.removeAttribute("id");
                             // insert the new span after the member class span
                             memberClass.insertAdjacentElement('afterend', secondSentence);
                             
