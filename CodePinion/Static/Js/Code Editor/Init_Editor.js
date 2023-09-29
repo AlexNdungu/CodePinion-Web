@@ -83,26 +83,30 @@ class CodePinionEditor {
         // get the editor container
         let editor_container = document.getElementById("the_editor");
 
-        editor_container.addEventListener("click", function(event) {
+        editor_container.addEventListener("mouseup", function(event) {
 
-            if(event.target.localName == 'span'){
+            if (event.button === 0) {
 
-                // Remove the id from the active span
-                let activeSpan = document.querySelector("span[id='active']");
-                activeSpan.removeAttribute("id");
+                if(event.target.localName == 'span'){
 
-                // Add the id to the clicked span
-                event.target.setAttribute("id", "active");
+                    // Remove the id from the active span
+                    let activeSpan = document.querySelector("span[id='active']");
+                    activeSpan.removeAttribute("id");
 
-            }
-            else if(event.target.localName == 'div' && event.target.classList.contains('editor_code_line')){
+                    // Add the id to the clicked span
+                    event.target.setAttribute("id", "active");
 
-                // Remove the id from the active span
-                let activeSpan = document.querySelector("span[id='active']");
-                activeSpan.removeAttribute("id");
+                }
+                else if(event.target.localName == 'div' && event.target.classList.contains('editor_code_line')){
 
-                // Add id to the last span
-                event.target.lastChild.setAttribute("id", "active");
+                    // Remove the id from the active span
+                    let activeSpan = document.querySelector("span[id='active']");
+                    activeSpan.removeAttribute("id");
+
+                    // Add id to the last span
+                    event.target.lastChild.setAttribute("id", "active");
+                }
+            
             }
 
         });
@@ -174,7 +178,6 @@ class CodePinionEditor {
         let line_inputs = document.querySelectorAll('.editor_code_line');
         let newSpan = this.new_span('','regular');
         line_inputs[index].appendChild(newSpan);
-
         
     }
 
