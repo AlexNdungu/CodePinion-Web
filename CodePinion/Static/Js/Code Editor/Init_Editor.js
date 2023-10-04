@@ -85,6 +85,8 @@ class CodePinionEditor {
 
         editor_container.addEventListener("mouseup", function(event) {
 
+            console.log(event.target.localName);
+
             if (event.button === 0) {
 
                 // Remove the id from the active span
@@ -237,22 +239,19 @@ class CodePinionEditor {
 
         // Get all the line containers
         let all_line_containers = document.querySelectorAll(".editor_number_code");
-
         // Check if removing a line at the end or in between
-        const all_lines = document.querySelectorAll(".editor_code_line");
+        let all_lines = document.querySelectorAll(".editor_code_line");
         // Define index of previous line
         let previous_line_index = index - 1;
         // Define the new line number
         let new_line_number = index + 1;
         // Update the line number
         let line_number_elements = document.getElementsByClassName("line_number");
-
         // Remove active class from all the spans in all_lines_container[index - 1]
-        let all_spans = all_lines[index - 1].querySelectorAll("span");
-        for (let i = 0; i < all_spans.length; i++) {
-            all_spans[i].removeAttribute("id");
-        }
+        let activeSpan = document.querySelector("span[id='active']");
+        activeSpan.removeAttribute("id");
         // Add active id to the last span in all_lines_container[index - 1]
+        let all_spans = all_lines[index - 1].querySelectorAll("span");
         all_spans[all_spans.length - 1].setAttribute("id", "active");
 
         // Remove the line in between
@@ -260,10 +259,8 @@ class CodePinionEditor {
         
         // Call the monitor line number
         this.monitor_line_number(line_number_elements,previous_line_index,new_line_number);
-
         // Call at focus new line
         this.at_focus_line(previous_line_index);
-
         // Call at focus line to renew the focus
         this.at_focus_click();
 
