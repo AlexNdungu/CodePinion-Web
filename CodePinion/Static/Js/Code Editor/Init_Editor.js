@@ -144,22 +144,9 @@ class CodePinionEditor {
             this.container.innerHTML = single_line;
             
         }
-        else {
-
-            // Check whether line is to be added at the end or in between
-            const all_lines = document.querySelectorAll(".editor_code_line");
-
-            const lastDivIndex = all_lines.length - 1;
-
-            if(index == lastDivIndex + 1) {
-                // Add a new line at the end
-                this.container.innerHTML += single_line;
-            }
-            else {
-                // Add the line in between      
-                this.container.children[index].insertAdjacentHTML('afterend', single_line);
-            }
-
+        else {    
+            // Insert the new line after the previous line
+            this.container.children[index - 1].insertAdjacentHTML('afterend', single_line);
         }
 
         // Get the line number
