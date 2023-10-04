@@ -87,22 +87,16 @@ class CodePinionEditor {
 
             if (event.button === 0) {
 
+                // Remove the id from the active span
+                let activeSpan = document.querySelector("span[id='active']");
+                activeSpan.removeAttribute("id");
+
                 if(event.target.localName == 'span'){
-
-                    // Remove the id from the active span
-                    let activeSpan = document.querySelector("span[id='active']");
-                    activeSpan.removeAttribute("id");
-
                     // Add the id to the clicked span
                     event.target.setAttribute("id", "active");
 
                 }
                 else if(event.target.localName == 'div' && event.target.classList.contains('editor_code_line')){
-
-                    // Remove the id from the active span
-                    let activeSpan = document.querySelector("span[id='active']");
-                    activeSpan.removeAttribute("id");
-
                     // Add id to the last span
                     event.target.lastChild.setAttribute("id", "active");
                 }
@@ -246,7 +240,6 @@ class CodePinionEditor {
 
         // Check if removing a line at the end or in between
         const all_lines = document.querySelectorAll(".editor_code_line");
-
         // Define index of previous line
         let previous_line_index = index - 1;
         // Define the new line number
