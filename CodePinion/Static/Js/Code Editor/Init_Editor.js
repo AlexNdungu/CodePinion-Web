@@ -177,6 +177,8 @@ class CodePinionEditor {
                 
                 index = editor.at_focus_click();
 
+                console.log('Line Index:'+index);
+
                 // Get all the line inputs
                 let all_lines = document.querySelectorAll(".editor_code_line");
 
@@ -200,6 +202,8 @@ class CodePinionEditor {
 
                 // Here remove the line
                 else if(index >= 1 && spanIndex < 1) {
+
+                    console.log('span index:'+spanIndex)
 
                     if(activeSpan.textContent.length == 0){
 
@@ -242,32 +246,27 @@ class CodePinionEditor {
 
         // Check if removing a line at the end or in between
         const all_lines = document.querySelectorAll(".editor_code_line");
-        const lastDivIndex = all_lines.length - 1;
 
         // Define index of previous line
         let previous_line_index = index - 1;
+        // Define the new line number
+        let new_line_number = index + 1;
+        // Update the line number
+        let line_number_elements = document.getElementsByClassName("line_number");
 
-        if(index == lastDivIndex){
-            // Simply remove the line at the end
-            all_line_containers[index].remove();
-
+        // Remove active class from all the spans in all_lines_container[index - 1]
+        let all_spans = all_lines[index - 1].querySelectorAll("span");
+        for (let i = 0; i < all_spans.length; i++) {
+            all_spans[i].removeAttribute("id");
         }
-        else {
+        // Add active id to the last span in all_lines_container[index - 1]
+        all_spans[all_spans.length - 1].setAttribute("id", "active");
 
-            // Remove the line in between
-
-            all_line_containers[index].remove();
-
-            // Update the line number
-            let line_number_elements = document.getElementsByClassName("line_number");
-            
-            // Define the new line number
-            let new_line_number = index + 1;
-            
-            // Call the monitor line number
-            this.monitor_line_number(line_number_elements,previous_line_index,new_line_number);
-
-        }
+        // Remove the line in between
+        all_line_containers[index].remove();
+        
+        // Call the monitor line number
+        this.monitor_line_number(line_number_elements,previous_line_index,new_line_number);
 
         // Call at focus new line
         this.at_focus_line(previous_line_index);
