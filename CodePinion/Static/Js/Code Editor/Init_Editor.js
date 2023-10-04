@@ -85,8 +85,6 @@ class CodePinionEditor {
 
         editor_container.addEventListener("mouseup", function(event) {
 
-            console.log(event.target.localName);
-
             if (event.button === 0) {
 
                 // Remove the id from the active span
