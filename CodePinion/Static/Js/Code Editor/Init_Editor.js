@@ -80,6 +80,8 @@ class CodePinionEditor {
     // Activate clicked span
     activate_clicked_span(){
 
+        console.log('activate clicked span called')
+
         // get the editor container
         let editor_container = document.getElementById("the_editor");
 
@@ -139,6 +141,10 @@ class CodePinionEditor {
             
         }
         else {    
+            // Remove the id from the active span
+            let activeSpan = document.querySelector("span[id='active']");
+            activeSpan.removeAttribute("id");
+
             // Insert the new line after the previous line
             this.container.children[index - 1].insertAdjacentHTML('afterend', single_line);
         }
@@ -159,6 +165,9 @@ class CodePinionEditor {
         let line_inputs = document.querySelectorAll('.editor_code_line');
         let newSpan = this.new_span('','regular');
         line_inputs[index].appendChild(newSpan);
+
+        // call activate_clicked_span function
+        this.activate_clicked_span();
         
     }
 
@@ -377,8 +386,8 @@ class CodePinionEditor {
             sel.removeAllRanges(); // remove any existing selections
             sel.addRange(range);
 
-            // call activate_clicked_span function
-            this.activate_clicked_span();
+            // // call activate_clicked_span function
+            // this.activate_clicked_span();
 
         }
 
