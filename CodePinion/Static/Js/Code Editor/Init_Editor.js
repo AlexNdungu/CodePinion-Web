@@ -99,6 +99,9 @@ class CodePinionEditor {
                 else if(event.target.localName == 'div' && event.target.classList.contains('editor_code_line')){
                     // Add id to the last span
                     event.target.lastChild.setAttribute("id", "active");
+
+                    // call move cursor to end function
+                    //editor.moveCursorToPosition(true);
                 }
             
             }
@@ -178,8 +181,6 @@ class CodePinionEditor {
                 
                 index = editor.at_focus_click();
 
-                console.log('Line Index:'+index);
-
                 // Get all the line inputs
                 let all_lines = document.querySelectorAll(".editor_code_line");
 
@@ -203,8 +204,6 @@ class CodePinionEditor {
 
                 // Here remove the line
                 else if(index >= 1 && spanIndex < 1) {
-
-                    console.log('span index:'+spanIndex)
 
                     if(activeSpan.textContent.length == 0){
 
@@ -383,7 +382,6 @@ class CodePinionEditor {
             let sel = window.getSelection(); // get the selection object
             sel.removeAllRanges(); // remove any existing selections
             sel.addRange(range);
-
         }
 
     }
@@ -648,13 +646,9 @@ class CodePinionEditor {
                             let spanPunc = document.createElement('span');
                             spanPunc.classList.add('punctuation');
                             spanPunc.textContent = lastLetter;
+                            spanPunc.setAttribute("id", "active");
                             activeSpan.insertAdjacentElement('afterend', spanPunc);
-
-                            // call new span function
-                            newSpan = this.new_span('', 'regular');
-
-                            spanPunc.insertAdjacentElement('afterend', newSpan);
-
+                            
                             // Change create span to true
                             spanCreate = true;
 
