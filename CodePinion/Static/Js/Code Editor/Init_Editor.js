@@ -440,25 +440,35 @@ class CodePinionEditor {
             }
 
             // When user continues typing after a punctuation
-            else if(activeSpan.classList.contains('punctuation') && lastLetter != "\u00A0") {
+            else if(activeSpan.classList.contains('punctuation')) {
+
+                if(text == ''){
+
+                    // change class to regular
+                    activeSpan.setAttribute('class', 'regular');
+
+                }
+                else if(lastLetter != "\u00A0"){
                     
-                // Remove active id
-                activeSpan.removeAttribute("id");
+                    // Remove active id
+                    activeSpan.removeAttribute("id");
 
-                // Split the first and last letter in text
-                let firstLetter = text.slice(0, -1);
-                activeSpan.textContent = firstLetter;
+                    // Split the first and last letter in text
+                    let firstLetter = text.slice(0, -1);
+                    activeSpan.textContent = firstLetter;
 
-                // call new span function
-                newSpan = this.new_span(lastLetter,'regular');
+                    // call new span function
+                    newSpan = this.new_span(lastLetter,'regular');
 
-                activeSpan.insertAdjacentElement('afterend', newSpan);
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
 
-                // Change create span to true
-                spanCreate = true;
+                    // Change create span to true
+                    spanCreate = true;
 
-                // Call move cursor to end function
-                this.moveCursorToPosition(spanCreate);
+                    // Call move cursor to end function
+                    this.moveCursorToPosition(spanCreate);
+                
+                }
             }
 
             // When user continues typing after an operator
