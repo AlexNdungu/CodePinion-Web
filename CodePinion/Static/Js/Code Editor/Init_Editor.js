@@ -443,7 +443,6 @@ class CodePinionEditor {
             else if(activeSpan.classList.contains('punctuation')) {
 
                 if(text == ''){
-
                     // change class to regular
                     activeSpan.setAttribute('class', 'regular');
 
@@ -472,8 +471,13 @@ class CodePinionEditor {
             }
 
             // When user continues typing after an operator
-            else if(activeSpan.classList.contains('operator') && lastLetter != "\u00A0" && this.getKeyByValueArray(reserved_words,lastLetter) != 'operator') {
+            else if(activeSpan.classList.contains('operator')) {
                         
+                if(text == ''){
+                    // change class to regular
+                    activeSpan.setAttribute('class', 'regular');
+                }
+                else if(lastLetter != "\u00A0" && this.getKeyByValueArray(reserved_words,lastLetter) != 'operator'){
                     // Remove active id
                     activeSpan.removeAttribute("id");
     
@@ -491,6 +495,7 @@ class CodePinionEditor {
     
                     // Call move cursor to end function
                     this.moveCursorToPosition(spanCreate);
+                }
             }
 
             // When a user continues to type after creating a keyword
