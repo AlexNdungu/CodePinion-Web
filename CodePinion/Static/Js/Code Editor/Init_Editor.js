@@ -100,8 +100,6 @@ class CodePinionEditor {
                     // Add id to the last span
                     event.target.lastChild.setAttribute("id", "active");
 
-                    // call move cursor to end function
-                    //editor.moveCursorToPosition(true);
                 }
             
             }
@@ -410,8 +408,6 @@ class CodePinionEditor {
 
             const text = activeSpan.textContent;
 
-            let spanCreate = false
-
             // Get the length of the sentence.
             // Get the last character in the sentence. (help in getting panctuations)
             let length = text.length;
@@ -430,10 +426,8 @@ class CodePinionEditor {
 
                 activeSpan.insertAdjacentElement('afterend', newSpan);
 
-                // Change create span to true
-                spanCreate = true;
                 // Call move cursor to end function
-                this.moveCursorToPosition(spanCreate);
+                this.moveCursorToPosition(true);
 
             }
 
@@ -459,11 +453,8 @@ class CodePinionEditor {
 
                     activeSpan.insertAdjacentElement('afterend', newSpan);
 
-                    // Change create span to true
-                    spanCreate = true;
-
                     // Call move cursor to end function
-                    this.moveCursorToPosition(spanCreate);
+                    this.moveCursorToPosition(true);
                 
                 }
             }
@@ -487,12 +478,9 @@ class CodePinionEditor {
                     newSpan = this.new_span(lastLetter,'regular');
 
                     activeSpan.insertAdjacentElement('afterend', newSpan);
-
-                    // Change create span to true
-                    spanCreate = true;
     
                     // Call move cursor to end function
-                    this.moveCursorToPosition(spanCreate);
+                    this.moveCursorToPosition(true);
                 }
             }
 
@@ -561,6 +549,9 @@ class CodePinionEditor {
             }
 
             else {
+
+                // Define span create
+                let spanCreate = false;
 
                 // Get the cursor position
                 const selection = window.getSelection();
@@ -648,7 +639,7 @@ class CodePinionEditor {
                             spanPunc.textContent = lastLetter;
                             spanPunc.setAttribute("id", "active");
                             activeSpan.insertAdjacentElement('afterend', spanPunc);
-                            
+
                             // Change create span to true
                             spanCreate = true;
 
