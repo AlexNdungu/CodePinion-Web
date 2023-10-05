@@ -80,8 +80,6 @@ class CodePinionEditor {
     // Activate clicked span
     activate_clicked_span(){
 
-        console.log('activate clicked span called')
-
         // get the editor container
         let editor_container = document.getElementById("the_editor");
 
@@ -385,9 +383,6 @@ class CodePinionEditor {
             let sel = window.getSelection(); // get the selection object
             sel.removeAllRanges(); // remove any existing selections
             sel.addRange(range);
-
-            // // call activate_clicked_span function
-            // this.activate_clicked_span();
 
         }
 
