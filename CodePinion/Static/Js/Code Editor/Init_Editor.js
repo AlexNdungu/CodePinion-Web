@@ -397,7 +397,6 @@ class CodePinionEditor {
 
         // New span initialization
         let newSpan = null;
-
         // Get the id of the code editor
         let editor_id = document.getElementById("the_editor");
 
@@ -496,7 +495,7 @@ class CodePinionEditor {
                 // Get the class after the active span
                 let nextSpan = activeSpan.nextElementSibling;
 
-                
+
                 if(this.getKeyByValueArray(reserved_words,if_keyword_check) == 'keyword' && is_member ){
 
                     // remove id from the active span
