@@ -485,65 +485,90 @@ class CodePinionEditor {
             }
 
             // When a user continues to type after creating a keyword
-            else if(activeSpan.classList.contains('keyword') && this.getKeyByValueArray(reserved_words,text) != 'keyword') {
+            else if(activeSpan.classList.contains('keyword') && this.getKeyByValueArray(reserved_words,text) != 'keyword' ) {
 
+                // Word before last letter
+                let if_keyword_check = text.slice(0, -1);
+                // check if last letter is in the reserved words
+                let is_member = this.getKeyByValueArray(reserved_words,lastLetter);
                 // Get the span before the active span
                 let previousSpan = activeSpan.previousElementSibling;
                 // Get the class after the active span
                 let nextSpan = activeSpan.nextElementSibling;
 
-                // when the previous span is a regular span
-                if(previousSpan && previousSpan.classList.contains('regular') && (!nextSpan || !nextSpan.classList.contains('regular'))) {
+                //split text 
 
-                    // Append text to the previous span text content
-                    previousSpan.textContent += text;
+                if(this.getKeyByValueArray(reserved_words,if_keyword_check) == 'keyword' && is_member ){
 
-                    // Remove active id from the active span
+                    // remove id from the active span
                     activeSpan.removeAttribute("id");
-                    // Add active id to the previous span
-                    previousSpan.setAttribute("id", "active");
+                    // set text content of the active span to if_keyword_check
+                    activeSpan.textContent = if_keyword_check;
+                    // create a new span with last letter
+                    let newSpan = this.new_span(lastLetter, is_member);
+                    // insert the new span after the active span
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
 
-                    // Remove the active span
-                    activeSpan.remove();
+                    // Call move cursor to end function
+                    this.moveCursorToPosition(true);
 
                 }
-
-                else if(nextSpan && nextSpan.classList.contains('regular') && (!previousSpan || !previousSpan.classList.contains('regular'))){
-                    
-                    // Append text to the previous span text content
-                    nextSpan.textContent = text + nextSpan.textContent;
-
-                    // Remove active id from the active span
-                    activeSpan.removeAttribute("id");
-                    // Add active id to the previous span
-                    nextSpan.setAttribute("id", "active");
-
-                    // Remove the active span
-                    activeSpan.remove();
-
-                }
-
-                else if (previousSpan && previousSpan.classList.contains('regular') && nextSpan && nextSpan.classList.contains('regular')){
-
-                    // Append text to the previous span text content
-                    previousSpan.textContent += text + nextSpan.textContent;
-
-                    // Remove active id from the active span
-                    activeSpan.removeAttribute("id");
-                    // Add active id to the previous span
-                    previousSpan.setAttribute("id", "active");
-
-                    // Remove the active span
-                    activeSpan.remove();
-
-                    // Remove the next span
-                    nextSpan.remove();
-
-                }
-
                 else{
-                    // Return the span class to regular
-                    activeSpan.setAttribute('class', 'regular');
+
+                    // when the previous span is a regular span
+                    if(previousSpan && previousSpan.classList.contains('regular') && (!nextSpan || !nextSpan.classList.contains('regular'))) {
+
+                        // Append text to the previous span text content
+                        previousSpan.textContent += text;
+
+                        // Remove active id from the active span
+                        activeSpan.removeAttribute("id");
+                        // Add active id to the previous span
+                        previousSpan.setAttribute("id", "active");
+
+                        // Remove the active span
+                        activeSpan.remove();
+
+                    }
+
+                    else if(nextSpan && nextSpan.classList.contains('regular') && (!previousSpan || !previousSpan.classList.contains('regular'))){
+                        
+                        // Append text to the previous span text content
+                        nextSpan.textContent = text + nextSpan.textContent;
+
+                        // Remove active id from the active span
+                        activeSpan.removeAttribute("id");
+                        // Add active id to the previous span
+                        nextSpan.setAttribute("id", "active");
+
+                        // Remove the active span
+                        activeSpan.remove();
+
+                    }
+
+                    else if (previousSpan && previousSpan.classList.contains('regular') && nextSpan && nextSpan.classList.contains('regular')){
+
+                        // Append text to the previous span text content
+                        previousSpan.textContent += text + nextSpan.textContent;
+
+                        // Remove active id from the active span
+                        activeSpan.removeAttribute("id");
+                        // Add active id to the previous span
+                        previousSpan.setAttribute("id", "active");
+
+                        // Remove the active span
+                        activeSpan.remove();
+
+                        // Remove the next span
+                        nextSpan.remove();
+
+                    }
+
+                    else{
+                        // Return the span class to regular
+                        activeSpan.setAttribute('class', 'regular');
+                    }
+
                 }
 
             }
