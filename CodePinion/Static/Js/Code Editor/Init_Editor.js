@@ -496,8 +496,7 @@ class CodePinionEditor {
                 // Get the class after the active span
                 let nextSpan = activeSpan.nextElementSibling;
 
-                //split text 
-
+                
                 if(this.getKeyByValueArray(reserved_words,if_keyword_check) == 'keyword' && is_member ){
 
                     // remove id from the active span
