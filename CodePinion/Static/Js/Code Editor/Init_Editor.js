@@ -397,14 +397,11 @@ class CodePinionEditor {
 
         // This method completes the punctuation
         function punctuation_auto_complete(punctuation){
-            console.log(punctuation);
-
+            
             // Define the completer
             let completer = null;
             // Get the active span
             let activeSpan = document.querySelector("span[id='active']");
-
-            console.log(activeSpan);
 
             if(punctuation == '"'){
                 completer = '"';
@@ -421,8 +418,6 @@ class CodePinionEditor {
             else if(punctuation == '{'){
                 completer = '}';
             }
-
-            console.log(completer);
 
             // append completer to the active span
             activeSpan.textContent += completer;
@@ -672,10 +667,6 @@ class CodePinionEditor {
                     // lets check for punctualtions
                     if (this.getKeyByValueArray(reserved_words,lastLetter) == 'punctuation') {
 
-                        // call punctuation auto complete function
-                        punctuation_auto_complete(lastLetter);
-
-
                         if(text == lastLetter) {
                             // Change class to punctuation
                             activeSpan.setAttribute('class', 'punctuation');
@@ -705,6 +696,10 @@ class CodePinionEditor {
                             spanCreate = true;
 
                         }
+
+                        // call punctuation auto complete function
+                        punctuation_auto_complete(lastLetter);
+                        
                     }
                     else{ 
 
