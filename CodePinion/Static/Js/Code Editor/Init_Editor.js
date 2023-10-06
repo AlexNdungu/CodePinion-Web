@@ -1,7 +1,7 @@
 // Create a map with key as category and value as list of recerved word
 const reserved_words = new Map();
 reserved_words.set('keyword', ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']);
-reserved_words.set('operator',['+','-', '*','/','%','//','<','<=','>','>=','==','!='])
+reserved_words.set('operator',['+','-', '*','/','%','<','=','>','!'])
 reserved_words.set('punctuation', [',', '.', ';', ':', '(', '[', '{', ')', ']', '}'])
 
 
