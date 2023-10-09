@@ -418,7 +418,7 @@ class CodePinionEditor {
                 }
 
                 // append completer to the active span
-                activeSpan.textContent += completer;
+                activeSpan.textContent += completer;  
 
             }
 
@@ -459,8 +459,8 @@ class CodePinionEditor {
             // Get the length of the sentence.
             // Get the last character in the sentence. (help in getting panctuations)
             let length = text.length;
-            let lastLetter = text[length - 1];
             let firstLetter = text[0];
+            let lastLetter = text[length - 1];
 
             // When space is created in a special span
             if(lastLetter == "\u00A0" && !activeSpan.classList.contains('regular')) {
@@ -483,6 +483,20 @@ class CodePinionEditor {
             // When user continues typing after a punctuation
             else if(activeSpan.classList.contains('punctuation')) {
 
+                // Get the cursor position
+                const selection = window.getSelection();
+                const range = selection.getRangeAt(0);
+                const cursorPosition = range.startOffset;
+
+                console.log('First: '+firstLetter);
+                console.log('Last: '+lastLetter);
+                console.log('Cursor: '+cursorPosition);
+                console.log('Length: '+length);
+
+                // Regex that checks if a string starts and ends with either single or double quotes
+                const regex = /^['"].*['"]$/;
+                let withoutLast = text.slice(0, -1);
+
                 if(text == ''){
                     // change class to regular
                     activeSpan.setAttribute('class', 'regular');
@@ -491,20 +505,30 @@ class CodePinionEditor {
                 else if(firstLetter !== '"' && firstLetter !== "'"){
                     // Remove active id
                     activeSpan.removeAttribute("id");
-
-                    // Split the first and last letter in text
-                    let firstLetter = text.slice(0, -1);
-                    activeSpan.textContent = firstLetter;
+                    activeSpan.textContent = withoutLast;
 
                     // call new span function
                     newSpan = this.new_span(lastLetter,'regular');
-
                     activeSpan.insertAdjacentElement('afterend', newSpan);
 
                     // Call move cursor to end function
                     this.moveCursorToPosition(true);
 
                 }
+
+                if(cursorPosition == length && regex.test(withoutLast)){
+                    // Remove active id
+                    activeSpan.removeAttribute("id");
+                    activeSpan.textContent = withoutLast;
+
+                    // call new span function
+                    newSpan = this.new_span(lastLetter,'regular');
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
+
+                    // Call move cursor to end function
+                    this.moveCursorToPosition(true);
+                }
+
             }
 
             // When user continues typing after an operator
