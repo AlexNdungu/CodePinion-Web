@@ -460,6 +460,7 @@ class CodePinionEditor {
             // Get the last character in the sentence. (help in getting panctuations)
             let length = text.length;
             let lastLetter = text[length - 1];
+            let firstLetter = text[0];
 
             // When space is created in a special span
             if(lastLetter == "\u00A0" && !activeSpan.classList.contains('regular')) {
@@ -482,40 +483,12 @@ class CodePinionEditor {
             // When user continues typing after a punctuation
             else if(activeSpan.classList.contains('punctuation')) {
 
-                // Get the first letter in text
-                let firstLetter = text[0];
-
-                console.log(firstLetter);
-
                 if(text == ''){
                     // change class to regular
                     activeSpan.setAttribute('class', 'regular');
 
                 }
-                // else if(lastLetter != "\u00A0"){
-                    
-                //     // Remove active id
-                //     activeSpan.removeAttribute("id");
-
-                //     // Split the first and last letter in text
-                //     let firstLetter = text.slice(0, -1);
-                //     activeSpan.textContent = firstLetter;
-
-                //     // call new span function
-                //     newSpan = this.new_span(lastLetter,'regular');
-
-                //     activeSpan.insertAdjacentElement('afterend', newSpan);
-
-                //     // Call move cursor to end function
-                //     this.moveCursorToPosition(true);
-                
-                // }
-
-                // else if first letter is a ' or "
                 else if(firstLetter !== '"' && firstLetter !== "'"){
-
-                    console.log('here');
-
                     // Remove active id
                     activeSpan.removeAttribute("id");
 
