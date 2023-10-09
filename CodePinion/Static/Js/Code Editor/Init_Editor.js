@@ -403,27 +403,44 @@ class CodePinionEditor {
             
             // Define the completer
             let completer = null;
+            // Define new span
+            let newSpan = null;
             // Get the active span
             let activeSpan = document.querySelector("span[id='active']");
 
-            if(punctuation == '"'){
-                completer = '"';
-            }
-            else if(punctuation == "'"){
-                completer = "'";
-            }
-            else if(punctuation == '('){
-                completer = ')';
-            }
-            else if(punctuation == '['){
-                completer = ']';
-            }
-            else if(punctuation == '{'){
-                completer = '}';
+            if(punctuation == '"' || punctuation == "'"){
+
+                if(punctuation == '"'){
+                    completer = '"';
+                }
+                else if(punctuation == "'"){
+                    completer = "'";
+                }
+
+                // append completer to the active span
+                activeSpan.textContent += completer;
+
             }
 
-            // append completer to the active span
-            activeSpan.textContent += completer;
+            else if(punctuation == '(' || punctuation == '[' || punctuation == '{'){
+
+                if(punctuation == '('){
+                    completer = ')';
+                }
+                else if(punctuation == '['){
+                    completer = ']';
+                }
+                else if(punctuation == '{'){
+                    completer = '}';
+                }
+
+                // Create new span
+                newSpan = editor.new_span(completer,'punctuation');
+                newSpan.removeAttribute("id");
+                // Insert the new span after the active span
+                activeSpan.insertAdjacentElement('afterend', newSpan);
+
+            }
 
         }
 
