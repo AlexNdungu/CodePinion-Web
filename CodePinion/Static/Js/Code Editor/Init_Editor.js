@@ -459,6 +459,7 @@ class CodePinionEditor {
             // Get the length of the sentence.
             // Get the last character in the sentence. (help in getting panctuations)
             let length = text.length;
+            let firstLetter = text[0];
             let lastLetter = text[length - 1];
 
             // When space is created in a special span
@@ -486,7 +487,7 @@ class CodePinionEditor {
                 const selection = window.getSelection();
                 const range = selection.getRangeAt(0);
                 const cursorPosition = range.startOffset;
-                
+
                 // Regex that checks if string starts with either single or double quotes
                 const startRegex = /^['"]/;
                 // Regex that checks if a string starts and ends with either single or double quotes
