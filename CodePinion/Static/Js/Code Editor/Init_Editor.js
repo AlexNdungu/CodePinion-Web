@@ -459,7 +459,6 @@ class CodePinionEditor {
             // Get the length of the sentence.
             // Get the last character in the sentence. (help in getting panctuations)
             let length = text.length;
-            let firstLetter = text[0];
             let lastLetter = text[length - 1];
 
             // When space is created in a special span
@@ -487,14 +486,11 @@ class CodePinionEditor {
                 const selection = window.getSelection();
                 const range = selection.getRangeAt(0);
                 const cursorPosition = range.startOffset;
-
-                console.log('First: '+firstLetter);
-                console.log('Last: '+lastLetter);
-                console.log('Cursor: '+cursorPosition);
-                console.log('Length: '+length);
-
+                
+                // Regex that checks if string starts with either single or double quotes
+                const startRegex = /^['"]/;
                 // Regex that checks if a string starts and ends with either single or double quotes
-                const regex = /^['"].*['"]$/;
+                const startEndRegex = /^['"].*['"]$/;
                 let withoutLast = text.slice(0, -1);
 
                 if(text == ''){
@@ -502,7 +498,7 @@ class CodePinionEditor {
                     activeSpan.setAttribute('class', 'regular');
 
                 }
-                else if(firstLetter !== '"' && firstLetter !== "'"){
+                else if(!startRegex.test(firstLetter)){
                     // Remove active id
                     activeSpan.removeAttribute("id");
                     activeSpan.textContent = withoutLast;
@@ -516,7 +512,7 @@ class CodePinionEditor {
 
                 }
 
-                if(cursorPosition == length && regex.test(withoutLast)){
+                if(cursorPosition == length && startEndRegex.test(withoutLast)){
                     // Remove active id
                     activeSpan.removeAttribute("id");
                     activeSpan.textContent = withoutLast;
