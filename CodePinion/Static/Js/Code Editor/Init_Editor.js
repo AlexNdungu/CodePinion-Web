@@ -493,6 +493,8 @@ class CodePinionEditor {
                 // Regex that checks if a string starts and ends with either single or double quotes
                 const startEndRegex = /^['"].*['"]$/;
                 let withoutLast = text.slice(0, -1);
+                //Regex that checks if if strings starts with either the quotes or the brackets
+                const startAllRegex = /^['"\(\[\{]/;
 
                 if(text == ''){
                     // change class to regular
@@ -500,17 +502,26 @@ class CodePinionEditor {
 
                 }
                 else if(!startRegex.test(firstLetter)){
+
                     // Remove active id
                     activeSpan.removeAttribute("id");
-                    activeSpan.textContent = withoutLast;
 
-                    // call new span function
-                    newSpan = this.new_span(lastLetter,'regular');
-                    activeSpan.insertAdjacentElement('afterend', newSpan);
-
-                    // Call move cursor to end function
-                    this.moveCursorToPosition(true);
-
+                    if(startAllRegex.test(lastLetter)){
+                        // Create new span with punctuation as class and last letter as text
+                        newSpan = this.new_span('','punctuation');
+                        // Insert the new span after the active span
+                        activeSpan.insertAdjacentElement('afterend', newSpan);
+                        // call punctuation auto complete function
+                        punctuation_auto_complete(lastLetter);
+                    }
+                    else{
+                        activeSpan.textContent = withoutLast;
+                        // call new span function
+                        newSpan = this.new_span(lastLetter,'regular');
+                        activeSpan.insertAdjacentElement('afterend', newSpan);
+                        // Call move cursor to end function
+                        this.moveCursorToPosition(true);
+                    }
                 }
 
                 if(cursorPosition == length && startEndRegex.test(withoutLast)){
