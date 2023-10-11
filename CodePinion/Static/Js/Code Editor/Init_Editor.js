@@ -505,23 +505,24 @@ class CodePinionEditor {
 
                     // Remove active id
                     activeSpan.removeAttribute("id");
+                    activeSpan.textContent = withoutLast;
 
                     if(startAllRegex.test(lastLetter)){
                         // Create new span with punctuation as class and last letter as text
-                        newSpan = this.new_span('','punctuation');
+                        newSpan = this.new_span(lastLetter,'punctuation');
                         // Insert the new span after the active span
                         activeSpan.insertAdjacentElement('afterend', newSpan);
                         // call punctuation auto complete function
                         punctuation_auto_complete(lastLetter);
                     }
                     else{
-                        activeSpan.textContent = withoutLast;
                         // call new span function
                         newSpan = this.new_span(lastLetter,'regular');
                         activeSpan.insertAdjacentElement('afterend', newSpan);
-                        // Call move cursor to end function
-                        this.moveCursorToPosition(true);
                     }
+
+                    // Call move cursor to end function
+                    this.moveCursorToPosition(true);
                 }
 
                 if(cursorPosition == length && startEndRegex.test(withoutLast)){
