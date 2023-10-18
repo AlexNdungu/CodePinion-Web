@@ -11,13 +11,14 @@
     align-items: center;
     justify-content: center;
     position: absolute;
+    overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* The intro section */
 .demo_intro {
     width: 800px;
-    height: 700px;
+    height: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,4 +95,15 @@
 .demo_confetti img {
     width: 100%;
     height: 100%;
+}
+
+/* Welcome more message */
+.demo_more_mess {
+    width: 100%;
+    height: 60px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #414141;
 }
