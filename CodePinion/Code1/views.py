@@ -113,6 +113,7 @@ def Safes(request):
 
 
 # Code Editor Rendering Function
+@login_required
 def CodeEditor(request):
     return render(request, 'Main/Editor.html')
 
