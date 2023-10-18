@@ -3,11 +3,11 @@
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
 }
 
 /* Inherited nevigation section */
 .inherited-main-navigation-container{
+    font-family: 'Roboto', sans-serif;
     z-index: 9999;
     position: absolute;
     width: 100%;
@@ -121,6 +121,7 @@
 
 /* The upper section where the navigation is  */
 .upper-section {
+    font-family: 'Roboto', sans-serif;
     width: 100%;
     height: 100px;
     display: flex;
