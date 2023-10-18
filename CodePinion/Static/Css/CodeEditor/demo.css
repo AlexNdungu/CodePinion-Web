@@ -107,3 +107,30 @@
     justify-content: flex-start;
     color: #414141;
 }
+
+/* Demo features */
+.demo_features,.demo_need {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.demo_features span,.demo_need span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #414141;
+}
+
+.demo_feature_img,.demo_need_img {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}   
+
+.demo_feature_img img,.demo_need_img img {
+    width: 100%;
+    height: 100%;
+}
