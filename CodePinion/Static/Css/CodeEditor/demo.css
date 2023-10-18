@@ -4,8 +4,94 @@
 }
 
 .demo_intro_body {
+    font-family: 'Roboto', sans-serif;
     width: 100%;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* The intro section */
+.demo_intro {
+    width: 800px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* Contain all the data */
+.demo_intro_data {
+    width: 700px;
+    height: 100%;
+}
+
+/* Close intro */
+.close_intro {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.close_intro_btn {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #414141;
+    transition: 0.2s ease-in-out;
+}
+
+.close_intro_btn:hover {
+    background-color: #C53B3B;
+}
+
+.close_intro_btn svg {
+    width: 30px;
+    fill: #F3F3F3;
+}
+
+/* Welcome message */
+.demo_welcome_mess {
+    width: 100%;
+    height: 50px;
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.demo_welcome_mess p {
+    color: #414141;
+}
+
+.demo_welcome_mess span {
+    color: #406CEE;
+    margin: 6px;
+}
+
+/* Welcome Confetti */
+.demo_confetti {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.demo_confetti img {
+    width: 100%;
+    height: 100%;
 }
