@@ -204,6 +204,12 @@
     background-color: #414141;
     color: #F3F3F3;
     fill: #F3F3F3;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.proceed_to_demo_btn:hover {
+    background-color: #406CEE;
 }
 
 .proceed_to_demo_btn svg {
