@@ -7,7 +7,7 @@
     font-family: 'Roboto', sans-serif;
     width: 100%;
     height: 100vh;
-    display: flex;
+    display: none; /* Flex to display demo */
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -213,5 +213,38 @@
 }
 
 .proceed_to_demo_btn svg {
+    width: 35px;
+}
+
+/* The Demo Navigation */
+.demo_navigation {
+    font-family: 'Roboto', sans-serif;
+    width: 700px;
+    height: 60px;
+    background-color: white;
+}
+
+/* Report Bug Button */
+.report_bug_btn {
+    font-family: 'Roboto', sans-serif;
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #414141;
+    color: #F3F3F3;
+    fill: #F3F3F3;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.report_bug_btn:hover {
+    background-color: #C53B3B;
+}
+
+.report_bug_btn svg {
     width: 35px;
 }
