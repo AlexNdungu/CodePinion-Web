@@ -117,6 +117,15 @@ def Safes(request):
 def CodeEditor(request):
     return render(request, 'Main/Editor.html')
 
+# Report Bug
+def ReportBug(request):
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        screenShot = request.POST.get('screenshot')
+        print(screenShot)
+
+    return JsonResponse({'status':'success'})
 
 # New Safe Connected To Existing Project Folder
 @login_required
