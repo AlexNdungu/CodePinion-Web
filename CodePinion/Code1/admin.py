@@ -8,6 +8,5 @@ class SSH_DevicesAdmin(admin.ModelAdmin):
 
 admin.site.register(Profile)
 admin.site.register(Report_Bug)
-admin.site.register(Screenshot)
 admin.site.register(SSH_Supported)
 admin.site.register(SSH_Devices,SSH_DevicesAdmin)

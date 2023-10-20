@@ -130,9 +130,9 @@ def ReportBug(request):
         data = ContentFile(base64.b64decode(imgstr))
 
         # Save the image to the ImageField
-        screenshot = models.Screenshot()
-        screenshot.screenshot.save('screenshot.' + ext, data)
-        screenshot.save()
+        # screenshot = models.Screenshot()
+        # screenshot.screenshot.save('screenshot.' + ext, data)
+        # screenshot.save()
 
     return JsonResponse({'status':'success'})
 
