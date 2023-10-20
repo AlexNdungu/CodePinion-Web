@@ -5,10 +5,7 @@ let csrf = document.getElementsByName('csrfmiddlewaretoken');
 //Add event listeners
 report_bug_btn.addEventListener("click", function () {
     html2canvas(document.getElementById('the_editor')).then(function (canvas) {
-        document.body.appendChild(canvas);
         const screenShotImage = canvas.toDataURL();
-
-        console.log(screenShotImage);
 
         //call the function to report the bug
         report_bug(screenShotImage);
