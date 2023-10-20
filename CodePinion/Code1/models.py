@@ -82,6 +82,26 @@ class SSH_Devices(models.Model):
     #     super().save(*args, **kwargs)
 
 
+# Report Bug Model
+class Report_Bug(models.Model):
+    
+        # The user who reported the bug
+        profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Bug Reporter')
+        #Bug id
+        bug_id = models.AutoField(primary_key=True)
+        # The bug details
+        bug_title = models.CharField(max_length=20, verbose_name='Bug Title')
+        bug_desc = models.TextField(verbose_name='Bug Description')
+        #Bug screenshot
+        bug_screenshot = models.ImageField(upload_to='Media/Bugs', verbose_name='Bug Screenshot')
+        # The bug status
+        bug_status = models.BooleanField(default=False, verbose_name='Bug Status')
+    
+        update = models.DateTimeField(auto_now=True)
+        created = models.DateField(auto_now_add=True)
+    
+        def __str__(self):
+            return self.bug_title
 
 
 #Programming languages models
