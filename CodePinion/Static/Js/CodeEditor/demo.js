@@ -8,7 +8,7 @@ report_bug_btn.addEventListener("click", function () {
         const screenShotImage = canvas.toDataURL();
 
         //call the function to report the bug
-        report_bug(screenShotImage);
+        //report_bug(screenShotImage);
 
     });
 });
