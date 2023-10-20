@@ -104,6 +104,9 @@ class Report_Bug(models.Model):
             return self.bug_title
 
 
+class Screenshot(models.Model):
+    screenshot = models.ImageField(upload_to='Bugs', verbose_name='Bug Screenshot')
+
 #Programming languages models
 # class Language(models.Model):
 

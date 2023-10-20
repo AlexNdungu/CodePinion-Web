@@ -7,6 +7,8 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 
 from django.http import JsonResponse
+import base64
+from django.core.files.base import ContentFile
 # from . import resorce
 from .resorce import SecureShell,Create_User_Signal
 
@@ -121,11 +123,19 @@ def CodeEditor(request):
 def ReportBug(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-
+    
         screenShot = request.POST.get('screenshot')
-        print(screenShot)
+        format, imgstr = screenShot.split(';base64,')
+        ext = format.split('/')[-1]
+        data = ContentFile(base64.b64decode(imgstr))
+
+        # Save the image to the ImageField
+        screenshot = models.Screenshot()
+        screenshot.screenshot.save('screenshot.' + ext, data)
+        screenshot.save()
 
     return JsonResponse({'status':'success'})
+
 
 # New Safe Connected To Existing Project Folder
 @login_required
