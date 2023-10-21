@@ -342,7 +342,7 @@
 
 .report_form {
     width: 800px;
-    height: 300px;
+    height: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -354,5 +354,97 @@
 .report_body {
     width: calc(100% - 20px);
     height: calc(100% - 60px);
-    background-color: aquamarine;
+}
+
+/* ckeditor section */
+
+.bodyText {
+    width: 100%;
+    height: max-content;
+    min-height: 400px;
+    border-radius: 10px;
+    border: 2px solid #414141;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
+.options {
+    width: 98%;
+    height: max-content;
+    min-height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.options button {
+    min-width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: none;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid #414141;
+    fill: #414141;
+    color: #414141;
+    cursor: pointer;
+}
+
+.options svg {
+    width: 20px;
+}
+
+.options button:hover {
+    color: #406CEE;
+    fill: #406CEE;
+    border: 2px solid #406CEE;
+}
+
+
+/* the editable class */
+
+.richEdit {
+    width: 98%;
+    height: 400px;
+    border-radius: 10px;
+    border: 2px solid #414141;
+    margin-bottom: 10px;
+    outline-color: #406CEE;
+    padding: 20px;
+    color: #406CEE;
+    overflow-x: auto;
+}
+
+.richEdit h1,#BodyFill h1 {
+    font-size: 29px !important ;
+    font-weight: 800;
+}
+
+.richEdit h2, #BodyFill h2 {
+    font-size: 24px !important ;
+    font-weight: 700;
+}
+
+.richEdit h3,#BodyFill h3 {
+    font-size: 22px !important ;
+    font-weight: 600;
+}
+
+
+.richEdit u,#BodyFill u{
+    text-decoration: underline;
+}
+
+.richEdit strike,#BodyFill strike {
+    text-decoration: line-through;
+}
+
+.richEdit ul,#BodyFill ul {
+    list-style: circle outside;
 }
