@@ -199,7 +199,11 @@ class CodePinionEditor {
                 if(index < 1 && spanIndex < 1 ) {
 
                     if(activeSpan.textContent.length == 0){
-                        event.preventDefault();
+
+                        if(event.target.classList.contains('editor_code_line')){
+                            event.preventDefault();
+                        }
+
                     }
                 }
 
@@ -208,7 +212,9 @@ class CodePinionEditor {
 
                     if(activeSpan.textContent.length == 0){
 
-                        event.preventDefault();
+                        if(event.target.classList.contains('editor_code_line')){
+                            event.preventDefault();
+                        }
 
                         // Remove the line
                         editor.remove_line(index);
