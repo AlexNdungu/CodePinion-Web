@@ -326,3 +326,23 @@
 .report_bug_btn svg {
     width: 35px;
 }
+
+/* Report bug section */
+.report_bug_section {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex; /* Flex to display demo */
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.report_form {
+    width: 800px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: white;
+}
