@@ -379,7 +379,7 @@
     position: relative;
     width: 100%;
     height: max-content;
-    min-height: 300px;
+    min-height: 250px;
     border-radius: 10px;
     border: 2px solid #414141;
 }
@@ -514,7 +514,7 @@
 
 .richEdit {
     width: 98%;
-    height: 300px;
+    height: 250px;
     border-radius: 10px;
     border: 2px solid #414141;
     margin-bottom: 10px;
@@ -550,4 +550,30 @@
 
 .richEdit ul,#BodyFill ul {
     list-style: circle outside;
+}
+
+/* report or discard */
+.report_discard_section {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.r_d_btn {
+    width: 120px;
+    height: 45px;
+    margin: 5px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    fill: #414141;
+    color: #414141;
+}
+
+.r_d_btn svg {
+    width: 22px;
 }
