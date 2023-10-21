@@ -430,13 +430,13 @@
 
 .wrr_btn {
     margin-right: 10px;
-    width: 120px;
-    height: 45px;
+    width: 110px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 10px;
-    font-size: 17px;
+    font-size: 16px;
     background-color: #D9D9D9;
     color: #414141;
     fill: #414141;
@@ -451,7 +451,7 @@
 }
 
 .wrr_btn svg {
-    width: 25px;
+    width: 23px;
 }
 
 .wrr_btn_color {
