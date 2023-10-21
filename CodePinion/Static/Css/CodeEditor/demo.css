@@ -361,7 +361,6 @@
 .bodyText {
     width: 100%;
     height: max-content;
-    min-height: 400px;
     border-radius: 10px;
     border: 2px solid #414141;
     display: flex;
@@ -411,7 +410,7 @@
 
 .richEdit {
     width: 98%;
-    height: 400px;
+    height: 300px;
     border-radius: 10px;
     border: 2px solid #414141;
     margin-bottom: 10px;
