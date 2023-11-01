@@ -48,21 +48,23 @@ class CodePinionEditor {
 
             if (event.key === 'Enter') {
         
-                event.preventDefault();
-        
-                // Check if any line has a class called is_focused
-                if(FocusStatus == true) {
+                if(event.target.classList.contains('editor_code_line')){
                     
-                    // Create a new line
-                    index = editor.at_focus_click() + 1;
-                    line_number = index + 1;
-                    editor.new_line(index,line_number);
+                    event.preventDefault();
         
+                    // Check if any line has a class called is_focused
+                    if(FocusStatus == true) {
+                        
+                        // Create a new line
+                        index = editor.at_focus_click() + 1;
+                        line_number = index + 1;
+                        editor.new_line(index,line_number);
+            
+                    }
+                    else{
+                        return;
+                    }
                 }
-                else{
-                    return;
-                }
-        
             }
         });
     }
