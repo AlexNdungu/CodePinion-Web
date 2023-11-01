@@ -60,8 +60,14 @@ report_bug_btn.addEventListener("click", function () {
 function review_rich_text(){
     // Get all the inner html of the bodyText
     let bodyTextHtml = bodyTextContent.innerHTML;
-    // Set the inner html of the bodyTextReview
-    bodyTextReview.innerHTML = bodyTextHtml;
+
+    if (bodyTextHtml == ""){
+        bodyTextReview.innerHTML = "No Content To Review ...";
+    }
+    else{
+        // Set the inner html of the bodyTextReview
+        bodyTextReview.innerHTML = bodyTextHtml;
+    }
     // Hide the rich text editor
     bodyText.style.display = "none";
     // Show the review rich text
