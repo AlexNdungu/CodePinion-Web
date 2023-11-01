@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cryptography.fernet import Fernet
 from fernet_fields import EncryptedTextField
+from ckeditor.fields import RichTextField
 
 
 # User Profile
@@ -91,7 +92,8 @@ class Report_Bug(models.Model):
         bug_id = models.AutoField(primary_key=True)
         # The bug details
         bug_title = models.CharField(max_length=20, verbose_name='Bug Title')
-        bug_desc = models.TextField(verbose_name='Bug Description')
+        bug_desc = RichTextField(verbose_name='Bug Description',default='Bug Description')
+        
         #Bug screenshot
         bug_screenshot = models.ImageField(upload_to='Media/Bugs', verbose_name='Bug Screenshot')
         # The bug status

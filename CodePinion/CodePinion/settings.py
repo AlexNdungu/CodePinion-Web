@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     #Apps
     'Code1',
 
+    'ckeditor',
+
     #Google Auth
     'django.contrib.sites',
     'allauth',
