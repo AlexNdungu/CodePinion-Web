@@ -61,6 +61,7 @@ function review_rich_text(){
     // Get all the inner html of the bodyText
     let bodyTextHtml = bodyTextContent.innerHTML;
 
+    // Check if the bodyTextHtml is empty
     if (bodyTextHtml == ""){
         bodyTextReview.innerHTML = "No Content To Review ...";
     }
@@ -68,6 +69,7 @@ function review_rich_text(){
         // Set the inner html of the bodyTextReview
         bodyTextReview.innerHTML = bodyTextHtml;
     }
+    
     // Hide the rich text editor
     bodyText.style.display = "none";
     // Show the review rich text
