@@ -65,7 +65,7 @@ function review_rich_text(){
     // Hide the rich text editor
     bodyText.style.display = "none";
     // Show the review rich text
-    bodyTextReview.style.display = "block";
+    bodyTextReview.style.display = "flex";
     // Remove from EditRechTextBtn class wrr_btn_color
     EditRechTextBtn.classList.remove("wrr_btn_color");
     // Add to ReviewRechTextBtn class wrr_btn_color
