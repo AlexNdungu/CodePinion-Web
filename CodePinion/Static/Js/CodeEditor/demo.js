@@ -4,6 +4,10 @@ let csrf = document.getElementsByName('csrfmiddlewaretoken');
 //Here we will give the rich text its fuctionality
 const richButtons = document.querySelectorAll('.btnOption');
 
+let EditRechTextBtn = document.getElementById('edit_rich_text');
+let ReviewRechTextBtn = document.getElementById('review_rich_text');
+
+
 // Rich text editor
 richButtons.forEach(richBtn => {
     richBtn.addEventListener('click', () => {
@@ -38,6 +42,11 @@ report_bug_btn.addEventListener("click", function () {
 
     });
 });
+
+// Review RichText
+function review_rich_text(){
+
+}
 
 //Function to report a bug
 function report_bug(screenShotImage){
