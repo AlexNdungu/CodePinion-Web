@@ -1,4 +1,5 @@
 //Get all the elements required for the demo
+let bug_title_input = document.getElementById("bug_title_input");
 let report_bug_btn = document.getElementById("report_bug_btn");
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 //Here we will give the rich text its fuctionality
@@ -14,6 +15,9 @@ let ReviewRechTextBtn = document.getElementById('review_rich_text');
 // Bug screen shot section
 let bug_shot = document.getElementById('bug_shot');
 let retake_shot = document.getElementById('retake_btn');
+
+// Discard report section
+let discard_bug_report_btns = document.getElementsByClassName('discard_bug_report');
 
 // Rich text editor
 richButtons.forEach(richBtn => {
@@ -71,6 +75,13 @@ report_bug_btn.addEventListener("click", function () {
     });
 });
 
+// Add click event to all the discard_bug_report_btns
+for (let i = 0; i < discard_bug_report_btns.length; i++) {
+    discard_bug_report_btns[i].addEventListener("click", function () {
+        discard_report();
+    });
+}
+
 // The screenshot function
 function takeScreenShot(){
     html2canvas(document.getElementById('the_editor')).then(function (canvas) {
@@ -117,6 +128,22 @@ function edit_rich_text(){
     ReviewRechTextBtn.classList.remove("wrr_btn_color");
     // Add to EditRechTextBtn class wrr_btn_color
     EditRechTextBtn.classList.add("wrr_btn_color");
+}
+
+// Discard report
+function discard_report(){
+    // set bug_title_input value to empty
+    bug_title_input.value = "";
+    // set bodyTextContent inner html to empty
+    bodyTextContent.innerHTML = "";
+    // set bodyTextReview inner html to empty
+    bodyTextReview.innerHTML = "No Content To Review ...";
+    // Remove from ReviewRechTextBtn class wrr_btn_color
+    ReviewRechTextBtn.classList.remove("wrr_btn_color");
+    // Add to EditRechTextBtn class wrr_btn_color
+    EditRechTextBtn.classList.add("wrr_btn_color");
+    // Hide the whole report bug section
+    document.getElementById("report_bug_section").style.display = "none";
 }
 
 //Function to report a bug
