@@ -124,16 +124,25 @@ def ReportBug(request):
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
     
+        # Get all the data
         screenShot = request.POST.get('screenshot')
-        print(screenShot)
+        bug_title = request.POST.get('title')
+        bug_desc = request.POST.get('body')
+        user = request.user
+        profile = models.Profile.objects.get(user = user)
+
+        # Change the screenshot to an image
         format, imgstr = screenShot.split(';base64,')
         ext = format.split('/')[-1]
         data = ContentFile(base64.b64decode(imgstr))
 
         # Save the image to the ImageField
-        # screenshot = models.Screenshot()
-        # screenshot.screenshot.save('screenshot.' + ext, data)
-        # screenshot.save()
+        bug = models.Report_Bug()
+        bug.profile = profile
+        bug.bug_title = bug_title
+        bug.bug_desc = bug_desc
+        bug.bug_screenshot.save('screenshot.' + ext, data)
+        bug.save()
 
     return JsonResponse({'status':'success'})
 
