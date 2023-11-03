@@ -2,9 +2,15 @@
 let bug_title_input = document.getElementById("bug_title_input");
 let report_bug_btn = document.getElementById("report_bug_btn");
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
-//Here we will give the rich text its fuctionality
-const richButtons = document.querySelectorAll('.btnOption');
 
+// Values to be posted
+let bug_title = null;
+let bug_body = null;
+let bug_screenshot = null;
+let report_bug_now = document.getElementById("report_bug_to_admin");
+
+// Here we will give the rich text its fuctionality
+const richButtons = document.querySelectorAll('.btnOption');
 // Rich text editor section
 let bodyText = document.getElementById('bodyText');
 let bodyTextContent = document.getElementById('richEdit');
@@ -69,10 +75,8 @@ report_bug_btn.addEventListener("click", function () {
 
     document.getElementById("report_bug_section").style.display = "flex";
     
-    const screenShotImage = takeScreenShot();
-    //call the function to report the bug
-    //report_bug(screenShotImage);
-
+    // Take the screenshot
+    takeScreenShot();
 });
 
 // Add click event to all the discard_bug_report_btns
@@ -89,7 +93,9 @@ function takeScreenShot(){
         // Append canvas to bug_shot
         bug_shot.appendChild(canvas);
 
-        return canvas.toDataURL();
+        bug_screenshot = canvas.toDataURL();
+
+        return bug_screenshot;
 
     });
 }
@@ -150,8 +156,40 @@ function discard_report(){
     document.getElementById("report_bug_section").style.display = "none";
 }
 
-//Function to report a bug
-function report_bug(screenShotImage){
+// // Function to report a bug
+// function report_bug(screenShotImage){
+
+//     //First we create form data
+//     let formData = new FormData();
+
+//     //Append the csrf token
+//     formData.append('csrfmiddlewaretoken', csrf[0].value);
+//     // Append the screenshot
+//     formData.append('screenshot', screenShotImage);
+
+//     $.ajax({
+//         type:'POST',
+//         url:'/reportBug/',
+//         data: formData,
+//         processData: false,
+//         contentType: false,
+//         success: function(response){
+//            console.log(response);
+           
+//         },
+//         error: function(error){
+            
+//         }
+//     });    
+
+// }
+
+// add event listener to report_bug_now
+report_bug_now.addEventListener("click", function () {
+
+    // Get the title and body values
+    bug_title = bug_title_input.value;
+    bug_body = bodyTextContent.innerHTML;
 
     //First we create form data
     let formData = new FormData();
@@ -159,7 +197,9 @@ function report_bug(screenShotImage){
     //Append the csrf token
     formData.append('csrfmiddlewaretoken', csrf[0].value);
     // Append the screenshot
-    formData.append('screenshot', screenShotImage);
+    formData.append('screenshot', bug_screenshot);
+    formData.append('title', bug_title);
+    formData.append('body', bug_body);
 
     $.ajax({
         type:'POST',
@@ -174,6 +214,6 @@ function report_bug(screenShotImage){
         error: function(error){
             
         }
-    });    
-
-}
+    });  
+    
+});

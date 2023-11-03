@@ -125,6 +125,7 @@ def ReportBug(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
     
         screenShot = request.POST.get('screenshot')
+        print(screenShot)
         format, imgstr = screenShot.split(';base64,')
         ext = format.split('/')[-1]
         data = ContentFile(base64.b64decode(imgstr))
