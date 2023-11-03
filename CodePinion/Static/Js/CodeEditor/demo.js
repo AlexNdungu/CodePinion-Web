@@ -49,6 +49,7 @@ richButtons.forEach(richBtn => {
     });
 });
 
+
 // Add click event to retake_shot
 retake_shot.addEventListener("click", function () {
     // check if child at index 1 exists
