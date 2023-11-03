@@ -4,12 +4,16 @@ let csrf = document.getElementsByName('csrfmiddlewaretoken');
 //Here we will give the rich text its fuctionality
 const richButtons = document.querySelectorAll('.btnOption');
 
+// Rich text editor section
 let bodyText = document.getElementById('bodyText');
 let bodyTextContent = document.getElementById('richEdit');
 let bodyTextReview = document.getElementById('bodyTextReview');
 let EditRechTextBtn = document.getElementById('edit_rich_text');
 let ReviewRechTextBtn = document.getElementById('review_rich_text');
 
+// Bug screen shot section
+let bug_shot = document.getElementById('bug_shot');
+let retake_shot = document.getElementById('retake_btn');
 
 // Rich text editor
 richButtons.forEach(richBtn => {
@@ -35,6 +39,17 @@ richButtons.forEach(richBtn => {
     });
 });
 
+// Add click event to retake_shot
+retake_shot.addEventListener("click", function () {
+    // check if child at index 1 exists
+    if (bug_shot.children[1]){
+        bug_shot.removeChild(bug_shot.children[1]);
+    }
+
+    // Call the screenshot function
+    takeScreenShot();
+});
+
 // Add click event to EditRechTextBtn
 EditRechTextBtn.addEventListener("click", function () {
     edit_rich_text();
@@ -55,6 +70,18 @@ report_bug_btn.addEventListener("click", function () {
 
     });
 });
+
+// The screenshot function
+function takeScreenShot(){
+    html2canvas(document.getElementById('the_editor')).then(function (canvas) {
+        
+        // Append canvas to bug_shot
+        bug_shot.appendChild(canvas);
+
+        return canvas.toDataURL();
+
+    });
+}
 
 // Review RichText
 function review_rich_text(){
