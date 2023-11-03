@@ -21,7 +21,7 @@ class Profile(models.Model):
     email = models.URLField(max_length = 200, verbose_name='Email')
     website = models.URLField(max_length = 200, verbose_name='Website')
 
-    profile_pic = models.ImageField(upload_to = 'Media/Profiles', verbose_name='Profile Picture')
+    profile_pic = models.ImageField(upload_to = 'Profiles', verbose_name='Profile Picture')
 
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
@@ -95,7 +95,7 @@ class Report_Bug(models.Model):
         bug_desc = RichTextField(verbose_name='Bug Description',default='Bug Description')
         
         #Bug screenshot
-        bug_screenshot = models.ImageField(upload_to='Media/Bugs', verbose_name='Bug Screenshot')
+        bug_screenshot = models.ImageField(upload_to='Bugs', verbose_name='Bug Screenshot')
         # The bug status
         bug_status = models.BooleanField(default=False, verbose_name='Bug Status')
     
