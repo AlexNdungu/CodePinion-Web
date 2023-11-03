@@ -66,13 +66,13 @@ ReviewRechTextBtn.addEventListener("click", function () {
 
 //Add event listeners
 report_bug_btn.addEventListener("click", function () {
-    html2canvas(document.getElementById('the_editor')).then(function (canvas) {
-        const screenShotImage = canvas.toDataURL();
 
-        //call the function to report the bug
-        //report_bug(screenShotImage);
+    document.getElementById("report_bug_section").style.display = "flex";
+    
+    const screenShotImage = takeScreenShot();
+    //call the function to report the bug
+    //report_bug(screenShotImage);
 
-    });
 });
 
 // Add click event to all the discard_bug_report_btns
@@ -142,6 +142,10 @@ function discard_report(){
     ReviewRechTextBtn.classList.remove("wrr_btn_color");
     // Add to EditRechTextBtn class wrr_btn_color
     EditRechTextBtn.classList.add("wrr_btn_color");
+    // discard the canvas image
+    if (bug_shot.children[1]){
+        bug_shot.removeChild(bug_shot.children[1]);
+    }
     // Hide the whole report bug section
     document.getElementById("report_bug_section").style.display = "none";
 }
