@@ -94,9 +94,8 @@ function takeScreenShot(){
 
         bug_screenshot = canvas.toDataURL();
 
-        return bug_screenshot;
-
     });
+    return bug_screenshot;
 }
 
 // Review RichText
