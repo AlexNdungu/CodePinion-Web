@@ -52,10 +52,8 @@ richButtons.forEach(richBtn => {
 
 // Add click event to retake_shot
 retake_shot.addEventListener("click", function () {
-    // check if child at index 1 exists
-    if (bug_shot.children[1]){
-        bug_shot.removeChild(bug_shot.children[1]);
-    }
+    // Remove the canvas from bug_shot
+    bug_shot.innerHTML = "";
 
     // Call the screenshot function
     takeScreenShot();
@@ -149,43 +147,15 @@ function discard_report(){
     ReviewRechTextBtn.classList.remove("wrr_btn_color");
     // Add to EditRechTextBtn class wrr_btn_color
     EditRechTextBtn.classList.add("wrr_btn_color");
-    // discard the canvas image
-    if (bug_shot.children[1]){
-        bug_shot.removeChild(bug_shot.children[1]);
-    }
+    // Remove the canvas from bug_shot
+    bug_shot.innerHTML = "";
     // Hide the whole report bug section
     document.getElementById("report_bug_section").style.display = "none";
 }
 
-// // Function to report a bug
-// function report_bug(screenShotImage){
-
-//     //First we create form data
-//     let formData = new FormData();
-
-//     //Append the csrf token
-//     formData.append('csrfmiddlewaretoken', csrf[0].value);
-//     // Append the screenshot
-//     formData.append('screenshot', screenShotImage);
-
-//     $.ajax({
-//         type:'POST',
-//         url:'/reportBug/',
-//         data: formData,
-//         processData: false,
-//         contentType: false,
-//         success: function(response){
-//            console.log(response);
-           
-//         },
-//         error: function(error){
-            
-//         }
-//     });    
-
-// }
 
 // add event listener to report_bug_now
+// Post the bug report to the server
 report_bug_now.addEventListener("click", function () {
 
     // Get the title and body values
