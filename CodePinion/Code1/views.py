@@ -13,7 +13,7 @@ from django.core.files.base import ContentFile
 from .resorce import SecureShell,Create_User_Signal
 
 
-from .mail import Welcome_Mail
+#from .mail import Welcome_Mail
 # Create your views here.
 
 # The Inherited upper Navigation Rendering Function
