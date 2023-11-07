@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-from Code1.secret import PostgreSQL_password
+from Code1.secret import PostgreSQL_password,email_password
 
 import django
 from django.utils.encoding import force_str
@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-wx8tk0+7gfn%y+cr$2#2114kpz--_3ogmj2uo1pw_3(!3ks)@q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["codepinion.com","www.codepinion.com","https://codepinion.com" ,"localhost", "127.0.0.1","192.168.100.4"]
+ALLOWED_HOSTS = ["codepinion.com","www.codepinion.com","https://codepinion.com" ,"localhost", "127.0.0.1","192.168.100.4","mail.codepinion.com"]
 
 
 SITE_ID = 1
@@ -188,5 +188,18 @@ LOGIN_REDIRECT_URL = "/dash/"
 LOGOUT_REDIRECT_URL = "/"
 
 SOCIALACCOUNT_LOGIN_ON_GET=True
-
 SOCIALACCOUNT_ADAPTER  = 'Code1.signals.RegisterAdapter'
+
+# Email Settings
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'mail.codepinion.com'
+# EMAIL_HOST_USER = 'test@codepinion.com'
+# EMAIL_HOST_PASSWORD = email_password
+# EMAIL_PORT = 26
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '98862778f9477c'
+EMAIL_HOST_PASSWORD = email_password
+EMAIL_PORT = '2525'

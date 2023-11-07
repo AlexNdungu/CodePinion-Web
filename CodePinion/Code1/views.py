@@ -12,6 +12,8 @@ from django.core.files.base import ContentFile
 # from . import resorce
 from .resorce import SecureShell,Create_User_Signal
 
+
+from .mail import Welcome_Mail
 # Create your views here.
 
 # The Inherited upper Navigation Rendering Function
@@ -215,4 +217,12 @@ def cdIntoDir(request):
 def CreateSafe(request):
     return render(request, 'Main/create_safe.html')     
 
-    
+# Test Mail Function
+def TestMail(request):
+
+    # Welcome_Mail(
+    #         'Alex',
+    #         'alexmeta64@gmail.com',
+    #           )
+
+    return render(request, 'Mail/welcome.html')
