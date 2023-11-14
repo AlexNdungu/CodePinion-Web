@@ -232,7 +232,8 @@
                         </tr>
 
                         <!--The body-->
-                        <!--Table data raw-->
+
+                        <!--The skeleton-->
                         <tr id="skeleton_loader_dummy">
                             <!--Bug id-->
                             <td><div class="skele_id skeleton_animation"></div></td>
@@ -264,6 +265,7 @@
                             
                         </tr>
 
+                        <!--Table data raw-->
                         <tr>
                             <!--Bug id-->
                             <td>1</td>
@@ -316,6 +318,7 @@
                         <!--Create 10 loading paceholders-->
                         <script>
                             
+                            // Get the skeleton dummy and the tab;e
                             let view_bugs_table = document.getElementById('view_bugs_table');
                             let skeleton_loader_dummy = document.getElementById('skeleton_loader_dummy');
 
@@ -325,7 +328,6 @@
                             }
 
                         </script>
-                        
                         
                     </table>
                     
@@ -652,7 +654,7 @@
                     <p>Pending</p>
 
                     <div class="bug_nums">
-                        <span>10</span>
+                        <span>{{pending_bugs_count}}</span>
                     </div>
 
                 </div>
@@ -664,7 +666,7 @@
                     <p>Fixed</p>
 
                     <div class="bug_nums">
-                        <span>10</span>
+                        <span>{{resolved_bugs_count}}</span>
                     </div>
 
                 </div>

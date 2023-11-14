@@ -122,9 +122,15 @@ def CodeEditor(request):
 
     # Get all bugs with status False 'Pending'
     pending_bugs_count = models.Report_Bug.objects.filter(bug_status = False).count()
-    print(pending_bugs_count)
+    # Get all bugs with status True 'Resolved'
+    resolved_bugs_count = models.Report_Bug.objects.filter(bug_status = True).count()
+    
+    data_dict = {
+        'pending_bugs_count':pending_bugs_count,
+        'resolved_bugs_count':resolved_bugs_count,
+    }
 
-    return render(request, 'Main/Editor.html')
+    return render(request, 'Main/Editor.html', data_dict)
 
 # Report Bug
 def ReportBug(request):
