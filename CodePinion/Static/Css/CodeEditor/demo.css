@@ -373,8 +373,7 @@ table {
 }
 
 td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
+    text-align: start;
     padding: 8px;
 }
 
@@ -394,7 +393,7 @@ tr:hover {
 }
 
 /* Inside the view bug table */
-.bug_owner_image_name {
+.bug_owner_image_name,.access_edit_bug_details {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -457,6 +456,10 @@ tr:hover {
     cursor: pointer;
 }
 
+.access_edit_btn:nth-child(1){
+    margin-right: 10px;
+}
+
 .access_edit_btn:hover {
     background-color: #406CEE;
     fill: #D9D9D9;
@@ -465,6 +468,8 @@ tr:hover {
 .access_edit_btn svg {
     width: 20px;
 }
+
+
 
 /* The Demo Navigation */
 .demo_navigation {
