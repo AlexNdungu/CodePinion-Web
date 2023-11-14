@@ -12,9 +12,10 @@
     border-radius: 10px;
     padding: 10px;
     width: max-content;
-    display: flex;
+    display: none; /* Flex to change pop ups */
     align-items: center;
     justify-content: space-between;
+    color: #414141;
 }
 
 .message_popup span {
@@ -37,6 +38,7 @@
     fill: #F3F3F3;
 } 
 
+/* Success */
 #message_popup_success {
     background-color: #CFE8D3;
     border: 1px solid #2CA631;
@@ -44,6 +46,16 @@
 
 #message_popup_success .message_pop_icon {
     background-color: #2CA631;
+}
+
+/* Failed */
+#message_popup_failed {
+    background-color: #FAEEEB;
+    border: 1px solid #C53B3B;
+}
+
+#message_popup_failed .message_pop_icon {
+    background-color: #C53B3B;
 }
 
 /* The intro body */

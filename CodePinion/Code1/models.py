@@ -91,7 +91,7 @@ class Report_Bug(models.Model):
         #Bug id
         bug_id = models.AutoField(primary_key=True)
         # The bug details
-        bug_title = models.CharField(max_length=20, verbose_name='Bug Title')
+        bug_title = models.TextField(verbose_name='Bug Title',default='Bug Title')
         bug_desc = RichTextField(verbose_name='Bug Description',default='Bug Description')
         
         #Bug screenshot

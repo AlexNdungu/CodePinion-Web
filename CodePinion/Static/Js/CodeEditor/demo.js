@@ -24,9 +24,17 @@ let retake_shot = document.getElementById('retake_btn');
 
 // Discard report section
 let discard_bug_report_btns = document.getElementsByClassName('discard_bug_report');
+// Pop ups
+let success_pop = document.getElementById('message_popup_success');
+let success_pop_msg = document.getElementById('success_message_popup');
+let fail_pop = document.getElementById('message_popup_failed');
+let fail_pop_msg = document.getElementById('failed_message_popup');
 
 // Display all the bugs
 let bug_min_menu_btns = document.getElementsByClassName('bug_min_menu');
+let pending_bug_number_on_btn = document.getElementById('pending_bug_number_on_btn');
+let fixed_bug_number_on_btn = document.getElementById('fixed_bug_number_on_btn');
+
 
 // Rich text editor
 richButtons.forEach(richBtn => {
@@ -188,10 +196,30 @@ report_bug_now.addEventListener("click", function () {
         processData: false,
         contentType: false,
         success: function(response){
-           console.log(response);
+            
+            // Display the success pop up
+            success_pop.style.display = "flex";
+            success_pop_msg.innerHTML = "Bug Reported Successfully";
+            // Add 1 to the number of bugs reported
+            pending_bug_number_on_btn.innerHTML = Number(pending_bug_number_on_btn.innerHTML) + 1;
+            
+            // Hide the whole report bug section and the pop up after 2 seconds
+            setTimeout(function(){
+                success_pop.style.display = "none";
+                document.getElementById("report_bug_section").style.display = "none";
+            }, 2000);
            
         },
         error: function(error){
+
+            // Display the fail pop up
+            fail_pop.style.display = "flex";
+            fail_pop_msg.innerHTML = "Failed To Report Bug";
+            // Hide the whole report bug section and the pop up after 2 seconds
+            setTimeout(function(){
+                fail_pop.style.display = "none";
+                document.getElementById("report_bug_section").style.display = "none";
+            }, 2000);
             
         }
     });  
