@@ -31,9 +31,11 @@ let fail_pop = document.getElementById('message_popup_failed');
 let fail_pop_msg = document.getElementById('failed_message_popup');
 
 // Display all the bugs
+let see_all_bugs_section = document.getElementById('see_all_bugs_section');
 let bug_min_menu_btns = document.getElementsByClassName('bug_min_menu');
 let pending_bug_number_on_btn = document.getElementById('pending_bug_number_on_btn');
 let fixed_bug_number_on_btn = document.getElementById('fixed_bug_number_on_btn');
+let view_status_section = document.getElementById('view_status_section');
 
 
 // Rich text editor
@@ -99,7 +101,8 @@ for (let i = 0; i < discard_bug_report_btns.length; i++) {
 for (let i = 0; i < bug_min_menu_btns.length; i++) {
     bug_min_menu_btns[i].addEventListener("click", function () {
 
-        console.log(bug_min_menu_btns[i].id);
+        // Call the display bugs function
+        display_bugs(bug_min_menu_btns[i].id);
 
     })
 }
@@ -171,6 +174,33 @@ function discard_report(){
     document.getElementById("report_bug_section").style.display = "none";
 }
 
+// Display bugs
+function display_bugs(status){
+
+    let status_is = status.split("-");
+    let firstWord_status = status_is[0];
+
+    // Display flex the see_all_bugs_section
+    see_all_bugs_section.style.display = "flex";
+
+    // Check status
+    if(firstWord_status == "pending"){
+
+        // Change theme according to status
+        view_status_section.classList.remove("view_status_fixed");
+        view_status_section.classList.add("view_status_pending");
+        
+    }
+    else if(firstWord_status == "fixed"){
+
+        // Change theme according to status
+        view_status_section.classList.remove("view_status_pending");
+        view_status_section.classList.add("view_status_fixed");        
+
+    }
+
+}
+
 // add event listener to report_bug_now
 // Post the bug report to the server
 report_bug_now.addEventListener("click", function () {
@@ -199,7 +229,8 @@ report_bug_now.addEventListener("click", function () {
             
             // Display the success pop up
             success_pop.style.display = "flex";
-            success_pop_msg.innerHTML = "Bug Reported Successfully";
+            success_pop_msg.innerHTML = "Bug Reported Successfully!";
+
             // Add 1 to the number of bugs reported
             pending_bug_number_on_btn.innerHTML = Number(pending_bug_number_on_btn.innerHTML) + 1;
             
@@ -214,7 +245,8 @@ report_bug_now.addEventListener("click", function () {
 
             // Display the fail pop up
             fail_pop.style.display = "flex";
-            fail_pop_msg.innerHTML = "Failed To Report Bug";
+            fail_pop_msg.innerHTML = "Failed To Report Bug! Please try again, and if the issue persists, contact our support team.";
+
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
                 fail_pop.style.display = "none";

@@ -385,6 +385,11 @@
     fill: #C53B3B;
 }
 
+.view_status_fixed {
+    color: #2CA631;
+    fill: #2CA631;
+}
+
 .view_status_section svg {
     width: 26px;
 }
