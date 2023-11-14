@@ -8,6 +8,6 @@
 - That allows you to **edit and run your code** without having to download it locally, provided that the project’s **requirements** are already installed.
 - In the future, an **AI assistant** will be implemented to make the work of programmers even easier.
 
-> **_NOTE:_**  **codepinion.com** is still in development and may take a few seconds to load. Please be patient.
+> **_NOTE:_**  **CodePinion** is still in development and may take a few seconds to load. Please be patient.
 
 ---
