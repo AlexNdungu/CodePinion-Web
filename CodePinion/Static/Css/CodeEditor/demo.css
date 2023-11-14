@@ -411,7 +411,7 @@ tr:hover {
 
 /* User without profile image and admin */
 .bug_owner_noimage,.bug_owner_admin {
-    display: none;
+    display: none; /* Dispay the user witout image and admin */
     align-items: center;
     justify-content: center;
     fill: #F3F3F3;
@@ -440,6 +440,30 @@ tr:hover {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+}
+
+/* Edit and access bug details */
+
+.access_edit_btn {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    background-color: #414141;
+    fill: #F3F3F3;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.access_edit_btn:hover {
+    background-color: #406CEE;
+    fill: #D9D9D9;
+}
+
+.access_edit_btn svg {
+    width: 20px;
 }
 
 /* The Demo Navigation */
