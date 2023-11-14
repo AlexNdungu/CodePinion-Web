@@ -504,6 +504,88 @@ tr:hover {
     padding: 10px;
 }
 
+/* Details */
+.one_details_user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.one_detail_status {
+    height: 40px;
+    width: max-content;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 10px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+.one_detail_status_pending {
+    color: #C53B3B;
+    fill: #C53B3B;
+}
+
+.one_detail_status span {
+    font-size: 17px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.one_detail_status svg {
+    width: 26px;
+}
+
+.one_detail_userimage,.one_detail_user_noimage,.one_detail_admin {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #414141;
+    color: #F3F3F3;
+    fill: #F3F3F3;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.one_detail_userimage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.one_detail_user_noimage,.one_detail_admin {
+    display: none;
+}
+
+.one_detail_user_noimage:hover,.one_detail_admin:hover {
+    background-color: #406CEE;
+    color: #D9D9D9;
+    fill: #D9D9D9;
+}
+
+.one_detail_user_noimage span {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.one_detail_admin svg {
+    width: 25px;
+}
+
+.one_detail_date {
+    font-size: 16px;
+    font-weight: 500;
+    color: #414141;
+}
+
 /* Close one view details */
 .one_details_close {
     width: 40px;
