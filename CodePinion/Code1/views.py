@@ -119,6 +119,9 @@ def Safes(request):
 # Code Editor Rendering Function
 @login_required
 def CodeEditor(request):
+
+    
+
     return render(request, 'Main/Editor.html')
 
 # Report Bug
@@ -218,11 +221,11 @@ def CreateSafe(request):
     return render(request, 'Main/create_safe.html')     
 
 # Test Mail Function
-def TestMail(request):
+# def TestMail(request):
 
-    # Welcome_Mail(
-    #         'Alex',
-    #         'alexmeta64@gmail.com',
-    #           )
+#     # Welcome_Mail(
+#     #         'Alex',
+#     #         'alexmeta64@gmail.com',
+#     #           )
 
-    return render(request, 'Mail/welcome.html')
+#     return render(request, 'Mail/welcome.html')
