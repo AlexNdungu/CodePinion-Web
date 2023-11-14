@@ -27,6 +27,9 @@ urlpatterns = [
     # Code Editor Url
     path('codeEditor/', views.CodeEditor, name='code_editor'),
 
+    # Fetch the bugs
+    path('fetchBugs/', views.FetchBugs, name='fetch_bugs'),
+
     # Report bug Url
     path('reportBug/', views.ReportBug, name='report_bug'),
 

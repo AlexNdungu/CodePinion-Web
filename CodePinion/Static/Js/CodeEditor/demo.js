@@ -191,7 +191,6 @@ function display_bugs(status){
         // Change theme according to status
         view_status_section.classList.remove("view_status_fixed");
         view_status_section.classList.add("view_status_pending");
-        
     }
     else if(firstWord_status == "fixed"){
 
@@ -199,9 +198,39 @@ function display_bugs(status){
         // Change theme according to status
         view_status_section.classList.remove("view_status_pending");
         view_status_section.classList.add("view_status_fixed");        
-
     }
 
+    // Fetch bugs
+    fetch_bugs(firstWord_status);
+
+}
+
+// Fetch bugs 
+function fetch_bugs(status){
+    
+    // First we create form data
+    let formData = new FormData();
+
+    //Append the csrf token
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
+    formData.append('bug_status', status);
+    // formData.append('filter_applied', None);
+
+    $.ajax({
+        type:'POST',
+        url:'/fetchBugs/',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+           console.log(response);
+        },
+        error: function(error){
+
+        }
+    });  
+    
+    
 }
 
 // add event listener to report_bug_now
@@ -212,10 +241,10 @@ report_bug_now.addEventListener("click", function () {
     bug_title = bug_title_input.value;
     bug_body = bodyTextContent.innerHTML;
 
-    //First we create form data
+    // First we create form data
     let formData = new FormData();
 
-    //Append the csrf token
+    // Append the csrf token
     formData.append('csrfmiddlewaretoken', csrf[0].value);
     // Append the screenshot
     formData.append('screenshot', bug_screenshot);

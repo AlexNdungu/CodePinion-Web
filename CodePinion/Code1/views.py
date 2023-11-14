@@ -130,6 +130,13 @@ def CodeEditor(request):
 
     return render(request, 'Main/Editor.html', data_dict)
 
+# Fetch the bugs
+def FetchBugs(request):
+    
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        return JsonResponse({'status':'success'})
+
 # Report Bug
 def ReportBug(request):
 
