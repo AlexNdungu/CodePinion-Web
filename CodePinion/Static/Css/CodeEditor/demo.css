@@ -511,6 +511,24 @@ tr:hover {
     justify-content: center;
 }
 
+.one_detail_id {
+    height: 40px;
+    width: max-content;
+    min-width: 40px;
+    margin-right: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #414141;
+    color: #F3F3F3;
+}
+
+.one_detail_id span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
 .one_detail_status {
     height: 40px;
     width: max-content;
