@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-from Code1.secret import PostgreSQL_password,email_password
+from Code1.secret import PostgreSQL_password,email_password,secure_django_key
 
 import django
 from django.utils.encoding import force_str
@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-wx8tk0+7gfn%y+cr$2#2114kpz--_3ogmj2uo1pw_3(!3ks)@q'
+SECRET_KEY = secure_django_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
