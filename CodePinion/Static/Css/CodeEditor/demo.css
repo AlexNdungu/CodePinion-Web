@@ -3,6 +3,50 @@
     position: relative;
 }
 
+.message_popup {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message_popup span {
+    font-size: 17px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.message_pop_icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message_pop_icon svg {
+    width: 20px;
+    fill: #F3F3F3;
+} 
+
+#message_popup_success {
+    background-color: #CFE8D3;
+    border: 1px solid #2CA631;
+}
+
+#message_popup_success .message_pop_icon {
+    background-color: #2CA631;
+}
+
+/* The intro body */
 .demo_intro_body {
     font-family: 'Roboto', sans-serif;
     width: 100%;

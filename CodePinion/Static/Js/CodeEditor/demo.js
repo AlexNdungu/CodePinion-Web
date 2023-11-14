@@ -25,6 +25,9 @@ let retake_shot = document.getElementById('retake_btn');
 // Discard report section
 let discard_bug_report_btns = document.getElementsByClassName('discard_bug_report');
 
+// Display all the bugs
+let bug_min_menu_btns = document.getElementsByClassName('bug_min_menu');
+
 // Rich text editor
 richButtons.forEach(richBtn => {
     richBtn.addEventListener('click', () => {
@@ -48,7 +51,6 @@ richButtons.forEach(richBtn => {
 
     });
 });
-
 
 // Add click event to retake_shot
 retake_shot.addEventListener("click", function () {
@@ -85,6 +87,15 @@ for (let i = 0; i < discard_bug_report_btns.length; i++) {
     });
 }
 
+// Add event listiner to view all bugs button
+for (let i = 0; i < bug_min_menu_btns.length; i++) {
+    bug_min_menu_btns[i].addEventListener("click", function () {
+
+        console.log(bug_min_menu_btns[i].id);
+
+    })
+}
+        
 // The screenshot function
 function takeScreenShot(){
     html2canvas(document.getElementById('the_editor')).then(function (canvas) {
@@ -151,7 +162,6 @@ function discard_report(){
     // Hide the whole report bug section
     document.getElementById("report_bug_section").style.display = "none";
 }
-
 
 // add event listener to report_bug_now
 // Post the bug report to the server

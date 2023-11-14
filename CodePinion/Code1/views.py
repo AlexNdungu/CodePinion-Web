@@ -120,9 +120,7 @@ def Safes(request):
 @login_required
 def CodeEditor(request):
 
-    # Get all bugs with status False 'Pending'
     pending_bugs_count = models.Report_Bug.objects.filter(bug_status = False).count()
-    # Get all bugs with status True 'Resolved'
     resolved_bugs_count = models.Report_Bug.objects.filter(bug_status = True).count()
     
     data_dict = {
