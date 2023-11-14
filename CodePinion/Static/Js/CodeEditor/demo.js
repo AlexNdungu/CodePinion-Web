@@ -36,6 +36,7 @@ let bug_min_menu_btns = document.getElementsByClassName('bug_min_menu');
 let pending_bug_number_on_btn = document.getElementById('pending_bug_number_on_btn');
 let fixed_bug_number_on_btn = document.getElementById('fixed_bug_number_on_btn');
 let view_status_section = document.getElementById('view_status_section');
+let show_which_status_in_view_bugs = document.getElementById('show_which_status_in_view_bugs');
 
 
 // Rich text editor
@@ -186,6 +187,7 @@ function display_bugs(status){
     // Check status
     if(firstWord_status == "pending"){
 
+        show_which_status_in_view_bugs.innerHTML = "Pending";
         // Change theme according to status
         view_status_section.classList.remove("view_status_fixed");
         view_status_section.classList.add("view_status_pending");
@@ -193,6 +195,7 @@ function display_bugs(status){
     }
     else if(firstWord_status == "fixed"){
 
+        show_which_status_in_view_bugs.innerHTML = "Fixed";
         // Change theme according to status
         view_status_section.classList.remove("view_status_pending");
         view_status_section.classList.add("view_status_fixed");        
