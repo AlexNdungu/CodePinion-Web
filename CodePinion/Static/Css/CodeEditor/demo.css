@@ -1042,6 +1042,11 @@ tr:hover {
     overflow: hidden;
 }
 
+/* Image from view bug */
+.canvas_content img {
+    width: 90%;
+}
+
 .retake_screenshot_section {
     position: absolute;
     width: 100%;

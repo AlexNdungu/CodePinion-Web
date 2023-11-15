@@ -518,7 +518,7 @@ function prep_report_bug_section_for_edit(bug_id){
         error: function(error){
             // Display the fail pop up
             fail_pop.style.display = "flex";
-            fail_pop_msg.innerHTML = "Failed To Get Bug! Please try again, and if the issue persists, contact our support team.";
+            fail_pop_msg.innerHTML = "Failed To Ferch Bug! Please try again, and if the issue persists, contact our support team.";
 
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
