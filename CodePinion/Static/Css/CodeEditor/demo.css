@@ -596,6 +596,7 @@ tr:hover {
 
 .access_edit_btn svg {
     width: 20px;
+    pointer-events: none;
 }
 
 

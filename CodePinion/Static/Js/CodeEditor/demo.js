@@ -86,11 +86,8 @@ ReviewRechTextBtn.addEventListener("click", function () {
 
 //Add event listeners
 report_bug_btn.addEventListener("click", function () {
-
-    document.getElementById("report_bug_section").style.display = "flex";
-    
-    // Take the screenshot
-    takeScreenShot();
+    // call use_report_bug_section
+    use_report_bug_section('post',null);
 });
 
 // Add click event to close_bug_view_btn
@@ -114,9 +111,29 @@ for (let i = 0; i < bug_min_menu_btns.length; i++) {
 
     })
 }
+
+// use report_bug_section function
+function use_report_bug_section(activity,bug_id){
+
+    // Show the whole report bug section
+    document.getElementById("report_bug_section").style.display = "flex";
+
+    if(activity == 'post'){
+        // Take the screenshot
+        takeScreenShot();
+    }
+    else if(activity == 'edit'){
+        prep_report_bug_section_for_edit(bug_id)
+    }
+
+}
         
 // The screenshot function
 function takeScreenShot(){
+
+    // show retake screenshot button
+    retake_shot.style.display = "flex";
+    
     html2canvas(document.getElementById('the_editor')).then(function (canvas) {
         
         // Append canvas to bug_shot
@@ -325,7 +342,7 @@ function fetch_bugs(status){
                     let bugBody = `
                         <tr>
                             <!--Bug id-->
-                            <td>${bugs[oneBug].bug_id}</td>
+                            <td class="view_bug_id" >${bugs[oneBug].bug_id}</td>
                             <!--Bug titkle-->
                             <td>${bugs[oneBug].bug_title.length > 25 ? `${bugs[oneBug].bug_title.slice(0,25)}...`:`${bugs[oneBug].bug_title}`}</td>
                             <!--The owner of the bug-->
@@ -382,13 +399,13 @@ function fetch_bugs(status){
                             <td>
                                 <!--View-->
                                 <div class="access_edit_bug_details">
-                                    <div class="access_edit_btn">
+                                    <div class="access_edit_btn access_edit_btn_View">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"/></svg>
                                     </div>
                                     ${bugs[oneBug].bug_reporter_is_current_user ? 
                                         `
                                         <!--Edit-->
-                                        <div class="access_edit_btn">
+                                        <div class="access_edit_btn access_edit_btn_Edit">
                                             <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z" fill-rule="nonzero"/></svg>
                                         </div>` : ''
                                     }
@@ -404,6 +421,9 @@ function fetch_bugs(status){
                     $("#bug_table_body").append(bugBody);
 
                 }
+
+                // call click edit on list function
+                click_edit_on_list();
 
             }
             else{
@@ -442,6 +462,41 @@ function fetch_bugs(status){
     });  
     
     
+}
+
+// Edit button from the list
+function click_edit_on_list(){
+
+    let view_bug_ids = document.getElementsByClassName("view_bug_id");
+    let access_edit_bug_details = document.getElementsByClassName("access_edit_bug_details");
+    let to_act_id = null;
+
+    // add event listener to access_edit_bug_details
+    for (let i = 0; i < access_edit_bug_details.length; i++) {
+        access_edit_bug_details[i].addEventListener("click", function (event) {
+
+            // The bug id
+            to_act_id = view_bug_ids[i].innerHTML;
+
+            if(event.target.classList.contains("access_edit_btn_Edit")){
+                // Hide the retake_shot button
+                retake_shot.style.display = "none";
+                // call use_report_bug_section
+                use_report_bug_section('edit',to_act_id);
+            }
+            else if(event.target.classList.contains("access_edit_btn_View")){
+                console.log("View");
+            }
+
+        });
+    }
+
+
+}
+
+// Prep the report_bug_section section for edit function
+function prep_report_bug_section_for_edit(bug_id){
+    console.log(bug_id);
 }
 
 // add event listener to report_bug_now
