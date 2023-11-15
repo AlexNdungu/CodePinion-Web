@@ -182,6 +182,53 @@ function discard_report(){
     document.getElementById("report_bug_section").style.display = "none";
 }
 
+// Create the row dummies
+function create_row_dummies(){
+    // Get the skeleton dummy and the tab;e
+    let row_dummy = 
+    `
+        <tr id="skeleton_loader_dummy">
+            <!--Bug id-->
+            <td><div class="skele_id skeleton_animation"></div></td>
+            <!--Bug titkle-->
+            <td><div class="skele_title skeleton_animation"></td>
+            <!--The owner of the bug-->
+            <td>
+                <div class="bug_owner_image_name">
+
+                    <div class="skeleton_user_image skeleton_animation"></div>
+                    <div class="skeleton_user_name skeleton_animation"></div>
+                    
+                </div>
+            </td>
+            <!--Date-->
+            <td><div class="skele_date skeleton_animation"></td>
+            <!--Bug  buttons-->
+            <td>
+                <!--View-->
+                <div class="access_edit_bug_details">
+                    <div class="skele_access_edit_btn skeleton_animation">
+                    </div>
+                    <!--Edit-->
+                    <div class="skele_access_edit_btn skeleton_animation">
+                    </div>
+                </div>
+                
+            </td>
+            
+        </tr>
+    `
+
+    $('#bug_table_body').empty();
+
+    // Create 9 skeleton loaders and append them to the table
+    for (let i = 0; i < 10; i++) {
+        // append the row dummy
+        $('#bug_table_body').append(row_dummy);
+    }
+}
+create_row_dummies();
+
 // Function close the report bug section
 function close_display_bugs() {
 
@@ -189,7 +236,8 @@ function close_display_bugs() {
     $('#view_bugs_table').empty();
     let tableHeading = 
     `
-        <!--The heading-->
+    <!--The heading-->
+    <thead>
         <tr>
             <th>Bug ID</th>
             <th>Title</th>
@@ -197,11 +245,19 @@ function close_display_bugs() {
             <th>Date</th>
             <th>&nbsp;</th>
         </tr>
+    </thead>
+
+    <!--The body-->
+    <tbody id="bug_table_body">
+    </tbody>
     `
     $("#view_bugs_table").append(tableHeading);
 
     // Display none the see_all_bugs_section
     see_all_bugs_section.style.display = "None";
+
+    // Call the dummy function
+    create_row_dummies();
 }
 
 // Display bugs
@@ -262,7 +318,7 @@ function fetch_bugs(status){
             if(bugs.length > 0){
 
                 // Empty the table
-                $('#view_bugs_table tr:not(:first)').remove();
+                $('#bug_table_body').empty();
 
                 for(let oneBug = 0; oneBug < bugs.length; oneBug++){
                     
@@ -345,7 +401,7 @@ function fetch_bugs(status){
 
                     `;
                     // Append the bugBody to the table
-                    $("#view_bugs_table").append(bugBody);
+                    $("#bug_table_body").append(bugBody);
 
                 }
 
