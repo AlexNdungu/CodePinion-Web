@@ -135,6 +135,10 @@ def FetchBugs(request):
     
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
 
+        fetched_bug_status = request.POST.get('bug_status')
+
+        print(fetched_bug_status)
+
         return JsonResponse({'status':'success'})
 
 # Report Bug
