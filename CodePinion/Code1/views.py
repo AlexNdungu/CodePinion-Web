@@ -156,6 +156,14 @@ def FetchBugs(request):
         # Add the bugs to the list
         for bug in all_bugs:
 
+            # Check if current user is same as the bug reporter
+            bug_reporter_is_current_user = False
+            if bug.profile.user == request.user:
+                bug_reporter_is_current_user = True
+            else:
+                bug_reporter_is_current_user = False
+
+
             # get the user profile picture
             bug_reporter_profile_picture = bug.profile.profile_pic
             bug_reporter_prof_pic = ''
@@ -170,9 +178,10 @@ def FetchBugs(request):
                 'bug_title':bug.bug_title,
                 'bug_screenshot':bug.bug_screenshot.url,
                 'bug_status':bug.bug_status,
-                'bug_reporter':bug.profile.user.username,
+                'bug_reporter':bug.profile.full_name,
                 'bug_reporter_prof_pic':bug_reporter_prof_pic,
                 'bug_reporter_is_superuser':bug.profile.user.is_superuser,
+                'bug_reporter_is_current_user':bug_reporter_is_current_user,
                 # 'bug_desc':bug.bug_desc,
                 # 'bug_reporter_email':bug.profile.user.email,
             }
