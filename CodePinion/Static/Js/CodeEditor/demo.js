@@ -244,7 +244,7 @@ function fetch_bugs(status){
                             <!--Bug id-->
                             <td>${bugs[oneBug].bug_id}</td>
                             <!--Bug titkle-->
-                            <td>${bugs[oneBug].bug_title.length > 20 ? `${bugs[oneBug].bug_title.slice(0,20)}...`:`${bugs[oneBug].bug_title}`}</td>
+                            <td>${bugs[oneBug].bug_title.length > 25 ? `${bugs[oneBug].bug_title.slice(0,25)}...`:`${bugs[oneBug].bug_title}`}</td>
                             <!--The owner of the bug-->
                             <td>
                                 <div class="bug_owner_image_name">
