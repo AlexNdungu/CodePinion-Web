@@ -38,6 +38,7 @@ let fixed_bug_number_on_btn = document.getElementById('fixed_bug_number_on_btn')
 let view_status_section = document.getElementById('view_status_section');
 let show_which_status_in_view_bugs = document.getElementById('show_which_status_in_view_bugs');
 let requested_bug_count = document.getElementById('requested_bug_count');
+let close_bug_view_btn = document.getElementById('close_bug_view_btn');
 
 
 // Rich text editor
@@ -90,6 +91,11 @@ report_bug_btn.addEventListener("click", function () {
     
     // Take the screenshot
     takeScreenShot();
+});
+
+// Add click event to close_bug_view_btn
+close_bug_view_btn.addEventListener("click", function () {
+    close_display_bugs();
 });
 
 // Add click event to all the discard_bug_report_btns
@@ -176,6 +182,28 @@ function discard_report(){
     document.getElementById("report_bug_section").style.display = "none";
 }
 
+// Function close the report bug section
+function close_display_bugs() {
+
+    // Empty the table and append the heading
+    $('#view_bugs_table').empty();
+    let tableHeading = 
+    `
+        <!--The heading-->
+        <tr>
+            <th>Bug ID</th>
+            <th>Title</th>
+            <th>User</th>
+            <th>Date</th>
+            <th>&nbsp;</th>
+        </tr>
+    `
+    $("#view_bugs_table").append(tableHeading);
+
+    // Display none the see_all_bugs_section
+    see_all_bugs_section.style.display = "None";
+}
+
 // Display bugs
 function display_bugs(status){
 
@@ -224,8 +252,6 @@ function fetch_bugs(status){
         processData: false,
         contentType: false,
         success: function(response){
-
-            console.log(response.bugs);
 
             // Set requested_bug_count to response.bug_count
             requested_bug_count.innerHTML = response.bug_count;
@@ -343,6 +369,18 @@ function fetch_bugs(status){
 
         },
         error: function(error){
+
+            // call the close_display_bugs function
+            close_display_bugs();
+
+            // Display the fail pop up
+            fail_pop.style.display = "flex";
+            fail_pop_msg.innerHTML = "Failed To Fetch Bugs! Please refresh the page try again, and if the issue persists, contact our support team.";
+
+            // Hide the whole report bug section and the pop up after 2 seconds
+            setTimeout(function(){
+                fail_pop.style.display = "none";
+            }, 2000);
 
         }
     });  
