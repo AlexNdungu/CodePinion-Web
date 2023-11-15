@@ -224,7 +224,7 @@ function fetch_bugs(status){
         processData: false,
         contentType: false,
         success: function(response){
-            console.log(response.bug_count);
+            console.log(response.bugs);
 
             // Set requested_bug_count to response.bug_count
             requested_bug_count.innerHTML = response.bug_count;

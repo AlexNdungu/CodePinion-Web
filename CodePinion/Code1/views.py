@@ -136,16 +136,50 @@ def FetchBugs(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
 
         fetched_bug_status = request.POST.get('bug_status')
-
+        # all bugs
+        all_bugs = None
+        # The number of bugs to be fetched
         requested_bug_count = 0
+        # List of all the requested bugs
+        requested_bugs_list = []
 
+        # Update the bugs depending on the status
         if fetched_bug_status == 'pending':
             requested_bug_count = models.Report_Bug.objects.filter(bug_status = False).count()
+            all_bugs = models.Report_Bug.objects.filter(bug_status = False).order_by('-update')
+
         elif fetched_bug_status == 'fixed':
             requested_bug_count = models.Report_Bug.objects.filter(bug_status = True).count()
+            all_bugs = models.Report_Bug.objects.filter(bug_status = True).order_by('-update')
 
 
-        return JsonResponse({'status':'success','bug_count':requested_bug_count})
+        # Add the bugs to the list
+        for bug in all_bugs:
+
+            # get the user profile picture
+            bug_reporter_profile_picture = bug.profile.profile_pic
+            bug_reporter_prof_pic = ''
+
+            if bug_reporter_profile_picture == '':
+                bug_reporter_prof_pic = 'False'
+            else:
+                bug_reporter_prof_pic = bug_reporter_profile_picture.url
+
+            bug_dict = {
+                'bug_id':bug.bug_id,
+                'bug_title':bug.bug_title,
+                'bug_screenshot':bug.bug_screenshot.url,
+                'bug_status':bug.bug_status,
+                'bug_reporter':bug.profile.user.username,
+                'bug_reporter_prof_pic':bug_reporter_prof_pic,
+                'bug_reporter_is_superuser':bug.profile.user.is_superuser,
+                # 'bug_desc':bug.bug_desc,
+                # 'bug_reporter_email':bug.profile.user.email,
+            }
+
+            requested_bugs_list.append(bug_dict)
+
+        return JsonResponse({'status':'success','bug_count':requested_bug_count,'bugs':requested_bugs_list})
 
 # Report Bug
 def ReportBug(request):
