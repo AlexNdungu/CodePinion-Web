@@ -30,6 +30,9 @@ urlpatterns = [
     # Fetch the bugs
     path('fetchBugs/', views.FetchBugs, name='fetch_bugs'),
 
+    # Fetch a single bug
+    path('fetchABug/', views.FetchSingleBug, name='fetch_bug'),
+
     # Report bug Url
     path('reportBug/', views.ReportBug, name='report_bug'),
 

@@ -69,7 +69,6 @@ richButtons.forEach(richBtn => {
 retake_shot.addEventListener("click", function () {
     // Remove the canvas from bug_shot
     bug_shot.innerHTML = "";
-
     // Call the screenshot function
     takeScreenShot();
 });
@@ -138,7 +137,6 @@ function takeScreenShot(){
         
         // Append canvas to bug_shot
         bug_shot.appendChild(canvas);
-
         bug_screenshot = canvas.toDataURL();
 
     });
@@ -479,8 +477,6 @@ function click_edit_on_list(){
             to_act_id = view_bug_ids[i].innerHTML;
 
             if(event.target.classList.contains("access_edit_btn_Edit")){
-                // Hide the retake_shot button
-                retake_shot.style.display = "none";
                 // call use_report_bug_section
                 use_report_bug_section('edit',to_act_id);
             }
@@ -496,7 +492,60 @@ function click_edit_on_list(){
 
 // Prep the report_bug_section section for edit function
 function prep_report_bug_section_for_edit(bug_id){
-    console.log(bug_id);
+    // Hide the retake_shot button
+    retake_shot.style.display = "none";
+
+    // First we create form data
+    let formData = new FormData();
+
+    // Append the csrf token
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
+    // Append the screenshot
+    formData.append('bug_id', bug_id);
+
+    $.ajax({
+        type:'POST',
+        url:'/fetchABug/',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+
+            console.log(response);
+
+            // Append the title, screenshot and body
+            bug_title_input.value = response.bug.bug_title;
+            bodyTextContent.innerHTML = response.bug.bug_desc;
+            //bug_screenshot = response.screenshot;
+            
+            // Display the success pop up
+        //     success_pop.style.display = "flex";
+        //     success_pop_msg.innerHTML = "Bug Reported Successfully!";
+
+        //    // Add 1 to the number of bugs reported
+        //     pending_bug_number_on_btn.innerHTML = Number(pending_bug_number_on_btn.innerHTML) + 1;
+            
+        //     // Hide the whole report bug section and the pop up after 2 seconds
+        //     setTimeout(function(){
+        //         success_pop.style.display = "none";
+        //         document.getElementById("report_bug_section").style.display = "none";
+        //     }, 2000);
+           
+        },
+        error: function(error){
+
+            // Display the fail pop up
+            fail_pop.style.display = "flex";
+            fail_pop_msg.innerHTML = "Failed To Report Bug! Please try again, and if the issue persists, contact our support team.";
+
+            // Hide the whole report bug section and the pop up after 2 seconds
+            setTimeout(function(){
+                fail_pop.style.display = "none";
+                document.getElementById("report_bug_section").style.display = "none";
+            }, 2000);
+            
+        }
+    }); 
 }
 
 // add event listener to report_bug_now

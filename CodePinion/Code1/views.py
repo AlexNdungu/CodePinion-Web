@@ -190,6 +190,24 @@ def FetchBugs(request):
             requested_bugs_list.append(bug_dict)
 
         return JsonResponse({'status':'success','bug_count':requested_bug_count,'bugs':requested_bugs_list})
+    
+# Fetch a single bug
+def FetchSingleBug(request):
+    
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        bug_id = request.POST.get('bug_id')
+        # Get the bug
+        bug = models.Report_Bug.objects.get(bug_id = bug_id)
+
+        bug_dict = {
+            'bug_id':bug.bug_id,
+            'bug_title':bug.bug_title,
+            'bug_desc':bug.bug_desc,
+            'bug_screenshot':bug.bug_screenshot.url,
+        }
+
+        return JsonResponse({'status':'success','bug':bug_dict})
 
 # Report Bug
 def ReportBug(request):
