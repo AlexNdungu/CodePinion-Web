@@ -494,13 +494,9 @@ function click_edit_on_list(){
 function prep_report_bug_section_for_edit(bug_id){
     // Hide the retake_shot button
     retake_shot.style.display = "none";
-
     // First we create form data
     let formData = new FormData();
-
-    // Append the csrf token
     formData.append('csrfmiddlewaretoken', csrf[0].value);
-    // Append the screenshot
     formData.append('bug_id', bug_id);
 
     $.ajax({
@@ -510,33 +506,19 @@ function prep_report_bug_section_for_edit(bug_id){
         processData: false,
         contentType: false,
         success: function(response){
-
-            console.log(response);
-
             // Append the title, screenshot and body
             bug_title_input.value = response.bug.bug_title;
             bodyTextContent.innerHTML = response.bug.bug_desc;
-            //bug_screenshot = response.screenshot;
+            // create the image element
+            let bug_screenshot = document.createElement("img");
+            bug_screenshot.src = response.bug.bug_screenshot;
+            bug_shot.appendChild(bug_screenshot);
             
-            // Display the success pop up
-        //     success_pop.style.display = "flex";
-        //     success_pop_msg.innerHTML = "Bug Reported Successfully!";
-
-        //    // Add 1 to the number of bugs reported
-        //     pending_bug_number_on_btn.innerHTML = Number(pending_bug_number_on_btn.innerHTML) + 1;
-            
-        //     // Hide the whole report bug section and the pop up after 2 seconds
-        //     setTimeout(function(){
-        //         success_pop.style.display = "none";
-        //         document.getElementById("report_bug_section").style.display = "none";
-        //     }, 2000);
-           
         },
         error: function(error){
-
             // Display the fail pop up
             fail_pop.style.display = "flex";
-            fail_pop_msg.innerHTML = "Failed To Report Bug! Please try again, and if the issue persists, contact our support team.";
+            fail_pop_msg.innerHTML = "Failed To Get Bug! Please try again, and if the issue persists, contact our support team.";
 
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
