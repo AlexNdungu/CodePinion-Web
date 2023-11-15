@@ -492,6 +492,9 @@ function click_edit_on_list(){
 
 // Prep the report_bug_section section for edit function
 function prep_report_bug_section_for_edit(bug_id){
+
+    //Hide the view_bugs_table
+    //close_display_bugs();
     // Hide the retake_shot button
     retake_shot.style.display = "none";
     // First we create form data

@@ -207,7 +207,7 @@ def FetchSingleBug(request):
             'bug_screenshot':bug.bug_screenshot.url,
         }
 
-        return JsonResponse({'status':'success','bug':bug_dict})
+        return JsonResponse({'bug':bug_dict})
 
 # Report Bug
 def ReportBug(request):

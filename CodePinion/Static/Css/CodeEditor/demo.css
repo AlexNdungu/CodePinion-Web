@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: space-between;
     color: #414141;
+    z-index: 4;
 }
 
 .message_popup span {
