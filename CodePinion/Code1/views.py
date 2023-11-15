@@ -137,9 +137,15 @@ def FetchBugs(request):
 
         fetched_bug_status = request.POST.get('bug_status')
 
-        print(fetched_bug_status)
+        requested_bug_count = 0
 
-        return JsonResponse({'status':'success'})
+        if fetched_bug_status == 'pending':
+            requested_bug_count = models.Report_Bug.objects.filter(bug_status = False).count()
+        elif fetched_bug_status == 'fixed':
+            requested_bug_count = models.Report_Bug.objects.filter(bug_status = True).count()
+
+
+        return JsonResponse({'status':'success','bug_count':requested_bug_count})
 
 # Report Bug
 def ReportBug(request):

@@ -37,6 +37,7 @@ let pending_bug_number_on_btn = document.getElementById('pending_bug_number_on_b
 let fixed_bug_number_on_btn = document.getElementById('fixed_bug_number_on_btn');
 let view_status_section = document.getElementById('view_status_section');
 let show_which_status_in_view_bugs = document.getElementById('show_which_status_in_view_bugs');
+let requested_bug_count = document.getElementById('requested_bug_count');
 
 
 // Rich text editor
@@ -223,7 +224,11 @@ function fetch_bugs(status){
         processData: false,
         contentType: false,
         success: function(response){
-           console.log(response);
+            console.log(response.bug_count);
+
+            // Set requested_bug_count to response.bug_count
+            requested_bug_count.innerHTML = response.bug_count;
+
         },
         error: function(error){
 
