@@ -482,6 +482,20 @@
     justify-content: center;
 }
 
+
+/* When table is empty */
+.when_bug_table_is_empty {
+    width: 100%;
+    height: calc(100% - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.when_bug_table_is_empty svg {
+    width: 700px;
+}
+
 table {
     width: calc(100% - 20px);
     border-collapse: collapse;
