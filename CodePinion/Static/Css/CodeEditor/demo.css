@@ -525,7 +525,7 @@ tr:hover {
 
 /* User without profile image and admin */
 .bug_owner_noimage,.bug_owner_admin {
-    display: none; /* Dispay the user witout image and admin */
+    display: flex; /* Dispay the user witout image and admin */
     align-items: center;
     justify-content: center;
     fill: #F3F3F3;

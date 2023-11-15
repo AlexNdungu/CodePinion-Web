@@ -244,34 +244,57 @@ function fetch_bugs(status){
                             <!--Bug id-->
                             <td>${bugs[oneBug].bug_id}</td>
                             <!--Bug titkle-->
-                            <td>${bugs[oneBug].bug_title}</td>
+                            <td>${bugs[oneBug].bug_title.length > 20 ? `${bugs[oneBug].bug_title.slice(0,20)}...`:`${bugs[oneBug].bug_title}`}</td>
                             <!--The owner of the bug-->
                             <td>
                                 <div class="bug_owner_image_name">
 
-                                    <!--The profile image-->
-                                    <div class="bug_owner_image">
-                                        <img src="{% static '/Images/user.jpg' %}" alt="bug_owner">
-                                    </div>
-    
-                                    <!--User without profile-->
-                                    <div class="bug_owner_noimage">
-                                        <span>J</span>
-                                    </div>
-    
-                                    <!--Admin is user-->
-                                    <div class="bug_owner_admin">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 19h14v3h-14v-3zm17-12c-1.326 0-2.294 1.272-1.924 2.54.611 2.091-6.357 4.068-7.386-1.604-.262-1.444.021-1.823.728-2.532.359-.36.582-.855.582-1.404 0-1.104-.896-2-2-2s-2 .896-2 2c0 .549.223 1.045.582 1.403.706.71.989 1.089.728 2.532-1.029 5.675-7.996 3.694-7.386 1.604.37-1.267-.598-2.539-1.924-2.539-1.104 0-2 .896-2 2 0 1.22 1.082 2.149 2.273 1.98 1.635-.23 2.727 4.372 2.727 6.02h14c0-1.65 1.092-6.25 2.727-6.019 1.191.168 2.273-.761 2.273-1.981 0-1.104-.896-2-2-2z"/></svg>
-                                    </div>
-    
-                                    <div class="bug_owner_name">
-                                        <span>${bugs[oneBug].bug_reporter}</span>
-                                    </div>
+                                ${bugs[oneBug].bug_reporter_is_superuser ? 
+
+                                    `
+                                        <!--Admin is user-->
+                                        <div class="bug_owner_admin">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 19h14v3h-14v-3zm17-12c-1.326 0-2.294 1.272-1.924 2.54.611 2.091-6.357 4.068-7.386-1.604-.262-1.444.021-1.823.728-2.532.359-.36.582-.855.582-1.404 0-1.104-.896-2-2-2s-2 .896-2 2c0 .549.223 1.045.582 1.403.706.71.989 1.089.728 2.532-1.029 5.675-7.996 3.694-7.386 1.604.37-1.267-.598-2.539-1.924-2.539-1.104 0-2 .896-2 2 0 1.22 1.082 2.149 2.273 1.98 1.635-.23 2.727 4.372 2.727 6.02h14c0-1.65 1.092-6.25 2.727-6.019 1.191.168 2.273-.761 2.273-1.981 0-1.104-.896-2-2-2z"/></svg>
+                                        </div>
+                                        <!--Bug owner is admin-->
+                                        <div class="bug_owner_name">
+                                            <span>Admin</span>
+                                        </div>
+                                    ` 
+
+                                : 
+
+                                    `${bugs[oneBug].bug_reporter_prof_pic != "False" ? 
+                                    `
+                                        <!--The profile image-->
+                                        <div class="bug_owner_image">
+                                            <img src="${bugs[oneBug].bug_reporter_prof_pic}" alt="bug_owner">
+                                        </div>
+                                        <!--Bug owner is admin-->
+                                        <div class="bug_owner_name">
+                                            <span>${bugs[oneBug].bug_reporter}</span>
+                                        </div>
+
+                                    ` 
+                                    : 
+                                        `
+                                        <!--User without profile-->
+                                        <div class="bug_owner_noimage">
+                                            <span>${bugs[oneBug].bug_reporter.charAt(0)}</span>
+                                        </div>
+                                        <!--Bug owner is admin-->
+                                        <div class="bug_owner_name">
+                                            <span>${bugs[oneBug].bug_reporter}</span>
+                                        </div>
+                                        `
+                                }`
+
+                                }
 
                                 </div>
                             </td>
                             <!--Date-->
-                            <td>11 Nov 2023</td>
+                            <td>${bugs[oneBug].bug_update}</td>
                             <!--Bug  buttons-->
                             <td>
                                 <!--View-->
@@ -295,24 +318,8 @@ function fetch_bugs(status){
 
                     `
 
-
+                    // Append the bugBody to the table
                     $("#view_bugs_table").append(bugBody);
-
-                    // let newAllTags = document.querySelectorAll('.newTags')
-
-                    // for(let tagOne = 0; tagOne < data[oneQ].tags.length; tagOne++){
-                    //     console.log(data[oneQ].tags[tagOne]);
-
-                    //     let newTT = `<div class="newIndTags">
-                    //     <span>${data[oneQ].tags[tagOne]}</span>
-                    //     </div>`
-
-                    //     newAllTags[oneQ].innerHTML += newTT
-
-                    //     //$(".newTags").append(newTT)
-
-                    // }
-
 
                 }
 

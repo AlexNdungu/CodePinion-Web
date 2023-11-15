@@ -156,6 +156,9 @@ def FetchBugs(request):
         # Add the bugs to the list
         for bug in all_bugs:
 
+            # Get the update date without the time
+            update_date = bug.update.strftime('%b %d, %Y')
+
             # Check if current user is same as the bug reporter
             bug_reporter_is_current_user = False
             if bug.profile.user == request.user:
@@ -176,14 +179,15 @@ def FetchBugs(request):
             bug_dict = {
                 'bug_id':bug.bug_id,
                 'bug_title':bug.bug_title,
-                'bug_screenshot':bug.bug_screenshot.url,
                 'bug_status':bug.bug_status,
+                'bug_update':bug.update.strftime('%b %d, %Y, %I:%M %p'),
                 'bug_reporter':bug.profile.full_name,
                 'bug_reporter_prof_pic':bug_reporter_prof_pic,
                 'bug_reporter_is_superuser':bug.profile.user.is_superuser,
                 'bug_reporter_is_current_user':bug_reporter_is_current_user,
                 # 'bug_desc':bug.bug_desc,
                 # 'bug_reporter_email':bug.profile.user.email,
+                # 'bug_screenshot':bug.bug_screenshot.url,
             }
 
             requested_bugs_list.append(bug_dict)
