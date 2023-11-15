@@ -480,8 +480,8 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    overflow-y: auto;
 }
-
 
 /* When table is empty */
 .when_bug_table_is_empty {
