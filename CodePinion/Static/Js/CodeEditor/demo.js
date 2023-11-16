@@ -58,6 +58,8 @@ let one_detail_user_image_display = document.getElementById('one_detail_user_ima
 let one_detail_user_noimage_display = document.getElementById('one_detail_user_noimage_display');
 let one_detail_user_noimage_display_first = document.getElementById('one_detail_user_noimage_display_first');
 let one_detail_admin_display = document.getElementById('one_detail_admin_display');
+let bug_editor_lock = document.getElementById('bug_editor_lock');
+let bug_edit_btn = document.getElementById('bug_edit_btn');
 
 // Rich text editor
 richButtons.forEach(richBtn => {
@@ -388,6 +390,14 @@ function view_bug_details(bug_id){
                     one_detail_user_noimage_display.style.display = "flex";
                     one_detail_user_noimage_display_first.innerHTML = response.bug.bug_reporter[0];
                 }
+            }
+
+            // Check if current user is the reporter
+            if(response.bug.bug_reporter_is_current_user == true){
+                bug_editor_lock.style.display = "none";
+            }
+            else{
+                bug_editor_lock.style.display = "flex";
             }
 
 
