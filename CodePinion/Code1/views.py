@@ -205,6 +205,7 @@ def FetchSingleBug(request):
             'bug_title':bug.bug_title,
             'bug_desc':bug.bug_desc,
             'bug_screenshot':bug.bug_screenshot.url,
+            'bug_date':bug.update.strftime('%d %b %Y'),
         }
 
         return JsonResponse({'bug':bug_dict})

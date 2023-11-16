@@ -40,6 +40,11 @@ let show_which_status_in_view_bugs = document.getElementById('show_which_status_
 let requested_bug_count = document.getElementById('requested_bug_count');
 let close_bug_view_btn = document.getElementById('close_bug_view_btn');
 
+// Display one bug
+let bug_id_and_date = document.getElementById('bug_id_and_date');
+let edit_bug_id_number = document.getElementById('edit_bug_id_number');
+let edit_bug_date = document.getElementById('edit_bug_date');
+
 
 // Rich text editor
 richButtons.forEach(richBtn => {
@@ -194,6 +199,8 @@ function discard_report(){
     // Remove the canvas from bug_shot
     bug_shot.innerHTML = "";
     bug_screenshot = null;
+    // Hide edit bug date and id
+    bug_id_and_date.style.visibility = "hidden";
     // Hide the whole report bug section
     document.getElementById("report_bug_section").style.display = "none";
 }
@@ -510,6 +517,11 @@ function prep_report_bug_section_for_edit(bug_id){
         processData: false,
         contentType: false,
         success: function(response){
+            // Show the bug_id_and_date
+            bug_id_and_date.style.visibility = "visible";
+            // Update id and date
+            edit_bug_id_number.innerHTML = response.bug.bug_id;
+            edit_bug_date.innerHTML = response.bug.bug_date;
             // Append the title, screenshot and body
             bug_title_input.value = response.bug.bug_title;
             bodyTextContent.innerHTML = response.bug.bug_desc;
