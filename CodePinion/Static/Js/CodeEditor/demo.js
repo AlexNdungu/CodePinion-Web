@@ -46,6 +46,7 @@ let edit_bug_id_number = document.getElementById('edit_bug_id_number');
 let edit_bug_date = document.getElementById('edit_bug_date');
 let is_report_or_update_btn = document.getElementById('is_report_or_update_btn'); // display report or update depending on the activity
 //
+let one_details_close = document.getElementById('one_details_close');
 let one_detail_id_display = document.getElementById('one_detail_id_display');
 let one_detail_status_theme = document.getElementById('one_detail_status_theme');
 let one_detail_status_display = document.getElementById('one_detail_status_display');
@@ -113,6 +114,12 @@ report_bug_btn.addEventListener("click", function () {
 close_bug_view_btn.addEventListener("click", function () {
     close_display_bugs();
 });
+
+// Add click event to close view one bug section
+one_details_close.addEventListener("click", function () {
+    // Hide the whole report bug section
+    document.getElementById("see_one_bug_section").style.display = "none";
+})
 
 // Add click event to all the discard_bug_report_btns
 for (let i = 0; i < discard_bug_report_btns.length; i++) {
@@ -349,8 +356,6 @@ function view_bug_details(bug_id){
         contentType: false,
         success: function(response){
 
-            console.log(response);
-
             // Display the whole report bug section
             document.getElementById("see_one_bug_section").style.display = "flex";
 
@@ -375,6 +380,8 @@ function view_bug_details(bug_id){
             // Check if reporter is admin
             if(response.bug.bug_reporter_is_superuser == true){
                 one_detail_admin_display.style.display = "flex";
+                one_detail_userimage_display.style.display = "none";
+                one_detail_user_noimage_display.style.display = "none";
             }
             else{
                 one_detail_admin_display.style.display = "none";
@@ -399,9 +406,7 @@ function view_bug_details(bug_id){
             else{
                 bug_editor_lock.style.display = "flex";
             }
-
-
-            
+  
         },
         error: function(error){
             // Display the fail pop up
@@ -418,7 +423,6 @@ function view_bug_details(bug_id){
     }); 
 
 }
-
 
 // Fetch bugs 
 function fetch_bugs(status){
