@@ -163,7 +163,6 @@ def FetchBugs(request):
             else:
                 bug_reporter_is_current_user = False
 
-
             # get the user profile picture
             bug_reporter_profile_picture = bug.profile.profile_pic
             bug_reporter_prof_pic = ''
@@ -224,12 +223,32 @@ def FetchSingleBug(request):
         # Get the bug
         bug = models.Report_Bug.objects.get(bug_id = bug_id)
 
+        # Check if current user is same as the bug reporter
+        bug_reporter_is_current_user = False
+        if bug.profile.user == request.user:
+            bug_reporter_is_current_user = True
+        else:
+            bug_reporter_is_current_user = False
+
+        # get the user profile picture
+        bug_reporter_profile_picture = bug.profile.profile_pic
+        bug_reporter_prof_pic = ''
+
+        if bug_reporter_profile_picture == '':
+            bug_reporter_prof_pic = 'False'
+        else:
+            bug_reporter_prof_pic = bug_reporter_profile_picture.url
+
         bug_dict = {
             'bug_id':bug.bug_id,
             'bug_title':bug.bug_title,
             'bug_desc':bug.bug_desc,
+            'bug_status':bug.bug_status,
             'bug_screenshot':bug.bug_screenshot.url,
             'bug_date':bug.update.strftime('%d %b %Y'),
+            'bug_reporter_prof_pic':bug_reporter_prof_pic,
+            'bug_reporter_is_superuser':bug.profile.user.is_superuser,
+            'bug_reporter_is_current_user':bug_reporter_is_current_user,
         }
 
         return JsonResponse({'bug':bug_dict})

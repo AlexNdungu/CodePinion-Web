@@ -45,7 +45,14 @@ let bug_id_and_date = document.getElementById('bug_id_and_date');
 let edit_bug_id_number = document.getElementById('edit_bug_id_number');
 let edit_bug_date = document.getElementById('edit_bug_date');
 let is_report_or_update_btn = document.getElementById('is_report_or_update_btn'); // display report or update depending on the activity
-
+//
+let one_detail_id_display = document.getElementById('one_detail_id_display');
+let one_detail_status_theme = document.getElementById('one_detail_status_theme');
+let one_detail_status_display = document.getElementById('one_detail_status_display');
+let one_detail_date_display = document.getElementById('one_detail_date_display');
+let one_detail_title_display = document.getElementById('one_detail_title_display');
+let one_detail_screenshot_display = document.getElementById('one_detail_screenshot_display');
+let one_detail_desc_display = document.getElementById('one_detail_desc_display');
 
 // Rich text editor
 richButtons.forEach(richBtn => {
@@ -316,6 +323,66 @@ function display_bugs(status){
 
 }
 
+// display one bug
+function view_bug_details(bug_id){
+   
+    //Hide the view_bugs_table
+    //close_display_bugs();
+
+    // First we create form data
+    let formData = new FormData();
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
+    formData.append('bug_id', bug_id);
+
+    $.ajax({
+        type:'POST',
+        url:'/fetchABug/',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+
+            console.log(response);
+
+            // Display the whole report bug section
+            document.getElementById("see_one_bug_section").style.display = "flex";
+
+            // Set all the data
+            one_detail_id_display.innerHTML = response.bug.bug_id;
+            edit_bug_date.innerHTML = response.bug.bug_date;
+            one_detail_title_display.innerHTML = response.bug.bug_title;
+            one_detail_desc_display.innerHTML = response.bug.bug_desc;
+            one_detail_screenshot_display.src = response.bug.bug_screenshot;
+
+            if(response.bug.bug_status == true){
+                one_detail_status_theme.classList.remove('one_detail_status_pending');
+                one_detail_status_theme.classList.add('one_detail_status_fixed');
+                one_detail_status_display.innerHTML = "Fixed";
+            }
+            else{
+                one_detail_status_theme.classList.remove('one_detail_status_fixed');
+                one_detail_status_theme.classList.add('one_detail_status_pending');
+                one_detail_status_display.innerHTML = "Pending";
+            }
+            
+        },
+        error: function(error){
+            // Display the fail pop up
+            fail_pop.style.display = "flex";
+            fail_pop_msg.innerHTML = "Failed To Ferch Bug! Please try again, and if the issue persists, contact our support team.";
+
+            // Hide the whole report bug section and the pop up after 2 seconds
+            setTimeout(function(){
+                fail_pop.style.display = "none";
+                // document.getElementById("report_bug_section").style.display = "none";
+            }, 2000);
+            
+        }
+    }); 
+
+}
+
+
 // Fetch bugs 
 function fetch_bugs(status){
     
@@ -492,7 +559,8 @@ function click_edit_on_list(){
                 use_report_bug_section('edit',to_act_id);
             }
             else if(event.target.classList.contains("access_edit_btn_View")){
-                console.log("View");
+                // call the view_bug_details function
+                view_bug_details(to_act_id);
             }
 
         });
