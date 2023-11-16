@@ -193,6 +193,7 @@ function discard_report(){
     EditRechTextBtn.classList.add("wrr_btn_color");
     // Remove the canvas from bug_shot
     bug_shot.innerHTML = "";
+    bug_screenshot = null;
     // Hide the whole report bug section
     document.getElementById("report_bug_section").style.display = "none";
 }
@@ -513,9 +514,9 @@ function prep_report_bug_section_for_edit(bug_id){
             bug_title_input.value = response.bug.bug_title;
             bodyTextContent.innerHTML = response.bug.bug_desc;
             // create the image element
-            let bug_screenshot = document.createElement("img");
-            bug_screenshot.src = response.bug.bug_screenshot;
-            bug_shot.appendChild(bug_screenshot);
+            let bug_screenshot_edit = document.createElement("img");
+            bug_screenshot_edit.src = response.bug.bug_screenshot;
+            bug_shot.appendChild(bug_screenshot_edit);
             
         },
         error: function(error){
