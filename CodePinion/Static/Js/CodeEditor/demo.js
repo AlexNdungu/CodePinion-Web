@@ -700,9 +700,10 @@ function update_bug(){
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
                 success_pop.style.display = "none";
-                document.getElementById("report_bug_section").style.display = "none";
                 // Display pending bugs
                 document.getElementById("pending-btn").click();
+                // Discard the report bug section
+                discard_report();
             }, 2000);
            
         },
@@ -757,7 +758,10 @@ function report_new_bug(){
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
                 success_pop.style.display = "none";
-                document.getElementById("report_bug_section").style.display = "none";
+                // Display pending bugs
+                document.getElementById("pending-btn").click();
+                // Discard the report bug section
+                discard_report();
             }, 2000);
            
         },
