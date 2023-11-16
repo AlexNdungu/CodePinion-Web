@@ -246,6 +246,7 @@ def FetchSingleBug(request):
             'bug_status':bug.bug_status,
             'bug_screenshot':bug.bug_screenshot.url,
             'bug_date':bug.update.strftime('%d %b %Y'),
+            'bug_reporter':bug.profile.full_name,
             'bug_reporter_prof_pic':bug_reporter_prof_pic,
             'bug_reporter_is_superuser':bug.profile.user.is_superuser,
             'bug_reporter_is_current_user':bug_reporter_is_current_user,

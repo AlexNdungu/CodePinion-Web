@@ -53,6 +53,11 @@ let one_detail_date_display = document.getElementById('one_detail_date_display')
 let one_detail_title_display = document.getElementById('one_detail_title_display');
 let one_detail_screenshot_display = document.getElementById('one_detail_screenshot_display');
 let one_detail_desc_display = document.getElementById('one_detail_desc_display');
+let one_detail_userimage_display = document.getElementById('one_detail_userimage_display');
+let one_detail_user_image_display = document.getElementById('one_detail_user_image_display');
+let one_detail_user_noimage_display = document.getElementById('one_detail_user_noimage_display');
+let one_detail_user_noimage_display_first = document.getElementById('one_detail_user_noimage_display_first');
+let one_detail_admin_display = document.getElementById('one_detail_admin_display');
 
 // Rich text editor
 richButtons.forEach(richBtn => {
@@ -349,11 +354,11 @@ function view_bug_details(bug_id){
 
             // Set all the data
             one_detail_id_display.innerHTML = response.bug.bug_id;
-            edit_bug_date.innerHTML = response.bug.bug_date;
+            one_detail_date_display.innerHTML = response.bug.bug_date;
             one_detail_title_display.innerHTML = response.bug.bug_title;
             one_detail_desc_display.innerHTML = response.bug.bug_desc;
             one_detail_screenshot_display.src = response.bug.bug_screenshot;
-
+            // Set theme
             if(response.bug.bug_status == true){
                 one_detail_status_theme.classList.remove('one_detail_status_pending');
                 one_detail_status_theme.classList.add('one_detail_status_fixed');
@@ -364,6 +369,28 @@ function view_bug_details(bug_id){
                 one_detail_status_theme.classList.add('one_detail_status_pending');
                 one_detail_status_display.innerHTML = "Pending";
             }
+
+            // Check if reporter is admin
+            if(response.bug.bug_reporter_is_superuser == true){
+                one_detail_admin_display.style.display = "flex";
+            }
+            else{
+                one_detail_admin_display.style.display = "none";
+
+                // Check if user has profile image
+                if(response.bug.bug_reporter_prof_pic != "False"){
+                    one_detail_userimage_display.style.display = "flex";
+                    one_detail_user_noimage_display.style.display = "none";
+                    one_detail_user_image_display.src = response.bug.bug_reporter_prof_pic;
+                }
+                else{
+                    one_detail_userimage_display.style.display = "none";
+                    one_detail_user_noimage_display.style.display = "flex";
+                    one_detail_user_noimage_display_first.innerHTML = response.bug.bug_reporter[0];
+                }
+            }
+
+
             
         },
         error: function(error){
