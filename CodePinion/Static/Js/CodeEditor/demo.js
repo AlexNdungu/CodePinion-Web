@@ -121,6 +121,14 @@ one_details_close.addEventListener("click", function () {
     document.getElementById("see_one_bug_section").style.display = "none";
 })
 
+// add click event to edit a single bug
+bug_edit_btn.addEventListener("click", function () {
+    // call use_report_bug_section
+    use_report_bug_section('edit',one_detail_id_display.innerHTML);
+    // Hide the view one bug section
+    document.getElementById("see_one_bug_section").style.display = "none";
+})
+
 // Add click event to all the discard_bug_report_btns
 for (let i = 0; i < discard_bug_report_btns.length; i++) {
     discard_bug_report_btns[i].addEventListener("click", function () {
