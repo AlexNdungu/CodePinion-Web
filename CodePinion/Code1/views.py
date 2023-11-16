@@ -191,6 +191,30 @@ def FetchBugs(request):
 
         return JsonResponse({'status':'success','bug_count':requested_bug_count,'bugs':requested_bugs_list})
     
+# Update a bug
+def UpdateBug(request):
+        
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        bug_id = request.POST.get('id')
+        bug_title = request.POST.get('title')
+        bug_body = request.POST.get('body')
+
+        # Get the bug
+        bug = models.Report_Bug.objects.get(bug_id = bug_id)
+        # Update the bug
+        bug.bug_title = bug_title
+        bug.bug_desc = bug_body
+        bug.bug_status = False
+        # Save the bug
+        bug.save()
+
+        # Count both the pending and resolved bugs
+        pending_bugs_count = models.Report_Bug.objects.filter(bug_status = False).count()
+        resolved_bugs_count = models.Report_Bug.objects.filter(bug_status = True).count()
+
+        return JsonResponse({'status':'success','pending_bugs_count':pending_bugs_count,'resolved_bugs_count':resolved_bugs_count})    
+    
 # Fetch a single bug
 def FetchSingleBug(request):
     

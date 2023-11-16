@@ -44,6 +44,7 @@ let close_bug_view_btn = document.getElementById('close_bug_view_btn');
 let bug_id_and_date = document.getElementById('bug_id_and_date');
 let edit_bug_id_number = document.getElementById('edit_bug_id_number');
 let edit_bug_date = document.getElementById('edit_bug_date');
+let is_report_or_update_btn = document.getElementById('is_report_or_update_btn'); // display report or update depending on the activity
 
 
 // Rich text editor
@@ -201,6 +202,8 @@ function discard_report(){
     bug_screenshot = null;
     // Hide edit bug date and id
     bug_id_and_date.style.visibility = "hidden";
+    // Change activity to report
+    is_report_or_update_btn.innerHTML = "Report";
     // Hide the whole report bug section
     document.getElementById("report_bug_section").style.display = "none";
 }
@@ -529,6 +532,8 @@ function prep_report_bug_section_for_edit(bug_id){
             let bug_screenshot_edit = document.createElement("img");
             bug_screenshot_edit.src = response.bug.bug_screenshot;
             bug_shot.appendChild(bug_screenshot_edit);
+            // Change activity to Update
+            is_report_or_update_btn.innerHTML = "Update";
             
         },
         error: function(error){
@@ -546,9 +551,62 @@ function prep_report_bug_section_for_edit(bug_id){
     }); 
 }
 
-// add event listener to report_bug_now
-// Post the bug report to the server
-report_bug_now.addEventListener("click", function () {
+// function to update bug
+function update_bug(){
+    // Get the title and body values
+    bug_title = bug_title_input.value;
+    bug_body = bodyTextContent.innerHTML;
+
+    // First we create form data
+    let formData = new FormData();
+
+    // Append the csrf token
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
+    formData.append('id', edit_bug_id_number.innerHTML);
+    formData.append('title', bug_title);
+    formData.append('body', bug_body);
+
+    $.ajax({
+        type:'POST',
+        url:'/updateBug/',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+            
+            // Display the success pop up
+            success_pop.style.display = "flex";
+            success_pop_msg.innerHTML = "Bug Updated Successfully!";
+            // Update the pending and resolved bugs numbers
+            pending_bug_number_on_btn.innerHTML = response.pending_bugs_count;
+            fixed_bug_number_on_btn.innerHTML = response.resolved_bugs_count;
+            // Hide the whole report bug section and the pop up after 2 seconds
+            setTimeout(function(){
+                success_pop.style.display = "none";
+                document.getElementById("report_bug_section").style.display = "none";
+                // Display pending bugs
+                document.getElementById("pending-btn").click();
+            }, 2000);
+           
+        },
+        error: function(error){
+
+            // Display the fail pop up
+            fail_pop.style.display = "flex";
+            fail_pop_msg.innerHTML = "Failed To Update Bug! Please try again, and if the issue persists, contact our support team.";
+
+            // Hide the whole report bug section and the pop up after 2 seconds
+            setTimeout(function(){
+                fail_pop.style.display = "none";
+                document.getElementById("report_bug_section").style.display = "none";
+            }, 2000);
+            
+        }
+    });  
+}
+
+// function report new bug
+function report_new_bug(){
 
     // Get the title and body values
     bug_title = bug_title_input.value;
@@ -600,5 +658,21 @@ report_bug_now.addEventListener("click", function () {
             
         }
     });  
+
+}
+
+// add event listener to report_bug_now
+// Post the bug report to the server
+report_bug_now.addEventListener("click", function () {
+
+    // Check the activity
+    if(is_report_or_update_btn.innerHTML == "Report"){
+        // call report_new_bug function
+        report_new_bug();
+    }
+    else if(is_report_or_update_btn.innerHTML == "Update"){
+        // call update_bug function
+        update_bug();
+    }
     
 });

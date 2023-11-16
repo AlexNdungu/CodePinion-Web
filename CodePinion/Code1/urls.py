@@ -36,6 +36,9 @@ urlpatterns = [
     # Report bug Url
     path('reportBug/', views.ReportBug, name='report_bug'),
 
+    # Update bug Url
+    path('updateBug/', views.UpdateBug, name='update_bug'),
+
     # New Safe and New Folder Url
     path('create_safe/', views.CreateSafe, name='create_safe_folder'),
 
