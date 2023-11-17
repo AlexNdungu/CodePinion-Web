@@ -856,8 +856,7 @@ function report_new_bug(){
 
 }
 
-// add event listener to report_bug_now
-// Post the bug report to the server
+// report or update the bug
 report_bug_now.addEventListener("click", function () {
 
     // Check if title is filled
