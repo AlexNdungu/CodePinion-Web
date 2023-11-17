@@ -860,14 +860,34 @@ function report_new_bug(){
 // Post the bug report to the server
 report_bug_now.addEventListener("click", function () {
 
-    // Check the activity
-    if(is_report_or_update_btn.innerHTML == "Report"){
-        // call report_new_bug function
-        report_new_bug();
+    // Check if title is filled
+    if(bug_title_input.value == ""){
+        // Display the fail pop up
+        fail_pop.style.display = "flex";
+
+        // Check the activity
+        if(is_report_or_update_btn.innerHTML == "Report"){
+            fail_pop_msg.innerHTML = "Failed To Report Bug! Fill The Title and Try Again.";
+        }
+        else if(is_report_or_update_btn.innerHTML == "Update"){
+            fail_pop_msg.innerHTML = "Failed To Update Bug! Fill The Title and Try Again.";
+        }
+
+        // Hide the whole report bug section and the pop up after 2 seconds
+        setTimeout(function(){
+            fail_pop.style.display = "none";
+        }, 4000);
     }
-    else if(is_report_or_update_btn.innerHTML == "Update"){
-        // call update_bug function
-        update_bug();
+    else{
+        // Check the activity
+        if(is_report_or_update_btn.innerHTML == "Report"){
+            // call report_new_bug function
+            report_new_bug();
+        }
+        else if(is_report_or_update_btn.innerHTML == "Update"){
+            // call update_bug function
+            update_bug();
+        }
     }
-    
+
 });
