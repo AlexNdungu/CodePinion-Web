@@ -41,6 +41,7 @@ let requested_bug_count = document.getElementById('requested_bug_count');
 let close_bug_view_btn = document.getElementById('close_bug_view_btn');
 // Filters
 let filter_select = false;
+let filter_apply = 'all';
 let filter_bugs_from_status = document.getElementById('filter_bugs_from_status');
 let filter_selection_section = document.getElementById('filter_selection_section');
 
@@ -144,8 +145,10 @@ for (let i = 0; i < discard_bug_report_btns.length; i++) {
 for (let i = 0; i < bug_min_menu_btns.length; i++) {
     bug_min_menu_btns[i].addEventListener("click", function () {
 
+        // Filter is get all bugs
+        filter_apply = 'all';
         // Call the display bugs function
-        display_bugs(bug_min_menu_btns[i].id);
+        display_bugs(bug_min_menu_btns[i].id,filter_apply);
 
     })
 }
@@ -340,7 +343,7 @@ function close_display_bugs() {
 }
 
 // Display bugs
-function display_bugs(status){
+function display_bugs(status,filter_apply){
 
     let status_is = status.split("-");
     let firstWord_status = status_is[0];
@@ -365,7 +368,7 @@ function display_bugs(status){
     }
 
     // Fetch bugs
-    fetch_bugs(firstWord_status);
+    fetch_bugs(firstWord_status,filter_apply);
 
 }
 
@@ -457,7 +460,7 @@ function view_bug_details(bug_id){
 }
 
 // Fetch bugs 
-function fetch_bugs(status){
+function fetch_bugs(status,filter_apply){
     
     // First we create form data
     let formData = new FormData();
@@ -465,7 +468,7 @@ function fetch_bugs(status){
     //Append the csrf token
     formData.append('csrfmiddlewaretoken', csrf[0].value);
     formData.append('bug_status', status);
-    // formData.append('filter_applied', None);
+    formData.append('filter_applied', filter_apply);
 
     $.ajax({
         type:'POST',

@@ -136,6 +136,8 @@ def FetchBugs(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
 
         fetched_bug_status = request.POST.get('bug_status')
+        fetch_bug_filter = request.POST.get('filter_applied')
+
         # all bugs
         all_bugs = None
         # The number of bugs to be fetched
