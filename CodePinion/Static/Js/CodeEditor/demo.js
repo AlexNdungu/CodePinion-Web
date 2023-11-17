@@ -41,7 +41,8 @@ let requested_bug_count = document.getElementById('requested_bug_count');
 let close_bug_view_btn = document.getElementById('close_bug_view_btn');
 // Filters
 let filter_select = false;
-let filter_apply = 'all';
+let filter_apply = 'All';
+let select_any_filters = document.getElementsByClassName('select_any_filter');
 let filter_bugs_from_status = document.getElementById('filter_bugs_from_status');
 let filter_selection_section = document.getElementById('filter_selection_section');
 
@@ -153,7 +154,7 @@ for (let i = 0; i < bug_min_menu_btns.length; i++) {
     })
 }
 
-// Add click event to filter_bugs_from_status
+// Add click event to filter_bugs_from_status and show filter selection section
 filter_bugs_from_status.addEventListener("click", function () {
 
     if(filter_select == false){
@@ -172,6 +173,27 @@ filter_bugs_from_status.addEventListener("click", function () {
     }
     
 })
+
+// Add event listener to select_any_filters
+for (let i = 0; i < select_any_filters.length; i++) {
+    select_any_filters[i].addEventListener("click", function () {
+        
+        //get the span inside the select_any_filters[i]
+        let filter_span = select_any_filters[i].getElementsByTagName('span')[0];
+        let status = '';
+
+        if(show_which_status_in_view_bugs.innerHTML == "Pending"){
+            status = 'pending-btn';
+        }
+        else if(show_which_status_in_view_bugs.innerHTML == "Fixed"){
+            status = 'fixed-btn';
+        }
+
+        display_bugs(status,filter_span.innerHTML)
+
+    })
+}
+
 
 // use report_bug_section function
 function use_report_bug_section(activity,bug_id){
