@@ -333,7 +333,7 @@
     font-family: 'Roboto', sans-serif;
     width: 100%;
     height: 100vh;
-    display: none; /* Flex to display view bugs */
+    display: flex; /* Flex to display view bugs */
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -422,9 +422,18 @@
 
 /* Filter bugs */
 .filter_bugs_from_status {
+    position: relative;
+    margin-left: 10px;
     height: 40px;
     width: 100px;
-    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter_bugs_from_status_contain {
+    height: 100%;
+    width: 100%;
     border-radius: 10px;
     background-color: #D9D9D9;
     display: flex;
@@ -436,19 +445,62 @@
     cursor: pointer
 }
 
-.filter_bugs_from_status:hover {
+.filter_bugs_from_status_contain:hover {
     background-color: #406CEE;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
 
-.filter_bugs_from_status span {
+.filter_bugs_from_status_contain span {
     font-size: 17px;
     font-weight: 500;
 }
 
-.filter_bugs_from_status svg {
+.filter_bugs_from_status_contain svg {
     width: 20px;
+}
+
+/* The filters */
+.filter_selection_section {
+    position: absolute;
+    width: 130px;
+    border-radius: 10px;
+    padding-top: 5px;
+    height: max-content;
+    background-color: #F3F3F3;
+    top: calc(100% + 5px);
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.select_any_filter {
+    width: 120px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    color: #414141;
+    fill: #414141;
+    background-color: #E4E4E4;
+    transition: 0.2s ease-in-out;
+    cursor: pointer
+}
+
+.select_any_filter:hover {
+    background-color: #406CEE;
+    color: #D9D9D9;
+    fill: #D9D9D9;
+}
+
+.select_any_filter svg {
+    width: 20px;
+    margin-right: 10px;
 }
 
 /* Close view bug */
