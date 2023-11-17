@@ -304,6 +304,30 @@ function discard_report(){
     document.getElementById("report_bug_section").style.display = "none";
 }
 
+// create table content
+function create_table_content(){
+    // Empty the table and append the heading
+    $('#view_bugs_table').empty();
+    let tableHeading = 
+    `
+    <!--The heading-->
+    <thead>
+        <tr>
+            <th>Bug ID</th>
+            <th>Title</th>
+            <th>User</th>
+            <th>Date</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+
+    <!--The body-->
+    <tbody id="bug_table_body">
+    </tbody>
+    `
+    $("#view_bugs_table").append(tableHeading);
+}
+
 // Create the row dummies
 function create_row_dummies(){
     // Get the skeleton dummy and the tab;e
@@ -354,27 +378,8 @@ create_row_dummies();
 // Function close the report bug section
 function close_display_bugs() {
 
-    // Empty the table and append the heading
-    $('#view_bugs_table').empty();
-    let tableHeading = 
-    `
-    <!--The heading-->
-    <thead>
-        <tr>
-            <th>Bug ID</th>
-            <th>Title</th>
-            <th>User</th>
-            <th>Date</th>
-            <th>&nbsp;</th>
-        </tr>
-    </thead>
-
-    <!--The body-->
-    <tbody id="bug_table_body">
-    </tbody>
-    `
-    $("#view_bugs_table").append(tableHeading);
-
+    // Create table content
+    create_table_content();
     // Display none the see_all_bugs_section
     see_all_bugs_section.style.display = "None";
 
@@ -517,6 +522,9 @@ function fetch_bugs(status,filter_apply){
         processData: false,
         contentType: false,
         success: function(response){
+
+            // Create table content since previous request might have been empty
+            create_table_content();
 
             // Set requested_bug_count to response.bug_count
             requested_bug_count.innerHTML = response.bug_count;
