@@ -148,6 +148,12 @@ for (let i = 0; i < bug_min_menu_btns.length; i++) {
 
         // Filter is get all bugs
         filter_apply = 'All';
+        // remove the class filter_bugs_theme from any select_any_filters btn and add it to the all filter
+        for (let i = 0; i < select_any_filters.length; i++) {
+            select_any_filters[i].classList.remove("filter_bugs_theme");
+        }
+        select_any_filters[2].classList.add("filter_bugs_theme");
+
         // Call the display bugs function
         display_bugs(bug_min_menu_btns[i].id,filter_apply);
 
@@ -195,12 +201,17 @@ for (let i = 0; i < select_any_filters.length; i++) {
             status = 'fixed-btn';
         }
 
+        // Hide the filter_selection_section
+        filter_selection_section.style.display = "none";
+        filter_select = false;
+        // Remove filter_bugs_theme class to filter_bugs_from_status
+        filter_bugs_from_status.classList.remove("filter_bugs_theme");
+
         // Call the display bugs function
         display_bugs(status,filter_span.innerHTML)
 
     })
 }
-
 
 // use report_bug_section function
 function use_report_bug_section(activity,bug_id){
