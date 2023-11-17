@@ -145,14 +145,36 @@ def FetchBugs(request):
         # List of all the requested bugs
         requested_bugs_list = []
 
-        # Update the bugs depending on the status
-        if fetched_bug_status == 'pending':
+        # All Filter
+        if fetched_bug_status == 'pending' and fetch_bug_filter == 'All':
             requested_bug_count = models.Report_Bug.objects.filter(bug_status = False).count()
             all_bugs = models.Report_Bug.objects.filter(bug_status = False).order_by('-update')
 
-        elif fetched_bug_status == 'fixed':
+        elif fetched_bug_status == 'fixed' and fetch_bug_filter == 'All':
             requested_bug_count = models.Report_Bug.objects.filter(bug_status = True).count()
             all_bugs = models.Report_Bug.objects.filter(bug_status = True).order_by('-update')
+
+        # Mine filter
+        elif fetched_bug_status == 'pending' and fetch_bug_filter == 'Mine':
+            # Get all pending bugs that belong to current user
+            requested_bug_count = models.Report_Bug.objects.filter(bug_status = False, profile = request.user.profile).count()
+            all_bugs = models.Report_Bug.objects.filter(bug_status = False, profile = request.user.profile).order_by('-update')
+
+        elif fetched_bug_status == 'fixed' and fetch_bug_filter == 'Mine':
+            # Get all fixed bugs that belong to current user
+            requested_bug_count = models.Report_Bug.objects.filter(bug_status = True, profile = request.user.profile).count()
+            all_bugs = models.Report_Bug.objects.filter(bug_status = True, profile = request.user.profile).order_by('-update')
+
+        # Others filter
+        elif fetched_bug_status == 'pending' and fetch_bug_filter == 'Others':
+            # Get all pending bugs that belong to other users except current user
+            requested_bug_count = models.Report_Bug.objects.filter(bug_status = False).exclude(profile = request.user.profile).count()
+            all_bugs = models.Report_Bug.objects.filter(bug_status = False).exclude(profile = request.user.profile).order_by('-update')
+
+        elif fetched_bug_status == 'fixed' and fetch_bug_filter == 'Others':
+            # Get all fixed bugs that belong to other users except current user
+            requested_bug_count = models.Report_Bug.objects.filter(bug_status = True).exclude(profile = request.user.profile).count()
+            all_bugs = models.Report_Bug.objects.filter(bug_status = True).exclude(profile = request.user.profile).order_by('-update')
 
 
         # Add the bugs to the list

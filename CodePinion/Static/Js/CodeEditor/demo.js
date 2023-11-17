@@ -147,7 +147,7 @@ for (let i = 0; i < bug_min_menu_btns.length; i++) {
     bug_min_menu_btns[i].addEventListener("click", function () {
 
         // Filter is get all bugs
-        filter_apply = 'all';
+        filter_apply = 'All';
         // Call the display bugs function
         display_bugs(bug_min_menu_btns[i].id,filter_apply);
 
@@ -177,7 +177,13 @@ filter_bugs_from_status.addEventListener("click", function () {
 // Add event listener to select_any_filters
 for (let i = 0; i < select_any_filters.length; i++) {
     select_any_filters[i].addEventListener("click", function () {
-        
+
+        // remove the class filter_bugs_theme from any select_any_filters btn and add it to the clicked one
+        for (let i = 0; i < select_any_filters.length; i++) {
+            select_any_filters[i].classList.remove("filter_bugs_theme");
+        }
+        select_any_filters[i].classList.add("filter_bugs_theme");
+
         //get the span inside the select_any_filters[i]
         let filter_span = select_any_filters[i].getElementsByTagName('span')[0];
         let status = '';
@@ -189,6 +195,7 @@ for (let i = 0; i < select_any_filters.length; i++) {
             status = 'fixed-btn';
         }
 
+        // Call the display bugs function
         display_bugs(status,filter_span.innerHTML)
 
     })
@@ -502,7 +509,6 @@ function fetch_bugs(status,filter_apply){
 
             // Set requested_bug_count to response.bug_count
             requested_bug_count.innerHTML = response.bug_count;
-
 
             const bugs = response.bugs;
 
