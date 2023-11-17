@@ -503,6 +503,13 @@
     margin-right: 10px;
 }
 
+/* Filter button theme */
+.filter_bugs_theme {
+    background-color: #406CEE;
+    color: #D9D9D9;
+    fill: #D9D9D9;
+}
+
 /* Close view bug */
 .close_bug_view {
     width: 40px;

@@ -39,6 +39,10 @@ let view_status_section = document.getElementById('view_status_section');
 let show_which_status_in_view_bugs = document.getElementById('show_which_status_in_view_bugs');
 let requested_bug_count = document.getElementById('requested_bug_count');
 let close_bug_view_btn = document.getElementById('close_bug_view_btn');
+// Filters
+let filter_select = false;
+let filter_bugs_from_status = document.getElementById('filter_bugs_from_status');
+let filter_selection_section = document.getElementById('filter_selection_section');
 
 // Display one bug
 let bug_id_and_date = document.getElementById('bug_id_and_date');
@@ -145,6 +149,26 @@ for (let i = 0; i < bug_min_menu_btns.length; i++) {
 
     })
 }
+
+// Add click event to filter_bugs_from_status
+filter_bugs_from_status.addEventListener("click", function () {
+
+    if(filter_select == false){
+        // Display the filter_selection_section
+        filter_selection_section.style.display = "flex";
+        // Add filter_bugs_theme class to filter_bugs_from_status
+        filter_bugs_from_status.classList.add("filter_bugs_theme");
+        filter_select = true;
+    }
+    else{
+        // Hide the filter_selection_section
+        filter_selection_section.style.display = "none";
+        // Remove filter_bugs_theme class to filter_bugs_from_status
+        filter_bugs_from_status.classList.remove("filter_bugs_theme");
+        filter_select = false;
+    }
+    
+})
 
 // use report_bug_section function
 function use_report_bug_section(activity,bug_id){
