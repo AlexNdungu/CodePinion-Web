@@ -378,6 +378,6 @@ def CreateSafe(request):
 # Test Mail Function
 def TestMail(request):
 
-    Demo_Invite_Mail()
+    #Demo_Invite_Mail()
 
-    return render(request, 'Mail/welcome.html')
+    return render(request, 'Mail/demo_invite.html')

@@ -70,7 +70,7 @@ def Demo_Invite_Signal(sender, instance,created, **kwargs):
     # Send inivitation for the Demo
     if not created:
         if instance.demo_invite_sent == True:
-            print('Demo Updated, Send Mail')
+            # call the demo invite function
             Demo_Invite_Mail(demo_name=instance.demo_name,template_path=instance.demo_html_path)
 
 
