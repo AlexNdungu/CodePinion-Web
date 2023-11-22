@@ -1,10 +1,14 @@
 from django.contrib.auth.models import User
 from .resorce import Create_User_Signal
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
-from allauth.socialaccount.models import SocialAccount
+#
+from .models import Demo, Profile
+from .mail import Demo_Invite_Mail
+from django.dispatch import receiver
+from django.db.models.signals import post_save, pre_delete
+
 
 # Create an class adapter that customises user registration
-
 class RegisterAdapter(DefaultSocialAccountAdapter):
 
     # Override the save_user method
@@ -58,4 +62,15 @@ class RegisterAdapter(DefaultSocialAccountAdapter):
 
                 #Return the user
                 return user
+
+
+# Function that signals sending email to users when demo is created
+@receiver(post_save, sender=Demo) 
+def Demo_Invite_Signal(sender, instance,created, **kwargs):
+    # Send inivitation for the Demo
+    if not created:
+        if instance.demo_invite_sent == True:
+            print('Demo Updated, Send Mail')
+            Demo_Invite_Mail(demo_name=instance.demo_name,template_path=instance.demo_html_path)
+
 

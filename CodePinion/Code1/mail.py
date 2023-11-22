@@ -25,14 +25,15 @@ def Welcome_Mail(to_username,to_email,fail_silently=False):
     
 
 # Send to all profile demo invite
-def Demo_Invite_Mail():
+def Demo_Invite_Mail(demo_name,template_path):
     
     # Create and open a connection SMLP
     connection = get_connection(fail_silently=False)
     connection.open()
 
-    template = get_template('Mail/welcome.html')
+    template = get_template(template_path)
     from_email = settings.EMAIL_HOST_USER
+    subject = 'Demo Invitation' + ' : ' + demo_name
 
     # Get all the users
     all_profiles = models.Profile.objects.all()
@@ -41,7 +42,7 @@ def Demo_Invite_Mail():
     for profile in all_profiles:
         # Create Email Messages
         msg = EmailMessage(
-            'Invitation to New Demo', 
+            subject, 
             template.render({'username': profile.full_name}), 
             from_email, 
             [profile.user.email],
