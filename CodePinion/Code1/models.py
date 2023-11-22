@@ -35,7 +35,6 @@ class Profile(models.Model):
             return self.profile_pic.url   
 
 
-
 # Supported Devices
 class SSH_Supported(models.Model):
 
@@ -82,6 +81,22 @@ class SSH_Devices(models.Model):
     #     self.host_password = f.encrypt(self.host_password.encode())
     #     super().save(*args, **kwargs)
 
+
+# Demo model, save all the demos here
+class Demo(models.Model):
+    
+        demo_id = models.AutoField(primary_key=True)
+        demo_name = models.CharField(max_length=20, verbose_name='Demo Name')
+        demo_desc = RichTextField(verbose_name='Demo Description',default='Demo Description')
+        demo_html_path = models.TextField(verbose_name='Demo Path')
+        demo_users = models.ManyToManyField(Profile, blank=True)
+        demo_invite_sent = models.BooleanField(default=False, verbose_name='Demo Invite')
+        # dates
+        update = models.DateTimeField(auto_now=True)
+        created = models.DateField(auto_now_add=True)
+    
+        def __str__(self):
+            return self.demo_name
 
 # Report Bug Model
 class Report_Bug(models.Model):
