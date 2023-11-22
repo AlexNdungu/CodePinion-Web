@@ -11,6 +11,7 @@ import base64
 from django.core.files.base import ContentFile
 # from . import resorce
 from .resorce import SecureShell,Create_User_Signal
+from .mail import Demo_Invite_Mail
 
 
 #from .mail import Welcome_Mail
@@ -375,11 +376,8 @@ def CreateSafe(request):
     return render(request, 'Main/create_safe.html')     
 
 # Test Mail Function
-# def TestMail(request):
+def TestMail(request):
 
-#     # Welcome_Mail(
-#     #         'Alex',
-#     #         'alexmeta64@gmail.com',
-#     #           )
+    Demo_Invite_Mail()
 
-#     return render(request, 'Mail/welcome.html')
+    return render(request, 'Mail/welcome.html')
