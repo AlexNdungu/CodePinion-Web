@@ -53,3 +53,85 @@ def Demo_Invite_Mail(demo_name,template_path):
 
     # Close the connection
     connection.close()
+
+
+# Create a class for mailing
+class Mailer:
+
+    # Initialise the class
+    def __init__(self,subject,template_path):
+        self.subject = subject
+        self.template_path = template_path
+        self.from_email = settings.EMAIL_HOST_USER
+        self.connection = get_connection(fail_silently=False)
+
+    # Create email instance
+    def Create_Email_Instance(self,to_email,username):
+        template = get_template(self.template_path)
+        subject = self.subject
+        from_email = self.from_email
+
+        # Create Email Messages
+        msg = EmailMessage(
+            subject, 
+            template.render({'username': username}), 
+            from_email, 
+            [to_email],
+            connection=self.connection,
+        )
+        msg.content_subtype = "html"  # Main content is now text/html
+        return msg
+
+    # Method to send mail to all users
+    def Send_Mail_To_All(self):
+        # Create and open a connection SMLP
+        connection = get_connection(fail_silently=False)
+        connection.open()
+
+        template = get_template(self.template_path)
+        from_email = self.from_email
+        subject = self.subject
+
+        # Get all the users
+        all_profiles = models.Profile.objects.all()
+
+        # Loop through all the profiles
+        for profile in all_profiles:
+            # Create Email Messages
+            msg = EmailMessage(
+                subject, 
+                template.render({'username': profile.full_name}), 
+                from_email, 
+                [profile.user.email],
+                connection=connection,
+            )
+            msg.content_subtype = "html"  # Main content is now text/html
+            msg.send()
+
+        # Close the connection
+        connection.close()
+
+    # Method to send mail to a user
+    def Send_Mail_To_User(self,to_email,username):
+        # Create and open a connection SMLP
+        connection = get_connection(fail_silently=False)
+        connection.open()
+
+        template = get_template(self.template_path)
+        from_email = self.from_email
+        subject = self.subject
+
+        # Create Email Messages
+        msg = EmailMessage(
+            subject, 
+            template.render({'username': username}), 
+            from_email, 
+            [to_email],
+            connection=connection,
+        )
+        msg.content_subtype = "html"  # Main content is now text/html
+        msg.send()
+
+        # Close the connection
+        connection.close()
+

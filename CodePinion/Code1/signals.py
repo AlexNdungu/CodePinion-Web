@@ -82,3 +82,4 @@ def Profile_Join_Demo(sender, instance, action,model,pk_set, **kwargs):
         profile_id = next(iter(pk_set))
         the_profile = model.objects.get(profile_id=profile_id)
         profile_email = the_profile.user.email
+        
