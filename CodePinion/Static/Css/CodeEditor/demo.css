@@ -91,13 +91,14 @@
 .demo_intro_data {
     width: 700px;
     height: 100%;
+    padding-top: 30px; /* Removed hide btn */
 }
 
 /* Close intro */
 .close_intro {
     width: 100%;
     height: 60px;
-    display: flex;
+    display: none; /* Show to hide demo section */
     align-items: center;
     justify-content: flex-end;
 }

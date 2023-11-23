@@ -27,6 +27,9 @@ urlpatterns = [
     # Code Editor Url
     path('codeEditor/', views.CodeEditor, name='code_editor'),
 
+    # Join Demo Url
+    path('joinDemo/', views.JoinDemo, name='join_demo'),
+
     # Fetch the bugs
     path('fetchBugs/', views.FetchBugs, name='fetch_bugs'),
 

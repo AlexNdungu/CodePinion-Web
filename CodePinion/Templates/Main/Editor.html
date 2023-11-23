@@ -179,7 +179,7 @@
                     <!--Precced to demo-->
                     <div class="proceed_to_demo_sec">
 
-                        <div class="proceed_to_demo_btn">
+                        <div class="proceed_to_demo_btn" id="join_demo_btn">
 
                             <span>Proceed To The Demo</span>
 
@@ -202,6 +202,9 @@
             // Show the demo into section if user is in not in
             if (user_is_in_demo == "True") {
                 document.querySelector(".demo_intro_body").style.display = "none";
+            }
+            else {
+                document.querySelector(".demo_intro_body").style.display = "flex";
             }
 
         </script>

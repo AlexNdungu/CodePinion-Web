@@ -136,6 +136,18 @@ def CodeEditor(request):
 
     return render(request, 'Main/Editor.html', data_dict)
 
+# Join demo function
+def JoinDemo(request):
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        # Get the demo with the title CodePinion Editor Demo
+        demo = models.Demo.objects.get(demo_name = 'CodePinion Editor Demo')
+        # Add the user to the demo
+        demo.demo_users.add(request.user.profile)
+
+        return JsonResponse({'status':'success'})
+
 # Fetch the bugs
 def FetchBugs(request):
     

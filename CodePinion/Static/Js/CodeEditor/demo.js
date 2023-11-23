@@ -1,3 +1,5 @@
+// Join Demo
+let join_demo_btn = document.getElementById('join_demo_btn');
 //Get all the elements required for the demo
 let bug_title_input = document.getElementById("bug_title_input");
 let report_bug_btn = document.getElementById("report_bug_btn");
@@ -69,10 +71,10 @@ let bug_editor_lock = document.getElementById('bug_editor_lock');
 let bug_edit_btn = document.getElementById('bug_edit_btn');
 
 
-// Onload, check if user_is_in_demo is true
-if(user_is_in_demo == true){
-    
-}
+// Click to join demo
+join_demo_btn.addEventListener("click", function () {
+    join_demo();
+});
 
 // Rich text editor
 richButtons.forEach(richBtn => {
@@ -217,6 +219,50 @@ for (let i = 0; i < select_any_filters.length; i++) {
         display_bugs(status,filter_span.innerHTML)
 
     })
+}
+
+// Joining the demo function
+function join_demo(){
+    // First we create form data
+    let formData = new FormData();
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
+
+    $.ajax({
+        type:'POST',
+        url:'/joinDemo/',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+
+            // Hide the join demo section
+            document.querySelector(".demo_intro_body").style.display = "none";
+            // Display the success pop up
+            success_pop.style.display = "flex";
+            success_pop_msg.innerHTML = "You Have Joined The Demo!";
+
+            // Hide the success pop up after 2 seconds
+            setTimeout(function(){
+                success_pop.style.display = "none";
+            }, 2000);
+
+            // Change the value of user_is_in_demo to true
+            user_is_in_demo = true;
+
+        },
+        error: function(error){
+            // Display the fail pop up
+            fail_pop.style.display = "flex";
+            fail_pop_msg.innerHTML = "Failed To Join Demo! Please try again, and if the issue persists, contact our support team.";
+
+            // Hide the fail pop up after 2 seconds
+            setTimeout(function(){
+                fail_pop.style.display = "none";
+            }, 2000);
+            
+        }
+    }); 
+
 }
 
 // use report_bug_section function
