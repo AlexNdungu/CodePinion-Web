@@ -68,6 +68,12 @@ let one_detail_admin_display = document.getElementById('one_detail_admin_display
 let bug_editor_lock = document.getElementById('bug_editor_lock');
 let bug_edit_btn = document.getElementById('bug_edit_btn');
 
+
+// Onload, check if user_is_in_demo is true
+if(user_is_in_demo == true){
+    
+}
+
 // Rich text editor
 richButtons.forEach(richBtn => {
     richBtn.addEventListener('click', () => {

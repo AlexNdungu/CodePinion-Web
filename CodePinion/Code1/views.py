@@ -123,10 +123,15 @@ def CodeEditor(request):
 
     pending_bugs_count = models.Report_Bug.objects.filter(bug_status = False).count()
     resolved_bugs_count = models.Report_Bug.objects.filter(bug_status = True).count()
-    
+
+    # Get the demo with the title CodePinion Editor Demo
+    demo = models.Demo.objects.get(demo_name = 'CodePinion Editor Demo')
+    user_is_in_demo = demo.demo_users.filter(user = request.user).exists()
+
     data_dict = {
         'pending_bugs_count':pending_bugs_count,
         'resolved_bugs_count':resolved_bugs_count,
+        'user_is_in_demo':user_is_in_demo,
     }
 
     return render(request, 'Main/Editor.html', data_dict)

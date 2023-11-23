@@ -52,7 +52,7 @@
         </div>
 
         <!--Demo intro body-->
-        <div class="demo_intro_body">
+        <div class="demo_intro_body" id="demo_intro_body">
 
             <!--The into-->
             <div class="demo_intro">
@@ -194,6 +194,17 @@
             </div>
 
         </div>
+
+        <!--This script will get user_is_in_demo-->
+        <script>
+            let user_is_in_demo = "{{ user_is_in_demo }}";
+            
+            // Show the demo into section if user is in not in
+            if (user_is_in_demo == "True") {
+                document.querySelector(".demo_intro_body").style.display = "none";
+            }
+
+        </script>
 
         <!--See all bugs section-->
         <div class="see_all_bugs_section" id="see_all_bugs_section">

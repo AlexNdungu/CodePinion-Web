@@ -86,7 +86,7 @@ class SSH_Devices(models.Model):
 class Demo(models.Model):
     
         demo_id = models.AutoField(primary_key=True)
-        demo_name = models.CharField(max_length=20, verbose_name='Demo Name')
+        demo_name = models.CharField(max_length=35, verbose_name='Demo Name')
         demo_desc = RichTextField(verbose_name='Demo Description',default='Demo Description')
         demo_html_path = models.TextField(verbose_name='Demo Path')
         demo_users = models.ManyToManyField(Profile, blank=True)
