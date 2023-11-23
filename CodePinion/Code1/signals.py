@@ -5,7 +5,7 @@ from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from .models import Demo, Profile
 from .mail import Demo_Invite_Mail
 from django.dispatch import receiver
-from django.db.models.signals import post_save, pre_delete
+from django.db.models.signals import post_save, pre_save
 
 
 # Create an class adapter that customises user registration
@@ -65,12 +65,11 @@ class RegisterAdapter(DefaultSocialAccountAdapter):
 
 
 # Function that signals sending email to users when demo is created
-@receiver(post_save, sender=Demo) 
-def Demo_Invite_Signal(sender, instance,created, **kwargs):
+@receiver(pre_save, sender=Demo)
+def Demo_Invite_Signal(sender, instance, **kwargs):
+    # Get the instance before saving
+    before_instance = Demo.objects.get(demo_name = instance.demo_name)
     # Send inivitation for the Demo
-    if not created:
-        if instance.demo_invite_sent == True:
-            # call the demo invite function
-            Demo_Invite_Mail(demo_name=instance.demo_name,template_path=instance.demo_html_path)
-
-
+    if before_instance.demo_invite_sent == False and instance.demo_invite_sent == True:
+        # call the demo invite function
+        Demo_Invite_Mail(demo_name=instance.demo_name,template_path=instance.demo_html_path)
