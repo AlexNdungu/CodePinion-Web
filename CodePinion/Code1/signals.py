@@ -5,7 +5,7 @@ from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from .models import Demo, Profile
 from .mail import Demo_Invite_Mail
 from django.dispatch import receiver
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import m2m_changed, pre_save
 
 
 # Create an class adapter that customises user registration
@@ -73,3 +73,12 @@ def Demo_Invite_Signal(sender, instance, **kwargs):
     if before_instance.demo_invite_sent == False and instance.demo_invite_sent == True:
         # call the demo invite function
         Demo_Invite_Mail(demo_name=instance.demo_name,template_path=instance.demo_html_path)
+
+# Function that signals sending instructions to users when they join the demo
+@receiver(m2m_changed, sender=Demo.demo_users.through)
+def Profile_Join_Demo(sender, instance, action,model,pk_set, **kwargs):
+    if action == 'post_add':
+        # Get the profile and email
+        profile_id = next(iter(pk_set))
+        the_profile = model.objects.get(profile_id=profile_id)
+        profile_email = the_profile.user.email
