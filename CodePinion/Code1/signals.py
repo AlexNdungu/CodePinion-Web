@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from .resorce import Create_User_Signal
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 #
-from .models import Demo
+from .models import Demo, Report_Bug
 from .mail import Mailer
 from django.dispatch import receiver
 from django.db.models.signals import m2m_changed, pre_save,post_save
@@ -78,10 +78,10 @@ def Welcome_User_Signal(sender,instance,created, **kwargs):
         template_path = 'Mail/welcome.html'
         mailer = Mailer(subject,template_path)
         # Get the instance username and email
-        username = new_user.username
+        username_dict = {'username':new_user.username}
         email = new_user.email
         # Call the Send_Mail_To_User method
-        mailer.Send_Mail_To_User(full_name=username,to_email=email)
+        mailer.Send_Mail_To_User(data_dict=username_dict,to_email=email)
 
 
 # Function that signals sending email to users when demo is created
@@ -103,7 +103,7 @@ def Demo_Invite_Signal(sender, instance, **kwargs):
 # Function that signals sending instructions to users when they join the demo
 @receiver(m2m_changed, sender=Demo.demo_users.through)
 def Profile_Join_Demo(sender, instance, action,model,pk_set, **kwargs):
-    
+
     if action == 'post_add':
         # Get the profile and email
         profile_id = next(iter(pk_set))
@@ -118,3 +118,22 @@ def Profile_Join_Demo(sender, instance, action,model,pk_set, **kwargs):
         mailer.Send_Mail_To_User(data_dict=full_name_data,to_email=profile_email)
         
 
+# Function that signals activities in the bug reporting module
+@receiver(post_save, sender=Report_Bug)
+def Report_Bug_Signal(sender, instance, created, **kwargs):
+
+    if created:
+        # Instanciate the Mailer class
+        subject = 'Bug Reported' + ' : ' + instance.bug_title
+        template_path = 'Mail/bug_report.html'
+        mailer = Mailer(subject,template_path)
+        # Get the title, description and screenshot
+        reporter_name = instance.profile.full_name
+        bug_reporter_email = instance.profile.user.email
+        bug_title = instance.bug_title
+        bug_desc = instance.bug_desc
+        bug_screenshot = instance.bug_screenshot.url
+        # Create the data dictionary
+        bug_data = {'reporter_name':reporter_name,'bug_title':bug_title,'bug_desc':bug_desc,'bug_screenshot':bug_screenshot}
+        # Call the Send_Mail_To_User method
+        mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
