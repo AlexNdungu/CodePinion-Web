@@ -1,8 +1,8 @@
 # Handling all the Mails Here
 from CodePinion import settings
-from django.template.loader import render_to_string,get_template
+from django.template.loader import get_template
 # Send one mail
-from django.core.mail import send_mail,EmailMessage,get_connection
+from django.core.mail import EmailMessage,get_connection
 from . import models
 
 # Create a class for mailing

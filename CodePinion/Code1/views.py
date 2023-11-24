@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from django.urls import reverse
 from . import models
 #
 from django.shortcuts import render, redirect
@@ -10,9 +9,7 @@ from django.http import JsonResponse
 import base64
 from django.core.files.base import ContentFile
 # from . import resorce
-from .resorce import SecureShell,Create_User_Signal
-from .mail import Demo_Invite_Mail
-
+from .resorce import SecureShell
 
 #from .mail import Welcome_Mail
 # Create your views here.

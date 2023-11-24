@@ -2,8 +2,8 @@ from django.contrib.auth.models import User
 from .resorce import Create_User_Signal
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 #
-from .models import Demo, Profile
-from .mail import Demo_Invite_Mail, Mailer
+from .models import Demo
+from .mail import Mailer
 from django.dispatch import receiver
 from django.db.models.signals import m2m_changed, pre_save,post_save
 

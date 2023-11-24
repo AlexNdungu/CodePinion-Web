@@ -7,8 +7,6 @@ from . import models
 from django.contrib.auth.models import User
 from .generate import UserGen
 
-# Send Mail
-from .mail import Welcome_Mail
 
 # Create A Class SecureShell That Has All the methods required by ssh
 
@@ -240,9 +238,6 @@ class SecureShell:
 
             return self.linux_command(cd_path)
 
-    
-
-
 
 
 # Create User Signal
@@ -307,8 +302,5 @@ def Create_User_Signal(user):
     # Save the changes to the database
     profile.save()
     user.save()
-
-    # Send Welcome Mail
-    #Welcome_Mail(user.username,user.email)
 
     return user
