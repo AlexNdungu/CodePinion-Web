@@ -66,16 +66,13 @@ class Mailer:
         self.connection = get_connection(fail_silently=False)
 
     # Create email instance
-    def Create_Email_Instance(self,to_email,username):
-        template = get_template(self.template_path)
-        subject = self.subject
-        from_email = self.from_email
+    def Create_Email_Instance(self,subject,html_template,to_email):
 
         # Create Email Messages
         msg = EmailMessage(
             subject, 
-            template.render({'username': username}), 
-            from_email, 
+            html_template, 
+            self.from_email, 
             [to_email],
             connection=self.connection,
         )
@@ -112,26 +109,18 @@ class Mailer:
         connection.close()
 
     # Method to send mail to a user
-    def Send_Mail_To_User(self,to_email,username):
+    def Send_Mail_To_User(self,full_name,to_email):
         # Create and open a connection SMLP
-        connection = get_connection(fail_silently=False)
-        connection.open()
+        self.connection.open()
 
+        # Create the template
         template = get_template(self.template_path)
-        from_email = self.from_email
-        subject = self.subject
+        template_data = template.render({'username': full_name})
 
         # Create Email Messages
-        msg = EmailMessage(
-            subject, 
-            template.render({'username': username}), 
-            from_email, 
-            [to_email],
-            connection=connection,
-        )
-        msg.content_subtype = "html"  # Main content is now text/html
+        msg = self.Create_Email_Instance(self.subject,template_data,to_email)
         msg.send()
 
         # Close the connection
-        connection.close()
+        self.connection.close()
 

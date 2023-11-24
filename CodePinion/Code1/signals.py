@@ -3,9 +3,9 @@ from .resorce import Create_User_Signal
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 #
 from .models import Demo, Profile
-from .mail import Demo_Invite_Mail
+from .mail import Demo_Invite_Mail, Mailer
 from django.dispatch import receiver
-from django.db.models.signals import m2m_changed, pre_save
+from django.db.models.signals import m2m_changed, pre_save,post_save
 
 
 # Create an class adapter that customises user registration
@@ -62,6 +62,23 @@ class RegisterAdapter(DefaultSocialAccountAdapter):
 
                 #Return the user
                 return user
+
+
+
+# Function that send email to users when they are created
+@receiver(post_save, sender=Profile)
+def Welcome_User_Signal(sender,instance,created, **kwargs):
+
+    if created:
+        # Instanciate the Mailer class
+        subject = 'Welcome to CodePinion'
+        template_path = 'Mail/welcome.html'
+        mailer = Mailer(subject,template_path)
+        # Get the instance username and email
+        username = instance.user.username
+        email = instance.user.email
+        # Call the Send_Mail_To_User method
+        mailer.Send_Mail_To_User(full_name=username,to_email=email)
 
 
 # Function that signals sending email to users when demo is created

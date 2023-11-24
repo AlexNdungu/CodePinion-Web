@@ -309,6 +309,6 @@ def Create_User_Signal(user):
     user.save()
 
     # Send Welcome Mail
-    Welcome_Mail(user.username,user.email)
+    #Welcome_Mail(user.username,user.email)
 
     return user
