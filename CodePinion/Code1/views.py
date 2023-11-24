@@ -390,8 +390,8 @@ def CreateSafe(request):
     return render(request, 'Main/create_safe.html')     
 
 # Test Mail Function
-def TestMail(request):
+# def TestMail(request):
 
-    #Demo_Invite_Mail()
+#     #Demo_Invite_Mail()
 
-    return render(request, 'Mail/bug_fixed.html')
+#     return render(request, 'Mail/bug_fixed.html')

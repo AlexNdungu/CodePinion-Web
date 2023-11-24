@@ -54,5 +54,5 @@ urlpatterns = [
     path('cdDir/',views.cdIntoDir,name='enter_into_dir'),
 
     #Test mail
-    path('testMail/', views.TestMail, name='test_mail'),
+    #path('testMail/', views.TestMail, name='test_mail'),
 ]
