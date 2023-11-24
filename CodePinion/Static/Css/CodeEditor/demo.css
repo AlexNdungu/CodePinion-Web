@@ -1406,3 +1406,20 @@ tr:hover {
 .r_d_btn svg {
     width: 22px;
 }
+
+/* Spinner */
+.report_spinner {
+    display: none;
+    width: 35px;
+    height: 35px;
+    border: 4px solid #dddddd;
+    border-top-color: #406CEE;
+    border-radius: 50%;
+    animation: loading 1s ease infinite;
+}
+
+@keyframes loading {
+    to {
+        transform: rotate(1turn);
+    }
+}

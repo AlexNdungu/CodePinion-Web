@@ -1,5 +1,7 @@
 // Join Demo
 let join_demo_btn = document.getElementById('join_demo_btn');
+let join_demo_icon = document.getElementById('join_demo_icon');
+let join_demo_spinner = document.getElementById('join_demo_spinner');
 //Get all the elements required for the demo
 let bug_title_input = document.getElementById("bug_title_input");
 let report_bug_btn = document.getElementById("report_bug_btn");
@@ -10,6 +12,8 @@ let bug_title = null;
 let bug_body = null;
 let bug_screenshot = null;
 let report_bug_now = document.getElementById("report_bug_to_admin");
+let report_spinner = document.getElementById("report_spinner");
+let report_plane = document.getElementById("report_plane");
 
 // Here we will give the rich text its fuctionality
 const richButtons = document.querySelectorAll('.btnOption');
@@ -223,6 +227,11 @@ for (let i = 0; i < select_any_filters.length; i++) {
 
 // Joining the demo function
 function join_demo(){
+
+    // Show spinner
+    join_demo_spinner.style.display = "flex";
+    join_demo_icon.style.display = "none";
+
     // First we create form data
     let formData = new FormData();
     formData.append('csrfmiddlewaretoken', csrf[0].value);
@@ -234,6 +243,10 @@ function join_demo(){
         processData: false,
         contentType: false,
         success: function(response){
+
+            // Hide spinner
+            join_demo_spinner.style.display = "none";
+            join_demo_icon.style.display = "flex";
 
             // Hide the join demo section
             document.querySelector(".demo_intro_body").style.display = "none";
@@ -251,6 +264,11 @@ function join_demo(){
 
         },
         error: function(error){
+
+            // Hide spinner
+            join_demo_spinner.style.display = "none";
+            join_demo_icon.style.display = "flex";
+
             // Display the fail pop up
             fail_pop.style.display = "flex";
             fail_pop_msg.innerHTML = "Failed To Join Demo! Please try again, and if the issue persists, contact our support team.";
@@ -800,6 +818,10 @@ function update_bug(){
     bug_title = bug_title_input.value;
     bug_body = bodyTextContent.innerHTML;
 
+    // Show the spinner 
+    report_spinner.style.display = "flex";
+    report_plane.style.display = "none";
+
     // First we create form data
     let formData = new FormData();
 
@@ -816,10 +838,15 @@ function update_bug(){
         processData: false,
         contentType: false,
         success: function(response){
+
+            // Hide the spinner
+            report_spinner.style.display = "none";
+            report_plane.style.display = "flex";
             
             // Display the success pop up
             success_pop.style.display = "flex";
             success_pop_msg.innerHTML = "Bug Updated Successfully!";
+
             // Update the pending and resolved bugs numbers
             pending_bug_number_on_btn.innerHTML = response.pending_bugs_count;
             fixed_bug_number_on_btn.innerHTML = response.resolved_bugs_count;
@@ -834,6 +861,10 @@ function update_bug(){
            
         },
         error: function(error){
+
+            // Hide the spinner
+            report_spinner.style.display = "none";
+            report_plane.style.display = "flex";
 
             // Display the fail pop up
             fail_pop.style.display = "flex";
@@ -856,6 +887,10 @@ function report_new_bug(){
     bug_title = bug_title_input.value;
     bug_body = bodyTextContent.innerHTML;
 
+    // Show the spinner 
+    report_spinner.style.display = "flex";
+    report_plane.style.display = "none";
+
     // First we create form data
     let formData = new FormData();
 
@@ -873,6 +908,10 @@ function report_new_bug(){
         processData: false,
         contentType: false,
         success: function(response){
+
+            // Hide the spinner
+            report_spinner.style.display = "none";
+            report_plane.style.display = "flex";
             
             // Display the success pop up
             success_pop.style.display = "flex";
@@ -892,6 +931,10 @@ function report_new_bug(){
            
         },
         error: function(error){
+
+            // Hide the spinner
+            report_spinner.style.display = "none";
+            report_plane.style.display = "flex";
 
             // Display the fail pop up
             fail_pop.style.display = "flex";
