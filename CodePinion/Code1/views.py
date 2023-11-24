@@ -394,4 +394,4 @@ def TestMail(request):
 
     #Demo_Invite_Mail()
 
-    return render(request, 'Mail/bug_report.html')
+    return render(request, 'Mail/bug_fixed.html')

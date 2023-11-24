@@ -137,3 +137,41 @@ def Report_Bug_Signal(sender, instance, created, **kwargs):
         bug_data = {'reporter_name':reporter_name,'bug_title':bug_title,'bug_desc':bug_desc,'bug_screenshot':bug_screenshot}
         # Call the Send_Mail_To_User method
         mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
+
+    else:
+
+        if instance.bug_status == True:
+
+            # Instanciate the Mailer class
+            subject = 'Bug Status Changed' + ' : ' + instance.bug_title
+            template_path = 'Mail/bug_fixed.html'
+            mailer = Mailer(subject,template_path)
+            # Get the title, description and screenshot
+            reporter_name = instance.profile.full_name
+            bug_reporter_email = instance.profile.user.email
+            bug_title = instance.bug_title
+            bug_desc = instance.bug_desc
+            bug_screenshot = instance.bug_screenshot.url
+            bug_status = instance.bug_status
+            # Create the data dictionary
+            bug_data = {'reporter_name':reporter_name,'bug_title':bug_title,'bug_desc':bug_desc,'bug_screenshot':bug_screenshot,'bug_status':bug_status}
+            # Call the Send_Mail_To_User method
+            mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
+
+        else:
+
+            # Instanciate the Mailer class
+            subject = 'Bug Status Changed' + ' : ' + instance.bug_title
+            template_path = 'Mail/bug_status.html'
+            mailer = Mailer(subject,template_path)
+            # Get the title, description and screenshot
+            reporter_name = instance.profile.full_name
+            bug_reporter_email = instance.profile.user.email
+            bug_title = instance.bug_title
+            bug_desc = instance.bug_desc
+            bug_screenshot = instance.bug_screenshot.url
+            bug_status = instance.bug_status
+            # Create the data dictionary
+            bug_data = {'reporter_name':reporter_name,'bug_title':bug_title,'bug_desc':bug_desc,'bug_screenshot':bug_screenshot,'bug_status':bug_status}
+            # Call the Send_Mail_To_User method
+            mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
