@@ -198,20 +198,6 @@
 
         </div>
 
-        <!--This script will get user_is_in_demo-->
-        <script>
-            let user_is_in_demo = "{{ user_is_in_demo }}";
-            
-            // Show the demo into section if user is in not in
-            if (user_is_in_demo == "True") {
-                document.querySelector(".demo_intro_body").style.display = "none";
-            }
-            else {
-                document.querySelector(".demo_intro_body").style.display = "flex";
-            }
-
-        </script>
-
         <!--See all bugs section-->
         <div class="see_all_bugs_section" id="see_all_bugs_section">
 
@@ -698,7 +684,7 @@
         </div>
 
         <!--Demo navigation-->
-        <div class="demo_navigation"> 
+        <div class="demo_navigation" id="demo_navigation"> 
 
             <!--The demo language-->
             <div class="demo_lang_img">
@@ -770,6 +756,36 @@
         <form>
             {% csrf_token %}
         </form>
+
+        <!--This script will get user_is_in_demo-->
+        <script>
+
+            let user_is_in_demo = "{{ user_is_in_demo }}";
+            let demo_available = "{{ demo_available }}";
+            //
+            let demo_navigation = document.getElementById("demo_navigation");
+            let demo_intro_body = document.getElementById("demo_intro_body");
+            let report_bug_btn = document.getElementById("report_bug_btn");
+
+            // Check if demo is available
+            if(demo_available == 'False'){
+                demo_navigation.style.display = "none";
+                report_bug_btn.style.display = "none";
+            }
+            else {
+                demo_navigation.style.display = "flex";
+                report_bug_btn.style.display = "flex";
+            }
+
+            // Check if user is in demo
+            if(user_is_in_demo == 'False'){
+                demo_intro_body.style.display = "flex";
+            }
+            else {
+                demo_intro_body.style.display = "none";
+            }
+            
+        </script>
 
     </div>
 
