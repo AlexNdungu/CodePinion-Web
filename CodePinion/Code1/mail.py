@@ -61,7 +61,7 @@ class Mailer:
 
         # Create the template
         template = get_template(self.template_path)
-        template_data = template.render({'username': full_name})
+        template_data = template.render(full_name)
 
         # Create Email Messages
         msg = self.Create_Email_Instance(self.subject,template_data,to_email)
