@@ -114,6 +114,6 @@ def Profile_Join_Demo(sender, instance, action,model,pk_set, **kwargs):
         full_name_data = {'username': the_profile.full_name}
         mailer = Mailer(subject,template_path)
         # Call the Send_Mail_To_User method
-        mailer.Send_Mail_To_User(full_name=full_name_data,to_email=profile_email)
+        mailer.Send_Mail_To_User(data_dict=full_name_data,to_email=profile_email)
         
 

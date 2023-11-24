@@ -55,13 +55,13 @@ class Mailer:
         self.connection.close()
 
     # Method to send mail to a user
-    def Send_Mail_To_User(self,full_name,to_email):
+    def Send_Mail_To_User(self,data_dict,to_email):
         # Create and open a connection SMLP
         self.connection.open()
 
         # Create the template
         template = get_template(self.template_path)
-        template_data = template.render(full_name)
+        template_data = template.render(data_dict)
 
         # Create Email Messages
         msg = self.Create_Email_Instance(self.subject,template_data,to_email)
