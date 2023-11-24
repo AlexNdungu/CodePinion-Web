@@ -316,7 +316,7 @@ def ReportBug(request):
         bug.bug_title = bug_title
         bug.bug_desc = bug_desc
         bug.bug_screenshot.save('screenshot.' + ext, data)
-        bug.save()
+        #bug.save()
 
     return JsonResponse({'status':'success'})
 

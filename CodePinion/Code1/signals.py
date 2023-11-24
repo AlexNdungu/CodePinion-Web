@@ -122,8 +122,6 @@ def Profile_Join_Demo(sender, instance, action,model,pk_set, **kwargs):
 @receiver(post_save, sender=Report_Bug)
 def Report_Bug_Signal(sender, instance, created, **kwargs):
 
-    subject = ''
-    template_path = ''
     # Get the title, description and screenshot
     reporter_name = instance.profile.full_name
     bug_reporter_email = instance.profile.user.email
@@ -134,22 +132,32 @@ def Report_Bug_Signal(sender, instance, created, **kwargs):
     bug_data = {'reporter_name':reporter_name,'bug_title':bug_title,'bug_desc':bug_desc,'bug_screenshot':bug_screenshot}
 
     if created:
+        
         # Instanciate the Mailer class
         subject = 'Bug Reported' + ' : ' + bug_title
         template_path = 'Mail/bug_report.html'
 
-    else:
+        # Call the Send_Mail_To_User method
+        mailer = Mailer(subject,template_path)
+        mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
 
+    else:
+        
         if instance.bug_status == True:
             # Instanciate the Mailer class
             subject = 'Bug Fixed' + ' : ' + bug_title
             template_path = 'Mail/bug_fixed.html'
+
+            # Call the Send_Mail_To_User method
+            mailer = Mailer(subject,template_path)
+            mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
+           
 
         else:
             # Instanciate the Mailer class
             subject = 'Bug Updated' + ' : ' + bug_title
             template_path = 'Mail/bug_report.html'
 
-    # Call the Send_Mail_To_User method
-    mailer = Mailer(subject,template_path)
-    mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
+            # Call the Send_Mail_To_User method
+            mailer = Mailer(subject,template_path)
+            mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
