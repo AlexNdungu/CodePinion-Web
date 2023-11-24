@@ -103,6 +103,7 @@ def Demo_Invite_Signal(sender, instance, **kwargs):
 # Function that signals sending instructions to users when they join the demo
 @receiver(m2m_changed, sender=Demo.demo_users.through)
 def Profile_Join_Demo(sender, instance, action,model,pk_set, **kwargs):
+    
     if action == 'post_add':
         # Get the profile and email
         profile_id = next(iter(pk_set))
