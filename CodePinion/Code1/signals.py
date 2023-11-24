@@ -162,7 +162,7 @@ def Report_Bug_Signal(sender, instance, created, **kwargs):
 
             # Instanciate the Mailer class
             subject = 'Bug Status Changed' + ' : ' + instance.bug_title
-            template_path = 'Mail/bug_status.html'
+            template_path = 'Mail/bug_report.html'
             mailer = Mailer(subject,template_path)
             # Get the title, description and screenshot
             reporter_name = instance.profile.full_name
