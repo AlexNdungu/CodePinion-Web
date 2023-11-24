@@ -91,8 +91,14 @@ def Demo_Invite_Signal(sender, instance, **kwargs):
     before_instance = Demo.objects.get(demo_name = instance.demo_name)
     # Send inivitation for the Demo
     if before_instance.demo_invite_sent == False and instance.demo_invite_sent == True:
-        # call the demo invite function
-        Demo_Invite_Mail(demo_name=instance.demo_name,template_path=instance.demo_html_path)
+
+        # Instanciate the Mailer class
+        subject = 'Demo Invitation' + ' : ' + instance.demo_name
+        template_path = instance.demo_html_path
+        mailer = Mailer(subject,template_path)
+        # Call the Send_Mail_To_All method
+        mailer.Send_Mail_To_All()
+
 
 # Function that signals sending instructions to users when they join the demo
 @receiver(m2m_changed, sender=Demo.demo_users.through)
