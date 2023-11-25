@@ -1424,7 +1424,7 @@ tr:hover {
     }
 }
 
-/* 720px Max */
+/* 790px Max */
 
 /* HEIGHT */
 
@@ -1434,6 +1434,12 @@ tr:hover {
     /* Demo into section */
     .demo_intro_body {
         padding-top: 90px;
+    }
+
+    /* Report bug section */
+    .report_bug_section {
+        padding-top: 120px;
+        padding-bottom: 20px;
     }
     
 }
@@ -1445,13 +1451,30 @@ tr:hover {
     .demo_intro_body {
         padding-top: 280px;
     }
+
+    /* Report bug section */
+    .report_bug_section {
+        padding-top: 300px;
+        padding-bottom: 20px;
+    }
+
     
 }
 
 
 /* WIDTH */
 
-/* Width max- = 720px */
+/* Width max- = 800px */
+@media screen and (max-width: 800px){
+
+    /* View One bug */
+    .one_bug_section,.report_form,.demo_intro {
+        width: 790px;
+    }
+
+}
+
+/* Width max- = 790px */
 @media screen and (max-width: 790px) {
 
     /* Demo into section */
