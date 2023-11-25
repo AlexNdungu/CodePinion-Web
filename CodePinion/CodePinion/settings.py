@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-from Code1.secret import PostgreSQL_password
+from Code1.secret import PostgreSQL_password,email_password,secure_django_key
 
 import django
 from django.utils.encoding import force_str
@@ -31,12 +31,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-wx8tk0+7gfn%y+cr$2#2114kpz--_3ogmj2uo1pw_3(!3ks)@q'
+SECRET_KEY = secure_django_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["codepinion.com","www.codepinion.com","https://codepinion.com" ,"localhost", "127.0.0.1","192.168.100.4"]
+ALLOWED_HOSTS = [
+    "codepinion.com","www.codepinion.com","https://codepinion.com","mail.codepinion.com",
+    "localhost", "127.0.0.1","192.168.100.4"
+    ]
 
 
 SITE_ID = 1
@@ -53,6 +56,8 @@ INSTALLED_APPS = [
 
     #Apps
     'Code1',
+
+    'ckeditor',
 
     #Google Auth
     'django.contrib.sites',
@@ -186,5 +191,10 @@ LOGIN_REDIRECT_URL = "/dash/"
 LOGOUT_REDIRECT_URL = "/"
 
 SOCIALACCOUNT_LOGIN_ON_GET=True
-
 SOCIALACCOUNT_ADAPTER  = 'Code1.signals.RegisterAdapter'
+
+# Email Settings
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '98862778f9477c'
+EMAIL_HOST_PASSWORD = email_password
+EMAIL_PORT = '2525'
