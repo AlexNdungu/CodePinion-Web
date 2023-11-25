@@ -148,7 +148,7 @@
 
                         {% if request.user.profile.profile_url %}
 
-                            <img src="{% static '\Images\user.jpg' %}" alt="logged-user">
+                            <img src="{{request.user.profile.profile_url}}" alt="logged-user">
 
                         {% else %}
 

@@ -8,7 +8,6 @@ from django.contrib.auth.models import User
 from .generate import UserGen
 
 
-
 # Create A Class SecureShell That Has All the methods required by ssh
 
 class SecureShell:
@@ -238,9 +237,6 @@ class SecureShell:
         elif os == 'Linux':
 
             return self.linux_command(cd_path)
-
-    
-
 
 
 

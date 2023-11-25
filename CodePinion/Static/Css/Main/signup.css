@@ -493,13 +493,13 @@ form {
     border-top-color: #406CEE;
     border-radius: 50%;
     animation: loading 1s ease infinite;
-  }
-  
-  @keyframes loading {
+}
+
+@keyframes loading {
     to {
-      transform: rotate(1turn);
+        transform: rotate(1turn);
     }
-  }
+}
 
 
 /* Have an account or not */

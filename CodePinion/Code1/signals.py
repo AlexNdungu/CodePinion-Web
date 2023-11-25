@@ -1,10 +1,14 @@
 from django.contrib.auth.models import User
 from .resorce import Create_User_Signal
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
-from allauth.socialaccount.models import SocialAccount
+#
+from .models import Demo, Report_Bug
+from .mail import Mailer
+from django.dispatch import receiver
+from django.db.models.signals import m2m_changed, pre_save,post_save
+
 
 # Create an class adapter that customises user registration
-
 class RegisterAdapter(DefaultSocialAccountAdapter):
 
     # Override the save_user method
@@ -51,7 +55,7 @@ class RegisterAdapter(DefaultSocialAccountAdapter):
                 user.save()
 
                 # Call create user function
-                Create_User_Signal(user=user)
+                #Create_User_Signal(user=user)
 
                 # Call the super method to execute the default save_user logic
                 super().save_user(request, sociallogin, form)
@@ -59,3 +63,104 @@ class RegisterAdapter(DefaultSocialAccountAdapter):
                 #Return the user
                 return user
 
+
+
+# Function that send email to users when they are created
+@receiver(post_save, sender=User)
+def Welcome_User_Signal(sender,instance,created, **kwargs):
+
+    if created:
+        # Call the create user function
+        new_user = Create_User_Signal(user=instance)
+
+        # Instanciate the Mailer class
+        subject = 'Welcome to CodePinion'
+        template_path = 'Mail/welcome.html'
+        mailer = Mailer(subject,template_path)
+        # Get the instance username and email
+        username_dict = {'username':new_user.username}
+        email = new_user.email
+        # Call the Send_Mail_To_User method
+        mailer.Send_Mail_To_User(data_dict=username_dict,to_email=email)
+
+
+# Function that signals sending email to users when demo is created
+@receiver(pre_save, sender=Demo)
+def Demo_Invite_Signal(sender, instance, **kwargs):
+
+    # Check if the demo already exists
+    if Demo.objects.filter(demo_name = instance.demo_name).exists():
+        # Get the instance before saving
+        before_instance = Demo.objects.get(demo_name = instance.demo_name)
+        # Send inivitation for the Demo
+        if before_instance.demo_invite_sent == False and instance.demo_invite_sent == True:
+
+            # Instanciate the Mailer class
+            subject = 'Demo Invitation' + ' : ' + instance.demo_name
+            template_path = instance.demo_html_path
+            mailer = Mailer(subject,template_path)
+            # Call the Send_Mail_To_All method
+            mailer.Send_Mail_To_All()
+
+
+# Function that signals sending instructions to users when they join the demo
+@receiver(m2m_changed, sender=Demo.demo_users.through)
+def Profile_Join_Demo(sender, instance, action,model,pk_set, **kwargs):
+
+    if action == 'post_add':
+        # Get the profile and email
+        profile_id = next(iter(pk_set))
+        the_profile = model.objects.get(profile_id=profile_id)
+        profile_email = the_profile.user.email
+        # Instanciate the Mailer class
+        subject = 'Welcome to ' + instance.demo_name
+        template_path = 'Mail/demo_instructions.html'
+        full_name_data = {'username': the_profile.full_name}
+        mailer = Mailer(subject,template_path)
+        # Call the Send_Mail_To_User method
+        mailer.Send_Mail_To_User(data_dict=full_name_data,to_email=profile_email)
+        
+
+# Function that signals activities in the bug reporting module
+@receiver(post_save, sender=Report_Bug)
+def Report_Bug_Signal(sender, instance, created, **kwargs):
+
+    # Get the title, description and screenshot
+    reporter_name = instance.profile.full_name
+    bug_reporter_email = instance.profile.user.email
+    bug_title = instance.bug_title
+    bug_desc = instance.bug_desc
+    bug_screenshot = instance.bug_screenshot.url
+    # Create the data dictionary
+    bug_data = {'reporter_name':reporter_name,'bug_title':bug_title,'bug_desc':bug_desc,'bug_screenshot':bug_screenshot}
+
+    if created:
+        
+        # Instanciate the Mailer class
+        subject = 'Bug Reported' + ' : ' + bug_title
+        template_path = 'Mail/bug_report.html'
+
+        # Call the Send_Mail_To_User method
+        mailer = Mailer(subject,template_path)
+        mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
+
+    else:
+        
+        if instance.bug_status == True:
+            # Instanciate the Mailer class
+            subject = 'Bug Fixed' + ' : ' + bug_title
+            template_path = 'Mail/bug_fixed.html'
+
+            # Call the Send_Mail_To_User method
+            mailer = Mailer(subject,template_path)
+            mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)
+           
+
+        else:
+            # Instanciate the Mailer class
+            subject = 'Bug Updated' + ' : ' + bug_title
+            template_path = 'Mail/bug_report.html'
+
+            # Call the Send_Mail_To_User method
+            mailer = Mailer(subject,template_path)
+            mailer.Send_Mail_To_User(data_dict=bug_data,to_email=bug_reporter_email)

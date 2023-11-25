@@ -27,6 +27,21 @@ urlpatterns = [
     # Code Editor Url
     path('codeEditor/', views.CodeEditor, name='code_editor'),
 
+    # Join Demo Url
+    path('joinDemo/', views.JoinDemo, name='join_demo'),
+
+    # Fetch the bugs
+    path('fetchBugs/', views.FetchBugs, name='fetch_bugs'),
+
+    # Fetch a single bug
+    path('fetchABug/', views.FetchSingleBug, name='fetch_bug'),
+
+    # Report bug Url
+    path('reportBug/', views.ReportBug, name='report_bug'),
+
+    # Update bug Url
+    path('updateBug/', views.UpdateBug, name='update_bug'),
+
     # New Safe and New Folder Url
     path('create_safe/', views.CreateSafe, name='create_safe_folder'),
 
@@ -37,4 +52,7 @@ urlpatterns = [
 
     # Enter Intended Dir
     path('cdDir/',views.cdIntoDir,name='enter_into_dir'),
+
+    #Test mail
+    #path('testMail/', views.TestMail, name='test_mail'),
 ]
