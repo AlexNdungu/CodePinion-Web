@@ -194,14 +194,6 @@ SOCIALACCOUNT_LOGIN_ON_GET=True
 SOCIALACCOUNT_ADAPTER  = 'Code1.signals.RegisterAdapter'
 
 # Email Settings
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'mail.codepinion.com'
-# EMAIL_HOST_USER = 'test@codepinion.com'
-# EMAIL_HOST_PASSWORD = email_password
-# EMAIL_PORT = 26
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_HOST_USER = '98862778f9477c'
 EMAIL_HOST_PASSWORD = email_password
