@@ -1423,3 +1423,40 @@ tr:hover {
         transform: rotate(1turn);
     }
 }
+
+/* 720px Max */
+
+/* HEIGHT */
+
+/* Height max- = 800px */
+@media screen and (max-height: 800px) {
+
+    /* Demo into section */
+    .demo_intro_body {
+        padding-top: 90px;
+    }
+    
+}
+
+/* Height max- = 800px */
+@media screen and (max-height: 600px) {
+
+    /* Demo into section */
+    .demo_intro_body {
+        padding-top: 280px;
+    }
+    
+}
+
+
+/* WIDTH */
+
+/* Width max- = 720px */
+@media screen and (max-width: 790px) {
+
+    /* Demo into section */
+    #demo_intro_body,#demo_navigation,#report_bug_section,#report_bug_btn,#the_editor,#see_all_bugs_section,#see_one_bug_section {
+        display: none !important;
+    }
+    
+}
