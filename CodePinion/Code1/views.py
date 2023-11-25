@@ -118,33 +118,33 @@ def Safes(request):
 @login_required
 def CodeEditor(request):
 
-    pending_bugs_count = models.Report_Bug.objects.filter(bug_status = False).count()
-    resolved_bugs_count = models.Report_Bug.objects.filter(bug_status = True).count()
+    # pending_bugs_count = models.Report_Bug.objects.filter(bug_status = False).count()
+    # resolved_bugs_count = models.Report_Bug.objects.filter(bug_status = True).count()
 
-    demo_available = None
-    user_is_in_demo = None
+    # demo_available = None
+    # user_is_in_demo = None
 
-    # Check if demo exists
-    if models.Demo.objects.filter(demo_name = 'CodePinion Editor Demo').exists() == False:
-        demo_available = False
-        user_is_in_demo = False
-    else:
-        demo = models.Demo.objects.get(demo_name = 'CodePinion Editor Demo')
-        invite_sent = demo.demo_invite_sent
+    # # Check if demo exists
+    # if models.Demo.objects.filter(demo_name = 'CodePinion Editor Demo').exists() == False:
+    #     demo_available = False
+    #     user_is_in_demo = False
+    # else:
+    #     demo = models.Demo.objects.get(demo_name = 'CodePinion Editor Demo')
+    #     invite_sent = demo.demo_invite_sent
 
-        if invite_sent == False:
-            demo_available = False
-            user_is_in_demo = False
-        else:
-            demo_available = True
-            user_is_in_demo = demo.demo_users.filter(user = request.user).exists()
+    #     if invite_sent == False:
+    #         demo_available = False
+    #         user_is_in_demo = False
+    #     else:
+    #         demo_available = True
+    #         user_is_in_demo = demo.demo_users.filter(user = request.user).exists()
         
 
     data_dict = {
-        'pending_bugs_count':pending_bugs_count,
-        'resolved_bugs_count':resolved_bugs_count,
-        'user_is_in_demo':user_is_in_demo,
-        'demo_available':demo_available,
+        # 'pending_bugs_count':pending_bugs_count,
+        # 'resolved_bugs_count':resolved_bugs_count,
+        # 'user_is_in_demo':user_is_in_demo,
+        # 'demo_available':demo_available,
     }
 
     return render(request, 'Main/Editor.html', data_dict)

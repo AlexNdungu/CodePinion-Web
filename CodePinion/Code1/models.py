@@ -83,42 +83,42 @@ class SSH_Devices(models.Model):
 
 
 # Demo model, save all the demos here
-class Demo(models.Model):
+# class Demo(models.Model):
     
-        demo_id = models.AutoField(primary_key=True)
-        demo_name = models.CharField(max_length=35, verbose_name='Demo Name')
-        demo_desc = RichTextField(verbose_name='Demo Description',default='Demo Description')
-        demo_html_path = models.TextField(verbose_name='Demo Path')
-        demo_users = models.ManyToManyField(Profile, blank=True)
-        demo_invite_sent = models.BooleanField(default=False, verbose_name='Demo Invite')
-        # dates
-        update = models.DateTimeField(auto_now=True)
-        created = models.DateField(auto_now_add=True)
+#         demo_id = models.AutoField(primary_key=True)
+#         demo_name = models.CharField(max_length=35, verbose_name='Demo Name')
+#         demo_desc = RichTextField(verbose_name='Demo Description',default='Demo Description')
+#         demo_html_path = models.TextField(verbose_name='Demo Path')
+#         demo_users = models.ManyToManyField(Profile, blank=True)
+#         demo_invite_sent = models.BooleanField(default=False, verbose_name='Demo Invite')
+#         # dates
+#         update = models.DateTimeField(auto_now=True)
+#         created = models.DateField(auto_now_add=True)
     
-        def __str__(self):
-            return self.demo_name
+#         def __str__(self):
+#             return self.demo_name
 
-# Report Bug Model
-class Report_Bug(models.Model):
+# # Report Bug Model
+# class Report_Bug(models.Model):
     
-        # The user who reported the bug
-        profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Bug Reporter')
-        #Bug id
-        bug_id = models.AutoField(primary_key=True)
-        # The bug details
-        bug_title = models.TextField(verbose_name='Bug Title',default='Bug Title')
-        bug_desc = RichTextField(verbose_name='Bug Description',default='Bug Description')
+#         # The user who reported the bug
+#         profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Bug Reporter')
+#         #Bug id
+#         bug_id = models.AutoField(primary_key=True)
+#         # The bug details
+#         bug_title = models.TextField(verbose_name='Bug Title',default='Bug Title')
+#         bug_desc = RichTextField(verbose_name='Bug Description',default='Bug Description')
         
-        #Bug screenshot
-        bug_screenshot = models.ImageField(upload_to='Bugs', verbose_name='Bug Screenshot')
-        # The bug status
-        bug_status = models.BooleanField(default=False, verbose_name='Bug Status')
+#         #Bug screenshot
+#         bug_screenshot = models.ImageField(upload_to='Bugs', verbose_name='Bug Screenshot')
+#         # The bug status
+#         bug_status = models.BooleanField(default=False, verbose_name='Bug Status')
     
-        update = models.DateTimeField(auto_now=True)
-        created = models.DateField(auto_now_add=True)
+#         update = models.DateTimeField(auto_now=True)
+#         created = models.DateField(auto_now_add=True)
     
-        def __str__(self):
-            return self.bug_title
+#         def __str__(self):
+#             return self.bug_title
 
 
 #Programming languages models
