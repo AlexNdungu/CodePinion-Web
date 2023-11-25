@@ -36,7 +36,10 @@ SECRET_KEY = secure_django_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["codepinion.com","www.codepinion.com","https://codepinion.com" ,"localhost", "127.0.0.1","192.168.100.4","mail.codepinion.com"]
+ALLOWED_HOSTS = [
+    "codepinion.com","www.codepinion.com","https://codepinion.com","mail.codepinion.com",
+    "localhost", "127.0.0.1","192.168.100.4"
+    ]
 
 
 SITE_ID = 1
