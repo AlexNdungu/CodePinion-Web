@@ -248,15 +248,19 @@ function join_demo(){
             join_demo_spinner.style.display = "none";
             join_demo_icon.style.display = "flex";
 
-            // Hide the join demo section
-            document.querySelector(".demo_intro_body").style.display = "none";
             // Display the success pop up
             success_pop.style.display = "flex";
             success_pop_msg.innerHTML = "You Have Joined The Demo!";
 
             // Hide the success pop up after 2 seconds
             setTimeout(function(){
+                // Hide the join demo section
+                document.querySelector(".demo_intro_body").style.display = "none";
                 success_pop.style.display = "none";
+                // Show the report navigation and report button
+                document.querySelector(".demo_navigation").style.display = "flex";
+                document.querySelector(".report_bug_btn").style.display = "flex";
+
             }, 2000);
 
             // Change the value of user_is_in_demo to true
