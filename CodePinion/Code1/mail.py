@@ -12,7 +12,8 @@ class Mailer:
     def __init__(self,subject,template_path):
         self.subject = subject
         self.template_path = template_path
-        self.from_email = settings.EMAIL_HOST_USER
+        #self.from_email = settings.EMAIL_HOST_USER
+        self.from_email = f'CodePinion Developers <{settings.EMAIL_HOST_USER}>'
         self.connection = get_connection(fail_silently=False)
 
     # Create email instance

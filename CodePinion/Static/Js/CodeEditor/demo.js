@@ -261,7 +261,7 @@ function join_demo(){
                 document.querySelector(".demo_navigation").style.display = "flex";
                 document.querySelector(".report_bug_btn").style.display = "flex";
 
-            }, 2000);
+            }, 4000);
 
             // Change the value of user_is_in_demo to true
             user_is_in_demo = true;
@@ -280,7 +280,7 @@ function join_demo(){
             // Hide the fail pop up after 2 seconds
             setTimeout(function(){
                 fail_pop.style.display = "none";
-            }, 2000);
+            }, 4000);
             
         }
     }); 
@@ -571,7 +571,7 @@ function view_bug_details(bug_id){
             setTimeout(function(){
                 fail_pop.style.display = "none";
                 // document.getElementById("report_bug_section").style.display = "none";
-            }, 2000);
+            }, 4000);
             
         }
     }); 
@@ -729,7 +729,7 @@ function fetch_bugs(status,filter_apply){
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
                 fail_pop.style.display = "none";
-            }, 2000);
+            }, 4000);
 
         }
     });  
@@ -804,13 +804,13 @@ function prep_report_bug_section_for_edit(bug_id){
         error: function(error){
             // Display the fail pop up
             fail_pop.style.display = "flex";
-            fail_pop_msg.innerHTML = "Failed To Ferch Bug! Please try again, and if the issue persists, contact our support team.";
+            fail_pop_msg.innerHTML = "Failed To Fetch Bug! Please try again, and if the issue persists, contact our support team.";
 
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
                 fail_pop.style.display = "none";
                 document.getElementById("report_bug_section").style.display = "none";
-            }, 2000);
+            }, 4000);
             
         }
     }); 
@@ -861,7 +861,7 @@ function update_bug(){
                 document.getElementById("pending-btn").click();
                 // Discard the report bug section
                 discard_report();
-            }, 2000);
+            }, 4000);
            
         },
         error: function(error){
@@ -877,8 +877,9 @@ function update_bug(){
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
                 fail_pop.style.display = "none";
-                document.getElementById("report_bug_section").style.display = "none";
-            }, 2000);
+                // Discard the report bug section
+                discard_report();
+            }, 4000);
             
         }
     });  
@@ -931,7 +932,7 @@ function report_new_bug(){
                 document.getElementById("pending-btn").click();
                 // Discard the report bug section
                 discard_report();
-            }, 2000);
+            }, 4000);
            
         },
         error: function(error){
@@ -947,8 +948,9 @@ function report_new_bug(){
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
                 fail_pop.style.display = "none";
-                document.getElementById("report_bug_section").style.display = "none";
-            }, 2000);
+                // Discard the report bug section
+                discard_report();
+            }, 4000);
             
         }
     });  
