@@ -2,3 +2,6 @@ cp_env/
 CodePinion/Code1/secret.py
 CodePinion/Code1/migrations/0*
 CodePinion/Media/
+CodePinion/Code1/__pycache__/*
+CodePinion/Code1/migrations/__pycache__/*
+CodePinion/CodePinion/__pycache__/*
