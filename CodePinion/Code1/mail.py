@@ -3,9 +3,9 @@ from CodePinion import settings
 from django.template.loader import get_template
 # Send one mail
 from django.core.mail import EmailMessage,get_connection
-from . import models
+from . import models  
 
-# Create a class for mailing
+# Create a class for mailing 
 class Mailer:
 
     # Initialise the class
