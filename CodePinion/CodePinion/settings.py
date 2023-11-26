@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-from Code1.secret import PostgreSQL_password,email_password,secure_django_key
+from Code1.secret import secure_django_key,database_name,databse_user,database_password,email_host,email_host_user,email_password,email_host_port,email_use_tls
 
 import django
 from django.utils.encoding import force_str
@@ -117,9 +117,9 @@ WSGI_APPLICATION = 'CodePinion.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Code-Pinion',
-        'USER': 'postgres',
-        'PASSWORD': PostgreSQL_password,
+        'NAME': database_name,
+        'USER': databse_user,
+        'PASSWORD': database_password,
         'HOST': 'localhost'
     }
 }
@@ -194,7 +194,8 @@ SOCIALACCOUNT_LOGIN_ON_GET=True
 SOCIALACCOUNT_ADAPTER  = 'Code1.signals.RegisterAdapter'
 
 # Email Settings
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '98862778f9477c'
+EMAIL_HOST = email_host
+EMAIL_HOST_USER = email_host_user
 EMAIL_HOST_PASSWORD = email_password
-EMAIL_PORT = '2525'
+EMAIL_PORT = email_host_port
+EMAIL_USE_TLS = email_use_tls
