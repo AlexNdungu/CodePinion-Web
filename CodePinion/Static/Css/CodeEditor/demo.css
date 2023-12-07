@@ -24,15 +24,6 @@
     flex-direction: column;
 }
 
-.inner_too_small p {
-    font-family: 'Roboto', sans-serif;
-    width: 80%;
-    color: #414141;
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-}
-
 
 /* Message popups */
 .message_popup {

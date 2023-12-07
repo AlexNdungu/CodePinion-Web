@@ -100,6 +100,12 @@ def signInUser(request):
         else:
 
             return JsonResponse({'status':'not_found'})
+        
+
+# The profile rendering function
+@login_required
+def Profile(request):
+    return render(request, 'Main/profile.html')
 
 
 # The Home Rendering Function

@@ -1,0 +1,26 @@
+<!--This page inherits from upper-nav.html-->
+{% extends 'Inherit/upper-nav.html' %}
+
+{% load static %}
+
+<!--The head tag inherited from upper-nav.html-->
+{% block head %}
+
+    <title>CodePinion ::- {{request.user.profile.full_name}}</title>
+
+    <!--Connect The Styling-->
+    <link rel="stylesheet" href="{% static '/Css/Main/profile.css' %}">
+
+{% endblock %}
+
+<!--The lower-right section-->
+{% block lower_section %}
+
+{% endblock %}
+
+<!--Add Javascript File-->
+{% block javaS %}
+
+<script type="module" src="{% static 'Js/Main/Profile/profile.js' %}"></script>
+
+{% endblock %}

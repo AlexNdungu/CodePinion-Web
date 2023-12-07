@@ -18,6 +18,9 @@ urlpatterns = [
     # Sign in u
     path('signinUser/', views.signInUser, name='signin_user'),
 
+    # Profile Url
+    path('profile/', views.Profile, name='profile'),
+
     # Home Url
     path('dash/', views.Home, name='home'),
     

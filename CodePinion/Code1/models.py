@@ -18,7 +18,7 @@ class Profile(models.Model):
     bio = models.TextField(verbose_name='Bio')
     company = models.CharField(max_length=20, verbose_name='Company')
     location = models.TextField(verbose_name='Location')
-    email = models.URLField(max_length = 200, verbose_name='Email')
+    secondary_email = models.URLField(max_length = 200, verbose_name='Secondary Email', default='Secondary Email')
     website = models.URLField(max_length = 200, verbose_name='Website')
 
     profile_pic = models.ImageField(upload_to = 'Profiles', verbose_name='Profile Picture')
