@@ -53,7 +53,71 @@
                     </div>
 
                     <!--Details section-->
-                    <div class="user_detail_view">
+                    <div class="user_detail_view_section">
+
+                        <div class="user_detail_view">
+
+                            <!--single detail-->
+                            <!--username-->
+                            <div class="single_detail_view">
+
+                                <!--Icon-->
+                                <div class="sing_det_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
+                                </div>
+                                <!--Detail-->
+                                <div class="sing_det_detail">
+                                    <span>{{request.user.username}}</span>
+                                </div>    
+
+                            </div>
+
+                            <!--single detail-->
+                            <!--main email-->
+                            <div class="single_detail_view">
+
+                                <!--Icon-->
+                                <div class="sing_det_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                                </div>
+                                <!--Detail-->
+                                <div class="sing_det_detail">
+                                    <span>{{request.user.email}}</span>
+                                </div>    
+
+                            </div>
+
+                            <!--single detail-->
+                            <!--full name-->
+                            <div class="single_detail_view">
+
+                                <!--Icon-->
+                                <div class="sing_det_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"/></svg>
+                                </div>
+                                <!--Detail-->
+                                <div class="sing_det_detail">
+                                    <span>{{request.user.profile.full_name}}</span>
+                                </div>    
+
+                            </div>
+
+                            <!--single detail-->
+                            <!--signup date-->
+                            <div class="single_detail_view">
+
+                                <!--Icon-->
+                                <div class="sing_det_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
+                                </div>
+                                <!--Detail-->
+                                <div class="sing_det_detail">
+                                    <span>{{request.user.profile.created}}</span>
+                                </div>    
+
+                            </div>
+
+                        </div>
 
                     </div>
 
