@@ -29,7 +29,6 @@
 .profile_image_and_details_section {
     width: 100%;
     height: 220px;
-    background-color: blue;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -152,4 +151,66 @@
     color: #414141;
     font-size: 16px;
     font-weight: 500;
+}
+
+/* Bio section */
+.bio_section {
+    width: 100%;
+    height: max-content;
+    background-color: blue;
+}
+.read_the_bio,.edit_the_bio {
+    width: 100%;
+    height: 150px;
+}
+
+/* Read bio section */
+.read_the_bio {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner_read_bio {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #414141;
+    font-size: 16px;
+    font-weight: 400;
+    overflow-y: auto;
+}
+
+.enable_bio_edit {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: #414141;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.enable_bio_edit:hover {
+    background-color: #406CEE;
+    fill: #F3F3F3;
+}
+
+.enable_bio_edit svg {
+    width: 21px;
 }
