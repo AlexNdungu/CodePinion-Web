@@ -166,7 +166,7 @@
     height: 150px;
     background-color: white;
     border-radius: 10px;
-    display: flex;
+    display: flex; /* To show the read bio section */
     align-items: center;
     justify-content: center;
 }
