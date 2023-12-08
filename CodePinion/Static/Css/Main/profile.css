@@ -157,16 +157,13 @@
 .bio_section {
     width: 100%;
     height: max-content;
-    background-color: blue;
-}
-.read_the_bio,.edit_the_bio {
-    width: 100%;
-    height: 150px;
 }
 
 /* Read bio section */
 .read_the_bio {
     position: relative;
+    width: 100%;
+    height: 150px;
     background-color: white;
     border-radius: 10px;
     display: flex;
@@ -213,4 +210,86 @@
 
 .enable_bio_edit svg {
     width: 21px;
+}
+
+/* Edit bio section */
+.edit_the_bio {
+    height: 200px;
+    width: 100%;
+    display: none; /* To show bio editor */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.bio_text_edit {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bio_text_edit textarea {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border: none;
+    outline: none;
+    resize: none;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #414141;
+    background-color: #F3F3F3;
+}
+
+/* save and discard bio */
+.save_discard_bio_edit {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.bio_edit_btn {
+    height: 40px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F3F3F3;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    fill: #414141;
+    color: #414141;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.bio_edit_btn:nth-child(1):hover {
+    background-color: #C53B3B;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+}
+
+.bio_edit_btn:nth-child(2):hover {
+    background-color: #406CEE;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+}
+
+.bio_edit_btn svg {
+    width: 21px;
+    margin: 0px 5px;
 }
