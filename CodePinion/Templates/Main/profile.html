@@ -41,7 +41,12 @@
 
         </div>
 
-        
+        <!--Profile form-->
+        <form id="profile_form" >
+            {% csrf_token %}
+        </form>
+
+        <!--Update profile section-->
         <div class="inner_profile_section">
 
             <!--Update profile and details-->
@@ -56,7 +61,7 @@
                         <!--Display image section-->
                         <div class="display_image_section">
                             <!--Display image-->
-                            <img src="{{request.user.profile.profile_pic.url}}" alt="Profile Image">
+                            <img id="display_profile_image_img" src="{{request.user.profile.profile_pic.url}}" alt="Profile Image">
                         </div>
 
                         <!--settings image section-->
@@ -307,7 +312,8 @@
                                 </div>
 
                                 <div class="prof_select_btn" id="profile_pic_upload">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 0l-4.5 16.5-6.097-5.43 5.852-6.175-7.844 5.421-5.411-1.316 18-9zm-11 12.501v5.499l2.193-3.323-2.193-2.176zm-8.698 6.825l-1.439-.507 5.701-5.215 1.436.396-5.698 5.326zm3.262 4.287l-1.323-.565 4.439-4.503 1.32.455-4.436 4.613zm-4.083.387l-1.481-.507 8-7.89 1.437.397-7.956 8z"></path></svg>
+                                    <div class="update_spinner" id="update_spinner"></div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="update_spinner_replaced" viewBox="0 0 24 24"><path d="M23 0l-4.5 16.5-6.097-5.43 5.852-6.175-7.844 5.421-5.411-1.316 18-9zm-11 12.501v5.499l2.193-3.323-2.193-2.176zm-8.698 6.825l-1.439-.507 5.701-5.215 1.436.396-5.698 5.326zm3.262 4.287l-1.323-.565 4.439-4.503 1.32.455-4.436 4.613zm-4.083.387l-1.481-.507 8-7.89 1.437.397-7.956 8z"></path></svg>
                                     <span>Update</span>
                                 </div>
 
