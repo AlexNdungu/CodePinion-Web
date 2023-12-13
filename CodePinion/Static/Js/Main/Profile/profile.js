@@ -7,10 +7,17 @@ let failed_message_popup = document.getElementById("failed_message_popup");
 let profile_upload_btn = document.getElementById("profile_pic_input_btn");
 let profile_file_input = document.getElementById("profile_pic_input");
 let profile_image_checks = document.getElementsByClassName("profile_image_check");
+let current_displayed_profile_picture = document.getElementById("current_displayed_profile_picture");
+//
+let original_profile_pic = current_displayed_profile_picture.src;
+let profile_pic = null;
 
 // Add event listener to the upload button
 profile_upload_btn.addEventListener("click", function () {
     profile_file_input.click();
+    // Return instructions color to normal
+    profile_image_checks[0].style.color = "#414141";
+    profile_image_checks[1].style.color = "#414141";
 });
 
 // get the size of the file, width and height of the image once the file is selected
@@ -40,6 +47,9 @@ profile_file_input.addEventListener("change", function () {
                     profile_file_input.value = "";
                 }, 3000);
 
+                // Return the original profile picture
+                current_displayed_profile_picture.src = original_profile_pic;
+
                 return;
             }
             else {
@@ -59,6 +69,9 @@ profile_file_input.addEventListener("change", function () {
                         // reset the input
                         profile_file_input.value = "";
                     }, 3000);
+
+                    // Return the original profile picture
+                    current_displayed_profile_picture.src = original_profile_pic;
                 }
                 else {
                     message_popup_success.style.display = "flex";
@@ -71,6 +84,9 @@ profile_file_input.addEventListener("change", function () {
                         // profile_image_checks[0].style.color = "#414141";
                         // profile_image_checks[1].style.color = "#414141";
                     }, 3000);
+
+                    // Get the url of the image current_displayed_profile_picture
+                    current_displayed_profile_picture.src = reader.result;
                 }
 
                 return;
