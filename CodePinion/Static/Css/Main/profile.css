@@ -413,6 +413,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .inner_profile_select {
@@ -535,19 +536,23 @@
     transition: 0.2s ease-in-out;
 }
 
-.prof_select_btn:nth-child(2):hover {
-    background-color: #C53B3B;
-    fill: #F3F3F3;
-    color: #F3F3F3;
+#profile_pic_input {
+    display: none;
 }
 
-.prof_select_btn:nth-child(1):hover {
+.prof_select_btn:nth-child(2):hover {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
 
 .prof_select_btn:nth-child(3):hover {
+    background-color: #C53B3B;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+}
+
+.prof_select_btn:nth-child(4):hover {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
