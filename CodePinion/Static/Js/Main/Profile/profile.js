@@ -22,6 +22,7 @@ let profile_pic_close = document.getElementById("profile_pic_close");
 let original_profile_pic = current_displayed_profile_picture.src;
 let profile_pic = null;
 
+
 // Add event listener to the display_select_profile_pic_section
 display_select_profile_pic_section.addEventListener("click", function () {
     // Show the select profile picture section
