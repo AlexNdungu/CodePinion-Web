@@ -605,6 +605,11 @@
     color: #F3F3F3;
 }
 
+.prof_select_btn:nth-child(3),.prof_select_btn:nth-child(4) {
+    display: none;
+
+}
+
 .prof_select_btn:nth-child(3):hover {
     background-color: #C53B3B;
     fill: #F3F3F3;

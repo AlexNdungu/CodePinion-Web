@@ -9,6 +9,7 @@ let profile_upload_btn = document.getElementById("profile_pic_input_btn");
 let profile_file_input = document.getElementById("profile_pic_input");
 let profile_image_checks = document.getElementsByClassName("profile_image_check");
 let profile_pic_discard = document.getElementById("profile_pic_discard");
+let profile_pic_upload = document.getElementById("profile_pic_upload");
 let current_displayed_profile_picture = document.getElementById("current_displayed_profile_picture");
 //
 let original_profile_pic = current_displayed_profile_picture.src;
@@ -91,6 +92,12 @@ profile_file_input.addEventListener("change", function () {
 
                     // Get the url of the image current_displayed_profile_picture
                     current_displayed_profile_picture.src = reader.result;
+
+                    // Show discard and upload buttons
+                    profile_pic_discard.style.display = "flex";
+                    profile_pic_upload.style.display = "flex";
+                    // hide the upload button
+                    profile_upload_btn.style.display = "none";
                 }
 
                 return;
@@ -107,6 +114,11 @@ profile_pic_discard.addEventListener("click", function () {
     // show message popup
     message_popup_failed.style.display = "flex";
     failed_message_popup.innerHTML = "Profile Picture Upload Discarded!";
+    // Hide discard and upload buttons
+    profile_pic_discard.style.display = "none";
+    profile_pic_upload.style.display = "none";
+    // show the upload button
+    profile_upload_btn.style.display = "flex";
     // Reset the profile picture
     current_displayed_profile_picture.src = original_profile_pic;
     profile_file_input.value = "";
@@ -116,6 +128,6 @@ profile_pic_discard.addEventListener("click", function () {
     // hide the message after 3 seconds
     setTimeout(function () {
         message_popup_failed.style.display = "none";
-        select_profile_pic_section.style.display = "none";
+        //select_profile_pic_section.style.display = "none";
     }, 3000);
 });
