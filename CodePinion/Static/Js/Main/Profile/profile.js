@@ -190,8 +190,8 @@ function upload_profile_pic() {
             setTimeout(function(){
                 message_popup_success.style.display = "none";
                 // Change the profile picture
-                display_profile_image_img.src = response.profile_pic;
-                home_profile_image.innerHTML = `<img src="${response.profile_pic}" alt="logged-user">`
+                display_profile_image_img.src = response.profile_pic_url;
+                home_profile_image.innerHTML = `<img src="${response.profile_pic_url}" alt="logged-user">`
                 // Reset the profile picture
                 profile_file_input.value = "";
                 // Hide discard and upload buttons

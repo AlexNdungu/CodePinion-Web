@@ -114,7 +114,26 @@ def UpdateProfile(request):
     
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
 
-        return JsonResponse({'status':'success'})
+        # Get the data
+        update_item = request.POST.get('to_update')
+
+        print(update_item)
+
+        # Updating profile picture
+        if update_item == 'profile_pic':
+                
+            # Get the profile picture
+            profile_pic = request.FILES.get('profile_pic')
+            # Get the current profile
+            current_profile = models.Profile.objects.get(user = request.user)
+            # Update the profile picture
+            current_profile.profile_pic = profile_pic
+            # Save the profile
+            current_profile.save()
+            # Get the new profile picture url
+            profile_pic_url = current_profile.profile_pic.url
+
+            return JsonResponse({'profile_pic_url':profile_pic_url})
 
 # The Home Rendering Function
 @login_required
