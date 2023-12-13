@@ -6,6 +6,7 @@ let failed_message_popup = document.getElementById("failed_message_popup");
 // Get all the required items
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 let select_profile_pic_section = document.getElementById("select_profile_pic_section");
+let display_select_profile_pic_section = document.getElementById("display_select_profile_pic_section");
 let profile_upload_btn = document.getElementById("profile_pic_input_btn");
 let profile_file_input = document.getElementById("profile_pic_input");
 let profile_image_checks = document.getElementsByClassName("profile_image_check");
@@ -16,9 +17,16 @@ let update_spinner_replaced = document.getElementById("update_spinner_replaced")
 let current_displayed_profile_picture = document.getElementById("current_displayed_profile_picture");
 let display_profile_image_img = document.getElementById("display_profile_image_img");
 let home_profile_image = document.getElementById("logged-user-image");
+let profile_pic_close = document.getElementById("profile_pic_close");
 //
 let original_profile_pic = current_displayed_profile_picture.src;
 let profile_pic = null;
+
+// Add event listener to the display_select_profile_pic_section
+display_select_profile_pic_section.addEventListener("click", function () {
+    // Show the select profile picture section
+    select_profile_pic_section.style.display = "flex";
+});
 
 // Add event listener to the upload button
 profile_upload_btn.addEventListener("click", function () {
@@ -154,6 +162,16 @@ profile_pic_update.addEventListener("click", function () {
     }
 });
 
+// Add event listener to the close button
+profile_pic_close.addEventListener("click", function () {
+    if(profile_pic_discard.style.display == "flex"){
+        // Discard the profile picture upload
+        profile_pic_discard.click();
+    }
+    // Hide the select profile picture section
+    select_profile_pic_section.style.display = "none";
+});
+
 // Function to upload the profile picture
 function upload_profile_pic() {
 
@@ -192,6 +210,7 @@ function upload_profile_pic() {
                 // Change the profile picture
                 display_profile_image_img.src = response.profile_pic_url;
                 home_profile_image.innerHTML = `<img src="${response.profile_pic_url}" alt="logged-user">`
+                original_profile_pic = response.profile_pic_url;
                 // Reset the profile picture
                 profile_file_input.value = "";
                 // Hide discard and upload buttons

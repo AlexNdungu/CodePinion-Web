@@ -117,8 +117,6 @@ def UpdateProfile(request):
         # Get the data
         update_item = request.POST.get('to_update')
 
-        print(update_item)
-
         # Updating profile picture
         if update_item == 'profile_pic':
                 
