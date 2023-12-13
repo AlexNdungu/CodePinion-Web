@@ -18,6 +18,7 @@ from .resorce import SecureShell
 def UpperNav(request):
     return render(request,'Inherit/upper-nav.html')
 
+
 # Sign up page
 def signUp(request):
 
@@ -107,6 +108,13 @@ def signInUser(request):
 def Profile(request):
     return render(request, 'Main/profile.html')
 
+
+# Update Profile
+def UpdateProfile(request):
+    
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+
+        return JsonResponse({'status':'success'})
 
 # The Home Rendering Function
 @login_required

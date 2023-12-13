@@ -167,11 +167,12 @@ function upload_profile_pic() {
     // First we create form data
     let formData = new FormData();
     formData.append('csrfmiddlewaretoken', csrf[0].value);
+    formData.append('to_update', 'profile_pic');
     formData.append('profile_pic', profile_pic);
 
     $.ajax({
         type:'POST',
-        url:'/updateProfilePicture/',
+        url:'/updateProfile/',
         data: formData,
         processData: false,
         contentType: false,

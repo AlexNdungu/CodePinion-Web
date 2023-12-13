@@ -899,6 +899,9 @@ function report_new_bug(){
     bug_title = bug_title_input.value;
     bug_body = bodyTextContent.innerHTML;
 
+    // disable the report_bug_now button
+    report_bug_now.style.pointerEvents = "none";
+
     // Show the spinner 
     report_spinner.style.display = "flex";
     report_plane.style.display = "none";
@@ -937,6 +940,8 @@ function report_new_bug(){
                 success_pop.style.display = "none";
                 // Display pending bugs
                 document.getElementById("pending-btn").click();
+                // enable the report_bug_now button
+                report_bug_now.style.pointerEvents = "auto";
                 // Discard the report bug section
                 discard_report();
             }, 4000);
@@ -955,6 +960,8 @@ function report_new_bug(){
             // Hide the whole report bug section and the pop up after 2 seconds
             setTimeout(function(){
                 fail_pop.style.display = "none";
+                // enable the report_bug_now button
+                report_bug_now.style.pointerEvents = "auto";
                 // Discard the report bug section
                 discard_report();
             }, 4000);
