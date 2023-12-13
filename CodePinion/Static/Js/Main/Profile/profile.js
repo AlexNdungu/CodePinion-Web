@@ -4,9 +4,11 @@ let success_message_popup = document.getElementById("success_message_popup");
 let message_popup_failed = document.getElementById("message_popup_failed");
 let failed_message_popup = document.getElementById("failed_message_popup");
 // Get all the required items
+let select_profile_pic_section = document.getElementById("select_profile_pic_section");
 let profile_upload_btn = document.getElementById("profile_pic_input_btn");
 let profile_file_input = document.getElementById("profile_pic_input");
 let profile_image_checks = document.getElementsByClassName("profile_image_check");
+let profile_pic_discard = document.getElementById("profile_pic_discard");
 let current_displayed_profile_picture = document.getElementById("current_displayed_profile_picture");
 //
 let original_profile_pic = current_displayed_profile_picture.src;
@@ -18,6 +20,8 @@ profile_upload_btn.addEventListener("click", function () {
     // Return instructions color to normal
     profile_image_checks[0].style.color = "#414141";
     profile_image_checks[1].style.color = "#414141";
+    // Reset the profile picture
+    profile_file_input.value = "";
 });
 
 // get the size of the file, width and height of the image once the file is selected
@@ -96,4 +100,22 @@ profile_file_input.addEventListener("change", function () {
             // upload_profile_pic(file);
         }
     }
+});
+
+// Discard the profile picture upload
+profile_pic_discard.addEventListener("click", function () {
+    // show message popup
+    message_popup_failed.style.display = "flex";
+    failed_message_popup.innerHTML = "Profile Picture Upload Discarded!";
+    // Reset the profile picture
+    current_displayed_profile_picture.src = original_profile_pic;
+    profile_file_input.value = "";
+    // Return instructions color to normal
+    profile_image_checks[0].style.color = "#414141";
+    profile_image_checks[1].style.color = "#414141";
+    // hide the message after 3 seconds
+    setTimeout(function () {
+        message_popup_failed.style.display = "none";
+        select_profile_pic_section.style.display = "none";
+    }, 3000);
 });
