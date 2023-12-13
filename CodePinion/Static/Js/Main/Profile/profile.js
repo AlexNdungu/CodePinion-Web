@@ -10,7 +10,7 @@ let profile_upload_btn = document.getElementById("profile_pic_input_btn");
 let profile_file_input = document.getElementById("profile_pic_input");
 let profile_image_checks = document.getElementsByClassName("profile_image_check");
 let profile_pic_discard = document.getElementById("profile_pic_discard");
-let profile_pic_upload = document.getElementById("profile_pic_upload");
+let profile_pic_update = document.getElementById("profile_pic_update");
 let update_spinner = document.getElementById("update_spinner");
 let update_spinner_replaced = document.getElementById("update_spinner_replaced");
 let current_displayed_profile_picture = document.getElementById("current_displayed_profile_picture");
@@ -100,7 +100,7 @@ profile_file_input.addEventListener("change", function () {
 
                     // Show discard and upload buttons
                     profile_pic_discard.style.display = "flex";
-                    profile_pic_upload.style.display = "flex";
+                    profile_pic_update.style.display = "flex";
                     // hide the upload button
                     profile_upload_btn.style.display = "none";
 
@@ -122,7 +122,7 @@ profile_pic_discard.addEventListener("click", function () {
     failed_message_popup.innerHTML = "Profile Picture Upload Discarded!";
     // Hide discard and upload buttons
     profile_pic_discard.style.display = "none";
-    profile_pic_upload.style.display = "none";
+    profile_pic_update.style.display = "none";
     // show the upload button
     profile_upload_btn.style.display = "flex";
     // Reset the profile picture
@@ -139,7 +139,7 @@ profile_pic_discard.addEventListener("click", function () {
 });
 
 // Add event listener to the update button
-profile_pic_upload.addEventListener("click", function () {
+profile_pic_update.addEventListener("click", function () {
     // Check if the profile picture is selected
     if(profile_pic == null){
         message_popup_failed.style.display = "flex";
@@ -160,6 +160,9 @@ function upload_profile_pic() {
     // Show spinner
     update_spinner.style.display = "flex";
     update_spinner_replaced.style.display = "none";
+
+    // Disable the pointer events
+    profile_pic_update.style.pointerEvents = "none";
 
     // First we create form data
     let formData = new FormData();
@@ -192,7 +195,8 @@ function upload_profile_pic() {
                 profile_file_input.value = "";
                 // Hide discard and upload buttons
                 profile_pic_discard.style.display = "none";
-                profile_pic_upload.style.display = "none";
+                profile_pic_update.style.display = "none";
+                profile_pic_update.style.pointerEvents = "auto";
                 // show the upload button
                 profile_upload_btn.style.display = "flex";
                 // Return instructions color to normal
@@ -220,7 +224,8 @@ function upload_profile_pic() {
                 profile_file_input.value = "";
                 // Hide discard and upload buttons
                 profile_pic_discard.style.display = "none";
-                profile_pic_upload.style.display = "none";
+                profile_pic_update.style.display = "none";
+                profile_pic_update.style.pointerEvents = "auto";
                 // show the upload button
                 profile_upload_btn.style.display = "flex";
                 // Return instructions color to normal

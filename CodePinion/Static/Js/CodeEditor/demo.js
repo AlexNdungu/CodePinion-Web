@@ -232,6 +232,9 @@ function join_demo(){
     join_demo_spinner.style.display = "flex";
     join_demo_icon.style.display = "none";
 
+    // Disable the join_demo_btn
+    join_demo_btn.style.pointerEvents = "none";
+
     // First we create form data
     let formData = new FormData();
     formData.append('csrfmiddlewaretoken', csrf[0].value);
@@ -260,6 +263,8 @@ function join_demo(){
                 // Show the report navigation and report button
                 document.querySelector(".demo_navigation").style.display = "flex";
                 document.querySelector(".report_bug_btn").style.display = "flex";
+                // Enable the join_demo_btn
+                join_demo_btn.style.pointerEvents = "auto";
 
             }, 4000);
 
@@ -280,6 +285,8 @@ function join_demo(){
             // Hide the fail pop up after 2 seconds
             setTimeout(function(){
                 fail_pop.style.display = "none";
+                // Enable the join_demo_btn
+                join_demo_btn.style.pointerEvents = "auto";
             }, 4000);
             
         }
