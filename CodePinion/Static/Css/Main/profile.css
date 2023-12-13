@@ -1,5 +1,6 @@
 /* The profile container */
 .profile_container {
+    position: relative;
     font-family: 'Roboto', sans-serif;
     width: 100%;
     height: 100%;
@@ -7,6 +8,65 @@
     align-items: flex-start;
     justify-content: center;
 }
+
+
+/* Message popups */
+.message_popup {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    width: max-content;
+    display: none; /* Flex to change pop ups */
+    align-items: center;
+    justify-content: space-between;
+    color: #414141;
+    z-index: 4;
+}
+
+.message_popup span {
+    font-size: 17px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.message_pop_icon {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message_pop_icon svg {
+    width: 20px;
+    fill: #F3F3F3;
+} 
+
+/* Success */
+#message_popup_success {
+    background-color: #CFE8D3;
+    border: 1px solid #2CA631;
+}
+
+#message_popup_success .message_pop_icon {
+    background-color: #2CA631;
+}
+
+/* Failed */
+#message_popup_failed {
+    background-color: #FAEEEB;
+    border: 1px solid #C53B3B;
+}
+
+#message_popup_failed .message_pop_icon {
+    background-color: #C53B3B;
+}
+
 
 .inner_profile_section {
     position: relative;
