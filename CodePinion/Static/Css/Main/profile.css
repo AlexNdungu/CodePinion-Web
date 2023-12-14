@@ -124,6 +124,7 @@
 
 /* Image setting buttons */
 .settings_image_section {
+    position: relative;
     width: 100%;
     height: 50px;
     display: flex;
@@ -156,6 +157,66 @@
 
 .image_set_btn svg {
     width: 21px;
+}
+
+/* Remove Profile convo box */
+.remove_profile_pic_convo {
+    position: absolute;
+    top: 5px;
+    left: calc(100% - 20px);
+    width: 200px;
+    height: 80px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border: 1px solid #ACACAC;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    font-size: 14px;
+    color: #414141;
+}
+
+.remove_pic_choice {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove_profile_pic_choice {
+    width: max-content;
+    height: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #F3F3F3;
+    fill: #414141;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.remove_profile_pic_choice:nth-child(1):hover {
+    background-color: #C53B3B;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+}
+
+.remove_profile_pic_choice:nth-child(2):hover {
+    background-color: #406CEE;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+}
+
+.remove_pic_choice svg {
+    width: 18px;
+    margin: 6px;
 }
 
 /* View user detail */

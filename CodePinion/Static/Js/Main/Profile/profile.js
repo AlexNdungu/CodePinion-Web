@@ -19,6 +19,10 @@ let display_profile_image_img = document.getElementById("display_profile_image_i
 let home_profile_image = document.getElementById("logged-user-image");
 let profile_pic_close = document.getElementById("profile_pic_close");
 //
+let remove_profile_pic_no = document.getElementById("remove_profile_pic_no");
+let remove_profile_pic_yes = document.getElementById("remove_profile_pic_yes");
+let remove_profile_pic_convo = document.getElementById("remove_profile_pic_convo");
+//
 let original_profile_pic = current_displayed_profile_picture.src;
 let profile_pic = null;
 
@@ -171,6 +175,20 @@ profile_pic_close.addEventListener("click", function () {
     }
     // Hide the select profile picture section
     select_profile_pic_section.style.display = "none";
+});
+
+// Add event listiner to remove_profile_pic_no
+remove_profile_pic_no.addEventListener("click", function () {
+    // Hide the remove profile picture section
+    remove_profile_pic_convo.style.display = "none";
+
+    // Show fail pop up
+    message_popup_failed.style.display = "flex";
+    failed_message_popup.innerHTML = "Profile Picture Removal Cancelled!";
+    // hide the message after 3 seconds
+    setTimeout(function () {
+        message_popup_failed.style.display = "none";
+    }, 3000);
 });
 
 // Function to upload the profile picture
