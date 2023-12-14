@@ -4,6 +4,7 @@ from . import models
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.core.files.storage import default_storage
 
 from django.http import JsonResponse
 import base64
@@ -109,7 +110,11 @@ def Profile(request):
 
     # Get the profile picture url of current user
     profile = models.Profile.objects.get(user = request.user)
-    profile_pic_url = profile.profile_pic.url
+
+    if profile.profile_pic != '':
+        profile_pic_url = profile.profile_pic.url
+    else:
+        profile_pic_url = ''
 
     data_dict = {
         'profile_pic_url':profile_pic_url,
@@ -141,6 +146,16 @@ def UpdateProfile(request):
             profile_pic_url = current_profile.profile_pic.url
 
             return JsonResponse({'profile_pic_url':profile_pic_url})
+        
+        elif update_item == 'remove_profile_pic':
+
+            # Get the current profile
+            current_profile = models.Profile.objects.get(user = request.user)
+            default_storage.delete(current_profile.profile_pic.path)
+            current_profile.profile_pic = None
+            current_profile.save()
+
+            return JsonResponse({'message':'suceess'})
 
 # The Home Rendering Function
 @login_required

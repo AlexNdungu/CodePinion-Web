@@ -61,7 +61,7 @@
                         <!--Display image section-->
                         <div class="display_image_section">
                             <!--Display image-->
-                            <img id="display_profile_image_img" src="{{request.user.profile.profile_pic.url}}" alt="Profile Image">
+                            <img id="display_profile_image_img" src="" alt="Profile Image">
                             <!--if image is not there-->
                             <div class="display_image_section_no_profile_picture" id="display_image_section_no_profile_picture">
                                 <span>{{ request.user.username|first|capfirst }}</span>
@@ -297,7 +297,7 @@
 
                         <!--New profile image-->
                         <div class="new_profile_image">
-                            <img id="current_displayed_profile_picture" src="{{request.user.profile.profile_pic.url}}" alt="new image">
+                            <img id="current_displayed_profile_picture" src="" alt="new image">
                             <div class="new_profile_image_no_pic" id="new_profile_image_no_pic">
                                 <span>{{ request.user.username|first|capfirst }}</span>
                             </div>

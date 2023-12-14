@@ -32,7 +32,9 @@ let profile_pic = null;
 
 // onload function
 window.onload = function () {
-    console.log(original_profile_pic);
+    // Set the profile picture url
+    display_image_section_no_profile_picture.src = original_profile_pic;
+    new_profile_image_no_pic.src = original_profile_pic;
     // Check if profile picture is empty
     if(original_profile_pic == ""){
         // Show initails and hide the profile picture
@@ -202,8 +204,21 @@ profile_pic_close.addEventListener("click", function () {
 
 // Add event listener to the remove profile picture button
 display_remove_profile_pic_section.addEventListener("click", function () {
-    // Show the remove profile picture section
-    remove_profile_pic_convo.style.display = "flex";
+
+    if (original_profile_pic == ""){
+        // Show fail pop up
+        message_popup_failed.style.display = "flex";
+        failed_message_popup.innerHTML = "You don't have a profile picture!";
+        // hide the message after 3 seconds
+        setTimeout(function () {
+            message_popup_failed.style.display = "none";
+        }, 3000);
+        return;
+    }
+    else{
+        // Show the remove profile picture section
+        remove_profile_pic_convo.style.display = "flex";
+    }
 });
 
 // Add event listiner to remove_profile_pic_no
@@ -218,6 +233,11 @@ remove_profile_pic_no.addEventListener("click", function () {
     setTimeout(function () {
         message_popup_failed.style.display = "none";
     }, 3000);
+});
+
+// Add event listiner to remove_profile_pic_yes
+remove_profile_pic_yes.addEventListener("click", function () {
+    remove_profile_pic();
 });
 
 // Function to upload the profile picture
@@ -332,6 +352,9 @@ function remove_profile_pic(){
             remove_profile_spinner.style.display = "none";
             remove_profile_spinner_icon.style.display = "flex";
 
+            // enable the pointer events
+            remove_profile_pic_yes.style.pointerEvents = "auto";
+
             // Display the success pop up
             message_popup_success.style.display = "flex";
             success_message_popup.innerHTML = "Profile Picture Removed Successfully!";
@@ -360,6 +383,9 @@ function remove_profile_pic(){
             // Hide spinner
             remove_profile_spinner.style.display = "none";
             remove_profile_spinner_icon.style.display = "flex";
+
+            // enable the pointer events
+            remove_profile_pic_yes.style.pointerEvents = "auto";
 
             // Display the fail pop up
             message_popup_failed.style.display = "flex";
