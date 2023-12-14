@@ -106,7 +106,16 @@ def signInUser(request):
 # The profile rendering function
 @login_required
 def Profile(request):
-    return render(request, 'Main/profile.html')
+
+    # Get the profile picture url of current user
+    profile = models.Profile.objects.get(user = request.user)
+    profile_pic_url = profile.profile_pic.url
+
+    data_dict = {
+        'profile_pic_url':profile_pic_url,
+    }
+
+    return render(request, 'Main/profile.html', data_dict)
 
 
 # Update Profile

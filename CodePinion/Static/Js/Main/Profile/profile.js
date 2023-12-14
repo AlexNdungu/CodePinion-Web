@@ -15,7 +15,9 @@ let profile_pic_update = document.getElementById("profile_pic_update");
 let update_spinner = document.getElementById("update_spinner");
 let update_spinner_replaced = document.getElementById("update_spinner_replaced");
 let current_displayed_profile_picture = document.getElementById("current_displayed_profile_picture");
+let new_profile_image_no_pic = document.getElementById("new_profile_image_no_pic");
 let display_profile_image_img = document.getElementById("display_profile_image_img");
+let display_image_section_no_profile_picture = document.getElementById("display_image_section_no_profile_picture");
 let home_profile_image = document.getElementById("logged-user-image");
 let profile_pic_close = document.getElementById("profile_pic_close");
 //
@@ -23,9 +25,27 @@ let remove_profile_pic_no = document.getElementById("remove_profile_pic_no");
 let remove_profile_pic_yes = document.getElementById("remove_profile_pic_yes");
 let remove_profile_pic_convo = document.getElementById("remove_profile_pic_convo");
 //
-let original_profile_pic = current_displayed_profile_picture.src;
 let profile_pic = null;
 
+// onload function
+window.onload = function () {
+    console.log(original_profile_pic);
+    // Check if profile picture is empty
+    if(original_profile_pic == ""){
+        // Show initails and hide the profile picture
+        display_image_section_no_profile_picture.style.display = "flex";
+        new_profile_image_no_pic.style.display = "flex";
+        display_profile_image_img.style.display = "none";
+        current_displayed_profile_picture.style.display = "none";
+    }
+    else {
+        // hide the initials and show the profile picture
+        display_image_section_no_profile_picture.style.display = "none";
+        new_profile_image_no_pic.style.display = "none";
+        display_profile_image_img.style.display = "flex";
+        current_displayed_profile_picture.style.display = "flex";
+    }
+}
 
 // Add event listener to the display_select_profile_pic_section
 display_select_profile_pic_section.addEventListener("click", function () {
