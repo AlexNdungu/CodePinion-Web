@@ -21,9 +21,12 @@ let display_image_section_no_profile_picture = document.getElementById("display_
 let home_profile_image = document.getElementById("logged-user-image");
 let profile_pic_close = document.getElementById("profile_pic_close");
 //
+let display_remove_profile_pic_section = document.getElementById("display_remove_profile_pic_section");
 let remove_profile_pic_no = document.getElementById("remove_profile_pic_no");
 let remove_profile_pic_yes = document.getElementById("remove_profile_pic_yes");
 let remove_profile_pic_convo = document.getElementById("remove_profile_pic_convo");
+let remove_profile_spinner = document.getElementById("remove_profile_spinner");
+let remove_profile_spinner_icon = document.getElementById("remove_profile_spinner_icon");
 //
 let profile_pic = null;
 
@@ -197,6 +200,12 @@ profile_pic_close.addEventListener("click", function () {
     select_profile_pic_section.style.display = "none";
 });
 
+// Add event listener to the remove profile picture button
+display_remove_profile_pic_section.addEventListener("click", function () {
+    // Show the remove profile picture section
+    remove_profile_pic_convo.style.display = "flex";
+});
+
 // Add event listiner to remove_profile_pic_no
 remove_profile_pic_no.addEventListener("click", function () {
     // Hide the remove profile picture section
@@ -292,6 +301,74 @@ function upload_profile_pic() {
                 profile_image_checks[1].style.color = "#414141";
             }, 4000);
             
+        }
+    });
+}
+
+// Function to remove the profile picture
+function remove_profile_pic(){
+    
+    // Show spinner
+    remove_profile_spinner.style.display = "flex";
+    remove_profile_spinner_icon.style.display = "none";
+
+    // Disable the pointer events
+    remove_profile_pic_yes.style.pointerEvents = "none";
+
+    // First we create form data
+    let formData = new FormData();
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
+    formData.append('to_update', 'remove_profile_pic');
+
+    $.ajax({
+        type:'POST',
+        url:'/updateProfile/',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+
+            // Show icon
+            remove_profile_spinner.style.display = "none";
+            remove_profile_spinner_icon.style.display = "flex";
+
+            // Display the success pop up
+            message_popup_success.style.display = "flex";
+            success_message_popup.innerHTML = "Profile Picture Removed Successfully!";
+
+            // Hide the success pop up after 2 seconds
+            setTimeout(function(){
+                message_popup_success.style.display = "none";
+                // Hide the remove profile picture section
+                remove_profile_pic_convo.style.display = "none";
+                // Hide the profile picture
+                display_profile_image_img.style.display = "none";
+                current_displayed_profile_picture.style.display = "none";
+                // set url to empty
+                display_profile_image_img.src = "";
+                current_displayed_profile_picture.src = "";
+                original_profile_pic = "";
+                // Show the initials
+                display_image_section_no_profile_picture.style.display = "flex";
+                new_profile_image_no_pic.style.display = "flex";
+                
+            }, 4000);
+
+        },
+        error: function(error){
+
+            // Hide spinner
+            remove_profile_spinner.style.display = "none";
+            remove_profile_spinner_icon.style.display = "flex";
+
+            // Display the fail pop up
+            message_popup_failed.style.display = "flex";
+            failed_message_popup.innerHTML = "Failed To Remove Profile Picture! Please try again, and if the issue persists, contact our support team.";
+
+            // Hide the fail pop up after 2 seconds
+            setTimeout(function(){
+                message_popup_failed.style.display = "none";
+            }, 4000);   
         }
     });
 }
