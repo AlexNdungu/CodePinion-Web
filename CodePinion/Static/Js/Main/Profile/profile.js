@@ -327,10 +327,18 @@ function upload_profile_pic() {
             // Hide the success pop up after 2 seconds
             setTimeout(function(){
                 message_popup_success.style.display = "none";
+
                 // Change the profile picture
-                display_profile_image_img.src = response.profile_pic_url;
-                home_profile_image.innerHTML = `<img src="${response.profile_pic_url}" alt="logged-user">`
                 original_profile_pic = response.profile_pic_url;
+                // hide the initials and show the profile picture
+                display_image_section_no_profile_picture.style.display = "none";
+                new_profile_image_no_pic.style.display = "none";
+                display_profile_image_img.style.display = "flex";
+                current_displayed_profile_picture.style.display = "flex";
+                // Set the profile picture
+                current_displayed_profile_picture.src = original_profile_pic;
+                display_profile_image_img.src = original_profile_pic;
+                
                 // Reset the profile picture
                 profile_file_input.value = "";
                 // Hide discard and upload buttons
@@ -358,8 +366,21 @@ function upload_profile_pic() {
             // Hide the fail pop up after 2 seconds
             setTimeout(function(){
                 message_popup_failed.style.display = "none";
+
                 // Return the original profile picture
                 current_displayed_profile_picture.src = original_profile_pic;
+                // Check if original profile picture is empty
+                if(original_profile_pic == ""){
+                    // Show initails and hide the profile picture
+                    new_profile_image_no_pic.style.display = "flex";
+                    current_displayed_profile_picture.style.display = "none";
+                }
+                else {
+                    // hide the initials and show the profile picture
+                    new_profile_image_no_pic.style.display = "none";
+                    current_displayed_profile_picture.style.display = "flex";
+                }
+
                 // Reset the profile picture
                 profile_file_input.value = "";
                 // Hide discard and upload buttons
