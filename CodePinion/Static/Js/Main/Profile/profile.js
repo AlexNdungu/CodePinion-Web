@@ -98,6 +98,23 @@ profile_file_input.addEventListener("change", function () {
                 // Return the original profile picture
                 current_displayed_profile_picture.src = original_profile_pic;
 
+                // Check if original profile picture is empty
+                if(original_profile_pic == ""){
+                    // Show initails and hide the profile picture
+                    // display_image_section_no_profile_picture.style.display = "flex";
+                    // display_profile_image_img.style.display = "none";
+                    new_profile_image_no_pic.style.display = "flex";
+                    current_displayed_profile_picture.style.display = "none";
+
+                }
+                else {
+                    // hide the initials and show the profile picture
+                    // display_image_section_no_profile_picture.style.display = "none";
+                    // display_profile_image_img.style.display = "flex";
+                    new_profile_image_no_pic.style.display = "none";
+                    current_displayed_profile_picture.style.display = "flex";
+                }
+
                 return;
             }
             else {
@@ -120,6 +137,24 @@ profile_file_input.addEventListener("change", function () {
 
                     // Return the original profile picture
                     current_displayed_profile_picture.src = original_profile_pic;
+
+                    // Check if original profile picture is empty
+                    if(original_profile_pic == ""){
+                        // Show initails and hide the profile picture
+                        // display_image_section_no_profile_picture.style.display = "flex";
+                        // display_profile_image_img.style.display = "none";
+                        new_profile_image_no_pic.style.display = "flex";
+                        current_displayed_profile_picture.style.display = "none";
+
+                    }
+                    else {
+                        // hide the initials and show the profile picture
+                        // display_image_section_no_profile_picture.style.display = "none";
+                        // display_profile_image_img.style.display = "flex";
+                        new_profile_image_no_pic.style.display = "none";
+                        current_displayed_profile_picture.style.display = "flex";
+                    }
+
                 }
                 else {
                     message_popup_success.style.display = "flex";
@@ -135,6 +170,10 @@ profile_file_input.addEventListener("change", function () {
 
                     // Get the url of the image current_displayed_profile_picture
                     current_displayed_profile_picture.src = reader.result;
+
+                    // Hide the initials and show the profile picture
+                    new_profile_image_no_pic.style.display = "none";
+                    current_displayed_profile_picture.style.display = "flex";
 
                     // Show discard and upload buttons
                     profile_pic_discard.style.display = "flex";
@@ -163,8 +202,21 @@ profile_pic_discard.addEventListener("click", function () {
     profile_pic_update.style.display = "none";
     // show the upload button
     profile_upload_btn.style.display = "flex";
+
     // Reset the profile picture
     current_displayed_profile_picture.src = original_profile_pic;
+    // Check if original profile picture is empty
+    if(original_profile_pic == ""){
+        // Show initails and hide the profile picture
+        new_profile_image_no_pic.style.display = "flex";
+        current_displayed_profile_picture.style.display = "none";
+    }
+    else {
+        // hide the initials and show the profile picture
+        new_profile_image_no_pic.style.display = "none";
+        current_displayed_profile_picture.style.display = "flex";
+    }
+
     profile_file_input.value = "";
     // Return instructions color to normal
     profile_image_checks[0].style.color = "#414141";
