@@ -27,14 +27,15 @@ let remove_profile_pic_yes = document.getElementById("remove_profile_pic_yes");
 let remove_profile_pic_convo = document.getElementById("remove_profile_pic_convo");
 let remove_profile_spinner = document.getElementById("remove_profile_spinner");
 let remove_profile_spinner_icon = document.getElementById("remove_profile_spinner_icon");
+let sing_det_detail_username = document.getElementById("sing_det_detail_username");
 //
 let profile_pic = null;
 
 // onload function
 window.onload = function () {
     // Set the profile picture url
-    display_image_section_no_profile_picture.src = original_profile_pic;
-    new_profile_image_no_pic.src = original_profile_pic;
+    display_profile_image_img.src = original_profile_pic;
+    current_displayed_profile_picture.src = original_profile_pic;
     // Check if profile picture is empty
     if(original_profile_pic == ""){
         // Show initails and hide the profile picture
@@ -338,6 +339,8 @@ function upload_profile_pic() {
                 // Set the profile picture
                 current_displayed_profile_picture.src = original_profile_pic;
                 display_profile_image_img.src = original_profile_pic;
+                // Set home profile picture
+                home_profile_image.innerHTML = `<img src="${original_profile_pic}" alt="logged-user">`
                 
                 // Reset the profile picture
                 profile_file_input.value = "";
@@ -437,6 +440,7 @@ function remove_profile_pic(){
                 message_popup_success.style.display = "none";
                 // Hide the remove profile picture section
                 remove_profile_pic_convo.style.display = "none";
+
                 // Hide the profile picture
                 display_profile_image_img.style.display = "none";
                 current_displayed_profile_picture.style.display = "none";
@@ -444,6 +448,11 @@ function remove_profile_pic(){
                 display_profile_image_img.src = "";
                 current_displayed_profile_picture.src = "";
                 original_profile_pic = "";
+
+                // Remove image from home
+                let user_initials = sing_det_detail_username.innerHTML[0].toUpperCase();;
+                home_profile_image.innerHTML = `<div class="profile_pic_absent"><span>${user_initials}</span></div>`
+
                 // Show the initials
                 display_image_section_no_profile_picture.style.display = "flex";
                 new_profile_image_no_pic.style.display = "flex";
