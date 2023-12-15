@@ -3,7 +3,7 @@ let message_popup_success = document.getElementById("message_popup_success");
 let success_message_popup = document.getElementById("success_message_popup");
 let message_popup_failed = document.getElementById("message_popup_failed");
 let failed_message_popup = document.getElementById("failed_message_popup");
-// Get all the required items
+// Get all the required items for the profile picture
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 let select_profile_pic_section = document.getElementById("select_profile_pic_section");
 let display_select_profile_pic_section = document.getElementById("display_select_profile_pic_section");
@@ -28,8 +28,15 @@ let remove_profile_pic_convo = document.getElementById("remove_profile_pic_convo
 let remove_profile_spinner = document.getElementById("remove_profile_spinner");
 let remove_profile_spinner_icon = document.getElementById("remove_profile_spinner_icon");
 let sing_det_detail_username = document.getElementById("sing_det_detail_username");
-//
-let profile_pic = null;
+
+// Get all requerd items for the bio section
+let read_the_bio = document.getElementById("read_the_bio");
+let edit_the_bio = document.getElementById("edit_the_bio");
+let enable_bio_edit = document.getElementById("enable_bio_edit");
+let bio_text_edit = document.getElementById("bio_text_edit");
+let bio_edit_btn_discard = document.getElementById("bio_edit_btn_discard");
+let bio_edit_btn_update = document.getElementById("bio_edit_btn_update");
+
 
 // onload function
 window.onload = function () {
