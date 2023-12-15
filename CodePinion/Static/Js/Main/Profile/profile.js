@@ -462,6 +462,21 @@ all_detail_btn_update.addEventListener("click", function () {
             }
         }
 
+        // Check if company is empty
+        if(other_det_company.value != ""){
+            // check if company name is more than 20 characters
+            if(other_det_company.value.length > 20){
+                // Show fail pop up
+                message_popup_failed.style.display = "flex";
+                failed_message_popup.innerHTML = "Company name cannot be more than 20 characters!";
+                // hide the message after 3 seconds
+                setTimeout(function () {
+                    message_popup_failed.style.display = "none";
+                }, 3000);
+                return;
+            }
+        }
+
         // Update all the details
         update_all_details();
 
