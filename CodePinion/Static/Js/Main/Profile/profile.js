@@ -302,7 +302,6 @@ remove_profile_pic_yes.addEventListener("click", function () {
 
 // Add event listiner to enable_bio_edit_btn
 enable_bio_edit_btn.addEventListener("click", function () {
-
     // Hide the read bio section
     read_the_bio.style.display = "none";
     // Show the edit bio section
@@ -313,6 +312,23 @@ enable_bio_edit_btn.addEventListener("click", function () {
     // hide the message after 3 seconds
     setTimeout(function () {
         message_popup_success.style.display = "none";
+    }, 3000);
+
+});
+
+// Add event listiner to bio_edit_btn_discard
+bio_edit_btn_discard.addEventListener("click", function () {
+    // Hide the edit bio section
+    edit_the_bio.style.display = "none";
+    bio_textarea.value = original_bio;
+    // Show the read bio section
+    read_the_bio.style.display = "flex";
+    // Show fail pop up
+    message_popup_failed.style.display = "flex";
+    failed_message_popup.innerHTML = "Bio Edit Discarded!";
+    // hide the message after 3 seconds
+    setTimeout(function () {
+        message_popup_failed.style.display = "none";
     }, 3000);
 });
 
