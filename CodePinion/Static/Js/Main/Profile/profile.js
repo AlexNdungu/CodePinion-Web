@@ -54,6 +54,8 @@ let other_det_company = document.getElementById("other_det_company");
 let other_det_location = document.getElementById("other_det_location");
 let other_det_website = document.getElementById("other_det_website");
 let other_det_inputs = document.getElementsByClassName("other_det_input");
+let update_detail_spinner = document.getElementById("update_detail_spinner");
+let update_spinner_detail_icon = document.getElementById("update_spinner_detail_icon");
 
 // onload function
 window.onload = function () {
@@ -400,6 +402,75 @@ for (let i = 0; i < other_det_inputs.length; i++) {
     });
 }
 
+// Add event listener to all_detail_btn_discard
+all_detail_btn_discard.addEventListener("click", function () {
+    // Show fail pop up
+    message_popup_failed.style.display = "flex";
+    failed_message_popup.innerHTML = "Detail Changes Discarded!";
+    // Reset the values
+    other_det_fullname.value = original_fullname_server;
+    other_det_secondary_email.value = original_secondary_email_server;
+    other_det_company.value = original_company_server;
+    other_det_location.value = original_location_server;
+    other_det_website.value = original_website_server;
+    // hide the message after 3 seconds
+    setTimeout(function () {
+        message_popup_failed.style.display = "none";
+        // Hide the save and discard buttons
+        save_discard_all_dets.style.display = "none";
+    }, 3000);
+});
+
+// Add event listener to all_detail_btn_update
+all_detail_btn_update.addEventListener("click", function () {
+    // Check if any input has been changed
+    if(other_det_fullname.value !== original_fullname_server || other_det_secondary_email.value !== original_secondary_email_server || other_det_company.value !== original_company_server || other_det_location.value !== original_location_server || other_det_website.value !== original_website_server){
+
+        // Check if secondary email is empty
+        if(other_det_secondary_email.value != ""){
+            // Check if secondary email is valid
+            if(!validateEmail(other_det_secondary_email.value)){
+                // Show fail pop up
+                message_popup_failed.style.display = "flex";
+                failed_message_popup.innerHTML = "Secondary email is not valid!";
+                // hide the message after 3 seconds
+                setTimeout(function () {
+                    message_popup_failed.style.display = "none";
+                }, 3000);
+                return;
+            }
+        }
+
+        // Check if website is empty
+        if(other_det_website.value != ""){
+            // Check if website is valid
+            if(!validateWebsite(other_det_website.value)){
+                // Show fail pop up
+                message_popup_failed.style.display = "flex";
+                failed_message_popup.innerHTML = "Website is not valid!";
+                // hide the message after 3 seconds
+                setTimeout(function () {
+                    message_popup_failed.style.display = "none";
+                }, 3000);
+                return;
+            }
+        }
+
+        // Update all the details
+        update_all_details();
+
+    }
+    else {
+        // Show fail pop up
+        message_popup_failed.style.display = "flex";
+        failed_message_popup.innerHTML = "No changes made to the details!";
+        // hide the message after 3 seconds
+        setTimeout(function () {
+            message_popup_failed.style.display = "none";
+        }, 3000);
+    }
+});
+
 // Function to upload the profile picture
 function upload_profile_pic() {
 
@@ -656,6 +727,104 @@ function update_bio() {
                 message_popup_failed.style.display = "none";
             }, 4000);
             
+        }
+    });
+}
+
+// Function that validates the email
+function validateEmail(email) {
+    // Regex for email validation
+    let re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+// Function that validates the website
+function validateWebsite(website) {
+    // Regex for website validation
+    let re = /^(http|https):\/\/[^ "]+$/;
+    return re.test(website);
+}
+
+// Function that updates all the other details
+function update_all_details() {
+
+    // Show spinner
+    update_detail_spinner.style.display = "flex";
+    update_spinner_detail_icon.style.display = "none";
+
+    // Disable the pointer events
+    all_detail_btn_update.style.pointerEvents = "none";
+
+    // First we create form data
+    let formData = new FormData();
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
+    formData.append('to_update', 'all_details');
+    formData.append('fullname', other_det_fullname.value);
+    formData.append('secondary_email', other_det_secondary_email.value);
+    formData.append('company', other_det_company.value);
+    formData.append('location', other_det_location.value);
+    formData.append('website', other_det_website.value);
+
+    $.ajax({
+        type:'POST',
+        url:'/updateProfile/',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+
+            // Display the success pop up
+            message_popup_success.style.display = "flex";
+            success_message_popup.innerHTML = "Details Updated Successfully!";
+
+            // Show icon
+            update_detail_spinner.style.display = "none";
+            update_spinner_detail_icon.style.display = "flex";
+
+            // enable the pointer events
+            all_detail_btn_update.style.pointerEvents = "auto";
+
+            // Hide the success pop up after 2 seconds
+            setTimeout(function(){
+                message_popup_success.style.display = "none";
+
+                // Change the details
+                original_fullname_server = response.fullname;
+                original_secondary_email_server = response.secondary_email;
+                original_company_server = response.company;
+                original_location_server = response.location;
+                original_website_server = response.website;
+
+                // Set the details
+                other_det_fullname.value = original_fullname_server;
+                other_det_secondary_email.value = original_secondary_email_server;
+                other_det_company.value = original_company_server;
+                other_det_location.value = original_location_server;
+                other_det_website.value = original_website_server;
+
+                // Hide the save and discard buttons
+                save_discard_all_dets.style.display = "none";
+            }, 4000);
+
+        },
+        error: function(error){
+
+            // Display the fail pop up
+            message_popup_failed.style.display = "flex";
+            failed_message_popup.innerHTML = "Failed To Update Details! Please try again, and if the issue persists, contact our support team.";
+
+            // Show icon
+            update_detail_spinner.style.display = "none";
+            update_spinner_detail_icon.style.display = "flex";
+
+            // enable the pointer events
+            all_detail_btn_update.style.pointerEvents = "auto";
+
+            // Hide the fail pop up after 2 seconds
+            setTimeout(function(){
+                message_popup_failed.style.display = "none";
+            }, 4000);
+
         }
     });
 }
