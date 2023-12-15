@@ -30,6 +30,7 @@ let remove_profile_spinner_icon = document.getElementById("remove_profile_spinne
 let sing_det_detail_username = document.getElementById("sing_det_detail_username");
 //
 let profile_pic = null;
+
 // Get all requerd items for the bio section
 let read_the_bio = document.getElementById("read_the_bio");
 let edit_the_bio = document.getElementById("edit_the_bio");
@@ -41,6 +42,18 @@ let bio_edit_btn_update = document.getElementById("bio_edit_btn_update");
 let update_bio_spinner = document.getElementById("update_bio_spinner");
 let update_spinner_rep_icon = document.getElementById("update_spinner_rep_icon");
 
+// Get all the required items for all other sections
+let save_discard_all_dets = document.getElementById("save_discard_all_dets");
+let all_detail_btn_discard = document.getElementById("all_detail_btn_discard");
+let all_detail_btn_update = document.getElementById("all_detail_btn_update");
+let sing_det_detail_fullname = document.getElementById("sing_det_detail_fullname");
+//
+let other_det_fullname = document.getElementById("other_det_fullname");
+let other_det_secondary_email = document.getElementById("other_det_secondary_email");
+let other_det_company = document.getElementById("other_det_company");
+let other_det_location = document.getElementById("other_det_location");
+let other_det_website = document.getElementById("other_det_website");
+let other_det_inputs = document.getElementsByClassName("other_det_input");
 
 // onload function
 window.onload = function () {
@@ -362,6 +375,30 @@ bio_edit_btn_update.addEventListener("click", function () {
         update_bio();
     }
 });
+
+// Add event listeners to other_det_inputs
+for (let i = 0; i < other_det_inputs.length; i++) {
+
+    // Update the original values
+    let original_fullname = other_det_fullname.value;
+    let original_secondary_email = other_det_secondary_email.value;
+    let original_company = other_det_company.value;
+    let original_location = other_det_location.value;
+    let original_website = other_det_website.value;
+
+    other_det_inputs[i].addEventListener("input", function () {
+        // Check if any input has been changed
+        if(other_det_fullname.value !== original_fullname || other_det_secondary_email.value !== original_secondary_email || other_det_company.value !== original_company || other_det_location.value !== original_location || other_det_website.value !== original_website){
+            // Show the save and discard buttons
+            save_discard_all_dets.style.display = "flex";
+        }
+        else {
+            // Hide the save and discard buttons
+            save_discard_all_dets.style.display = "none";
+        }
+
+    });
+}
 
 // Function to upload the profile picture
 function upload_profile_pic() {
