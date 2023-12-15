@@ -376,7 +376,7 @@ bio_edit_btn_update.addEventListener("click", function () {
     }
 });
 
-// Add event listeners to other_det_inputs
+// Add event listeners to other_det_inputs to show the inputs
 for (let i = 0; i < other_det_inputs.length; i++) {
 
     // Update the original values
