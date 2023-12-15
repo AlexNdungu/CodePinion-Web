@@ -102,6 +102,62 @@
 
     </div>
 
+    <!--Profile click navigation-->
+    <div class="profile-click-navigation" id="profile-click-navigation">
+
+        <!--The navigation itself-->
+        <div class="inherited-main-navigation">
+
+            <!--Navigation top section with logo and cancel-->
+            <div class="inherited-main-navigation-top">
+
+                <!--The logo-->
+                <div class="logo-in-nav">
+
+                    {% if request.user.profile.profile_url %}
+
+                        <img src="{{request.user.profile.profile_url}}" alt="codepinion-user">
+
+                    {% else %}
+
+                        <div class="codepinion-user">
+
+                            <span>{{ request.user.username|first|capfirst }}</span>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+                <!--The cancel button-->
+                <div class="cancel-in-nav profile-click-navigation-open-close" >
+
+                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
+
+                </div>
+
+            </div>
+
+            <!--Navigation items-->
+            <div class="inherited-main-navigation-items">
+
+                <!--The navigation item-->
+
+                <!--Dashboard-->
+                <a href="{% url 'profile' %}" class="inherited-main-navigation-item">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"/></svg>
+                    <span>Your Profile</span>
+
+                </a>   
+
+            </div>
+
+        </div>
+
+    </div>
+
     <!--The div holding all the sections-->
     <div class="main-body">
 
@@ -183,10 +239,8 @@
 
         // Get the toggle buttons
         var openNavBtn = document.getElementsByClassName("inherited-main-navigation-open-close");
-
         // Get the navigation
         var nav = document.getElementById("inherited-main-navigation-container");
-
         // State of the navigation
         var navOpen = false;
 
@@ -200,7 +254,6 @@
 
                     // Open the navigation
                     nav.style.display = "flex";
-
                     // Change the state of the navigation
                     navOpen = true;
 
@@ -208,7 +261,6 @@
 
                     // Close the navigation
                     nav.style.display = "none";
-
                     // Change the state of the navigation
                     navOpen = false;
 
