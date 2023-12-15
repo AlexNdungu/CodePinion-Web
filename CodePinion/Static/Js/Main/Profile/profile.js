@@ -32,8 +32,8 @@ let sing_det_detail_username = document.getElementById("sing_det_detail_username
 // Get all requerd items for the bio section
 let read_the_bio = document.getElementById("read_the_bio");
 let edit_the_bio = document.getElementById("edit_the_bio");
-let enable_bio_edit = document.getElementById("enable_bio_edit");
-let bio_text_edit = document.getElementById("bio_text_edit");
+let enable_bio_edit_btn = document.getElementById("enable_bio_edit_btn");
+let bio_textarea = document.getElementById("bio_textarea");
 let bio_edit_btn_discard = document.getElementById("bio_edit_btn_discard");
 let bio_edit_btn_update = document.getElementById("bio_edit_btn_update");
 
@@ -298,6 +298,22 @@ remove_profile_pic_no.addEventListener("click", function () {
 // Add event listiner to remove_profile_pic_yes
 remove_profile_pic_yes.addEventListener("click", function () {
     remove_profile_pic();
+});
+
+// Add event listiner to enable_bio_edit_btn
+enable_bio_edit_btn.addEventListener("click", function () {
+
+    // Hide the read bio section
+    read_the_bio.style.display = "none";
+    // Show the edit bio section
+    edit_the_bio.style.display = "flex";
+    // Show success pop up
+    message_popup_success.style.display = "flex";
+    success_message_popup.innerHTML = "You can now edit your bio!";
+    // hide the message after 3 seconds
+    setTimeout(function () {
+        message_popup_success.style.display = "none";
+    }, 3000);
 });
 
 // Function to upload the profile picture
