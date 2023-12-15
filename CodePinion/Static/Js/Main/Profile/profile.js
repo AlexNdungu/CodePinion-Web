@@ -28,7 +28,8 @@ let remove_profile_pic_convo = document.getElementById("remove_profile_pic_convo
 let remove_profile_spinner = document.getElementById("remove_profile_spinner");
 let remove_profile_spinner_icon = document.getElementById("remove_profile_spinner_icon");
 let sing_det_detail_username = document.getElementById("sing_det_detail_username");
-
+//
+let profile_pic = null;
 // Get all requerd items for the bio section
 let read_the_bio = document.getElementById("read_the_bio");
 let edit_the_bio = document.getElementById("edit_the_bio");

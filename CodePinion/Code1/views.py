@@ -130,32 +130,40 @@ def UpdateProfile(request):
 
         # Get the data
         update_item = request.POST.get('to_update')
+        # Get the current profile
+        current_profile = models.Profile.objects.get(user = request.user)
 
         # Updating profile picture
         if update_item == 'profile_pic':
                 
             # Get the profile picture
             profile_pic = request.FILES.get('profile_pic')
-            # Get the current profile
-            current_profile = models.Profile.objects.get(user = request.user)
             # Update the profile picture
             current_profile.profile_pic = profile_pic
-            # Save the profile
             current_profile.save()
-            # Get the new profile picture url
             profile_pic_url = current_profile.profile_pic.url
 
             return JsonResponse({'profile_pic_url':profile_pic_url})
         
         elif update_item == 'remove_profile_pic':
 
-            # Get the current profile
-            current_profile = models.Profile.objects.get(user = request.user)
+            # Delete the profile picture
             default_storage.delete(current_profile.profile_pic.path)
             current_profile.profile_pic = None
             current_profile.save()
 
             return JsonResponse({'message':'suceess'})
+        
+        elif update_item == 'bio':
+
+            # Get the bio
+            bio = request.POST.get('bio')
+            current_profile.bio = bio
+            current_profile.save()
+            # Get the new bio
+            bio = current_profile.bio
+
+            return JsonResponse({'bio':bio})
 
 # The Home Rendering Function
 @login_required
