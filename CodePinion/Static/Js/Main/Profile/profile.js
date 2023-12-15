@@ -56,6 +56,12 @@ let other_det_website = document.getElementById("other_det_website");
 let other_det_inputs = document.getElementsByClassName("other_det_input");
 let update_detail_spinner = document.getElementById("update_detail_spinner");
 let update_spinner_detail_icon = document.getElementById("update_spinner_detail_icon");
+//
+let original_fullname = null;
+let original_secondary_email = null;
+let original_company = null;
+let original_location = null;
+let original_website = null;
 
 // onload function
 window.onload = function () {
@@ -382,11 +388,11 @@ bio_edit_btn_update.addEventListener("click", function () {
 for (let i = 0; i < other_det_inputs.length; i++) {
 
     // Update the original values
-    let original_fullname = other_det_fullname.value;
-    let original_secondary_email = other_det_secondary_email.value;
-    let original_company = other_det_company.value;
-    let original_location = other_det_location.value;
-    let original_website = other_det_website.value;
+    original_fullname = other_det_fullname.value;
+    original_secondary_email = other_det_secondary_email.value;
+    original_company = other_det_company.value;
+    original_location = other_det_location.value;
+    original_website = other_det_website.value;
 
     other_det_inputs[i].addEventListener("input", function () {
         // Check if any input has been changed
@@ -801,6 +807,13 @@ function update_all_details() {
                 other_det_company.value = original_company_server;
                 other_det_location.value = original_location_server;
                 other_det_website.value = original_website_server;
+
+                // Update the original values
+                original_fullname = other_det_fullname.value;
+                original_secondary_email = other_det_secondary_email.value;
+                original_company = other_det_company.value;
+                original_location = other_det_location.value;
+                original_website = other_det_website.value;
 
                 // Hide the save and discard buttons
                 save_discard_all_dets.style.display = "none";

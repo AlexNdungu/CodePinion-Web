@@ -164,6 +164,34 @@ def UpdateProfile(request):
             bio = current_profile.bio
 
             return JsonResponse({'bio':bio})
+        
+        elif update_item == 'all_details':
+
+            # Get the data : fullname,secondary_email,company,location,website
+            full_name = request.POST.get('fullname')
+            secondary_email = request.POST.get('secondary_email')
+            company = request.POST.get('company')
+            location = request.POST.get('location').capitalize()
+            website = request.POST.get('website')
+
+            # Update the data
+            current_profile.full_name = full_name
+            current_profile.secondary_email = secondary_email
+            current_profile.company = company
+            current_profile.location = location
+            current_profile.website = website
+            current_profile.save()
+
+            # Get the new data
+            new_full_name = current_profile.full_name
+            new_secondary_email = current_profile.secondary_email
+            new_company = current_profile.company
+            new_location = current_profile.location
+            new_website = current_profile.website
+
+            return JsonResponse({'fullname':new_full_name,'secondary_email':new_secondary_email,'company':new_company,'location':new_location,'website':new_website})
+
+
 
 # The Home Rendering Function
 @login_required
