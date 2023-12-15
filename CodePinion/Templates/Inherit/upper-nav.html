@@ -200,7 +200,7 @@
                     </div>
 
                     <!--The logged in user-->
-                    <div id="logged-user-image" class="logged-user">
+                    <div id="logged-user-image" class="logged-user profile-click-navigation-open-close" >
 
                         {% if request.user.profile.profile_url %}
 
@@ -238,14 +238,17 @@
     <script>
 
         // Get the toggle buttons
-        var openNavBtn = document.getElementsByClassName("inherited-main-navigation-open-close");
+        let openNavBtn = document.getElementsByClassName("inherited-main-navigation-open-close");
+        let openNavUserBtn = document.getElementsByClassName("profile-click-navigation-open-close");
         // Get the navigation
-        var nav = document.getElementById("inherited-main-navigation-container");
+        let nav = document.getElementById("inherited-main-navigation-container");
+        let userNav = document.getElementById("profile-click-navigation");
         // State of the navigation
-        var navOpen = false;
+        let navOpen = false;
+        let userNavOpen = false;
 
         // Add click event to the toggle buttons
-        for (var i = 0; i < openNavBtn.length; i++) {
+        for (let i = 0; i < openNavBtn.length; i++) {
 
             openNavBtn[i].addEventListener("click", function() {
 
@@ -263,6 +266,32 @@
                     nav.style.display = "none";
                     // Change the state of the navigation
                     navOpen = false;
+
+                }
+
+            });
+
+        }
+
+        // Add click event to the toggle buttons
+        for (let i = 0; i < openNavUserBtn.length; i++) {
+
+            openNavUserBtn[i].addEventListener("click", function() {
+
+                // Check if the navigation is open
+                if (userNavOpen == false) {
+
+                    // Open the navigation
+                    userNav.style.display = "flex";
+                    // Change the state of the navigation
+                    userNavOpen = true;
+
+                } else {
+
+                    // Close the navigation
+                    userNav.style.display = "none";
+                    // Change the state of the navigation
+                    userNavOpen = false;
 
                 }
 
