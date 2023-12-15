@@ -33,9 +33,12 @@ let sing_det_detail_username = document.getElementById("sing_det_detail_username
 let read_the_bio = document.getElementById("read_the_bio");
 let edit_the_bio = document.getElementById("edit_the_bio");
 let enable_bio_edit_btn = document.getElementById("enable_bio_edit_btn");
+let inner_read_bio = document.getElementById("inner_read_bio");
 let bio_textarea = document.getElementById("bio_textarea");
 let bio_edit_btn_discard = document.getElementById("bio_edit_btn_discard");
 let bio_edit_btn_update = document.getElementById("bio_edit_btn_update");
+let update_bio_spinner = document.getElementById("update_bio_spinner");
+let update_spinner_rep_icon = document.getElementById("update_spinner_rep_icon");
 
 
 // onload function
@@ -332,6 +335,33 @@ bio_edit_btn_discard.addEventListener("click", function () {
     }, 3000);
 });
 
+// Add event listiner to bio_edit_btn_update
+bio_edit_btn_update.addEventListener("click", function () {
+    // Check if the bio is empty
+    if(bio_textarea.value == ""){
+        // Show fail pop up
+        message_popup_failed.style.display = "flex";
+        failed_message_popup.innerHTML = "Bio cannot be empty!";
+        // hide the message after 3 seconds
+        setTimeout(function () {
+            message_popup_failed.style.display = "none";
+        }, 3000);
+    }
+    // Check if the bio is equal to the original bio
+    else if(bio_textarea.value == original_bio){
+        // Show fail pop up
+        message_popup_failed.style.display = "flex";
+        failed_message_popup.innerHTML = "No changes made to the bio!";
+        // hide the message after 3 seconds
+        setTimeout(function () {
+            message_popup_failed.style.display = "none";
+        }, 3000);
+    }
+    else {
+        update_bio();
+    }
+});
+
 // Function to upload the profile picture
 function upload_profile_pic() {
 
@@ -516,6 +546,78 @@ function remove_profile_pic(){
             setTimeout(function(){
                 message_popup_failed.style.display = "none";
             }, 4000);   
+        }
+    });
+}
+
+// Function that updates the bio
+function update_bio() {
+
+    // Show spinner
+    update_bio_spinner.style.display = "flex";
+    update_spinner_rep_icon.style.display = "none";
+
+    // Disable the pointer events
+    bio_edit_btn_update.style.pointerEvents = "none";
+
+    // First we create form data
+    let formData = new FormData();
+    formData.append('csrfmiddlewaretoken', csrf[0].value);
+    formData.append('to_update', 'bio');
+    formData.append('bio', bio_textarea.value);
+
+    $.ajax({
+        type:'POST',
+        url:'/updateProfile/',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+
+            // Display the success pop up
+            message_popup_success.style.display = "flex";
+            success_message_popup.innerHTML = "Bio Updated Successfully!";
+
+            // Show icon
+            update_bio_spinner.style.display = "none";
+            update_spinner_rep_icon.style.display = "flex";
+
+            // enable the pointer events
+            bio_edit_btn_update.style.pointerEvents = "auto";
+
+            // Hide the success pop up after 2 seconds
+            setTimeout(function(){
+                message_popup_success.style.display = "none";
+
+                // Change the bio
+                original_bio = response.bio;
+                // Set the bio
+                inner_read_bio.innerHTML = original_bio;
+                // Hide the edit bio section
+                edit_the_bio.style.display = "none";
+                // Show the read bio section
+                read_the_bio.style.display = "flex";
+            }, 4000);
+
+        },
+        error: function(error){
+
+            // Display the fail pop up
+            message_popup_failed.style.display = "flex";
+            failed_message_popup.innerHTML = "Failed To Update Bio! Please try again, and if the issue persists, contact our support team.";
+
+            // Show icon
+            update_bio_spinner.style.display = "none";
+            update_spinner_rep_icon.style.display = "flex";
+
+            // enable the pointer events
+            bio_edit_btn_update.style.pointerEvents = "auto";
+
+            // Hide the fail pop up after 2 seconds
+            setTimeout(function(){
+                message_popup_failed.style.display = "none";
+            }, 4000);
+            
         }
     });
 }
