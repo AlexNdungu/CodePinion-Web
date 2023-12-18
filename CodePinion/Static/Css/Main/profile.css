@@ -854,3 +854,50 @@
     }
 
 }
+
+/* max width = 500 */
+@media screen and (max-width: 500px){
+
+    /* Remove profile picture */
+    .remove_profile_pic_convo {
+        width: 150px;
+        height: 60px;
+        left: calc(100% - 70px);
+        font-size: 12px;
+    }
+
+    .remove_pic_choice {
+        height: 25px;
+    }
+
+    .remove_pic_choice svg {
+        width: 14px;
+    }
+
+    /* User details view setion */
+    .user_detail_view_section {
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Bio section */
+    .bio_section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .read_the_bio,.edit_the_bio {
+        width: calc(100% - 20px);
+    }
+
+    .user_detail_view {
+        width: calc(100% - 20px);
+    }
+
+    /* All details section */
+    .all_detail_edit {
+        width: calc(100% - 20px);
+    }
+
+}
