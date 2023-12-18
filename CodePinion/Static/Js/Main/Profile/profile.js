@@ -825,6 +825,7 @@ function update_all_details() {
 
                 // Update the original values
                 original_fullname = other_det_fullname.value;
+                sing_det_detail_fullname.innerHTML = other_det_fullname.value;
                 original_secondary_email = other_det_secondary_email.value;
                 original_company = other_det_company.value;
                 original_location = other_det_location.value;

@@ -768,3 +768,89 @@
         transform: rotate(360deg);
     }
 }
+
+
+
+/* Respomsiveness */
+
+/* Max width = 540 */
+@media screen and (max-width: 540px){
+
+    /* Lower section */
+    .lower-section {
+        height: max-content !important;
+    }
+
+    /* Message pop ups */
+    .message_popup {
+        top: 0;
+        right: 10px;
+        max-width: calc(100% - 20px);
+    }
+
+    .message_pop_icon {
+        min-width: 35px;
+        height: 35px;
+    }
+
+    .message_pop_icon svg {
+        width: 17px;
+    }
+
+    .message_popup span {
+        font-size: 15px;
+    }
+
+    /* Profile and see details section */
+    .profile_image_and_details_section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: max-content;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    } 
+
+    /* Image select section */
+    .profile_image {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+
+    /* Remove profile picture */
+    .remove_profile_pic_convo {
+        width: 170px;
+        height: 70px;
+        left: calc(100% - 70px);
+        font-size: 13px;
+    }
+
+    .remove_pic_choice {
+        height: 30px;
+    }
+
+    .remove_pic_choice svg {
+        width: 16px;
+    }
+
+    .display_image_section {
+        width: 250px;
+        height: 250px;
+    }
+
+    .user_detail_view_section {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .user_detail_view {
+        width: 100%;
+    }
+
+    /* All details section */
+    .all_detail_section {
+        padding-bottom: 10px;
+    }
+
+}
