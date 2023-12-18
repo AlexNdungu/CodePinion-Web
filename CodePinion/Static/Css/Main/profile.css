@@ -773,12 +773,21 @@
 
 /* Respomsiveness */
 
+/* max height = 610 */
+@media screen and (max-height: 610px){
+    /* Profile chnage biggest section */
+    .inner_profile_section {
+        height: max-content;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
 /* Max width = 635 */
 @media screen and (max-width: 635px){
 
     /* Select profile picture section */
     .select_profile_pic_section {
-        display: flex;
         justify-content: center;
         align-items: flex-start;
     }
@@ -799,6 +808,7 @@
     }
 
     .prof_img_instruct {
+        width: 400px;
         margin-top: 10px;
     }
 
@@ -935,15 +945,29 @@
 
 /*  max width = 440 */
 @media screen and (max-width: 440px){
-      /* Remove profile picture */
-      .remove_profile_pic_convo {
+    /* Remove profile picture */
+    .remove_profile_pic_convo {
         left: calc(100% - 110px);
         top: 100%;
     }
+
+    /* Select new profile picture */
+    .prof_img_instruct {
+        width: 390px;
+    }
 }
 
-/* max width = 390 */
-@media screen and (max-width: 390px){
+/* max width = 420 */
+@media screen and (max-width: 420px){
+
+    /* Select new profile picture */
+    .prof_img_instruct {
+        width: 380px;
+    }
+}
+
+/* max width = 395 */
+@media screen and (max-width: 395px){
 
     /* Remove profile picture */
     .remove_profile_pic_convo {
@@ -978,6 +1002,32 @@
         font-size: 15px;
     }
 
+    /* Select new profile picture */
+    .prof_img_instruct {
+        width: 350px;
+    }
+
+    .select_discard_save_image {
+        min-height: 60px;
+        margin-top: 10px;
+    }
+
+}
+
+/* max width=365 */
+@media screen and (max-width: 365px){
+   /* Select new profile picture */
+   .prof_img_instruct {
+        width: 325px;
+    }
+    
+    .prof_select_btn {
+        font-size: 14px;
+    }
+
+    .prof_select_btn svg {
+        width: 20px;
+    }
 }
 
 /* max width = 330 */
@@ -1005,6 +1055,36 @@
     .one_edit_all_sec input {
         font-size: 14px;
     }
+
+    /* Select new profile picture */
+    .new_profile_image {
+        width: 280px;
+        height: 280px;
+    }
+
+    .prof_img_instruct {
+        width: 280px;
+    }
+
+    .prof_img_inst_head {
+        font-size: 15px;
+    }
+
+    .prof_img_inst_body p {
+        font-size: 15px;
+    }
+
+    .select_discard_save_image {
+        min-height: max-content;
+        height: max-content;
+        flex-wrap: wrap;
+    }
+
+    .prof_select_btn {
+        margin: 10px;
+    }
+
+
 }
 
 /* max width = 300 */
@@ -1038,4 +1118,23 @@
     .one_edit_all_sec input {
         font-size: 13px;
     }
+
+    /* Select new profile picture */
+    .new_profile_image {
+        width: 240px;
+        height: 240px;
+    }
+
+    .prof_img_instruct {
+        width: 240px;
+    }
+
+    .prof_img_inst_head {
+        font-size: 14px;
+    }
+
+    .prof_img_inst_body p {
+        font-size: 14px;
+    }
+
 }
