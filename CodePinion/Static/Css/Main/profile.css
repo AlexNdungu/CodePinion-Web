@@ -773,6 +773,33 @@
 
 /* Respomsiveness */
 
+/* Max width = 635 */
+@media screen and (max-width: 635px){
+
+    /* Select profile picture section */
+    .select_profile_pic_section {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .inner_profile_select {
+        height: max-content;
+    }
+
+    .profile_pic_and_instruct {
+        height: max-content;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .new_profile_image {
+        width: 300px;
+        height: 300px;
+    }
+
+}
+
 /* Max width = 540 */
 @media screen and (max-width: 540px){
 
@@ -900,4 +927,111 @@
         width: calc(100% - 20px);
     }
 
+}
+
+/*  max width = 440 */
+@media screen and (max-width: 440px){
+      /* Remove profile picture */
+      .remove_profile_pic_convo {
+        left: calc(100% - 110px);
+        top: 100%;
+    }
+}
+
+/* max width = 390 */
+@media screen and (max-width: 390px){
+
+    /* Remove profile picture */
+    .remove_profile_pic_convo {
+      left: calc(100% - 130px);
+    }
+
+    /* User view details */
+    .sing_det_detail {
+        font-size: 15px;
+    }
+
+    /* Bio section */
+    .inner_read_bio,.bio_text_edit textarea {
+        font-size: 15px;
+    }
+
+    .save_discard_bio_edit,.save_discard_all_dets {
+        height: 45px;
+    }
+
+    .bio_edit_btn,.all_detail_btn {
+        font-size: 14px;
+        height: 35px;
+    }
+
+    .bio_edit_btn svg,.all_detail_btn svg {
+        width: 19px;
+    }
+
+    /* All details section */
+    .one_edit_all_sec input {
+        font-size: 15px;
+    }
+
+}
+
+/* max width = 330 */
+@media screen and (max-width: 330px){
+    /* Profile image */
+    .profile_image {
+        width: 280px;
+    }
+
+    .remove_profile_pic_convo {
+        left: calc(100% - 150px);
+    }
+
+    /* view details section */
+    .sing_det_detail {
+        font-size: 14px;
+    }
+
+    /* Bio section */
+    .inner_read_bio, .bio_text_edit textarea {
+        font-size: 14px;
+    }
+
+    /* All details section */
+    .one_edit_all_sec input {
+        font-size: 14px;
+    }
+}
+
+/* max width = 300 */
+@media screen and (max-width: 300px){
+    /* Profile image */
+    .profile_image {
+        width: 240px;
+    }
+
+    .display_image_section {
+        width: 220px;
+        height: 220px;
+    }
+
+    /* Remove profile picture */
+    .remove_profile_pic_convo {
+        left: calc(100% - 150px);
+    }
+
+    /* view details section */
+    .sing_det_detail {
+        font-size: 13px;
+    }
+
+    /* Bio section */
+    .inner_read_bio, .bio_text_edit textarea {
+        font-size: 13px;
+    }
+
+    /* All details section */
+    .one_edit_all_sec input {
+        font-size: 13px;
+    }
 }
