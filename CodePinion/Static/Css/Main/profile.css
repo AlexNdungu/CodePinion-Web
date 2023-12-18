@@ -875,6 +875,11 @@
         width: 16px;
     }
 
+    #remove_profile_spinner {
+        width: 20px;
+        height: 20px;
+    }
+
     .display_image_section {
         width: 250px;
         height: 250px;
