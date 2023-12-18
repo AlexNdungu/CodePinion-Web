@@ -798,6 +798,10 @@
         height: 300px;
     }
 
+    .prof_img_instruct {
+        margin-top: 10px;
+    }
+
 }
 
 /* Max width = 540 */
