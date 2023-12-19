@@ -20,6 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: aliceblue;
 }
 
 /* The Logo section */
@@ -96,4 +97,61 @@
 
 .free_action:hover {
     transform: scale(1.05);
+}
+
+/* Mobile navigation */
+.responsive_nav_trigger {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #414141;
+    fill: #414141;
+    display: none; /* Mobile only */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.responsive_nav_trigger svg {
+    width: 18px;
+}
+
+#mobile_nav_close_icon {
+    display: none;
+}
+
+.responsive_nav_trigger:hover {
+    border: 1px solid #406CEE;
+    fill: #406CEE;
+}
+
+
+/* Mobile responsiveness */
+
+/* WITH WIDTH */
+
+/* max width = 610 */
+@media only screen and (max-width: 610px) {
+    /* Parent navigation section */
+    .navigation_section {
+        height: 60px;
+    }
+
+    /* Navigation logo */
+    .nav_logo_img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .nav_logo h3 {
+        font-size: 17px;
+    }
+
+    /* Action section */
+    .login_action,.free_action {
+        height: 35px;
+        font-size: 15px;
+    }
 }
