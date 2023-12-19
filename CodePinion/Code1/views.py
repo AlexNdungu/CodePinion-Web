@@ -29,7 +29,7 @@ def signUp(request):
 
     # Check if user is authenticated
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('dash')
     else:
         return render(request,'Main/signup.html', {'error':''})
         
@@ -71,7 +71,7 @@ def signIn(request):
 
     # Check if user is authenticated
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('dash')
     else:
         return render(request,'Main/signin.html',{'error':''})
 
@@ -197,9 +197,9 @@ def UpdateProfile(request):
 
 
 
-# The Logged In Home Rendering Function
+# The Logged In Dash Rendering Function (dash)
 @login_required
-def Home(request):
+def Dashboard(request):
     return render(request, 'Main/home.html')
 
 

@@ -27,8 +27,8 @@ urlpatterns = [
     # Update Profile Url
     path('updateProfile/', views.UpdateProfile, name='update_profile'),
 
-    # Logged In Home Url
-    path('dash/', views.Home, name='home'),
+    # Logged In Home Url (Dashboard)
+    path('dash/', views.Dashboard, name='dash'),
     
     # Safes Url
     path('safes/', views.Safes, name='safes'),
