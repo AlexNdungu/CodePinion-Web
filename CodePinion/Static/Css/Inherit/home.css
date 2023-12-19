@@ -20,7 +20,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aqua;
 }
 
 /* The Logo section */
@@ -49,4 +48,52 @@
     font-size: 19px;
     font-weight: 600;
     color: #0A1A61;
+}
+
+/* Action section */
+.nav_actions {
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_action {
+    width: max-content;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #D3DBFF;
+    border-radius: 10px;
+    color: #406CEE;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+}
+
+.login_action:hover {
+    transform: scale(1.1);
+}
+
+.free_action {
+    width: max-content;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #406CEE;
+    border-radius: 10px;
+    color: #F3F3F3;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.free_action:hover {
+    transform: scale(1.05);
 }
