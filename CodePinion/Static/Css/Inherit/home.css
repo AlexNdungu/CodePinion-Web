@@ -347,4 +347,28 @@
         display: none;
     }
 
+    /* Footer sector */
+    /* Upper section */
+    .footer_logo_img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .footer_logo h3 {
+        font-size: 15px;
+    }
+
+    .footer_social svg {
+        width: 18px;
+    }
+
+    /* Lower section */
+    .footer_links_section a {
+        font-size: 13.5px;
+    }
+
+    .copyright_section p {
+        font-size: 13.5px;
+    }
+
 }
