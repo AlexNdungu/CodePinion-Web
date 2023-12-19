@@ -34,7 +34,7 @@
     <div class="main_at_home">
 
         <!--Navigation-->
-        <div class="navigation_section">
+        <div class="navigation_section" id="navigation_section">
 
             <!--Navigation Logo-->
             <a class="nav_logo" href="#">
@@ -136,6 +136,20 @@
         </div>
 
     </div>
+
+    <!--Change navigation background on scroll-->
+    <script>
+        document.addEventListener('scroll', ()=> {
+            let nav = document.getElementById('navigation_section');
+            
+            if(window.scrollY > 40){
+                nav.classList.add('nav_on_scroll');
+            }else{
+                nav.classList.remove('nav_on_scroll');
+            }
+        
+        })
+    </script>
     
 </body>
 

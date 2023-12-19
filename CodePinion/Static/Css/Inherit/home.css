@@ -20,7 +20,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
     /* background-color: #F3F3F3; */
+}
+
+.nav_on_scroll {
+    background-color: #F3F3F3;
+    transition: 0.4s ease-in-out;
 }
 
 /* The Logo section */
@@ -373,5 +380,5 @@
     .nav_logo h3 {
         display: none;
     }
-    
+
 }
