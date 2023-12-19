@@ -179,3 +179,22 @@
         width: 16px;
     }
 }
+
+/* max width = 300 */
+@media only screen and (max-width: 300px) {
+    /* Parent navigation section */
+    .navigation_section {
+        height: 50px;
+    }
+
+    /* Navigation logo */
+    .nav_logo_img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .nav_logo h3 {
+        display: none;
+    }
+
+}
