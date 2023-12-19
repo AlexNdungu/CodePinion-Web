@@ -113,7 +113,15 @@
             <div class="lower_footer">
 
                 <div class="copyright_section">
-                    <p>&copy; 2021 CodePinion. All rights reserved.</p>
+                    <p id="current_year" ></p>
+
+                    <!--This script gets the current year and sets it-->
+                    <script>
+                        // Get the current year
+                        let year = new Date().getFullYear();
+                        // Set the current year
+                        document.getElementById("current_year").innerHTML = '&copy; ' + year + ' CodePinion. All rights reserved.';
+                    </script>
                 </div>
 
                 <div class="footer_links_section">
