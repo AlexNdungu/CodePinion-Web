@@ -133,6 +133,91 @@
     fill: #406CEE;
 }
 
+/* Mobile navigation on trigger small */
+.mobile_navigation_action {
+    position: sticky;
+    top: 65px;
+    left: 10px;
+    width: calc(100% - 20px);
+    min-height: 50px;
+    height: max-content;
+    border-radius: 10px;
+    display: none; /* Mobile only */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #F3F3F3;
+    padding-top: 10px;
+}
+
+.welcome_back_mobile,.for_free_mobile {
+    width: calc(100% - 20px);
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.welcome_back_mobile {
+    color: #406CEE;
+    fill: #406CEE;
+    background-color: #D3DBFF;
+}
+
+.for_free_mobile {
+    color: #F3F3F3;
+    fill: #F3F3F3;
+    background-color: #406CEE;
+}
+
+.welcome_back_mobile svg ,.for_free_mobile svg {
+    width: 20px;
+}
+
+.mobile_nav_socials {
+    width: calc(100% - 20px);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile_social {
+    margin: 16px;
+    fill: #828282;
+}
+
+.mobile_social svg {
+    width: 19px;
+}
+
+/* Social hover */
+.mobile_social:nth-child(1):hover {
+    fill: #E1306C;
+}
+
+.mobile_social:nth-child(2):hover {
+    fill: #3b5998;
+}
+
+.mobile_social:nth-child(3):hover {
+    fill: #1DA1F2;
+}
+
+.mobile_social:nth-child(4):hover {
+    fill: #0077B5;
+}
+
+.mobile_social:nth-child(5):hover {
+    fill: #FF0000;
+}
+
 
 /* Body content */
 .home_content_section {
@@ -290,6 +375,11 @@
     .responsive_nav_trigger svg {
         width: 16px;
     }
+
+    /* Mobile navigatio */
+    .mobile_navigation_action {
+        top: 65px;
+    }
 }
 
 /* max width = 525 */
@@ -378,6 +468,24 @@
 
     .nav_logo h3 {
         display: none;
+    }
+
+    /* Mobile navigatio */
+    .mobile_navigation_action {
+        top: 60px;
+    }
+
+    .welcome_back_mobile,.for_free_mobile {
+        font-size: 14px;
+    }
+
+    .welcome_back_mobile svg, .for_free_mobile svg {
+        width: 18px;
+    }
+
+    /* Mobile socials */
+    .mobile_social {
+        margin: 13px;
     }
 
 }
