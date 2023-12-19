@@ -15,6 +15,10 @@ from .resorce import SecureShell
 #from .mail import Welcome_Mail
 # Create your views here.
 
+# Home Page with Navigation and Footer
+def HomeInherit(request):
+    return render(request,'Inherit/home.html')
+
 # The Inherited upper Navigation Rendering Function
 def UpperNav(request):
     return render(request,'Inherit/upper-nav.html')
@@ -193,7 +197,7 @@ def UpdateProfile(request):
 
 
 
-# The Home Rendering Function
+# The Logged In Home Rendering Function
 @login_required
 def Home(request):
     return render(request, 'Main/home.html')

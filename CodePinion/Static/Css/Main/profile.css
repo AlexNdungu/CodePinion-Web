@@ -774,7 +774,7 @@
 /* Respomsiveness */
 
 /* max height = 610 */
-@media screen and (max-height: 610px){
+@media screen and (max-height: 620px){
     /* Profile chnage biggest section */
     .inner_profile_section {
         height: max-content;

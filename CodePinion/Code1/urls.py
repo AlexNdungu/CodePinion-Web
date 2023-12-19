@@ -3,6 +3,9 @@ from . import views
 
 urlpatterns = [
 
+    # Home Url (landing Page)
+    path('homeInherit/', views.HomeInherit, name='home-inherit'),
+
     # Upper Navigation Inherit Url
     path('upperNav/', views.UpperNav, name='upper-nav'),
 
@@ -24,7 +27,7 @@ urlpatterns = [
     # Update Profile Url
     path('updateProfile/', views.UpdateProfile, name='update_profile'),
 
-    # Home Url
+    # Logged In Home Url
     path('dash/', views.Home, name='home'),
     
     # Safes Url
