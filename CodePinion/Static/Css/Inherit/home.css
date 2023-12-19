@@ -215,6 +215,22 @@
     margin-left: 12px;
 }
 
+/* Lower fotter section */
+.copyright_section p {
+    font-size: 14px;
+    color: #414141;
+}
+
+.footer_links_section a{
+    font-size: 15px;
+    color: #414141;
+    margin-left: 10px;
+}
+
+.footer_links_section a:hover {
+    color: #406CEE;
+}
+
 
 
 /* Mobile responsiveness */
