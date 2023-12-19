@@ -155,3 +155,27 @@
         font-size: 15px;
     }
 }
+
+/* max width = 550 */
+@media only screen and (max-width: 550px) {
+    /* Parent navigation section */
+    .navigation_section {
+        height: 55px;
+    }
+
+    /* Action section */
+    .login_action,.free_action {
+        display: none;
+    }
+
+    .responsive_nav_trigger {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+    }
+
+    .responsive_nav_trigger svg {
+        width: 16px;
+    }
+}
