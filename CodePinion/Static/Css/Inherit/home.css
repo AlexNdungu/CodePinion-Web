@@ -146,6 +146,7 @@
     border-radius: 10px;
     background-color: #F3F3F3;
     padding-top: 10px;
+    z-index: 2;
 }
 
 .mobile_navigation_action_show {

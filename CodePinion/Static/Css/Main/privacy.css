@@ -112,6 +112,7 @@
     min-height: 100vh;
     margin-left: 20px;
     height: max-content;
+    background-color: #f3f3f3;
 } 
 
 .law_section a {
@@ -221,4 +222,53 @@
 
 .water_mark a {
     color: #406CEE;
+}
+
+
+/* Mobile responsiveness */
+
+/* WITH WIDTH */
+
+
+/* max width = 1300 */
+@media only screen and (max-width: 1300px) {
+    /* Law section */
+    .law_section {
+        width: 800px;
+    }
+}
+
+/* max width = 1200 */
+@media only screen and (max-width: 1200px) {
+    /* Law section */
+    .law_section {
+        width: 700px;
+    }
+}
+
+/* max width = 1100 */
+@media only screen and (max-width: 1100px) {
+    /* Law section */
+    .law_section {
+        width: 600px;
+    }
+}
+
+/* max width = 1000 */
+@media only screen and (max-width: 1100px) {
+    /* The big legal section */
+    .legal_main_section {
+        flex-direction: column;
+    }
+
+    /* Table of contents */
+    .table_of_content_section {
+        width: 100%;
+    }
+
+    /* Law section */
+    .law_section {
+        width: 100%;
+        margin-left: 0;
+    }
 }
