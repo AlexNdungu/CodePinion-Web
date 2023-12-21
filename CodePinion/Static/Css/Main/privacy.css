@@ -112,7 +112,6 @@
     min-height: 100vh;
     margin-left: 20px;
     height: max-content;
-    background-color: #f3f3f3;
 } 
 
 .law_section a {
@@ -259,16 +258,51 @@
     /* The big legal section */
     .legal_main_section {
         flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 
     /* Table of contents */
     .table_of_content_section {
-        width: 100%;
+        width: calc(100% - 40px);
+        height: max-content;
+        position: unset;
+        margin-right: 0;
+        margin-bottom: 60px;
     }
 
     /* Law section */
     .law_section {
-        width: 100%;
+        width: calc(100% - 40px);
         margin-left: 0;
+    }
+}
+
+/* max width = 430 */
+@media only screen and (max-width: 450px) {
+    /* Heading section */
+    #GDPR,#CalOPPA,#GDPR,#CCPA {
+        height: max-content;
+    }
+    
+}
+
+/* max width = 400 */
+@media only screen and (max-width: 400px) {
+    /* Heading section */
+    .law_heading h2 {
+        font-size: 22px;
+    }
+
+    /* Title sections */
+    .law_intro p {
+        font-size: 18px;
+    }
+
+    /* Welcome section */
+    .welcome_section p,.intro_statement p  {
+        font-size: 15px;
     }
 }
