@@ -117,13 +117,13 @@
             // Add event listiner
             responsive_nav_trigger_btn.addEventListener('click', ()=> {
                 if(mobile_nav_open == false){
-                    mobile_navigation_action.style.display = 'flex';
+                    mobile_navigation_action.classList.add('mobile_navigation_action_show');
                     mobile_nav_hamb_icon.style.display = 'none';
                     mobile_nav_close_icon.style.display = 'flex';
                     navigation_section.classList.add('nav_on_scroll');
                     mobile_nav_open = true;
                 }else{
-                    mobile_navigation_action.style.display = 'none';
+                    mobile_navigation_action.classList.remove('mobile_navigation_action_show');
                     mobile_nav_hamb_icon.style.display = 'flex';
                     mobile_nav_close_icon.style.display = 'none';
                     navigation_section.classList.remove('nav_on_scroll');

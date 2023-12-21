@@ -138,16 +138,20 @@
     position: sticky;
     top: 65px;
     left: 10px;
+    display: none;
     width: calc(100% - 20px);
     min-height: 50px;
     height: max-content;
     border-radius: 10px;
-    display: none; /* Mobile only */
+    background-color: #F3F3F3;
+    padding-top: 10px;
+}
+
+.mobile_navigation_action_show {
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #F3F3F3;
-    padding-top: 10px;
 }
 
 .welcome_back_mobile,.for_free_mobile {
@@ -379,6 +383,10 @@
     /* Mobile navigatio */
     .mobile_navigation_action {
         top: 65px;
+    }
+
+    .mobile_navigation_action_show {
+        display: flex;
     }
 }
 
