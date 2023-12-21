@@ -19,6 +19,10 @@ from .resorce import SecureShell
 def HomeInherit(request):
     return render(request,'Inherit/home.html')
 
+# Privacy Policy Page
+def PrivacyPolicy(request):
+    return render(request,'Main/privacy.html')
+
 # The Inherited upper Navigation Rendering Function
 def UpperNav(request):
     return render(request,'Inherit/upper-nav.html')

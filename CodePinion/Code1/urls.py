@@ -6,6 +6,9 @@ urlpatterns = [
     # Home Url (landing Page)
     path('homeInherit/', views.HomeInherit, name='home-inherit'),
 
+    # Privacy Policy Url
+    path('privacyPolicy/', views.PrivacyPolicy, name='privacy-policy'),
+
     # Upper Navigation Inherit Url
     path('upperNav/', views.UpperNav, name='upper-nav'),
 
