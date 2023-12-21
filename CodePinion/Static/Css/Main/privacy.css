@@ -24,6 +24,10 @@
     padding-bottom: 20px;
 }
 
+.table_of_content_section a {
+    color: #414141;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .table_of_content_section::-webkit-scrollbar {
     display: none;
@@ -110,6 +114,10 @@
     height: max-content;
 } 
 
+.law_section a {
+    color: #406CEE;
+}
+
 /* Law heading */
 .law_heading {
     width: 100%;
@@ -167,9 +175,6 @@
 }
 
 /* Company intro */
-a {
-    color: #406CEE;
-}
 .intro_statement {
     width: 100%;
     height: max-content;
