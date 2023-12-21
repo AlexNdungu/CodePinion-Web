@@ -7,13 +7,14 @@
     align-items: flex-start;
     justify-content: center;
     padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 /* Table content section */
 .table_of_content_section {
     position: sticky;
     top: 80px;
-    margin-right: 5px;
+    margin-right: 20px;
     overflow-y: auto;
     width: 300px;
     height: calc(100vh - 100px);
@@ -25,7 +26,114 @@
 .law_section {
     width: 900px;
     min-height: 100vh;
-    margin-left: 5px;
+    margin-left: 20px;
     height: max-content;
-    background-color: bisque;
 } 
+
+/* Law heading */
+.law_heading {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.law_heading h2 {
+    font-size: 25px;
+    color: #414141;
+    font-weight: 600;
+}
+
+/* Effective date */
+.effective_date {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 14px;
+    color: #8d8d8d;
+    font-weight: 400;
+}
+
+/* Law into */
+.law_intro {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.law_intro p {
+    font-size: 20px;
+    color: #414141;
+    font-weight: 500;
+}
+
+/* welcome section */
+.welcome_section {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.welcome_section p {
+    font-size: 16px;
+    color: #414141;
+}
+
+/* Company intro */
+a {
+    color: #406CEE;
+}
+.intro_statement {
+    width: 100%;
+    height: max-content;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.intro_statement p {
+    font-size: 16px;
+    color: #414141;
+    font-weight: 400;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* Law mini heading */
+.law_mini_heading {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.law_mini_heading p {
+    font-size: 17px;
+    color: #414141;
+    font-weight: 500;
+}
+
+/* Water mark */
+.water_mark {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    font-size: 12px;
+}
+
+.water_mark p {
+    color: #414141;
+}
+
+.water_mark a {
+    color: #406CEE;
+}
