@@ -1,11 +1,12 @@
 /* Legal section */
 .legal_main_section {
     width: 100%;
-    min-height: 200vh;
+    min-height: 100vh;
     height: max-content;
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    padding-top: 100px;
 }
 
 /* Table content section */
@@ -13,6 +14,7 @@
     position: sticky;
     top: 80px;
     margin-right: 5px;
+    overflow-y: auto;
     width: 300px;
     height: calc(100vh - 100px);
     border-radius: 10px;
