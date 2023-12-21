@@ -1,0 +1,29 @@
+/* Legal section */
+.legal_main_section {
+    width: 100%;
+    min-height: 200vh;
+    height: max-content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Table content section */
+.table_of_content_section {
+    position: sticky;
+    top: 80px;
+    margin-right: 5px;
+    width: 300px;
+    height: calc(100vh - 100px);
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+}
+
+/* Law section */
+.law_section {
+    width: 900px;
+    min-height: 100vh;
+    margin-left: 5px;
+    height: max-content;
+    background-color: bisque;
+} 
