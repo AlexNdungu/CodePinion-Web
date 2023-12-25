@@ -280,13 +280,26 @@
     }
 }
 
-/* max width = 430 */
+/* max width = 450 */
 @media only screen and (max-width: 450px) {
     /* Heading section */
-    #GDPR,#CalOPPA,#GDPR,#CCPA {
+    #GDPR,#CalOPPA,#GDPR,#CCPA,#d-n-a-p-f-c-i {
         height: max-content;
     }
     
+}
+
+/* max width = 430 */
+@media only screen and (max-width: 430px) {
+
+    /* Welcome section */
+    .welcome_section {
+        height: max-content;
+    }
+
+    .welcome_section p {
+        margin-top: 10px;
+    }
 }
 
 /* max width = 400 */
@@ -304,5 +317,13 @@
     /* Welcome section */
     .welcome_section p,.intro_statement p  {
         font-size: 15px;
+    }
+}
+
+/* max width = 300 */
+@media only screen and (max-width: 300px) {
+    /* Heading section */
+    .law_heading {
+        height: max-content;
     }
 }
