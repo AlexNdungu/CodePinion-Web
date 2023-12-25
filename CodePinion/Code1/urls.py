@@ -9,6 +9,9 @@ urlpatterns = [
     # Privacy Policy Url
     path('privacyPolicy/', views.PrivacyPolicy, name='privacy-policy'),
 
+    # Terms and Conditions Url
+    path('termsAndConditions/', views.TermsAndConditions, name='terms-and-conditions'),
+
     # Upper Navigation Inherit Url
     path('upperNav/', views.UpperNav, name='upper-nav'),
 

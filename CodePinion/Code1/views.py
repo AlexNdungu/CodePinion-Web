@@ -23,6 +23,10 @@ def HomeInherit(request):
 def PrivacyPolicy(request):
     return render(request,'Main/privacy.html')
 
+# Terms and Conditions Page
+def TermsAndConditions(request):
+    return render(request,'Main/terms.html')
+
 # The Inherited upper Navigation Rendering Function
 def UpperNav(request):
     return render(request,'Inherit/upper-nav.html')
