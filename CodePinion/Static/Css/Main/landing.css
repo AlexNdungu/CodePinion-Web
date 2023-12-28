@@ -23,6 +23,7 @@
     font-size: 55px;
     font-weight: 700;
     color: #414141;
+    width: 80%;
 }
 
 .hero_word_section p {
@@ -30,6 +31,7 @@
     color: #414141;
     margin-top: 30px;
     margin-bottom: 30px;
+    width: 90%;
 }
 
 /* Call to action */
