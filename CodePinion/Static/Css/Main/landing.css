@@ -362,3 +362,56 @@
     }
     
 }
+
+/* Width max=300px */
+@media screen and (max-width: 330px){
+    /* Hero word section */
+    .hero_word_section h1 {
+        font-size: 20px;
+    }
+
+    .hero_word_section p {
+        font-size: 14px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .extra_images_mobile {
+        height: 80px;
+    }
+
+    .extra_image_mobile {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Hero animation section */
+    .hero_animation_section {
+        padding: 10px;
+    }
+    
+}
+
+/* Width max=300px */
+@media screen and (max-width: 300px){
+    /* Hero word section */
+
+    .extra_images_mobile {
+        height: 70px;
+    }
+
+    .extra_image_mobile {
+        width: 70px;
+        height: 70px;
+    }
+
+    .hero_cta_btn {
+        font-size: 14px;
+    }
+
+    /* Hero animation section */
+    .hero_animation_section {
+        padding: 10px;
+    }
+    
+}
