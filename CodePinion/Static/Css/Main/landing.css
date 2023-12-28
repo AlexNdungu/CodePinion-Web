@@ -403,6 +403,39 @@
     }
 }
 
+/* Width max=780px */
+@media screen and (max-width: 780px){
+    /* Discover feature section */
+    .discover_section {
+        height: 620px;
+        padding-top: 40px;
+        margin-top: 40px;
+    }
+
+    .discover_features {
+        height: 540px;
+        flex-direction: column;
+    }
+
+    .discovered_feature {
+        width: calc(100% - 40px);
+    }
+
+    .discovered_feature:nth-child(2) {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .discovered_feature:nth-child(3) {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+}
+
+
 /* Width max=550px */
 @media screen and (max-width: 550px){
     /* Hero word section */
