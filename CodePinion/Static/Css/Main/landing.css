@@ -335,3 +335,30 @@
     }
     
 }
+
+/* Width max=400px */
+@media screen and (max-width: 400px){
+    /* Hero word section */
+    .hero_word_section h1 {
+        font-size: 25px;
+    }
+
+    .hero_word_section p {
+        font-size: 15px;
+    }
+
+    .extra_images_mobile {
+        height: 90px;
+    }
+
+    .extra_image_mobile {
+        width: 90px;
+        height: 90px;
+    }
+
+    /* Hero animation section */
+    .hero_animation_section {
+        padding: 20px;
+    }
+    
+}
