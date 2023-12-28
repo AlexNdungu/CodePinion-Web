@@ -17,7 +17,7 @@
     align-items: flex-start;
     justify-content: center;
     padding-left: 40px;
-    /* background-color: aquamarine; */
+    background-color: aquamarine;
 }
 
 .hero_word_section h1 {
@@ -80,7 +80,6 @@
     height: 180px;
     bottom: 50px;
     left: 40px;
-    /* rotate: -20deg; */
 }
 
 .coding_img {
@@ -88,7 +87,6 @@
     height: 180px;
     top: 60px;
     left: 40px;
-    /* rotate: -20deg; */
 }
 
 .merge_img {
@@ -108,7 +106,7 @@
     align-items: center;
     justify-content: center;
     padding-right: 40px;
-    /* background-color: chocolate; */
+    background-color: chocolate;
 }
 
 
@@ -159,3 +157,35 @@
 
 
 /* WITH WIDTH */
+/* Width max=1290px */
+@media screen and (max-width: 1290px){
+    /* Hero word section */
+
+    /* Hero word section */
+
+    /* .hero_word_section h1 {
+        font-size: 45px;
+    }
+
+    .hero_word_section p {
+        font-size: 17px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    } */
+
+    .ai_img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .coding_img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .merge_img {
+        width: 90px;
+        height: 90px;
+    }
+    
+}
