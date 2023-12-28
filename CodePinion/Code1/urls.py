@@ -6,6 +6,9 @@ urlpatterns = [
     # Home Url (landing Page)
     path('homeInherit/', views.HomeInherit, name='home-inherit'),
 
+    # landing Page Url
+    path('', views.Landing, name='landing'),
+
     # Privacy Policy Url
     path('privacyPolicy/', views.PrivacyPolicy, name='privacy-policy'),
 
@@ -16,7 +19,7 @@ urlpatterns = [
     path('upperNav/', views.UpperNav, name='upper-nav'),
 
     # Sign up url
-    path('',views.signUp, name='sign_up'),
+    path('signup/',views.signUp, name='sign_up'),
 
     # Create new user
     path('createNewUser/', views.createNewUser, name='create_new_user'),

@@ -19,6 +19,10 @@ from .resorce import SecureShell
 def HomeInherit(request):
     return render(request,'Inherit/home.html')
 
+# Landing Page
+def Landing(request):
+    return render(request,'Main/landing.html')
+
 # Privacy Policy Page
 def PrivacyPolicy(request):
     return render(request,'Main/privacy.html')
