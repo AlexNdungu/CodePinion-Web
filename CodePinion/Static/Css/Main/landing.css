@@ -9,6 +9,7 @@
 /* hero word section */
 
 .hero_word_section {
+    position: relative;
     width: 50%;
     height: 100%;
     display: flex;
@@ -24,6 +25,7 @@
     font-weight: 700;
     color: #414141;
     width: 80%;
+    z-index: 1;
 }
 
 .hero_word_section p {
@@ -33,6 +35,40 @@
     margin-bottom: 30px;
     width: 90%;
 }
+
+/* Extra Images */
+.ai_img,.coding_img,.merge_img {
+    position: absolute;
+}
+
+.ai_img img,.coding_img img,.merge_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ai_img {
+    width: 250px;
+    height: 250px;
+    top: 100px;
+    left: -30px;
+    rotate: -40deg;
+}
+
+.coding_img {
+    width: 250px;
+    height: 250px;
+    bottom: 0;
+}
+
+.merge_img {
+    width: 150px;
+    height: 150px;
+    bottom: 0;
+    right: 0;
+}
+
+
 
 /* Call to action */
 .hero_cta_btn {
