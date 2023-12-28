@@ -157,21 +157,10 @@
 
 
 /* WITH WIDTH */
+
 /* Width max=1290px */
 @media screen and (max-width: 1290px){
     /* Hero word section */
-
-    /* Hero word section */
-
-    /* .hero_word_section h1 {
-        font-size: 45px;
-    }
-
-    .hero_word_section p {
-        font-size: 17px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    } */
 
     .ai_img {
         width: 140px;
@@ -186,6 +175,45 @@
     .merge_img {
         width: 90px;
         height: 90px;
+    }
+    
+}
+
+/* Width max=1030px */
+@media screen and (max-width: 1030px){
+    /* Hero word section */
+
+    .ai_img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .coding_img {
+        width: 110px;
+        height: 110px;
+        top: 40px;
+    }
+
+    .merge_img {
+        width: 70px;
+        height: 70px;
+        top: 60px;
+        right: 30%;
+    }    
+
+    .hero_word_section h1 {
+        font-size: 38px;
+    }
+
+    .hero_word_section p {
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    /* Hero animation section */
+    .hero_animation_section {
+        padding: 30px;
     }
     
 }
