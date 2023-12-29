@@ -208,6 +208,121 @@
 }
 
 
+/* Verison Control */
+.version_control_section {
+    margin-top: 50px;
+    width: 100%;
+    height: max-content;
+}
+
+.vc_heading {
+    width: 100%;
+    height: 50px;
+    padding-left: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.vc_heading svg {
+    width: 25px;
+    margin-right: 20px;
+    fill: #414141;
+}
+
+.vc_heading h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #414141;
+}
+
+.vc_details {
+    width: 100%;
+    height: 70px;
+    padding-left: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #414141;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.vc_images {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vc_actual_main_image {
+    position: relative;
+    width: calc(100% - 350px);
+    height: max-content;
+    border: 1px solid #D3DBFF;
+    border-radius: 10px;
+}
+
+.vc_actual_main_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vc_actual_secondary_image {
+    position: absolute;
+    bottom: -60px;
+    right: -70px;
+    width: 300px;
+    height: max-content;
+    border-radius: 10px;
+}
+
+.vc_actual_secondary_2_image {
+    position: absolute;
+    bottom: 60px;
+    left: -70px;
+    width: 150px;
+    height: max-content;
+    border-radius: 10px;
+}
+
+.vc_btn_section {
+    width: 100%;
+    height: 60px;
+    padding-left: 160px;
+    display: flex;
+    align-items: center;
+}
+
+/* Call to action */
+.vc_action_btn {
+    width: max-content;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #406CEE;
+    border-radius: 10px;
+    color: #F3F3F3;
+    fill: #F3F3F3;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+    z-index: 1;
+}
+
+.vc_action_btn svg {
+    width: 26px;
+    margin-left: 15px;
+}
+
+.vc_action_btn:hover {
+    transform: scale(1.05);
+}
+
 /* RESPONSIVE WEBSITE USING BOTH WIDTH */
 
 /* WITH HEIGHT */
