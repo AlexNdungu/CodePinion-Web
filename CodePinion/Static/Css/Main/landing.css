@@ -839,10 +839,6 @@
         font-size: 25px;
     }
 
-    .hero_word_section p {
-        font-size: 15px;
-    }
-
     .extra_images_mobile {
         height: 90px;
     }
@@ -868,6 +864,12 @@
 
     .discovered_feature svg {
         width: 26px;
+    }
+
+    /* More details about services */
+
+    #vc_actual_secondary_image_1, #vc_actual_secondary_image_2 {
+        width: 220px;
     }
     
 }
