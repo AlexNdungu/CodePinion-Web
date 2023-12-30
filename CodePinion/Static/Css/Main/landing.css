@@ -582,6 +582,24 @@
     .discovered_feature {
         width: 170px;
     }
+
+    /* More details about services */
+
+    .vc_actual_main_image {
+        width: calc(100% - 120px);
+    }
+
+    .vc_actual_secondary_2_image {
+        left: -40px;
+    }
+
+    .vc_actual_secondary_image {
+        right: -40px;
+    }
+
+    .vc_btn_section {
+        padding-left: 60px;
+    }
 }
 
 /* Width max=780px */
@@ -613,6 +631,39 @@
         margin-left: 0px;
         margin-right: 0px;
         margin-bottom: 20px;
+    }
+
+    /* More details about services */
+
+    .vc_heading {
+        padding-left: 20px;
+    }
+
+    .vc_details {
+        padding-left: 55px;
+    }
+
+    .vc_actual_main_image {
+        width: calc(100% - 40px);
+    }
+
+    .vc_actual_secondary_image {
+        right: 0px;
+    }
+
+    .vc_actual_secondary_2_image {
+        left: 0px;
+        bottom: -60px;
+    }
+
+    .vc_btn_section {
+        padding-left: 20px;
+    }
+
+    #vc_btn_section_2,#vc_btn_section_4 {
+        height: 120px;
+        align-items: flex-end;
+        padding-bottom: 14px;
     }
 }
 
