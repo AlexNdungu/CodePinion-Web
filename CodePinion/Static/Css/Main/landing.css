@@ -768,15 +768,12 @@
     #vc_actual_secondary_image_1 {
         top: -30px;
         bottom: 0;
+        right: 10px;
     }
 
     #vc_details_1 p {
         margin-bottom: 45px;
     }
-
-    /* #vc_btn_section_1 {
-        height: 90px;
-    } */
     
 }
 
@@ -790,6 +787,47 @@
 
     .discovered_feature svg {
         width: 28px;
+    }
+
+    /* More details about services */
+
+    #vc_actual_secondary_image_1,#vc_actual_secondary_image_2 {
+        top: -30px;
+        bottom: 0;
+        right: 10px;
+        width: 240px;
+    }
+
+    #vc_actual_secondary_image_2 {
+        top: -20px;
+    }
+
+    #vc_actual_secondary_image_3 {
+        top: -10px;
+    }
+
+    #vc_details_1 p,#vc_details_2 p,#vc_details_3 p,#vc_details_4 p {
+        margin-bottom: 65px;
+    }
+
+    #vc_actual_secondary_2_image_1 {
+        display: none;
+    }
+
+    #vc_actual_main_image_img_4 {
+        visibility: hidden;
+    }
+    
+    #vc_actual_secondary_image_4 {
+        top: 0;
+    }
+
+    #vc_actual_secondary_2_image_2 {
+        top: 80px;
+    }
+
+    #vc_actual_main_image_4 {
+        border: none;
     }
     
 }
