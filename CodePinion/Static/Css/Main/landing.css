@@ -425,8 +425,24 @@
     }
 
     /* More details about services */
+    .vc_heading {
+        padding-left: 80px;
+    }
+
+    .vc_actual_main_image {
+        width: calc(100% - 250px);
+    }
+
     .vc_actual_secondary_image {
         width: 260px;
+    }
+
+    .vc_details {
+        padding-left: 120px;
+    }
+
+    .vc_btn_section {
+        padding-left: 120px;
     }
     
 }
@@ -481,6 +497,7 @@
     .vc_details {
         font-size: 16px;
     }
+
 }
 
 /* Width max=950px */
@@ -530,6 +547,9 @@
         width: 180px;
     }
     
+    /* More details about services */
+
+
 }
 
 /* Width max=850px */
