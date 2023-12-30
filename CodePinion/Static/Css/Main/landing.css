@@ -667,12 +667,33 @@
     }
 }
 
+/* Width max=610px */
+@media screen and (max-width: 610px){
+    /* More details about services */
+    #vc_details_4 {
+        height: max-content;
+    }
+
+    #vc_details_4 p {
+        margin-bottom: 15px;
+    }
+
+    #vc_btn_section_1,#vc_btn_section_3 {
+        height: 120px;
+        align-items: flex-end;
+        padding-bottom: 15px;
+    }
+}
 
 /* Width max=550px */
 @media screen and (max-width: 550px){
     /* Hero word section */
     .hero_word_section h1 {
         font-size: 35px;
+    }
+
+    .hero_word_section p {
+        font-size: 17px;
     }
 
     /* Hero animation section */
@@ -685,6 +706,8 @@
         font-size: 21px;
         text-align: center;
     }
+
+    /* More details about services */
     
 }
 
