@@ -388,6 +388,11 @@
         width: 90px;
         height: 90px;
     }
+
+    /* More details about services */
+    .vc_details {
+        padding-right: 40px;
+    }
     
 }
 
@@ -417,6 +422,11 @@
     /* Discover feature section */
     .discovered_feature {
         width: 200px;
+    }
+
+    /* More details about services */
+    .vc_actual_secondary_image {
+        width: 260px;
     }
     
 }
@@ -458,6 +468,19 @@
         padding: 30px;
     }
     
+    /* More details about services */
+
+    .vc_heading h2 {
+        font-size: 19px; 
+    }
+
+    .vc_heading svg {
+        width: 24px;
+    }
+    
+    .vc_details {
+        font-size: 16px;
+    }
 }
 
 /* Width max=950px */
