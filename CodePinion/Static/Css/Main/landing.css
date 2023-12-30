@@ -708,6 +708,19 @@
     }
 
     /* More details about services */
+
+    .vc_details {
+        padding-left: 30px;
+        padding-right: 20px;
+    }
+
+    #vc_details_1,#vc_details_2,#vc_details_3 {
+        height: max-content;
+    }
+
+    #vc_details_1 p,#vc_details_2 p,#vc_details_3 p {
+        margin-bottom: 15px;
+    }
     
 }
 
