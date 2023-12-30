@@ -675,7 +675,7 @@
     }
 
     #vc_details_4 p {
-        margin-bottom: 15px;
+        margin-bottom: 25px;
     }
 
     #vc_btn_section_1,#vc_btn_section_3 {
@@ -719,7 +719,7 @@
     }
 
     #vc_details_1 p,#vc_details_2 p,#vc_details_3 p {
-        margin-bottom: 15px;
+        margin-bottom: 25px;
     }
     
 }
@@ -762,6 +762,21 @@
     .discovered_feature svg {
         width: 30px;
     }
+
+    /* More details about services */
+
+    #vc_actual_secondary_image_1 {
+        top: -30px;
+        bottom: 0;
+    }
+
+    #vc_details_1 p {
+        margin-bottom: 45px;
+    }
+
+    /* #vc_btn_section_1 {
+        height: 90px;
+    } */
     
 }
 
