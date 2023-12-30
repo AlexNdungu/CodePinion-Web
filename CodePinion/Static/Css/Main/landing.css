@@ -474,7 +474,7 @@
     }
 
     .hero_word_section p {
-        font-size: 16px;
+        font-size: 18px;
         margin-top: 15px;
         margin-bottom: 15px;
     }
@@ -548,6 +548,30 @@
     }
     
     /* More details about services */
+
+    .vc_heading {
+        padding-left: 40px;
+    }
+
+    .vc_details {
+        padding-left: 80px;
+    }
+
+    .vc_actual_main_image {
+        width: calc(100% - 160px);
+    }
+
+    .vc_actual_secondary_image {
+        right: -50px;
+    }
+
+    .vc_actual_secondary_2_image {
+        left: -50px;
+    }
+
+    .vc_btn_section {
+        padding-left: 80px;
+    }
 
 
 }
