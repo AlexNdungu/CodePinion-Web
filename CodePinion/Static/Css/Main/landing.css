@@ -774,6 +774,19 @@
     #vc_details_1 p {
         margin-bottom: 45px;
     }
+
+    .vc_btn_section {
+        padding-left: 0;
+        justify-content: center;
+    }
+
+    .vc_action_btn {
+        font-size: 15px;
+    }
+
+    .vc_action_btn svg {
+        width: 24px;
+    }
     
 }
 
@@ -871,6 +884,10 @@
     #vc_actual_secondary_image_1, #vc_actual_secondary_image_2 {
         width: 220px;
     }
+
+    #vc_details_4 p {
+        margin-bottom: 45px;
+    }
     
 }
 
@@ -882,7 +899,7 @@
     }
 
     .hero_word_section p {
-        font-size: 14px;
+        font-size: 16px;
         margin-top: 20px;
         margin-bottom: 20px;
     }
@@ -900,7 +917,17 @@
     .hero_animation_section {
         padding: 10px;
     }
-    
+
+    /* More details about services */
+    #vc_actual_secondary_image_1, #vc_actual_secondary_image_2, #vc_actual_secondary_image_3, #vc_actual_secondary_image_4 {
+        width: 200px;
+    }
+
+    #vc_actual_secondary_2_image_2 {
+        width: 120px;
+        top: 50px;
+    }
+
 }
 
 /* Width max=300px */
@@ -940,6 +967,21 @@
 
     .discovered_feature svg {
         width: 24px;
+    }
+
+    /* More details about services */
+    .vc_action_btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .vc_action_btn svg {
+        width: 22px;
+        margin-left: 10px;
+    }
+
+    #vc_actual_secondary_image_1, #vc_actual_secondary_image_2, #vc_actual_secondary_image_3, #vc_actual_secondary_image_4 {
+        width: 185px;
     }
     
 }
