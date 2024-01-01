@@ -323,6 +323,35 @@
     transform: scale(1.05);
 }
 
+
+/* Welcome aboard */
+.welcome_aboard_section {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+/* Animation aboard */
+.welcome_aboard_animation {
+    width: 500px;
+    height: 100%;
+    background-color: bisque;
+}
+
+
+
+/* Word aboard */
+.welcome_aboard_words {
+    width: 50%;
+    height: 100%;
+    background-color: cadetblue;
+}
+
+
+
 /* RESPONSIVE WEBSITE USING BOTH WIDTH */
 
 /* WITH HEIGHT */
