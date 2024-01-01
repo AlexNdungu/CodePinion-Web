@@ -442,11 +442,11 @@
     transform: translateX(0px);
 }
 
-.discovered_feature:nth-child(2),.extra_image_mobile:nth-child(2) {
+.discovered_feature:nth-child(2),.extra_image_mobile:nth-child(2),.merge_img {
     transition-delay: 200ms;
 }
 
-.discovered_feature:nth-child(3),.extra_image_mobile:nth-child(3) {
+.discovered_feature:nth-child(3),.extra_image_mobile:nth-child(3),.ai_img {
     transition-delay: 400ms;
 }
 

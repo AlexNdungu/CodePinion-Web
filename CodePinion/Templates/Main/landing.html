@@ -35,15 +35,15 @@
         </a>
 
         <!--Extra images-->
-        <div class="ai_img">
+        <div class="ai_img discovered_feature_hidden">
             <img src="{% static '/Images/Landing/ai.png' %}" alt="Artificial Intelligence">
         </div>
 
-        <div class="coding_img">
+        <div class="coding_img discovered_feature_hidden">
             <img src="{% static '/Images/Landing/developer.png' %}" alt="Coding">
         </div>
 
-        <div class="merge_img">
+        <div class="merge_img discovered_feature_hidden">
             <img src="{% static '/Images/Landing/merge.png' %}" alt="Commit">
         </div>
 
@@ -427,7 +427,6 @@
     });
 
     // Observe Secondary 2 images
-
     const observer_secondary_2_images = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
