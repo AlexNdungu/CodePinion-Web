@@ -27,6 +27,9 @@ urlpatterns = [
     # Sign in url
     path('signin/',views.signIn, name='signin'),
 
+    # Sign out url
+    path('signout/',views.signOut, name='signout'),
+
     # Sign in u
     path('signinUser/', views.signInUser, name='signin_user'),
 

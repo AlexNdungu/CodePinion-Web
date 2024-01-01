@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from . import models
 #
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
 
@@ -92,6 +92,11 @@ def signIn(request):
     else:
         return render(request,'Main/signin.html',{'error':''})
 
+
+# Sign out user
+def signOut(request):  
+    logout(request)
+    return redirect('landing')
 
 # Sign in user
 def signInUser(request):
