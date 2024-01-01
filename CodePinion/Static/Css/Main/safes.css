@@ -438,7 +438,6 @@
 
 }
 
-
 /* Width max = 1030px = 1100px */
 @media screen and (max-width: 1100px) {
 
@@ -561,7 +560,6 @@
 
 }
 
-
 /* Width max=950px */
 @media screen and (max-width: 950px) {
 
@@ -605,7 +603,6 @@
 
 }
 
-
 /* Width max=550px */
 @media screen and (max-width:550px){
     
@@ -620,7 +617,6 @@
     }
 
 }
-
 
 /* Width max=420px */
 @media screen and (max-width:420px){
@@ -648,7 +644,6 @@
 
 }
 
-
 /* Width max=380px */
 @media screen and (max-width:380px){
     
@@ -671,7 +666,6 @@
         font-size: 10px;
     }
 }
-
 
 /* Width max=300px */
 @media screen and (max-width:330px){
