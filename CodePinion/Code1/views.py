@@ -21,7 +21,12 @@ def HomeInherit(request):
 
 # Landing Page
 def Landing(request):
-    return render(request,'Main/landing.html')
+
+    # Check if user is authenticated
+    if request.user.is_authenticated:
+        return redirect('dash')
+    else:
+        return render(request,'Main/landing.html')
 
 # Privacy Policy Page
 def PrivacyPolicy(request):
