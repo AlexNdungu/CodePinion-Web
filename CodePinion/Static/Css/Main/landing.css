@@ -213,6 +213,7 @@
     margin-top: 50px;
     width: 100%;
     height: max-content;
+    overflow: hidden;
 }
 
 .vc_heading {
@@ -260,7 +261,7 @@
     position: relative;
     width: calc(100% - 350px);
     height: max-content;
-    border: 1px solid #D3DBFF;
+    /* border: 1px solid #D3DBFF; */
     border-radius: 10px;
 }
 
@@ -412,6 +413,91 @@
 
 .end_hero:hover {
     transform: scale(1.05);
+}
+
+
+/* Scrolling animation */
+
+/* Animate heading and text */
+.heading_text_hidden {
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+    transform: translateX(-100px)
+}
+
+.heading_text_show {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+/* Animate Discover Feature section */
+.discovered_feature_hidden {
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+    transform: translateX(-100px)
+}
+
+.discovered_feature_show {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.discovered_feature:nth-child(2),.extra_image_mobile:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+.discovered_feature:nth-child(3),.extra_image_mobile:nth-child(3) {
+    transition-delay: 400ms;
+}
+
+.discovered_feature:nth-child(4) {
+    transition-delay: 600ms;
+}
+
+/* Animate images section */
+.main_image_hidden {
+    opacity: 0;
+    transition: 0.6s ease-in-out;
+    transform: translateY(100px)
+}
+
+.main_image_show {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.secondary_1_image_hidden {
+    opacity: 0;
+    transition: 0.6s ease-in-out;
+    transform: translateX(100px);
+}
+
+.secondary_1_image_show {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.secondary_2_image_hidden {
+    opacity: 0;
+    transition: 0.6s ease-in-out;
+    transform: translateX(-100px);
+    transition-delay: 150ms;
+}
+
+.secondary_2_image_show {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.action_button_hidden {
+    opacity: 0;
+    transition: 0.6s ease-in-out;
+    transform: translateY(60px)
+}
+
+.action_button_show {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 
@@ -956,7 +1042,12 @@
         width: 24px;
     }
 
-    /* welcome aboard */
+    /* Scroll animation */
+
+    .secondary_1_image_hidden {
+        transition: 0.2s ease-in-out;
+        transition-delay: 1000ms;
+    }
     
 }
 
