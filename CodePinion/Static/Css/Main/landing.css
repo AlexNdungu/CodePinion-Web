@@ -339,7 +339,6 @@
 .welcome_aboard_animation {
     width: 500px;
     height: 100%;
-    background-color: bisque;
 }
 
 
@@ -352,7 +351,6 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    background-color: cadetblue;
 }
 
 .aboard_list_item {
@@ -829,7 +827,6 @@
     .welcome_aboard_section {
         height: max-content;
         flex-direction: column;
-        margin-top: 0;
     }
 
     .welcome_aboard_animation {
@@ -958,6 +955,8 @@
     .vc_action_btn svg {
         width: 24px;
     }
+
+    /* welcome aboard */
     
 }
 
@@ -1013,6 +1012,11 @@
     #vc_actual_main_image_4 {
         border: none;
     }
+
+    /* Welcome aboard */
+    .welcome_aboard_animation {
+        padding: 30px;
+    }
     
 }
 
@@ -1059,6 +1063,11 @@
     #vc_details_4 p {
         margin-bottom: 45px;
     }
+
+    /* Welcome aboard */
+    .welcome_aboard_animation {
+        padding: 20px;
+    }
     
 }
 
@@ -1097,6 +1106,15 @@
     #vc_actual_secondary_2_image_2 {
         width: 120px;
         top: 50px;
+    }
+
+    /* Welcome aboard */
+    .welcome_aboard_animation {
+        padding: 10px;
+    }
+
+    .aboard_list_item p {
+        padding-right: 10px;
     }
 
 }
@@ -1141,6 +1159,10 @@
     }
 
     /* More details about services */
+    .vc_details {
+        font-size: 15px;
+    }
+
     .vc_action_btn {
         font-size: 14px;
         padding: 10px;
@@ -1154,5 +1176,21 @@
     #vc_actual_secondary_image_1, #vc_actual_secondary_image_2, #vc_actual_secondary_image_3, #vc_actual_secondary_image_4 {
         width: 185px;
     }
+
+    /* Welcome aboard */ 
     
+    .aboard_list_item p {
+        font-size: 15px;
+        padding-right: 10px;
+    }
+    
+    .end_hero {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .end_hero svg {
+        width: 22px;
+        margin-left: 10px;
+    }
 }
