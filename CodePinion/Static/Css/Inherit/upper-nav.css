@@ -133,9 +133,30 @@
     color: #406CEE;
 }
 
+.inherited-main-navigation-item-out:hover {
+    background-color: #F3F3F3;
+    fill: #C53B3B;
+    color: #C53B3B;
+}
+
 .inherited-main-navigation-item svg {
     width: 20px;
     margin-right: 10px;
+}
+
+/* Nav seperator */
+.inherited-main-navigation-seperator-section {
+    width: 100%;
+    height:20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inherited-main-navigation-seperator {
+    width: 100%;
+    height: 1.5px;
+    background-color: #e8e8e8;
 }
 
 

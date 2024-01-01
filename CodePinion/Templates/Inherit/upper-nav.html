@@ -144,13 +144,26 @@
 
                 <!--The navigation item-->
 
-                <!--Dashboard-->
+                <!--Profile-->
                 <a href="{% url 'profile' %}" class="inherited-main-navigation-item">
 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"/></svg>
                     <span>Your Profile</span>
 
                 </a>   
+
+                <!--Navigation seperator-->
+                <div class="inherited-main-navigation-seperator-section"> 
+                    <div class="inherited-main-navigation-seperator"></div>
+                </div>
+
+                <!--Sign Out-->
+                <a href="{% url 'profile' %}" class="inherited-main-navigation-item inherited-main-navigation-item-out">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-12h4v12zm4.213-10.246l-1.213 1.599c2.984 1.732 5 4.955 5 8.647 0 5.514-4.486 10-10 10s-10-4.486-10-10c0-3.692 2.016-6.915 5-8.647l-1.213-1.599c-3.465 2.103-5.787 5.897-5.787 10.246 0 6.627 5.373 12 12 12s12-5.373 12-12c0-4.349-2.322-8.143-5.787-10.246z"/></svg>
+                    <span>Sign Out</span>
+
+                </a>
 
             </div>
 
