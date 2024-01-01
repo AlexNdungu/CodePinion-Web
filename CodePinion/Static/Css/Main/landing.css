@@ -347,9 +347,71 @@
 .welcome_aboard_words {
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     background-color: cadetblue;
 }
 
+.aboard_list_item {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.blue_ab_dot {
+    min-width: 12px;
+    height: 12px;
+    background-color: #406CEE;
+    border-radius: 4px;
+    margin: 15px;
+    margin-top: 5px;
+}
+
+.aboard_list_item p {
+    font-size: 17px;
+    font-weight: 500;
+    color: #414141;
+}
+
+/* Call to action */
+.aboard_action_section {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 45px;
+}
+
+.end_hero {
+    width: max-content;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #406CEE;
+    border-radius: 10px;
+    color: #F3F3F3;
+    fill: #F3F3F3;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+    z-index: 1;
+}
+
+.end_hero svg {
+    width: 26px;
+    margin-left: 15px;
+}
+
+.end_hero:hover {
+    transform: scale(1.05);
+}
 
 
 /* RESPONSIVE WEBSITE USING BOTH WIDTH */
