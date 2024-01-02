@@ -61,6 +61,7 @@ INSTALLED_APPS = [
 
     # Sites
     'django.contrib.sites',
+    'django.contrib.sitemaps',
 
     # Google Auth
     'allauth',

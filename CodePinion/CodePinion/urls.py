@@ -18,13 +18,24 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+# Site Map imports
+from django.contrib.sitemaps.views import sitemap
+from Code1.sitemaps import StaticViewSitemap
+
+# Site Map Dictionary
+sitemaps = {
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     path('kage/', admin.site.urls),
     #Google Auth URL
     path("accounts/", include("allauth.urls")),
     #Link Apps Urls to Main Project
-    path('',include('Code1.urls'))
+    path('',include('Code1.urls')),
+    #Site Map Url
+    path("sitemap.xml",sitemap,{"sitemaps": sitemaps},name="django.contrib.sitemaps.views.sitemap",
+)
 ]
 
 #Add static path
