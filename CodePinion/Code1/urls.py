@@ -30,7 +30,7 @@ urlpatterns = [
     # Sign out url
     path('signout/',views.signOut, name='signout'),
 
-    # Sign in u
+    # Sign in url
     path('signinUser/', views.signInUser, name='signin_user'),
 
     # Profile Url

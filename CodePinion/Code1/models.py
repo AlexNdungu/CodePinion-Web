@@ -98,6 +98,7 @@ class Demo(models.Model):
         def __str__(self):
             return self.demo_name
 
+
 # Report Bug Model
 class Report_Bug(models.Model):
     
@@ -121,7 +122,7 @@ class Report_Bug(models.Model):
             return self.bug_title
 
 
-#Programming languages models
+# Programming languages models
 # class Language(models.Model):
 
 #     lang_id = models.AutoField(primary_key=True)
@@ -142,7 +143,7 @@ class Report_Bug(models.Model):
 #             return self.lang_icon.url
 
 
-# #Safe Model
+# # Safe Model
 # class Safe(models.Model):
 
 #     safe_id = models.AutoField(primary_key=True)
@@ -177,7 +178,7 @@ class Report_Bug(models.Model):
 
 # # PLANNER - (objectves & tasks)
 
-# #Objectives Models
+# # Objectives Models
 # class Objective(models.Model):
 
 #     obj_id = models.AutoField(primary_key=True)

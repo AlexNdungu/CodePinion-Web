@@ -54,13 +54,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #Apps
+    # Apps
     'Code1',
 
     'ckeditor',
 
-    #Google Auth
+    # Sites
     'django.contrib.sites',
+
+    # Google Auth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
