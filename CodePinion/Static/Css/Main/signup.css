@@ -87,9 +87,9 @@
 .with_google {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 40px;
-    width: max-content;
+    width: 100%;
     background-color: #f2f2f2;
     background-image: none;
     border-radius: 4px;
@@ -102,12 +102,18 @@
     padding: 0 12px;
     position: relative;
     text-align: center;
+    margin-top: 13px;
 }
 
 .with_google img {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+}
+
+.with_google span {
+    width: calc(100% - 42px);
+    text-align: center;
 }
 
 
@@ -886,7 +892,7 @@ form {
 }
 
 /* Width max=420 */
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 435px) {
 
      /* The Sign In Error */
 
