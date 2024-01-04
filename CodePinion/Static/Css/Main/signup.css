@@ -527,7 +527,7 @@ form {
 /* WITH WIDTH */
 
 /* Width max=1370  */
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 1390px) {
 
     /* TOP INTO WORDS */
     .inner_actual_form h3 {
@@ -627,7 +627,7 @@ form {
 }
 
 /* width max=1030 */
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 1200px) {
 
     /* MAIN CONTAINER */
 
@@ -1167,48 +1167,22 @@ form {
     }
 
     /* EMAIL */
-    
-    /* The email container */
-    .email_input {
-        height: 25px;
-        border-radius: 6px;
-    }
-
-    .email_input svg {
-        width: 12px;
-    }
-
+        
     /* The email input */
     .email_input input{
-        width: 180px;
+        width: 160px;
         font-size: 11px;
     }
 
     /* PASSWORD */
 
-    /* Padlock svg */
-    .password_input svg {
-        width: 12px;
-    }
-
-    /* The password container */
-    .password_input {
-        height: 25px;
-        border-radius: 6px;
-    }
-
     /* Password input concidering the show password button */
     .pass_input_lock input{
-        width: 150px;
+        width: 140px;
         font-size: 11px;
     }
 
     /* View password */
-    .view_pass {
-        width: 18px;
-        height: 18px;
-        border-radius: 6px;
-    }
 
     .password_input .view_pass svg {
         width: 10px;
@@ -1217,14 +1191,12 @@ form {
     /* CREATE USER */
     /* Create user button */
     .create_user {
-        height: 25px;
         border-radius: 6px;
         font-size: 11px;
         font-weight: 700;
     }
 
     /* Spinner */
-    /* Log Spinner */
     .sign_spinner {
         width: 20px;
         height: 20px;
