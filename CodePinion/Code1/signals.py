@@ -100,7 +100,14 @@ def Demo_Invite_Signal(sender, instance, **kwargs):
             template_path = instance.demo_html_path
             mailer = Mailer(subject,template_path)
             # Call the Send_Mail_To_All method
-            mailer.Send_Mail_To_All()
+            #mailer.Send_Mail_To_All()
+
+            # Testing mail
+            username_dict = {'username':'meta'}
+            email = 'alexmeta517@gmail.com'
+            # Call the Send_Mail_To_User method
+            mailer.Send_Mail_To_User(data_dict=username_dict,to_email=email)
+
 
 
 # Function that signals sending instructions to users when they join the demo
