@@ -29,32 +29,7 @@ class Mailer:
         )
         msg.content_subtype = "html"  # Main content is now text/html
         return msg
-
-    # Method to send mail to all users
-    def Send_Mail_To_All(self):
-        # Create and open a connection SMLP
-        self.connection.open()
-
-        # Create the template
-        template = get_template(self.template_path)
-
-        # Get all the users
-        all_profiles = models.Profile.objects.all()
-
-        # Loop through all the profiles
-        for profile in all_profiles:
-
-            # Create the arguments    
-            to_email = profile.user.email
-            template_data = template.render({'username': profile.full_name})
-
-            # Create Email Messages
-            msg = self.Create_Email_Instance(self.subject,template_data,to_email)
-            msg.send()
-
-        # Close the connection
-        self.connection.close()
-
+    
     # Method to send mail to a user
     def Send_Mail_To_User(self,data_dict,to_email):
         # Create and open a connection SMLP
@@ -71,3 +46,27 @@ class Mailer:
         # Close the connection
         self.connection.close()
 
+    # Method to send mail to all users
+    def Send_Mail_To_All(self):
+
+        # Get all the users
+        all_profiles = models.Profile.objects.all()
+
+        # Create email and username list
+        email_list = []
+        username_list = []
+
+        # Loop through all the profiles
+        for profile in all_profiles:
+
+            # Append the email and username to the list
+            email_list.append(profile.user.email)
+            username_list.append(profile.full_name)
+
+        # Send mail to all the users
+        for user_email, user_username in zip(email_list, username_list):
+
+            username_dict = {'username':user_username}
+            email = user_email
+            # Call the Send_Mail_To_User method
+            self.Send_Mail_To_User(data_dict=username_dict,to_email=email)
