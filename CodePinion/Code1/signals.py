@@ -6,6 +6,7 @@ from .models import Demo, Report_Bug
 from .mail import Mailer
 from django.dispatch import receiver
 from django.db.models.signals import m2m_changed, pre_save,post_save
+from django.contrib.sites.models import Site
 
 
 # Create an class adapter that customises user registration
@@ -126,12 +127,19 @@ def Profile_Join_Demo(sender, instance, action,model,pk_set, **kwargs):
 @receiver(post_save, sender=Report_Bug)
 def Report_Bug_Signal(sender, instance, created, **kwargs):
 
+    # Get the host domain
+    current_site = Site.objects.get_current()
+    current_site_https = 'https://' + current_site.domain
+
     # Get the title, description and screenshot
     reporter_name = instance.profile.full_name
     bug_reporter_email = instance.profile.user.email
     bug_title = instance.bug_title
     bug_desc = instance.bug_desc
+    # Create relevant image url
     bug_screenshot = instance.bug_screenshot.url
+    bug_screenshot = current_site_https + bug_screenshot
+
     # Create the data dictionary
     bug_data = {'reporter_name':reporter_name,'bug_title':bug_title,'bug_desc':bug_desc,'bug_screenshot':bug_screenshot}
 
