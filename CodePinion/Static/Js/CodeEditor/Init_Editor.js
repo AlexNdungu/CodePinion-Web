@@ -192,11 +192,7 @@ class CodePinionEditor {
 
                 // Get all the spans in all_lines
                 let all_spans = all_lines[index].querySelectorAll("span");
-                let spanArray = $(all_spans);
-                // Find the index of the span with the id of active
-                let spanIndex = spanArray.index($("#active"));
-
-                //const cursorPosition = window.getSelection().getRangeAt(0).startOffset;
+                let spanIndex = Array.prototype.indexOf.call(all_lines[index].children, activeSpan);
 
                 if(index < 1 && spanIndex < 1 ) {
 
