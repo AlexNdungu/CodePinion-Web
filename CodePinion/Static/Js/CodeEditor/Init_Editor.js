@@ -472,6 +472,18 @@ class CodePinionEditor {
                 if(text == '#'){
                     activeSpan.setAttribute('class', 'comment');
                 }
+                else {
+                    // Remove active id
+                    activeSpan.removeAttribute("id");
+                    activeSpan.textContent = text.slice(0, -1);
+
+                    // call new span function
+                    newSpan = this.new_span(lastLetter,'comment');
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
+
+                    // Call move cursor to end function
+                    this.moveCursorToPosition(true);
+                }
 
             }
             // When space is created in a special span
