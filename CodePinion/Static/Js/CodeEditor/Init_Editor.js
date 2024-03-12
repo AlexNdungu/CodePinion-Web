@@ -546,22 +546,37 @@ class CodePinionEditor {
 
             // When user continues typing after an operator
             else if(activeSpan.classList.contains('operator')) {
+
+                // Regex that checks for numbers
+                const numericRegex = /^-?\d+(\.\d+)?$/;
                         
                 if(text == ''){
                     // change class to regular
                     activeSpan.setAttribute('class', 'regular');
                 }
-                else if(lastLetter != "\u00A0" && this.getKeyByValueArray(reserved_words,lastLetter) != 'operator'){
+                else if(numericRegex.test(lastLetter)){
+
                     // Remove active id
                     activeSpan.removeAttribute("id");
+                    let firstLetter = text.slice(0, -1);
+                    activeSpan.textContent = firstLetter;
+
+                    // call new span function
+                    newSpan = this.new_span(lastLetter,'number');
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
     
-                    // Split the first and last letter in text
+                    // Call move cursor to end function
+                    this.moveCursorToPosition(true);
+                }
+                else if(lastLetter != "\u00A0" && this.getKeyByValueArray(reserved_words,lastLetter) != 'operator'){
+                    
+                    // Remove active id
+                    activeSpan.removeAttribute("id");
                     let firstLetter = text.slice(0, -1);
                     activeSpan.textContent = firstLetter;
 
                     // call new span function
                     newSpan = this.new_span(lastLetter,'regular');
-
                     activeSpan.insertAdjacentElement('afterend', newSpan);
     
                     // Call move cursor to end function
@@ -574,8 +589,23 @@ class CodePinionEditor {
 
                 // Regex that checks for numbers
                 const numericRegex = /^-?\d+(\.\d+)?$/;
-                if(text == '' || !numericRegex.test(text)){
-                    // change class to regular
+
+                if(this.getKeyByValueArray(reserved_words,lastLetter) == 'operator'){
+
+                    // Remove active id
+                    activeSpan.removeAttribute("id");
+                    let firstLetter = text.slice(0, -1);
+                    activeSpan.textContent = firstLetter;
+
+                    // call new span function
+                    newSpan = this.new_span(lastLetter,'operator');
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
+
+                    // Call move cursor to end function
+                    this.moveCursorToPosition(true);
+                    
+                }
+                else if(text == '' || !numericRegex.test(text)){
                     activeSpan.setAttribute('class', 'regular');
                 }
                 
