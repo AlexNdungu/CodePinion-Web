@@ -497,7 +497,7 @@ class CodePinionEditor {
                 // Regex that checks if a string starts and ends with either single or double quotes
                 const startEndRegex = /^['"].*['"]$/;
                 let withoutLast = text.slice(0, -1);
-                //Regex that checks if if strings starts with either the quotes or the brackets
+                //Regex that checks if strings starts with either the quotes or the brackets
                 const startAllRegex = /^['"\(\[\{]/;
 
                 if(text == ''){
@@ -721,7 +721,7 @@ class CodePinionEditor {
                 }
                 else{
 
-                    // lets check for punctualtions
+                    // lets check for punctuations
                     if (this.getKeyByValueArray(reserved_words,lastLetter) == 'punctuation') {
 
                         if(text == lastLetter) {
@@ -800,31 +800,47 @@ class CodePinionEditor {
                             let words = text.trim().split(/\s+/);
                             let lastWord = words[words.length - 1];
 
-                            // Now lets check for if last word is a keyword
-                            if (this.getKeyByValueArray(reserved_words,lastWord)){
+                            // Regex that checks for numbers
+                            const numericRegex = /^-?\d+(\.\d+)?$/;
 
-                                // Check if length of text and keyword is same
+                            // Check if last word is a number
+                            if(numericRegex.test(lastWord)) {
+
+                                // Check if length of text and number is same
                                 if(text.length == lastWord.length) {
 
-                                    // Change the color of the keyword
-                                    activeSpan.setAttribute('class', 'keyword');
+                                    activeSpan.setAttribute('class', 'number');
 
                                 }
-                                else {
 
-                                    let restOfText = text.replace(/\S*$/, "");
-                                    let newRestOfText = restOfText.replaceAll(" ", "\u00A0");
-                                    activeSpan.textContent = newRestOfText;
-                                    // remove id from the active span
-                                    activeSpan.removeAttribute("id");
+                            }
 
-                                    // call new span function
-                                    newSpan = this.new_span(lastWord, 'keyword');
+                            else {
+                                // Now lets check for if last word is a keyword
+                                if (this.getKeyByValueArray(reserved_words,lastWord)){
 
-                                    activeSpan.insertAdjacentElement('afterend', newSpan);
+                                    // Check if length of text and keyword is same
+                                    if(text.length == lastWord.length) {
 
-                                    // Change create span to true
-                                    spanCreate = true;
+                                        activeSpan.setAttribute('class', 'keyword');
+
+                                    }
+                                    else {
+
+                                        let restOfText = text.replace(/\S*$/, "");
+                                        let newRestOfText = restOfText.replaceAll(" ", "\u00A0");
+                                        activeSpan.textContent = newRestOfText;
+                                        // remove id from the active span
+                                        activeSpan.removeAttribute("id");
+
+                                        // call new span function
+                                        newSpan = this.new_span(lastWord, 'keyword');
+                                        activeSpan.insertAdjacentElement('afterend', newSpan);
+
+                                        // Change create span to true
+                                        spanCreate = true;
+
+                                    }
 
                                 }
 

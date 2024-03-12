@@ -88,12 +88,12 @@
 
 /* Themes */
 
-.keyword {
-    color: #2B59DF;
-}
-
 .regular {
     color: #767676;
+}
+
+.keyword {
+    color: #2B59DF;
 }
 
 .punctuation {
@@ -102,4 +102,8 @@
 
 .operator {
     color: #FF7F0E;
+}
+
+.number {
+    color: #b54900;
 }
