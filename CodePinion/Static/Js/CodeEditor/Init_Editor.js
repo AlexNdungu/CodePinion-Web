@@ -812,6 +812,22 @@ class CodePinionEditor {
                                     activeSpan.setAttribute('class', 'number');
 
                                 }
+                                else {
+                                        
+                                    let restOfText = text.replace(/\S*$/, "");
+                                    let newRestOfText = restOfText.replaceAll(" ", "\u00A0");
+                                    activeSpan.textContent = newRestOfText;
+                                    // remove id from the active span
+                                    activeSpan.removeAttribute("id");
+
+                                    // call new span function
+                                    newSpan = this.new_span(lastWord, 'number');
+                                    activeSpan.insertAdjacentElement('afterend', newSpan);
+
+                                    // Change create span to true
+                                    spanCreate = true;
+    
+                                }
 
                             }
 
