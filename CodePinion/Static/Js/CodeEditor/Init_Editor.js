@@ -466,7 +466,7 @@ class CodePinionEditor {
             let firstLetter = text[0];
             let lastLetter = text[length - 1];
 
-            // when comment is created
+            // when comment is typed
             if(lastLetter == "#" && !activeSpan.classList.contains('comment')){
 
                 if(text == '#'){
@@ -475,7 +475,13 @@ class CodePinionEditor {
                 else {
                     // Remove active id
                     activeSpan.removeAttribute("id");
-                    activeSpan.textContent = text.slice(0, -1);
+                    let secondLastLetter = text[length - 2];
+                    if(secondLastLetter == " " || secondLastLetter == "\u00A0") {
+                        activeSpan.textContent = text.slice(0, -2) + '\u00A0';
+                    }
+                    else{
+                        activeSpan.textContent = text.slice(0, -1);
+                    }
 
                     // call new span function
                     newSpan = this.new_span(lastLetter,'comment');
@@ -486,6 +492,51 @@ class CodePinionEditor {
                 }
 
             }
+
+            // when user types in comment span
+            else if(activeSpan.classList.contains('comment')){
+                if(text == '') {
+                    activeSpan.setAttribute('class', 'regular');
+                }
+                else if(firstLetter != '#'){
+                    // get the previous span
+                    let previousSpan = activeSpan.previousElementSibling;
+                    activeSpan.textContent = '';
+                    let words = [];
+                    let word = '';
+                    // loop through the text and split the words
+                    for (let i = 0; i < text.length; i++) {
+                        if(text[i] == ' ' || text[i] == '\u00A0'){
+                            words.push('\u00A0');
+                           
+                            if(i == 0){
+                                if(!previousSpan || !previousSpan.classList.contains('regular')){
+                                    newSpan = this.new_span('\u00A0','regular');
+                                    activeSpan.insertAdjacentElement('afterend', newSpan);
+                                    // newSpan.removeAttribute("id");
+    
+                                }
+                                else if(previousSpan && previousSpan.classList.contains('regular')){
+                                    previousSpan.textContent = previousSpan.textContent + '\u00A0'
+    
+                                }
+                                activeSpan.remove();
+                            }
+
+                        }
+                        else{
+                            if(text[i + 1] == ' ' || text[i + 1] == '\u00A0' || i == text.length - 1){
+                                words.push(word + text[i]);
+                                word = '';
+                            }
+                            else{
+                                word = word+text[i];
+                            }
+                        }
+                    }
+                }
+            }
+
             // When space is created in a special span
             else if(lastLetter == "\u00A0" && !activeSpan.classList.contains('regular') && !activeSpan.classList.contains('comment')) {
 
