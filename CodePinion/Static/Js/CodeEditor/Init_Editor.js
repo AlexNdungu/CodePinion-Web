@@ -569,6 +569,18 @@ class CodePinionEditor {
                 }
             }
 
+            // When user continues typing after a number
+            else if(activeSpan.classList.contains('number')) {
+
+                // Regex that checks for numbers
+                const numericRegex = /^-?\d+(\.\d+)?$/;
+                if(text == '' || !numericRegex.test(text)){
+                    // change class to regular
+                    activeSpan.setAttribute('class', 'regular');
+                }
+                
+            }
+
             // When a user continues to type after creating a keyword
             else if(activeSpan.classList.contains('keyword') && this.getKeyByValueArray(reserved_words,text) != 'keyword' ) {
 
