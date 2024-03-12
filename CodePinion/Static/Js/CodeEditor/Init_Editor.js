@@ -499,9 +499,12 @@ class CodePinionEditor {
                     activeSpan.setAttribute('class', 'regular');
                 }
                 else if(firstLetter != '#'){
-                    // get the previous span
+
                     let previousSpan = activeSpan.previousElementSibling;
+                    let parentDiv = activeSpan.parentElement;
                     activeSpan.textContent = '';
+                    activeSpan.removeAttribute("id");
+
                     let words = [];
                     let word = '';
                     // loop through the text and split the words
@@ -510,17 +513,30 @@ class CodePinionEditor {
                             words.push('\u00A0');
                            
                             if(i == 0){
+                                
                                 if(!previousSpan || !previousSpan.classList.contains('regular')){
                                     newSpan = this.new_span('\u00A0','regular');
                                     activeSpan.insertAdjacentElement('afterend', newSpan);
-                                    // newSpan.removeAttribute("id");
     
                                 }
                                 else if(previousSpan && previousSpan.classList.contains('regular')){
                                     previousSpan.textContent = previousSpan.textContent + '\u00A0'
+                                    previousSpan.setAttribute("id", "active");
     
                                 }
                                 activeSpan.remove();
+                            }
+                            else if(i => 1){
+
+                                let lastSpan = parentDiv.lastElementChild;
+                                if(!lastSpan.classList.contains('regular')){
+                                    newSpan = this.new_span('\u00A0','regular');
+                                    newSpan.removeAttribute("id");
+                                    lastSpan.insertAdjacentElement('afterend', newSpan);
+                                }
+                                else{
+                                    lastSpan.textContent = lastSpan.textContent + '\u00A0';
+                                }
                             }
 
                         }
