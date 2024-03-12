@@ -466,8 +466,16 @@ class CodePinionEditor {
             let firstLetter = text[0];
             let lastLetter = text[length - 1];
 
+            // when comment is created
+            if(lastLetter == "#" && !activeSpan.classList.contains('comment')){
+
+                if(text == '#'){
+                    activeSpan.setAttribute('class', 'comment');
+                }
+
+            }
             // When space is created in a special span
-            if(lastLetter == "\u00A0" && !activeSpan.classList.contains('regular')) {
+            else if(lastLetter == "\u00A0" && !activeSpan.classList.contains('regular') && !activeSpan.classList.contains('comment')) {
 
                 // Remove the space from text
                 activeSpan.textContent = text.slice(0, -1);
@@ -555,7 +563,6 @@ class CodePinionEditor {
                     activeSpan.setAttribute('class', 'regular');
                 }
                 else if(numericRegex.test(lastLetter)){
-
                     // Remove active id
                     activeSpan.removeAttribute("id");
                     let firstLetter = text.slice(0, -1);
@@ -569,7 +576,6 @@ class CodePinionEditor {
                     this.moveCursorToPosition(true);
                 }
                 else if(lastLetter != "\u00A0" && this.getKeyByValueArray(reserved_words,lastLetter) != 'operator'){
-                    
                     // Remove active id
                     activeSpan.removeAttribute("id");
                     let firstLetter = text.slice(0, -1);
@@ -628,11 +634,10 @@ class CodePinionEditor {
 
                     // remove id from the active span
                     activeSpan.removeAttribute("id");
-                    // set text content of the active span to if_keyword_check
                     activeSpan.textContent = if_keyword_check;
+
                     // create a new span with last letter
                     let newSpan = this.new_span(lastLetter, is_member);
-                    // insert the new span after the active span
                     activeSpan.insertAdjacentElement('afterend', newSpan);
 
                     // Call move cursor to end function
