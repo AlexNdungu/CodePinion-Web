@@ -513,7 +513,7 @@ class CodePinionEditor {
                             words.push('\u00A0');
                            
                             if(i == 0){
-                                
+
                                 if(!previousSpan || !previousSpan.classList.contains('regular')){
                                     newSpan = this.new_span('\u00A0','regular');
                                     activeSpan.insertAdjacentElement('afterend', newSpan);
@@ -546,7 +546,7 @@ class CodePinionEditor {
                                 word = '';
                             }
                             else{
-                                word = word+text[i];
+                                word = word + text[i];
                             }
                         }
                     }
