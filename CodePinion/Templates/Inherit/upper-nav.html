@@ -1,255 +1,117 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--The favicon icon-->
     <link rel="shortcut icon" href="{% static '/Images/logo1.jpg' type='image/x-icon' %}">
-
     {% block head %}
     {% endblock %}
-
     <title>Navigation</title>
-
-    <!--Roboto From Font Family-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
-    
-    <!--Connect To Jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!--Chart js section-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!--Connect The Styling-->
     <link rel="stylesheet" href="{% static '/Css/Inherit/upper-nav.css' %}">
-
 </head>
 <body>
-
-    <!--Inherited main navigation-->
     <div class="inherited-main-navigation-container"  id="inherited-main-navigation-container">
-
-        <!--The navigation itself-->
         <div class="inherited-main-navigation">
-
-            <!--Navigation top section with logo and cancel-->
             <div class="inherited-main-navigation-top">
-
-                <!--The logo-->
                 <div class="logo-in-nav">
-
                     <img src="{% static '/Images/logo1.jpg' %}" alt="codepinion-logo">
-
                 </div>
-
-                <!--The cancel button-->
                 <div class="cancel-in-nav inherited-main-navigation-open-close" >
-
                     <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
-
                 </div>
-
             </div>
-
-            <!--Navigation items-->
             <div class="inherited-main-navigation-items">
-
-                <!--The navigation item-->
-
-                <!--Dashboard-->
                 <a href="{% url 'dash' %}" class="inherited-main-navigation-item">
-
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>
                     <span>Dashboard</span>
-
                 </a>
-
-                <!--safes-->
                 <a href="{% url 'safes' %}" class="inherited-main-navigation-item">
-
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"/></svg>
                     <span>Safes</span>
-
                 </a>
-
-                <!--safes-->
                 <a href="{% url 'connect_safe_folder' %}" class="inherited-main-navigation-item">
-
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96C0 60.7 28.7 32 64 32H192c20.1 0 39.1 9.5 51.2 25.6l19.2 25.6c6 8.1 15.5 12.8 25.6 12.8H448c35.3 0 64 28.7 64 64V416zM232 376c0 13.3 10.7 24 24 24s24-10.7 24-24V312h64c13.3 0 24-10.7 24-24s-10.7-24-24-24H280V200c0-13.3-10.7-24-24-24s-24 10.7-24 24v64H168c-13.3 0-24 10.7-24 24s10.7 24 24 24h64v64z"/></svg>
                     <span>New safe</span>
-
                 </a>
-
-                <!--Code editor-->
                 <a href="{% url 'code_editor' %}" class="inherited-main-navigation-item">
-
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
                     <span>Editor</span>
-
                 </a>
-            
-
             </div>
-
         </div>
-
     </div>
-
-    <!--Profile click navigation-->
     <div class="profile-click-navigation" id="profile-click-navigation">
-
-        <!--The navigation itself-->
         <div class="inherited-main-navigation">
-
-            <!--Navigation top section with logo and cancel-->
             <div class="inherited-main-navigation-top">
-
-                <!--The logo-->
                 <div class="logo-in-nav">
-
                     {% if request.user.profile.profile_url %}
-
                         <img src="{{request.user.profile.profile_url}}" alt="codepinion-user">
-
                     {% else %}
-
                         <div class="codepinion-user">
-
                             <span>{{ request.user.username|first|capfirst }}</span>
-
                         </div>
-
                     {% endif %}
-
                 </div>
-
-                <!--The cancel button-->
                 <div class="cancel-in-nav profile-click-navigation-open-close" >
-
                     <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
-
                 </div>
-
             </div>
-
-            <!--Navigation items-->
             <div class="inherited-main-navigation-items">
-
-                <!--The navigation item-->
-
-                <!--Profile-->
                 <a href="{% url 'profile' %}" class="inherited-main-navigation-item">
-
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"/></svg>
                     <span>Your Profile</span>
-
                 </a>   
-
-                <!--Navigation seperator-->
                 <div class="inherited-main-navigation-seperator-section"> 
                     <div class="inherited-main-navigation-seperator"></div>
                 </div>
-
-                <!--Sign Out-->
                 <a href="{% url 'signout' %}" class="inherited-main-navigation-item inherited-main-navigation-item-out">
-
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-12h4v12zm4.213-10.246l-1.213 1.599c2.984 1.732 5 4.955 5 8.647 0 5.514-4.486 10-10 10s-10-4.486-10-10c0-3.692 2.016-6.915 5-8.647l-1.213-1.599c-3.465 2.103-5.787 5.897-5.787 10.246 0 6.627 5.373 12 12 12s12-5.373 12-12c0-4.349-2.322-8.143-5.787-10.246z"/></svg>
                     <span>Sign Out</span>
-
                 </a>
-
             </div>
-
         </div>
-
     </div>
-
-    <!--The div holding all the sections-->
     <div class="main-body">
-
-        <!--The upper section-->
         <div class="upper-section">
-
-            <!--The nav section-->
             <div class="upper-nav">
-
-                <!--The logo section-->
                 <div class="logo-section">
-
-                    <!--The open navigation btn-->
                     <div class="open-navigation-btn inherited-main-navigation-open-close">
-
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
-
                     </div>
-
-                    <!--The logo-->
                     <img class="logo-image" src="{% static '\Images\logo1.jpg' %}" alt="codepinion-logo">
-
                 </div>
-
-                <!--The user section-->
                 <div class="user-section">
-
-                    <!--Change the theme-->
                     <div class="theme-btn">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
-
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
                     </div>
-
-                    <!--Check notifications-->
                     <div class="notif-btn">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/></svg>
-
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/></svg>
                     </div>
-
-                    <!--The logged in user-->
                     <div id="logged-user-image" class="logged-user profile-click-navigation-open-close" >
-
                         {% if request.user.profile.profile_url %}
-
                             <img src="{{request.user.profile.profile_url}}" alt="logged-user">
-
                         {% else %}
-
                             <div class="profile_pic_absent">
-
                                 <span>{{ request.user.username|first|capfirst }}</span>
-
                             </div>
-
                         {% endif %}
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
-        <!--The lower section-->
         <div class="lower-section">
-
             {% block lower_section %}
             {% endblock %}
-
         </div>
-
     </div>
-
-    <!--This script will open and close the navigation-->
     <script>
-
         // Get the toggle buttons
         let openNavBtn = document.getElementsByClassName("inherited-main-navigation-open-close");
         let openNavUserBtn = document.getElementsByClassName("profile-click-navigation-open-close");
@@ -259,64 +121,42 @@
         // State of the navigation
         let navOpen = false;
         let userNavOpen = false;
-
         // Add click event to the toggle buttons
         for (let i = 0; i < openNavBtn.length; i++) {
-
             openNavBtn[i].addEventListener("click", function() {
-
                 // Check if the navigation is open
                 if (navOpen == false) {
-
                     // Open the navigation
                     nav.style.display = "flex";
                     // Change the state of the navigation
                     navOpen = true;
-
                 } else {
-
                     // Close the navigation
                     nav.style.display = "none";
                     // Change the state of the navigation
                     navOpen = false;
-
                 }
-
             });
-
         }
-
         // Add click event to the toggle buttons
         for (let i = 0; i < openNavUserBtn.length; i++) {
-
             openNavUserBtn[i].addEventListener("click", function() {
-
                 // Check if the navigation is open
                 if (userNavOpen == false) {
-
                     // Open the navigation
                     userNav.style.display = "flex";
                     // Change the state of the navigation
                     userNavOpen = true;
-
                 } else {
-
                     // Close the navigation
                     userNav.style.display = "none";
                     // Change the state of the navigation
                     userNavOpen = false;
-
                 }
-
             });
-
         }
-
     </script>
-    
 </body>
-
 {% block javaS %}
 {% endblock %}
-
 </html>

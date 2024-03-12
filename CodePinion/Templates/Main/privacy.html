@@ -1,216 +1,126 @@
-<!--This page inherits from home.html-->
 {% extends 'Inherit/home.html' %}
-
 {% load static %}
-
-<!--The head tag inherited from upper-nav.html-->
 {% block head %}
-
     <title>CodePinion ::- Privacy Policy</title>
-
-    <!--Connect The Styling-->
     <link rel="stylesheet" href="{% static '/Css/Main/privacy.css' %}">
-
 {% endblock %}
-
-<!-- Home content section -->
 {% block home_content_section %}
-
 <div class="legal_main_section">
-
-    <!--Table of content-->
     <div class="table_of_content_section">
-
-        <!--table heading-->
         <div class="table_head">
             <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m10.5 17.25c0-.414.336-.75.75-.75h10c.414 0 .75.336.75.75s-.336.75-.75.75h-10c-.414 0-.75-.336-.75-.75zm-1.5-3.55c0-.53-.47-1-1-1h-5c-.53 0-1 .47-1 1v4.3c0 .53.47 1 1 1h5c.53 0 1-.47 1-1zm-5.5.5h4v3.3h-4zm7-2.2c0-.414.336-.75.75-.75h10c.414 0 .75.336.75.75s-.336.75-.75.75h-10c-.414 0-.75-.336-.75-.75zm-1.5-6c0-.53-.47-1-1-1h-5c-.53 0-1 .47-1 1v4.3c0 .53.47 1 1 1h5c.53 0 1-.47 1-1zm-5.5.5h4v3.3h-4zm7 .25c0-.414.336-.75.75-.75h10c.414 0 .75.336.75.75s-.336.75-.75.75h-10c-.414 0-.75-.336-.75-.75z" fill-rule="nonzero"/></svg>
             <h2>Table of Contents</h2>
         </div>
-
-        <!--table title-->
         <a class="table_title" href="#introduction">
             <span>1. Introduction</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#definitions">
             <span>2. Definitions</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#i-c-a-u">
             <span>3. Information Collection and Use</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#t-o-d-c">
             <span>4. Types of Data Collected</span>
         </a>
-
-        <!--table subtitle-->
         <a class="table_subtitle" href="#personal-data">
             <span>Personal Data</span>
         </a>
-
-        <!--table subtitle-->
         <a class="table_subtitle" href="#usage-data">
             <span>Usage Data</span>
         </a>
-
-        <!--table subtitle-->
         <a class="table_subtitle" href="#location-data">
             <span>Location Data</span>
         </a>
-
-        <!--table subtitle-->
         <a class="table_subtitle" href="#t-c-d">
             <span>Tracking Cookies Data</span>
         </a>
-
-        <!--table subtitle-->
         <a class="table_subtitle" href="#sensitive-info">
             <span>Sensitive Information</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#use-of-data">
             <span>5. Use of Data</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#r-o-d">
             <span>6. Retention of Data</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#t-o-d">
             <span>7. Transfer of Data</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#d-o-d">
             <span>8. Disclosure of Data</span>
         </a>
-
-        <!--table subtitle-->
         <a class="table_subtitle" href="#d-f-l-e">
             <span>Disclosure for Law Enforcement</span>
         </a>
-
-        <!--table subtitle-->
         <a class="table_subtitle" href="#b-t">
             <span>Business Transaction</span>
         </a>
-
-        <!--table subtitle-->
         <a class="table_subtitle" href="#o-c-d-i">
             <span>Other cases. We may disclose your information also:</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#s-o-d">
             <span>9. Security of Data</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#GDPR">
             <span>10. Your Data Protection Rights Under General Data Protection Regulation (GDPR)</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#CalOPPA">
             <span>11. Your Data Protection Rights under the California Privacy Protection Act (CalOPPA)</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#CCPA">
             <span>12. Your Data Protection Rights under the California Consumer Privacy Act (CCPA)</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#service-providers">
             <span>13. Service Providers</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#analytics">
             <span>14. Analytics</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#ci-cd">
             <span>15. CI/CD tools</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#behave-remark">
             <span>16. Behavioral Remarketing</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#pay">
             <span>17. Payments</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#l-t-o-s">
             <span>18. Links to Other Sites</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#child-privacy">
             <span>19. Children's Privacy</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#c-t-t-pp">
             <span>20. Changes to This Privacy Policy</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#contact-us">
             <span>21. Contact Us</span>
         </a>
-
     </div>
-
-    <!--Law section-->
     <div class="law_section">
-       
-        <!--law heading-->
         <div class="law_heading">
             <h2>PRIVACY POLICY</h2>
         </div>
-
-        <!--Effective date-->
         <div class="effective_date">
             <p>Effective date: 2023-12-20</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="introduction">
             <p>1. <b>Introduction</b></p>
         </div>
-
-        <!--Welcome section-->
         <div class="welcome_section">
             <p>Welcome to <b> CodePinion</b>.</p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p><b>CodePinion</b> (“us”, “we”, or “our”) operates <a href="https://codepinion.com" target="_blank">codepinion.com</a> (hereinafter referred to as <b>“Service”</b>).</p>
             <p>Our Privacy Policy governs your visit to <a href="https://codepinion.com" target="_blank">codepinion.com</a>, and explains how we collect, safeguard and disclose information that results from your use of our Service.</p>
             <p>We use your data to provide and improve Service. By using Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.</p>
             <p>Our Terms and Conditions (<b>“Terms”</b>) govern all use of our Service and together with the Privacy Policy constitutes your agreement with us (<b>“agreement”</b>).</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="definitions">
             <p>2. <b>Definitions</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p><b>SERVICE</b> means the <a href="https://codepinion.com" target="_blank">codepinion.com</a> website operated by CodePinion.</p>
             <p><b>PERSONAL DATA</b> means data about a living individual who can be identified from those data (or from those and other information either in our possession or likely to come into our possession).</p>
@@ -220,28 +130,18 @@
             <p><b>DATA PROCESSORS (OR SERVICE PROVIDERS)</b> means any natural or legal person who processes the data on behalf of the Data Controller. We may use the services of various Service Providers in order to process your data more effectively.</p> <p><b>DATA SUBJECT</b> is any living individual who is the subject of Personal Data.</p>
             <p><b>THE USER</b> is the individual using our Service. The User corresponds to the Data Subject, who is the subject of Personal Data.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="i-c-a-u">
             <p>3. <b>Information Collection and Use</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We collect several different types of information for various purposes to provide and improve our Service to you.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="t-o-d-c">
             <p>4. <b>Types of Data Collected</b></p>
         </div>
-
-        <!--Law mini intro-->
         <div class="law_mini_heading" id="personal-data">
             <p><b>Personal Data</b></p>
         </div>
-        
-        <!--Law intro-->
         <div class="intro_statement">
             <p>While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you (<b>“Personal Data”</b>). Personally identifiable information may include, but is not limited to:</p>
             <p>0.1. Email address</p>
@@ -251,37 +151,23 @@
             <p>0.5. Cookies and Usage Data</p>
             <p>We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any, or all, of these communications from us by following the unsubscribe link.</p>
         </div>
-        
-        <!--Law mini intro-->
         <div class="law_mini_heading" id="usage-data">
             <p><b>Usage Data</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may also collect information that your browser sends whenever you visit our Service or when you access Service by or through any device (<b>“Usage Data”</b>).</p>
             <p>This Usage Data may include information such as your computer’s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
             <p>When you access Service with a device, this Usage Data may include information such as the type of device you use, your device unique ID, the IP address of your device, your device operating system, the type of Internet browser you use, unique device identifiers and other diagnostic data.</p>
         </div>
-        
-
-        <!--Law mini intro-->
         <div class="law_mini_heading" id="location-data">
             <p><b>Location Data</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may use and store information about your location if you give us permission to do so (<b>“Location Data”</b>). We use this data to provide features of our Service, to improve and customize our Service.</p><p>You can enable or disable location services when you use our Service at any time by way of your device settings.</p>
         </div>
-        
-
-        <!--Law mini intro-->
         <div class="law_mini_heading" id="t-c-d">
             <p><b>Tracking Cookies Data</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We use cookies and similar tracking technologies to track the activity on our Service and we hold certain information.</p>
             <p>Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Other tracking technologies are also used such as beacons, tags and scripts to collect and track information and to improve and analyze our Service.</p>
@@ -292,29 +178,18 @@
             <p>0.3. <b>Security Cookies:</b> We use Security Cookies for security purposes.</p>
             <p>0.4. <b>Advertising Cookies:</b> Advertising Cookies are used to serve you with advertisements that may be relevant to you and your interests.</p>
         </div>
-        
-        
         <div class="law_mini_heading" id="sensitive-info">
             <p><b>Sensitive Information</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>CodePinion does not intentionally collect, and Service users should not provide any information about your medical or health condition, race, and ethnic origin, political opinions, religious and philosophical beliefs, as well as bank account information, TAX and passport numbers, driver's license or other similar personal identifiers.
             </p>
-
             <p>
             When you subscribe to the CodePinion Service, you shall be requested to share your bank card numbers and billing information. Please be aware that CodePinion does not store any payment details of yours, you provide these details directly to our service providers, which are compliant with Payment Card Industry Data Security Standard. The payment providers process your billing data in accordance with their privacy policies and security guidelines. To the best of our knowledge, our payment providers are compliant with the Payment Card Industry Data Security Standard and act according to the highest industry standards. To learn more about the way they process your data, please refer to their privacy policies and security guidelines.</p>
-
-            <!-- <p>While using our Service, we may also collect the following information: sex, age, date of birth, place of birth, passport details, citizenship, registration at place of residence and actual address, telephone number (work, mobile), details of documents on education, qualification, professional training, employment agreements, <a href="https://policymaker.io/non-disclosure-agreement/">NDA agreements</a>, information on bonuses and compensation, information on marital status, family members, social security (or other taxpayer identification) number, office location and other data.</p> -->
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="use-of-data">
             <p>5. <b>Use of Data</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>CodePinion uses the collected data for various purposes:</p>
             <p>0.1. to provide and maintain our Service;</p>
@@ -331,37 +206,25 @@
             <p>0.12. in any other way we may describe when you provide the information;</p>
             <p>0.13. for any other purpose with your consent.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="r-o-d">
             <p>6. <b>Retention of Data</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p>
             <p>We will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period, except when this data is used to strengthen the security or to improve the functionality of our Service, or we are legally obligated to retain this data for longer time periods.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="t-o-d">
             <p>7. <b>Transfer of Data</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>Your information, including Personal Data, may be transferred to - and maintained on - computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.</p>
             <p>If you are located outside Kenya and choose to provide information to us, please note that we transfer the data, including Personal Data, to Kenya and process it there.</p>
             <p>Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p>
             <p>CodePinion will take all the steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organisation or a country unless there are adequate controls in place including the security of your data and other personal information.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="d-o-d">
             <p>8. <b>Disclosure of Data</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may disclose personal information that we collect, or you provide:</p>
             <p>0.1. <b id="d-f-l-e">Disclosure for Law Enforcement.</b></p><p>Under certain circumstances, we may be required to disclose your Personal Data if required to do so by law or in response to valid requests by public authorities.</p>
@@ -373,23 +236,15 @@
             <p>0.3.6. with your consent in any other cases;</p>
             <p>0.3.7. if we believe disclosure is necessary or appropriate to protect the rights, property, or safety of the Company, our customers, or others.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="s-o-d">
             <p>9. <b>Security of Data</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="GDPR">
             <p>10. <b>Your Data Protection Rights Under General Data Protection Regulation (GDPR)</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>If you are a resident of the European Union (EU) and European Economic Area (EEA), you have certain data protection rights, covered by GDPR.</p>
             <p>We aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.</p>
@@ -404,13 +259,9 @@
             <p>Please note that we may ask you to verify your identity before responding to such requests. Please note, we may not able to provide Service without some necessary data.</p>
             <p>You have the right to complain to a Data Protection Authority about our collection and use of your Personal Data. For more information, please contact your local data protection authority in the European Economic Area (EEA).</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="CalOPPA">
             <p>11. <b>Your Data Protection Rights under the California Privacy Protection Act (CalOPPA)</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law's reach stretches well beyond California to require a person or company in the United States (and conceivable the world) that operates websites collecting personally identifiable information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals with whom it is being shared, and to comply with this policy.</p>
             <p>According to CalOPPA we agree to the following:</p>
@@ -422,13 +273,9 @@
             <p>We honor Do Not Track signals and do not track, plant cookies, or use advertising when a Do Not Track browser mechanism is in place. Do Not Track is a preference you can set in your web browser to inform websites that you do not want to be tracked.</p>
             <p>You can enable or disable Do Not Track by visiting the Preferences or Settings page of your web browser.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="CCPA">
             <p>12. <b>Your Data Protection Rights under the California Consumer Privacy Act (CCPA)</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>If you are a California resident, you are entitled to learn what data we collect about you, ask to delete your data and not to sell (share) it. To exercise your data protection rights, you can make certain requests and ask us:</p>
             <p><b>0.1. What personal information we have about you. If you make this request, we will return to you:</b></p>
@@ -447,121 +294,77 @@
             <p>To exercise your California data protection rights described above, please send your request(s) by email: <a href="mailto:dev@codepinion.com">dev@codepinion.com</a>.</p>
             <p>Your data protection rights, described above, are covered by the CCPA, short for the California Consumer Privacy Act. To find out more, visit the official California Legislative Information website. The CCPA took effect on 01/01/2020.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="service-providers">
             <p>13. <b>Service Providers</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may employ third party companies and individuals to facilitate our Service (<b>“Service Providers”</b>), provide Service on our behalf, perform Service-related services or assist us in analysing how our Service is used.</p>
             <p>These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="analytics">
             <p>14. <b>Analytics</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may use third-party Service Providers to monitor and analyze the use of our Service.</p>
         </div>
-        
-
-        <!--Law intro-->
         <div class="law_intro" id="ci-cd">
             <p>15. <b>CI/CD tools</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may use third-party Service Providers to automate the development process of our Service.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="behave-remark">
             <p>16. <b>Behavioral Remarketing</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may use remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimise and serve ads based on your past visits to our Service.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="pay">
             <p>17. <b>Payments</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may provide paid products and/or services within Service. In that case, we use third-party services for payment processing (e.g. payment processors).</p>
             <p>We will not store or collect your payment card details. That information is provided directly to our third-party payment processors whose use of your personal information is governed by their Privacy Policy. These payment processors adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, Mastercard, American Express and Discover. PCI-DSS requirements help ensure the secure handling of payment information.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="l-t-o-s">
             <p>18. <b>Links to Other Sites</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>Our Service may contain links to other sites that are not operated by us. If you click a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
             <p>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="child-privacy">
             <p>19. <b>Children's Privacy</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>Our Services are not intended for use by children under the age of 16 (<b>“Child”</b> or <b>“Children”</b>).</p>
             <p>We do not knowingly collect personally identifiable information from Children under 16. If you become aware that a Child has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from Children without verification of parental consent, we take steps to remove that information from our servers.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="c-t-t-pp">
             <p>20. <b>Changes to This Privacy Policy</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
             <p>We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update “effective date” at the top of this Privacy Policy.</p>
             <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="contact-us">
             <p>21. <b>Contact Us</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>If you have any questions about this Privacy Policy, please contact us by email: <a href="mailto:dev@codepinion.com">dev@codepinion.com</a>.</p>
         </div>
-                
-
-        <!--water mark-->
         <div class="water_mark">
             <p>This <a href="https://policymaker.io/privacy-policy/">Privacy Policy</a> was created for <b>codepinion.com</b> by <a href="https://policymaker.io">PolicyMaker.io</a> on 2023-12-20.</p>
         </div>
-
     </div>
-
     <script>
-
         // Script to ensure smooth scroll on click
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', function (e) {
               e.preventDefault();
               const targetId = this.getAttribute('href');
               const targetElement = document.querySelector(targetId);
-          
               if (targetElement) {
                 // Increase scrollTop by 100px
                 window.scrollTo({
@@ -571,9 +374,6 @@
               }
             });
           });
-
     </script>
-
 </div>
-
 {% endblock %}

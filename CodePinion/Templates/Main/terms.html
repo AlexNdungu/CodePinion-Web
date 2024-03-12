@@ -1,216 +1,126 @@
-<!--This page inherits from home.html-->
 {% extends 'Inherit/home.html' %}
-
 {% load static %}
-
-<!--The head tag inherited from upper-nav.html-->
 {% block head %}
-
     <title>CodePinion ::- Terms And Conditions</title>
-
-    <!--Connect The Styling-->
     <link rel="stylesheet" href="{% static '/Css/Main/privacy.css' %}">
-
 {% endblock %}
-
-<!-- Home content section -->
 {% block home_content_section %}
-
 <div class="legal_main_section">
-
-    <!--Table of content-->
     <div class="table_of_content_section">
-
-        <!--table heading-->
         <div class="table_head">
             <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m10.5 17.25c0-.414.336-.75.75-.75h10c.414 0 .75.336.75.75s-.336.75-.75.75h-10c-.414 0-.75-.336-.75-.75zm-1.5-3.55c0-.53-.47-1-1-1h-5c-.53 0-1 .47-1 1v4.3c0 .53.47 1 1 1h5c.53 0 1-.47 1-1zm-5.5.5h4v3.3h-4zm7-2.2c0-.414.336-.75.75-.75h10c.414 0 .75.336.75.75s-.336.75-.75.75h-10c-.414 0-.75-.336-.75-.75zm-1.5-6c0-.53-.47-1-1-1h-5c-.53 0-1 .47-1 1v4.3c0 .53.47 1 1 1h5c.53 0 1-.47 1-1zm-5.5.5h4v3.3h-4zm7 .25c0-.414.336-.75.75-.75h10c.414 0 .75.336.75.75s-.336.75-.75.75h-10c-.414 0-.75-.336-.75-.75z" fill-rule="nonzero"/></svg>
             <h2>Table of Contents</h2>
         </div>
-
-        <!--table title-->
         <a class="table_title" href="#introduction">
             <span>1. Introduction</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#communication">
             <span>2. Communications</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#purchases">
             <span>3. Purchases</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#c-s-p">
             <span>4. Contests, Sweepstakes and Promotions</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#subscriptions">
             <span>5. Subscriptions</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#free-trial">
             <span>6. Free Trial</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#fee-changes">
             <span>7. Fee Changes</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#refunds">
             <span>8. Refunds</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#content">
             <span>9. Content</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#prohibited-use">
             <span>10. Prohibited Uses</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#analytics">
             <span>11. Analytics</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#n-u-b-m">
             <span>12. No Use By Minors</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#accounts">
             <span>13. Accounts</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#i-p">
             <span>14. Intellectual Property</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#c-p">
             <span>15. Copyright Policy</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#d-n-a-p-f-c-i">
             <span>16. DMCA Notice and Procedure for Copyright Infringement Claims</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#e-r-a-f">
             <span>17. Error Reporting and Feedback</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#l-t-o-w-s">
             <span>18. Links To Other Web Sites</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#d-o-w">
             <span>19. Disclaimer Of Warranty</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#l-o-l">
             <span>20. Limitation Of Liability</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#termination">
             <span>21. Termination</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#g-l">
             <span>22. Governing Law</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#c-t-s">
             <span>23. Changes To Service</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#a-t-t">
             <span>24. Amendments To Terms</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#w-a-s">
             <span>25. Waiver And Severability</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#acknowledgement">
             <span>26. Acknowledgement</span>
         </a>
-
-        <!--table title-->
         <a class="table_title" href="#contact-us">
             <span>27. Contact Us</span>
         </a>
-
     </div>
-
-    <!--Law section-->
     <div class="law_section">
-       
-        <!--law heading-->
         <div class="law_heading">
             <h2>TERMS AND CONDITIONS</h2>
         </div>
-
-        <!--Effective date-->
         <div class="effective_date">
             <p>Last updated: 2023-12-20</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="introduction">
             <p>1. <b>Introduction</b></p>
         </div>
-
-        <!--Welcome section-->
         <div class="welcome_section">
             <p>Welcome to <b>CodePinion</b> (“Company”, “we”, “our”, “us”)!</p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>These Terms of Service (“Terms”, “Terms of Service”) govern your use of our website located at <a href="https://codepinion.com" target="_blank">codepinion.com</a> (together or individually “Service”) operated by <b>CodePinion</b>.</p>
             <p>Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages.</p>
             <p>Your agreement with us includes these Terms and our Privacy Policy (“Agreements”). You acknowledge that you have read and understood Agreements, and agree to be bound of them.</p>
             <p>If you do not agree with (or cannot comply with) Agreements, then you may not use the Service, but please let us know by emailing at <a href="mailto:dev@codepinion.com">dev@codepinion.com</a> so we can try to find a solution. These Terms apply to all visitors, users and others who wish to access or use Service.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="communication">
             <p>2. <b>Communications</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>By using our Service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or by emailing at <a href="mailto:dev@codepinion.com">dev@codepinion.com</a>.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="purchases">
             <p>3. <b>Purchases</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>If you wish to purchase any product or service made available through Service (“Purchase”), you may be asked to supply certain information relevant to your Purchase including but not limited to, your credit or debit card number, the expiration date of your card, your billing address, and your shipping information.</p>
             <p>You represent and warrant that: (i) you have the legal right to use any card(s) or other payment method(s) in connection with any Purchase; and that (ii) the information you supply to us is true, correct and complete.</p>
@@ -218,71 +128,47 @@
             <p>We reserve the right to refuse or cancel your order at any time for reasons including but not limited to: product or service availability, errors in the description or price of the product or service, error in your order or other reasons.</p>
             <p>We reserve the right to refuse or cancel your order if fraud or an unauthorized or illegal transaction is suspected.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="c-s-p">
             <p>4. <b>Contests, Sweepstakes and Promotions</b></p>
         </div>
-        
-        <!--Law intro-->
         <div class="intro_statement">
             <p>Any contests, sweepstakes or other promotions (collectively, “Promotions”) made available through Service may be governed by rules that are separate from these Terms of Service. If you participate in any Promotions, please review the applicable rules as well as our Privacy Policy. If the rules for a Promotion conflict with these Terms of Service, Promotion rules will apply.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="subscriptions">
             <p>5. <b>Subscriptions</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>Some parts of Service are billed on a subscription basis ("Subscription(s)"). You will be billed in advance on a recurring and periodic basis ("Billing Cycle"). Billing cycles will be set depending on the type of subscription plan you select when purchasing a Subscription.</p>
             <p>At the end of each Billing Cycle, your Subscription will automatically renew under the exact same conditions unless you cancel it or CodePinion cancels it. You may cancel your Subscription renewal either through your online account management page or by contacting <a href="mailto:dev@codepinion.com">dev@codepinion.com</a> customer support team.</p>
             <p>A valid payment method is required to process the payment for your subscription. You shall provide CodePinion with accurate and complete billing information that may include but not limited to full name, address, state, postal or zip code, telephone number, and a valid payment method information. By submitting such payment information, you automatically authorize CodePinion to charge all Subscription fees incurred through your account to any such payment instruments.</p>
             <p>Should automatic billing fail to occur for any reason, CodePinion reserves the right to terminate your access to the Service with immediate effect.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="free-trial">
             <p>6. <b>Free Trial</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>CodePinion may, at its sole discretion, offer a Subscription with a free trial for a limited period of time (10 days).</p>
             <p>You may be required to enter your billing information in order to sign up for Free Trial.</p>
             <p>If you do enter your billing information when signing up for Free Trial, you will not be charged by CodePinion until Free Trial has expired. On the last day of Free Trial period, unless you cancelled your Subscription, you will be automatically charged the applicable Subscription fees for the type of Subscription you have selected.</p>
             <p>At any time and without notice, CodePinion reserves the right to (i) modify Terms of Service of Free Trial offer, or (ii) cancel such Free Trial offer.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="fee-changes">
             <p>7. <b>Fee Changes</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>CodePinion, in its sole discretion and at any time, may modify Subscription fees for the Subscriptions. Any Subscription fee change will become effective at the end of the then-current Billing Cycle.</p>
             <p>CodePinion will provide you with a reasonable prior notice of any change in Subscription fees to give you an opportunity to terminate your Subscription before such change becomes effective.</p>
             <p>Your continued use of Service after Subscription fee change comes into effect constitutes your agreement to pay the modified Subscription fee amount.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="refunds">
             <p>8. <b>Refunds</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We issue refunds for Contracts within <b>30 days</b> of the original purchase of the Contract.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="content">
             <p>9. <b>Content</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>Our Service allows you to post, link, store, share and otherwise make available certain information, text, graphics, videos, or other material (“Content”). You are responsible for Content that you post on or through Service, including its legality, reliability, and appropriateness.</p>
             <p>By posting Content on or through Service, You represent and warrant that: (i) Content is yours (you own it) and/or you have the right to use it and the right to grant us the rights and license as provided in these Terms, and (ii) that the posting of your Content on or through Service does not violate the privacy rights, publicity rights, copyrights, contract rights or any other rights of any person or entity. We reserve the right to terminate the account of anyone found to be infringing on a copyright.</p>
@@ -290,13 +176,9 @@
             <p>CodePinion has the right but not the obligation to monitor and edit all Content provided by users.</p>
             <p>In addition, Content found on or through this Service are the property of CodePinion or used with permission. You may not distribute, modify, transmit, reuse, download, repost, copy, or use said Content, whether in whole or in part, for commercial purposes or for personal gain, without express advance written permission from us.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="prohibited-use">
             <p>10. <b>Prohibited Uses</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>You may use Service only for lawful purposes and in accordance with Terms. You agree not to use Service:</p>
             <p>0.1. In any way that violates any applicable national or international law or regulation.</p>
@@ -316,69 +198,44 @@
             <p>0.8. Take any action that may damage or falsify Company rating.</p>
             <p>0.9. Otherwise attempt to interfere with the proper working of Service.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="analytics">
             <p>11. <b>Analytics</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may use third-party Service Providers to monitor and analyze the use of our Service.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="n-u-b-m">
             <p>12. <b>No Use By Minors</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>Service is intended only for access and use by individuals at least sixteen (16) years old. By accessing or using Service, you warrant and represent that you are at least sixteen (16) years of age and with the full authority, right, and capacity to enter into this agreement and abide by all of the terms and conditions of Terms. If you are not at least sixteen (16) years old, you are prohibited from both the access and usage of Service.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="accounts">
             <p>13. <b>Accounts</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>When you create an account with us, you guarantee that you are above the age of 16, and that the information you provide us is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on Service.</p>
             <p>You are responsible for maintaining the confidentiality of your account and password, including but not limited to the restriction of access to your computer and/or account. You agree to accept responsibility for any and all activities or actions that occur under your account and/or password, whether your password is with our Service or a third-party service. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
             <p>You may not use as a username the name of another person or entity or that is not lawfully available for use, a name or trademark that is subject to any rights of another person or entity other than you, without appropriate authorization. You may not use as a username any name that is offensive, vulgar or obscene.</p>
             <p>We reserve the right to refuse service, terminate accounts, remove or edit content, or cancel orders in our sole discretion.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="i-p">
             <p>14. <b>Intellectual Property</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of CodePinion and its licensors. Service is protected by copyright, trademark, and other laws of  and foreign countries. Our trademarks may not be used in connection with any product or service without the prior written consent of CodePinion.</p>
         </div>
-        
-
-        <!--Law intro-->
         <div class="law_intro" id="c-p">
             <p>15. <b>Copyright Policy</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We respect the intellectual property rights of others. It is our policy to respond to any claim that Content posted on Service infringes on the copyright or other intellectual property rights (“Infringement”) of any person or entity.</p>
             <p>If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement, please submit your claim via email to <a href="mailto:dev@codepinion.com">dev@codepinion.com</a>, with the subject line: “Copyright Infringement” and include in your claim a detailed description of the alleged Infringement as detailed below, under “DMCA Notice and Procedure for Copyright Infringement Claims”</p>
             <p>You may be held accountable for damages (including costs and attorneys' fees) for misrepresentation or bad-faith claims on the infringement of any Content found on and/or through Service on your copyright.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="d-n-a-p-f-c-i">
             <p>16. <b>DMCA Notice and Procedure for Copyright Infringement Claims</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>You may submit a notification pursuant to the Digital Millennium Copyright Act (DMCA) by providing our Copyright Agent with the following information in writing (see 17 U.S.C 512(c)(3) for further detail):</p>
             <p>0.1. an electronic or physical signature of the person authorized to act on behalf of the owner of the copyright's interest;</p>
@@ -389,146 +246,95 @@
             <p>0.6. a statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf.</p>
             <p>You can contact our Copyright Agent via email at <a href="mailto:dev@codepinion.com">dev@codepinion.com</a>.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="e-r-a-f">
             <p>17. <b>Error Reporting and Feedback</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>You may provide us either directly at <a href="mailto:dev@codepinion.com">dev@codepinion.com</a> or via third party sites and tools with information and feedback concerning errors, suggestions for improvements, ideas, problems, complaints, and other matters related to our Service (“Feedback”). You acknowledge and agree that: (i) you shall not retain, acquire or assert any intellectual property right or other right, title or interest in or to the Feedback; (ii) Company may have development ideas similar to the Feedback; (iii) Feedback does not contain confidential information or proprietary information from you or any third party; and (iv) Company is not under any obligation of confidentiality with respect to the Feedback. In the event the transfer of the ownership to the Feedback is not possible due to applicable mandatory laws, you grant Company and its affiliates an exclusive, transferable, irrevocable, free-of-charge, sub-licensable, unlimited and perpetual right to use (including copy, modify, create derivative works, publish, distribute and commercialize) Feedback in any manner and for any purpose.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="l-t-o-w-s">
             <p>18. <b>Links To Other Web Sites</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>Our Service may contain links to third party web sites or services that are not owned or controlled by CodePinion.</p>
             <p>CodePinion has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third party web sites or services. We do not warrant the offerings of any of these entities/individuals or their websites.</p>
             <p>YOU ACKNOWLEDGE AND AGREE THAT COMPANY SHALL NOT BE RESPONSIBLE OR LIABLE, DIRECTLY OR INDIRECTLY, FOR ANY DAMAGE OR LOSS CAUSED OR ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH THIRD PARTY WEB SITES OR SERVICES.</p>
             <p>WE STRONGLY ADVISE YOU TO READ THE TERMS OF SERVICE AND PRIVACY POLICIES OF ANY THIRD PARTY WEB SITES OR SERVICES THAT YOU VISIT.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="d-o-w">
             <p>19. <b>Disclaimer Of Warranty</b></p>
         </div>
-        
-        <!--Into statement-->
         <div class="intro_statement">
             <p>THESE SERVICES ARE PROVIDED BY COMPANY ON AN “AS IS” AND “AS AVAILABLE” BASIS. COMPANY MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THEIR SERVICES, OR THE INFORMATION, CONTENT OR MATERIALS INCLUDED THEREIN. YOU EXPRESSLY AGREE THAT YOUR USE OF THESE SERVICES, THEIR CONTENT, AND ANY SERVICES OR ITEMS OBTAINED FROM US IS AT YOUR SOLE RISK.</p>
             <p>NEITHER COMPANY NOR ANY PERSON ASSOCIATED WITH COMPANY MAKES ANY WARRANTY OR REPRESENTATION WITH RESPECT TO THE COMPLETENESS, SECURITY, RELIABILITY, QUALITY, ACCURACY, OR AVAILABILITY OF THE SERVICES. WITHOUT LIMITING THE FOREGOING, NEITHER COMPANY NOR ANYONE ASSOCIATED WITH COMPANY REPRESENTS OR WARRANTS THAT THE SERVICES, THEIR CONTENT, OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE SERVICES WILL BE ACCURATE, RELIABLE, ERROR-FREE, OR UNINTERRUPTED, THAT DEFECTS WILL BE CORRECTED, THAT THE SERVICES OR THE SERVER THAT MAKES IT AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS OR THAT THE SERVICES OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE SERVICES WILL OTHERWISE MEET YOUR NEEDS OR EXPECTATIONS.</p>
             <p>COMPANY HEREBY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, AND FITNESS FOR PARTICULAR PURPOSE.</p>
             <p>THE FOREGOING DOES NOT AFFECT ANY WARRANTIES WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="l-o-l">
             <p>20. <b>Limitation Of Liability</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>EXCEPT AS PROHIBITED BY LAW, YOU WILL HOLD US AND OUR OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS HARMLESS FOR ANY INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGE, HOWEVER IT ARISES (INCLUDING ATTORNEYS' FEES AND ALL RELATED COSTS AND EXPENSES OF LITIGATION AND ARBITRATION, OR AT TRIAL OR ON APPEAL, IF ANY, WHETHER OR NOT LITIGATION OR ARBITRATION IS INSTITUTED), WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE, OR OTHER TORTIOUS ACTION, OR ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT, INCLUDING WITHOUT LIMITATION ANY CLAIM FOR PERSONAL INJURY OR PROPERTY DAMAGE, ARISING FROM THIS AGREEMENT AND ANY VIOLATION BY YOU OF ANY FEDERAL, STATE, OR LOCAL LAWS, STATUTES, RULES, OR REGULATIONS, EVEN IF COMPANY HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. EXCEPT AS PROHIBITED BY LAW, IF THERE IS LIABILITY FOUND ON THE PART OF COMPANY, IT WILL BE LIMITED TO THE AMOUNT PAID FOR THE PRODUCTS AND/OR SERVICES, AND UNDER NO CIRCUMSTANCES WILL THERE BE CONSEQUENTIAL OR PUNITIVE DAMAGES. SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF PUNITIVE, INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE PRIOR LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="termination">
             <p>21. <b>Termination</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may terminate or suspend your account and bar access to Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of Terms.</p>
             <p>If you wish to terminate your account, you may simply discontinue using Service.</p>
             <p>All provisions of Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="g-l">
             <p>22. <b>Governing Law</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>These Terms shall be governed and construed in accordance with the laws of Kenya, which governing law applies to agreement without regard to its conflict of law provisions.</p>
             <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service and supersede and replace any prior agreements we might have had between us regarding Service.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="c-t-s">
             <p>23. <b>Changes To Service</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We reserve the right to withdraw or amend our Service, and any service or material we provide via Service, in our sole discretion without notice. We will not be liable if for any reason all or any part of Service is unavailable at any time or for any period. From time to time, we may restrict access to some parts of Service, or the entire Service, to users, including registered users.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="a-t-t">
             <p>24. <b>Amendments To Terms</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>We may amend Terms at any time by posting the amended terms on this site. It is your responsibility to review these Terms periodically.</p>
             <p>Your continued use of the Platform following the posting of revised Terms means that you accept and agree to the changes. You are expected to check this page frequently so you are aware of any changes, as they are binding on you.</p>
             <p>By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use Service.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="w-a-s">
             <p>25. <b>Waiver And Severability</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>No waiver by Company of any term or condition set forth in Terms shall be deemed a further or continuing waiver of such term or condition or a waiver of any other term or condition, and any failure of Company to assert a right or provision under Terms shall not constitute a waiver of such right or provision.</p>
             <p>If any provision of Terms is held by a court or other tribunal of competent jurisdiction to be invalid, illegal or unenforceable for any reason, such provision shall be eliminated or limited to the minimum extent such that the remaining provisions of Terms will continue in full force and effect.</p>
         </div>
-
-        <!--Law intro-->
         <div class="law_intro" id="acknowledgement">
             <p>26. <b>Acknowledgement</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>BY USING SERVICE OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE AND AGREE TO BE BOUND BY THEM.</p>
         </div>
-        
-        <!--Law intro-->
         <div class="law_intro" id="contact-us">
             <p>27. <b>Contact Us</b></p>
         </div>
-
-        <!--Into statement-->
         <div class="intro_statement">
             <p>Please send your feedback, comments, requests for technical support by email: <a href="mailto:dev@codepinion.com">dev@codepinion.com</a>.</p>
         </div>
-                
-
-        <!--water mark-->
         <div class="water_mark">
             <p>These <a href="https://policymaker.io/terms-and-conditions/">Terms of Service</a> were created for <b>codepinion.com</b> by <a href="https://policymaker.io">PolicyMaker.io</a> on 2023-12-20.</p>
         </div>
-
     </div>
-
     <script>
-
         // Script to ensure smooth scroll on click
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', function (e) {
               e.preventDefault();
               const targetId = this.getAttribute('href');
               const targetElement = document.querySelector(targetId);
-          
               if (targetElement) {
                 // Increase scrollTop by 100px
                 window.scrollTo({
@@ -538,9 +344,6 @@
               }
             });
           });
-
     </script>
-
 </div>
-
 {% endblock %}
