@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 
-/* hero word section */
+
 
 .hero_word_section {
     position: relative;
@@ -17,7 +17,7 @@
     align-items: flex-start;
     justify-content: center;
     padding-left: 40px;
-    /* background-color: aquamarine; */
+   
 }
 
 .hero_word_section h1 {
@@ -37,7 +37,7 @@
     z-index: 1;
 }
 
-/* Call to action */
+
 .hero_cta_btn {
     width: max-content;
     height: 40px;
@@ -64,7 +64,7 @@
     transform: scale(1.05);
 }
 
-/* Extra Images */
+
 .ai_img,.coding_img,.merge_img {
     position: absolute;
 }
@@ -125,7 +125,7 @@
     object-fit: cover;
 }
 
-/* hero animation section */
+
 
 .hero_animation_section {
     width: 50%;
@@ -134,12 +134,12 @@
     align-items: center;
     justify-content: center;
     padding-right: 40px;
-    /* background-color: chocolate; */
+   
 }
 
 
 
-/* Discover section */
+
 .discover_section {
     width: 100%;
     height: 200px;
@@ -208,7 +208,7 @@
 }
 
 
-/* Verison Control */
+
 .version_control_section {
     margin-top: 50px;
     width: 100%;
@@ -261,7 +261,7 @@
     position: relative;
     width: calc(100% - 350px);
     height: max-content;
-    /* border: 1px solid #D3DBFF; */
+   
     border-radius: 10px;
 }
 
@@ -297,7 +297,7 @@
     align-items: center;
 }
 
-/* Call to action */
+
 .vc_action_btn {
     width: max-content;
     height: 40px;
@@ -325,7 +325,7 @@
 }
 
 
-/* Welcome aboard */
+
 .welcome_aboard_section {
     width: 100%;
     height: 500px;
@@ -336,7 +336,7 @@
     background-color: #D3DBFF;
 }
 
-/* Animation aboard */
+
 .welcome_aboard_animation {
     width: 500px;
     height: 100%;
@@ -344,7 +344,7 @@
 
 
 
-/* Word aboard */
+
 .welcome_aboard_words {
     width: 50%;
     height: 100%;
@@ -379,7 +379,7 @@
     color: #414141;
 }
 
-/* Call to action */
+
 .aboard_action_section {
     width: 100%;
     height: 60px;
@@ -416,9 +416,9 @@
 }
 
 
-/* Scrolling animation */
 
-/* Animate heading and text */
+
+
 .heading_text_hidden {
     opacity: 0;
     transition: 0.4s ease-in-out;
@@ -430,7 +430,7 @@
     transform: translateX(0px);
 }
 
-/* Animate Discover Feature section */
+
 .discovered_feature_hidden {
     opacity: 0;
     transition: 0.4s ease-in-out;
@@ -454,7 +454,7 @@
     transition-delay: 600ms;
 }
 
-/* Animate images section */
+
 .main_image_hidden {
     opacity: 0;
     transition: 0.6s ease-in-out;
@@ -501,12 +501,12 @@
 }
 
 
-/* RESPONSIVE WEBSITE USING BOTH WIDTH */
 
-/* WITH HEIGHT */
+
+
 @media screen and (max-height: 640px){
 
-    /* Hero word section */
+   
 
     .hero_word_section h1 {
         font-size: 45px;
@@ -537,7 +537,7 @@
         right: 45%;
     }
 
-    /* Hero animation section */
+   
     .hero_animation_section {
         padding: 70px;
     }
@@ -546,11 +546,11 @@
 }
 
 
-/* WITH WIDTH */
 
-/* Width max=1290px */
+
+
 @media screen and (max-width: 1290px){
-    /* Hero word section */
+   
 
     .ai_img {
         width: 140px;
@@ -567,16 +567,16 @@
         height: 90px;
     }
 
-    /* More details about services */
+   
     .vc_details {
         padding-right: 40px;
     }
     
 }
 
-/* Width max=1100px */
+
 @media screen and (max-width: 1200px){
-    /* Hero word section */
+   
 
     .hero_word_section h1 {
         font-size: 40px;
@@ -597,12 +597,12 @@
         height: 80px;
     }
 
-    /* Discover feature section */
+   
     .discovered_feature {
         width: 200px;
     }
 
-    /* More details about services */
+   
     .vc_heading {
         padding-left: 80px;
     }
@@ -623,7 +623,7 @@
         padding-left: 120px;
     }
     
-    /* Welcome aboard */
+   
     .welcome_aboard_section {
         height: 400px;
         margin-top: 90px;
@@ -639,9 +639,9 @@
 
 }
 
-/* Width max=1030px */
+
 @media screen and (max-width: 1030px){
-    /* Hero word section */
+   
 
     .ai_img {
         width: 110px;
@@ -671,12 +671,12 @@
         margin-bottom: 15px;
     }
 
-    /* Hero animation section */
+   
     .hero_animation_section {
         padding: 30px;
     }
     
-    /* More details about services */
+   
 
     .vc_heading h2 {
         font-size: 19px; 
@@ -692,16 +692,16 @@
 
 }
 
-/* Width max=950px */
+
 @media screen and (max-width: 950px){
-    /* Hero section */
+   
     .hero_section {
         height: max-content;
         flex-direction: column-reverse;
         justify-content: flex-start;
     }
 
-    /* hero word section */
+   
     .hero_word_section {
         width: 100%;
         height: max-content;
@@ -727,19 +727,19 @@
         display: flex;
     }
 
-    /* Hero animation section */
+   
     .hero_animation_section {
         width: 100%;
         height: max-content;
         padding: 80px;
     }
 
-    /* Discover feature section */
+   
     .discovered_feature {
         width: 180px;
     }
     
-    /* More details about services */
+   
 
     .vc_heading {
         padding-left: 40px;
@@ -765,7 +765,7 @@
         padding-left: 80px;
     }
 
-    /* Welcome aboard */
+   
     .welcome_aboard_section {
         height: 350px;
         margin-top: 70px;
@@ -781,14 +781,14 @@
 
 }
 
-/* Width max=850px */
+
 @media screen and (max-width: 850px){
-    /* Discover feature section */
+   
     .discovered_feature {
         width: 170px;
     }
 
-    /* More details about services */
+   
 
     .vc_actual_main_image {
         width: calc(100% - 120px);
@@ -806,7 +806,7 @@
         padding-left: 60px;
     }
 
-    /* Welcome aboard */
+   
     .welcome_aboard_words {
         width: 52%;
     }
@@ -816,9 +816,9 @@
     }
 }
 
-/* Width max=780px */
+
 @media screen and (max-width: 780px){
-    /* Discover feature section */
+   
     .discover_section {
         height: 620px;
         padding-top: 40px;
@@ -847,7 +847,7 @@
         margin-bottom: 20px;
     }
 
-    /* More details about services */
+   
 
     .vc_heading {
         padding-left: 20px;
@@ -880,21 +880,21 @@
         padding-bottom: 14px;
     }
 
-    /* welcome aboard */
+   
     .aboard_list_item p {
         padding-top: 9px;
     }
 }
 
-/* Width max=610px */
+
 @media screen and (max-width: 610px){
 
-    /* Hero animation section */
+   
     .hero_animation_section {
         padding: 40px;
     }
 
-    /* More details about services */
+   
     #vc_details_4 {
         height: max-content;
     }
@@ -909,7 +909,7 @@
         padding-bottom: 15px;
     }
 
-    /* welcome aboard */
+   
     .welcome_aboard_section {
         height: max-content;
         flex-direction: column;
@@ -939,9 +939,9 @@
     }
 }
 
-/* Width max=550px */
+
 @media screen and (max-width: 550px){
-    /* Hero word section */
+   
     .hero_word_section h1 {
         font-size: 35px;
     }
@@ -950,18 +950,18 @@
         font-size: 17px;
     }
 
-    /* Hero animation section */
+   
     .hero_animation_section {
         padding: 40px;
     }
 
-    /* Discover feature section */
+   
     .discover_section h2 {
         font-size: 21px;
         text-align: center;
     }
 
-    /* More details about services */
+   
 
     .vc_details {
         padding-left: 30px;
@@ -978,9 +978,9 @@
     
 }
 
-/* Width max=490px */
+
 @media screen and (max-width: 490px){
-    /* Hero word section */
+   
     .hero_word_section h1 {
         font-size: 30px;
         width: 100%;
@@ -1003,12 +1003,12 @@
         height: 100px;
     }
 
-    /* Hero animation section */
+   
     .hero_animation_section {
         padding: 30px;
     }
 
-    /* Discover feature section */
+   
     .discover_section h2 {
         font-size: 20px;
     }
@@ -1017,7 +1017,7 @@
         width: 30px;
     }
 
-    /* More details about services */
+   
 
     #vc_actual_secondary_image_1 {
         top: -30px;
@@ -1042,7 +1042,7 @@
         width: 24px;
     }
 
-    /* Scroll animation */
+   
 
     .secondary_1_image_hidden {
         transition: 0.2s ease-in-out;
@@ -1051,9 +1051,9 @@
     
 }
 
-/* Width max=430px */
+
 @media screen and (max-width: 440px){
-    /* Discover feature section */
+   
     .discover_section h2 {
         padding-left: 20px;
         padding-right: 20px;
@@ -1063,7 +1063,7 @@
         width: 28px;
     }
 
-    /* More details about services */
+   
 
     #vc_actual_secondary_image_1,#vc_actual_secondary_image_2 {
         top: -30px;
@@ -1104,16 +1104,16 @@
         border: none;
     }
 
-    /* Welcome aboard */
+   
     .welcome_aboard_animation {
         padding: 30px;
     }
     
 }
 
-/* Width max=400px */
+
 @media screen and (max-width: 400px){
-    /* Hero word section */
+   
     .hero_word_section h1 {
         font-size: 25px;
     }
@@ -1127,12 +1127,12 @@
         height: 90px;
     }
 
-    /* Hero animation section */
+   
     .hero_animation_section {
         padding: 20px;
     }
 
-    /* Discover feature section */
+   
     .discover_section h2 {
         font-size: 19px;
     }
@@ -1145,7 +1145,7 @@
         width: 26px;
     }
 
-    /* More details about services */
+   
 
     #vc_actual_secondary_image_1, #vc_actual_secondary_image_2 {
         width: 220px;
@@ -1155,16 +1155,16 @@
         margin-bottom: 45px;
     }
 
-    /* Welcome aboard */
+   
     .welcome_aboard_animation {
         padding: 20px;
     }
     
 }
 
-/* Width max=300px */
+
 @media screen and (max-width: 330px){
-    /* Hero word section */
+   
     .hero_word_section h1 {
         font-size: 20px;
     }
@@ -1184,12 +1184,12 @@
         height: 80px;
     }
 
-    /* Hero animation section */
+   
     .hero_animation_section {
         padding: 10px;
     }
 
-    /* More details about services */
+   
     #vc_actual_secondary_image_1, #vc_actual_secondary_image_2, #vc_actual_secondary_image_3, #vc_actual_secondary_image_4 {
         width: 200px;
     }
@@ -1199,7 +1199,7 @@
         top: 50px;
     }
 
-    /* Welcome aboard */
+   
     .welcome_aboard_animation {
         padding: 10px;
     }
@@ -1210,9 +1210,9 @@
 
 }
 
-/* Width max=300px */
+
 @media screen and (max-width: 300px){
-    /* Hero word section */
+   
 
     .extra_images_mobile {
         height: 70px;
@@ -1227,12 +1227,12 @@
         font-size: 14px;
     }
 
-    /* Hero animation section */
+   
     .hero_animation_section {
         padding: 10px;
     }
 
-    /* Discover feature section */
+   
     .discover_section h2 {
         font-size: 18px;
     }
@@ -1249,7 +1249,7 @@
         width: 24px;
     }
 
-    /* More details about services */
+   
     .vc_details {
         font-size: 15px;
     }
@@ -1268,7 +1268,7 @@
         width: 185px;
     }
 
-    /* Welcome aboard */ 
+    
     
     .aboard_list_item p {
         font-size: 15px;

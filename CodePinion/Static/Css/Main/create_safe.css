@@ -2,11 +2,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* The signin pop up message section */
+
 .signIn_Message_pop {
     position: absolute;
     padding-left: 10px;
-    display: none; /* Flex to edit */
+    display: none;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -96,9 +96,7 @@
     font-weight: 500;
 }
 
-/* #pop_error_auth_ssh .sign_pop_message {
-    color: #FC5758;
-} */
+
 
 #pop_error_auth_ssh_message {
     color: #FC5758;
@@ -148,7 +146,7 @@
 
 
 
-/* Popup Sections */
+
 
 #not_selected,#pop_error {
     position: absolute;
@@ -215,7 +213,7 @@
 
 
 
-/* Creation Form Section and ssh login popup*/
+
 
 .creation_section {
     width: 100%;
@@ -227,14 +225,14 @@
 }
 
 
-/* Choose path ssh section (File System) */
+
 
 .choose_path_ssh_section {
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: none; /* Flex for upgrade */
+    display: none;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -244,14 +242,14 @@
     width: calc(100% - 20px);
     height: calc(100% - 20px);
     border-radius: 10px;
-    display: flex; /* Flex for upgrade */
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(65, 65, 65,0.4);
 }
 
 
-/* Erroe ssh small device */
+
 .error_ssh_small_device {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
@@ -264,7 +262,7 @@
 }
 
 
-/* Ssh File system */
+
 .ssh_file_system {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
@@ -272,7 +270,7 @@
     border-radius: 10px;
 }
 
-/* User path search and close section */
+
 .user_search_path_close_section {
     width: 100%;
     height: 70px;
@@ -283,7 +281,7 @@
     justify-content: space-between;
 }
 
-/* User indicate section */
+
 .user_indicate_section {
     height: 50px;
     width: 300px;
@@ -313,7 +311,7 @@
 
 
 
-/* Path search and current path section */
+
 .path_and_search_path_section {
     width: calc(100% - 370px);
     height: 50px;
@@ -324,7 +322,7 @@
     background-color: #F3F3F3;
 }
 
-/* Path indicator section */
+
 .ssh_path_indicate{
     width: 40%;
     height: 100%;
@@ -365,7 +363,7 @@
 }
 
 
-/* The ssh file dispaly layout and searchbar */
+
 .ssh_search_and_file_layout {
     width: 60%;
     height: 100%;
@@ -374,7 +372,7 @@
     justify-content: space-between;
 }
 
-/* The folder system layout */
+
 .ssh_folder_layout {
     width: 100px;
     height: 100%;
@@ -382,7 +380,7 @@
     align-items: center;
 }
 
-/* The change layout btns */
+
 .folder_layout_change {
     width: 40px;
     height: 40px;
@@ -400,7 +398,7 @@
 }
 
 
-/* Search ssh folders section */
+
 .ssh_folder_search {
     width: calc(100% - 100px);
     height: 100%;
@@ -409,7 +407,7 @@
     justify-content: flex-start;
 }
 
-/* The actual search bar */
+
 .ssh_searching_section {
     width: calc(100% - 10px);
     height: 40px;
@@ -428,7 +426,7 @@
     max-width: 24px;
 }
 
-/* The search bar input */
+
 .ssh_searching_section input {
     width: 400px;
     height: 100%;
@@ -444,7 +442,7 @@
 }
 
 
-/* Close the ssh filing system */
+
 .close_ssh_filing {
     width: 45px;
     height: 45px;
@@ -474,7 +472,7 @@
     display: none;
 }
 
-/* Select Working Folder */
+
 .show_selected_path_section {
     width: 100%;
     height: 60px;
@@ -499,11 +497,11 @@
     color: #414141;
 }
 
-/* The previous directory button */
+
 #back_dir_btn {
     height: 40px;
     width: 100px;
-    display: none; /* Flex to change back directory button */
+    display: none;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 10px;
@@ -523,7 +521,7 @@
 }
 
 
-/* Read the selected path */
+
 .view_selected_path {
     width: fit-content;
     min-width: 400px;
@@ -544,7 +542,7 @@
 }
 
 
-/* This section will contain the navigation of the ssh directory and selecting directory */
+
 .ssh_select_and_move_to_directories {
     width: 100%;
     height: calc(100% - 130px);
@@ -555,7 +553,7 @@
     justify-content: space-between;
 }
 
-/* The ssh navigation section */
+
 .select_ssh_directory_navigation {
     width: 300px;
     height: calc(100% - 10px);
@@ -570,7 +568,7 @@
 }
 
 
-/* The clickable and inner dirs */
+
 .the_clickable_and_inner_dir {
     width: 100%;
     height: fit-content;
@@ -580,17 +578,17 @@
     justify-content: center;
 }
 
-/* After clicking this is whre the inner dirs will be dispayed */
+
 
 .inner_clicked_dir {
-    display: none; /* When a dir is clicked, display flex */
+    display: none;
     width: 100%;
     max-height: 300px;
     padding-left: 20px;
     padding-top: 10px;
 }
 
-/* The inner section containing buttons and dirs */
+
 
 .drop_inner_dir {
     position: relative;
@@ -605,10 +603,10 @@
     border: 1.5px solid #406CEE;
 }
 
-/* Empty folder */
+
 .clickable_folder_is_empty {
     position: absolute;
-    display: none; /* flex to make changes to empty folder */
+    display: none;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -622,7 +620,7 @@
     fill: #414141;
 }
 
-/* Define a keyframe animation for the up and down movement */
+
 @keyframes bounce {
     0%, 100% {
         transform: scale(1);
@@ -632,13 +630,13 @@
       }
   }
   
-  /* Apply the animation to the svg element */
+ 
   .clickable_folder_is_empty svg {
     animation: bounce 2s ease-in-out infinite;
   }
 
 
-/* These button will close or enter onto the dir */
+
 .close_enter_inner_dir_btns {
     width: 100%;
     height: 50px;
@@ -647,7 +645,7 @@
     justify-content: space-evenly;
 }
 
-/* Inner dir buttons */
+
 .inner_dir_enter,.inner_dir_close {
     width: 45%;
     height: 40px;
@@ -678,7 +676,7 @@
 }
 
 
-/* The inner dirs themselves */
+
 
 .minor_dir_them_section {
     width: 100%;
@@ -690,7 +688,7 @@
     justify-content: flex-start;
 }
 
-/* Individual Dir */
+
 .minor_dir {
     width: calc(100% - 10px);
     min-height: 45px;
@@ -721,7 +719,7 @@
 }
 
 
-/* Clickable ssh directory */
+
 .clickable_ssh_directory {
     position: relative;
     width: calc(100% - 10px);
@@ -758,8 +756,8 @@
     fill: #406CEE;
 }
 
-/* The clickable dir spinner */
-/* Define a keyframe animation for the spinner */
+
+
 @keyframes spin1 {
     from {
         transform: rotate(0deg);
@@ -769,7 +767,7 @@
     }
 }
 
-/* Apply the animation to the class clickable_dir_spinner */
+
 .clickable_dir_spinner {
     display: none;
     position: absolute;
@@ -784,7 +782,7 @@
 }
 
 
-/* The checking directory section */
+
 
 .check_choosen_directory_section {
     width: calc(100% - 310px);
@@ -799,7 +797,7 @@
     background-color: #F3F3F3;
 }
 
-/* The checked and choosen dir */
+
 .ind_checked_and_choosen_dir {
     width: 200px;
     height: 200px;
@@ -813,7 +811,7 @@
     cursor: pointer;
 }
 
-/* The hover effect */
+
 
 .ind_checked_and_choosen_dir:hover {
     background-color: #406CEE;
@@ -821,14 +819,14 @@
     color: #F3F3F3;
 }
 
-/* On check */
+
 .ind_onchecked_and_choosen_dir {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
 
-/* The checkbox section */
+
 .check_dir_section {
     width: 100%;
     height: 30px;
@@ -843,7 +841,7 @@
 }
 
 
-/* The checkbox */
+
 .check_dir {
     width: 20px;
     height: 20px;
@@ -855,12 +853,12 @@
     transition: 0.1s ease-in;
 }
 
-/* check effect */
+
 .svg_check_containers_hover {
     border: 1.5px solid #f3f3f3;
 }
 
-/* Hover effect */
+
 .ind_checked_and_choosen_dir:hover .check_dir_section > .check_dir{
     border: 1.5px solid #F3F3F3;
 }
@@ -870,7 +868,7 @@
     visibility: hidden;
 }
 
-/* The folder icon */
+
 .check_folder_ic {
     width: 100%;
     height: 100px;
@@ -883,7 +881,7 @@
     width: 60px;
 }
 
-/* The checkable dir name */
+
 .checkable_dir_name {
     width: 100%;
     height: 70px;
@@ -900,14 +898,14 @@
 
 
 
-/* The ssh login popup */
+
 
 .ssh_login_popup {
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 1;
-    display: none;  /* Pop in and out */
+    display: none; 
     align-items: center;
     justify-content: center;
     top: 0;
@@ -927,7 +925,7 @@
 }
 
 
-/* Close form */
+
 .close_ssh_form {
     position: absolute;
     width: 50px;
@@ -955,7 +953,7 @@
 }
 
 
-/* This section will appear if user doesnt have ssh device */
+
 .display_no_ssh_device {
     width: 100%;
     height: 250px;
@@ -979,7 +977,7 @@
     height: 100%;
 }
 
-/* These button take you to create ssh device or docs */
+
 .read_docs_add_devise{
     width: 100%;
     height: 50px;
@@ -1016,7 +1014,7 @@
 
 
 
-/* Alraedy connected ssh devices  */
+
 .ssh_available_devices {
     position: relative;
     width: 600px;
@@ -1028,7 +1026,7 @@
     margin-top: 20px;
 }
 
-/* The previously connected devices */
+
 .ssh_available_device {
     width: 100%;
     height: 60px;
@@ -1052,7 +1050,7 @@
 }
 
 
-/* Device os and details */
+
 .ssh_device_icon_and_details,.ssh_device_edit_and_connect_both {
     height: 100%;
     display: flex;
@@ -1060,7 +1058,7 @@
     justify-content: flex-start;
 }
 
-/* Device os icon */
+
 .ssh_dev_os_icon {
     width: 60px;
     height: 60px;
@@ -1076,19 +1074,19 @@
     height: 50px;
 }
 
-/* The loader */
+
 .loader_ssh_log {
     border: 2px solid #f3f3f3;
     border-radius: 50%;
     border-top: 2px solid #2CA631;
     width: 25px;
     height: 25px;
-    -webkit-animation: spin 0.4s linear infinite; /* Safari */
+    -webkit-animation: spin 0.4s linear infinite;
     animation: spin 0.4s linear infinite;
     display: none;
 }
 
-/* Safari */
+
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
@@ -1099,7 +1097,7 @@
     100% { transform: rotate(360deg); }
 }
 
-/* The ssh devce login details */
+
 
 .ssh_dev_login_detail {
     position: relative;
@@ -1116,7 +1114,7 @@
 }
 
 
-/* Detail icon */
+
 .ssh_dev_login_detail_icon {
     position: absolute;
     top: 0;
@@ -1138,7 +1136,7 @@
     fill: #F3F3F3;
 }
 
-/* The ssh detail span */
+
 .ssh_dev_login_detail span{
     padding: 10px;
     padding-left: 40px;
@@ -1146,7 +1144,7 @@
 }
 
 
-/* Edit SSH device details */
+
 .ssh_device_edit_and_connect {
     width: 40px;
     height: 40px;
@@ -1174,14 +1172,14 @@
 
 
 
-/* The safe creation form section */
+
 
 .create_form {
     width: 700px;
     height: 100%;
 }
 
-/* Heading and heading details section */
+
 .heading_and_headDetails {
     width: 100%;
     height: 90px;
@@ -1205,14 +1203,14 @@
 }
 
 
-/* Select account and add safe name */
+
 .select_account_add_safe_name {
     width: 100%;
     height: fit-content;
     display: flex;
 }
 
-/* Select account section */
+
 
 .select_account {
     width: fit-content;
@@ -1249,7 +1247,7 @@
     margin-left: 10px;
 }
 
-/* Account profile picture */
+
 .account-profile {
     width: 40px;
     height: 40px;
@@ -1263,7 +1261,7 @@
     border-radius: 10px;
 }
 
-/* The separator section */
+
 .the-separator {
     width: 80px;
     height: max-content;
@@ -1281,7 +1279,7 @@
 }
 
 
-/* The safe name section */
+
 
 .safe-name-section {
     width: fit-content;
@@ -1304,7 +1302,7 @@
 }
 
 
-/* Description section */
+
 
 .description-section {
     width: 100%;
@@ -1314,7 +1312,7 @@
     border-bottom: 1px solid #8F8F8F;
 }
 
-/* Inpiration */
+
 
 .inspiration {
     display: flex;
@@ -1328,7 +1326,7 @@
     color: green;
 }
 
-/* Description */
+
 .Description {
     display: flex;
     color: #414141;
@@ -1341,7 +1339,7 @@
     color: #8F8F8F;
 }
 
-/* The description input */
+
 
 .description-input {
     width: 100%;
@@ -1355,7 +1353,7 @@
     background-color: #F3F3F3;
 }
 
-/* Private or public section */
+
 
 .private-or-public {
     width: 100%;
@@ -1368,7 +1366,7 @@
     border-bottom: 1px solid #8F8F8F;
 }
 
-/* The private section */
+
 .private {
     width: 100%;
     height: 70px;
@@ -1386,7 +1384,7 @@
     justify-content: flex-start;
 }
 
-/* The check */
+
 .check-click {
     width: 19px;
     height: 19px;
@@ -1425,7 +1423,7 @@
 }
 
 
-/* Safe path section */
+
 
 .safe-path-section {
     width: 100%;
@@ -1440,7 +1438,7 @@
 
 }
 
-/* Here is where all the ssh devices and paths will be dispayed */
+
 .selected-path-and-ssh-devices {
     width: 100%;
     height: fit-content;
@@ -1459,7 +1457,7 @@
     justify-content: flex-start;
 }
 
-/* Select path btn */
+
 
 .select-path-btn,.select-path-btn-server {
     width: fit-content;
@@ -1493,7 +1491,7 @@
 }
 
 
-/* Hover effect */
+
 .select-path-btn:hover, .select-path-btn-server:hover {
     background-color: #414141;
 }
@@ -1504,7 +1502,7 @@
     margin-left: 10px;
 }
 
-/* Line separation */
+
 .path-separation {
     width: 80px;
     height: 100%;
@@ -1520,7 +1518,7 @@
     background-color: #414141;
 }
 
-/* See path selected */
+
 
 .path-pasted {
     width: 400px;
@@ -1554,21 +1552,21 @@
     border-radius: 2px;
 }
 
-/* The path itself */
+
 #selected-path {
     color: #414141;
     font-size: 17px;
 }
 
 .path-details {
-    display: flex; /* Flex when connected with ssh */
+    display: flex;
     color: #8F8F8F;
     font-size: 15px;
     margin-top: 10px;
 }
 
 
-/* Details of safe to be created (private or public) */
+
 .new-safe-privacy {
     width: 100%;
     height: fit-content;
@@ -1595,7 +1593,7 @@
 }
 
 
-/* Create safe section */
+
 
 .create-safe-section {
     width: 100%;
@@ -1625,16 +1623,16 @@
 }
 
 
-/* RESPONSIVE WEBSITE USING BOTH WIDTH */
 
-/* THE MAX WIDTH OF SUPPORT IS 720PX */
 
-/* WITH WIDTH */
 
-/* Width max = 1030px = 1100px */
+
+
+
+
 @media screen and (max-width: 1100px) {
 
-    /* SSH LOGGED SECTION */
+   
 
     .ssh_path_indicate {
         width: 50%;
@@ -1654,10 +1652,10 @@
     
 }
 
-/* Width max=950px */
+
 @media screen and (max-width: 950px) {
     
-    /* SEARCH AND PATH OF SSH LOGGED */
+   
 
     .ssh_search_and_file_layout {
         display: none;
@@ -1669,27 +1667,27 @@
 
 }
 
-/* Width max=720px */
+
 @media screen and (max-width: 720px) {
     
-    /* Choose Path SSH */
+   
     .ssh_file_system {
         display: none;
     }
 
-    /* Show small device error */
+   
     .error_ssh_small_device {
         display: flex;
     }
 
 }
 
-/* Width max=610 */
+
 @media screen and (max-width: 610px) {
 
-    /* THE SSH DEVICE SECTION AND CONNECT */
+   
 
-    /* Error message */
+   
     #pop_error_auth_ssh {
         width: calc(100% - 60px);
     }
@@ -1702,18 +1700,18 @@
         width: calc(100% - 60px);
     }
 
-    /* Remove the hover effect on ssh device */
+   
     .ssh_available_device:hover {
         transform: scale(1);
     }
     
-    /* THE MAIN CREATE SAFE CONTAINER */
+   
 
     .create_form {
         width: 100%;
     }
 
-    /* The heading */
+   
     .heading_and_headDetails {
         width: calc(100% - 20px);
         margin-left: 10px;
@@ -1721,7 +1719,7 @@
         padding-left: 10px;
     }
 
-    /* Select account */
+   
     .select_account_add_safe_name {
         width: calc(100% - 20px);
         margin-left: 10px;
@@ -1743,18 +1741,18 @@
         border-radius: 6px;
     }
 
-    /* Separator btwn account and safe name */
+   
     .the-separator {
         width: 50px;
     }
 
-    /* safe name input */
+   
     .safe-name-section input {
         height: 45px;
         border-radius: 6px;
     }
 
-    /* THE DESCRIPTION SECTION */
+   
 
     .description-section {
         width: calc(100% - 20px);
@@ -1775,7 +1773,7 @@
         padding-left: 10px;
     }
 
-    /* The description input */
+   
     .description-input {
         width: calc(100% - 20px);
         margin-left: 10px;
@@ -1783,7 +1781,7 @@
         border-radius: 6px;
     }
 
-    /* PRIVATE OR PUBLIC */
+   
     .private-or-public {
         width: calc(100% - 20px);
         margin-left: 10px;
@@ -1793,7 +1791,7 @@
         padding-left: 10px;
     }
 
-    /* PATH SECTION */
+   
     .safe-path-section {
         width: calc(100% - 20px);
         margin-left: 10px;
@@ -1807,14 +1805,14 @@
         padding-left: 10px;
     }
 
-    /* INFO SECTION */
+   
     .new-safe-privacy {
         width: calc(100% - 20px);
         margin-left: 10px;
         padding-left: 10px;
     }
 
-    /* CREATE SAFE */
+   
     .create-safe-section {
         width: calc(100% - 20px);
         margin-left: 10px;
@@ -1823,12 +1821,12 @@
 
 }
 
-/* Width max=550px */
+
 @media only screen and (max-width: 550px) {
 
-    /* THE SSH DEVICE SECTION */
+   
 
-    /* Error message */
+   
     #pop_error_auth_ssh {
         width: calc(100% - 120px);
     }
@@ -1837,7 +1835,7 @@
         font-size: 14px;
     }
 
-    /* Devices */
+   
 
     .ssh_available_device {
         width: calc(100% - 120px);
@@ -1877,18 +1875,18 @@
         width: 19px;
     }
 
-    /* User no ssh device */
+   
     .display_no_ssh_device {
         width: calc(100% - 120px);
     }
 
-    /* ACCOUNT SELECTION AND SAFE NAME */
+   
 
     .select_account_add_safe_name {
         flex-direction: column;
     }
 
-    /* Select account section */
+   
     .select_account {
         width: 100%;
     }
@@ -1906,7 +1904,7 @@
         display: none;
     }
 
-    /* Safe name */
+   
     .safe-name-section {
         width: 100%;
     }
@@ -1916,7 +1914,7 @@
     }
 
 
-    /* PRIVATE OR PUBLIC */
+   
     .check-click {
         width: 17px;
         height: 17px;
@@ -1939,7 +1937,7 @@
         font-size: 14px;
     }
 
-    /* CONNECT SERVER SECTION */
+   
     .select-path-btn {
         height: 45px;
         border-radius: 6px;
@@ -1957,7 +1955,7 @@
         font-size: 14px;
     }
 
-    /* INFO SECTION */
+   
     .new-safe-privacy svg {
         width: 20px;
     }
@@ -1966,7 +1964,7 @@
         font-size: 14px;
     }
 
-    /* CREATE SAFE */
+   
     .create-safe-btn {
         height: 45px;
         border-radius: 6px;
@@ -1979,12 +1977,12 @@
 
 }
 
-/* Width max=420 and 500 */
+
 @media screen and (max-width: 500px) {
     
-    /* THE SSH DEVICE SECTION */
+   
 
-    /* Error message */
+   
     #pop_error_auth_ssh {
         width: calc(100% - 230px);
     }
@@ -2016,7 +2014,7 @@
         width: 22px;
     }
 
-    /* Devices */
+   
 
     .ssh_available_device {
         width: calc(100% - 230px);
@@ -2026,7 +2024,7 @@
         display: none;
     }
 
-    /* User no ssh device */
+   
     .display_no_ssh_device {
         width: calc(100% - 230px);
         height: 200px;
@@ -2049,15 +2047,15 @@
         height: 20px;
     }
 
-    /* THE CREATE SAFE SECTION */
+   
 
-    /* The heading */
+   
     .heading_and_headDetails h3 {
         font-size: 17px;
     }
 
 
-    /* ACCOUNT AND SAFE NAME */
+   
 
     .acc-label {
         font-size: 15px;
@@ -2067,7 +2065,7 @@
         font-size: 14px;
     }
 
-    /* PRIVATE AND PUBLIC */
+   
     .check-click {
         border-radius: 5px;
         width: 15px;
@@ -2085,12 +2083,12 @@
 
 }
 
-/* Width max=380px and 400px */
+
 @media screen and (max-width: 400px) {
 
-    /* SSH CONNECTING */
+   
 
-    /* Error message */
+   
     #pop_error_auth_ssh {
         width: calc(100% - 260px);
     }
@@ -2103,19 +2101,19 @@
         width: calc(100% - 260px);
     }
 
-    /* Heading section */
+   
     .heading_and_headDetails h3 {
         font-size: 15px;
     }
     
 }
 
-/* Width max=350px */
+
 @media screen and (max-width: 370px) {
 
-    /* SSH CONNECTING */
+   
 
-    /* Error message */
+   
     #pop_error_auth_ssh {
         width: calc(100% - 300px);
     }
@@ -2124,7 +2122,7 @@
         font-size: 13px;
     }
 
-    /* Devices */
+   
 
     .ssh_available_device {
         width: calc(100% - 300px);
@@ -2138,12 +2136,12 @@
         font-size: 14px;
     }
 
-    /* Heading section */
+   
     .heading_and_headDetails h3 {
         font-size: 14px;
     }
 
-    /* Dont have ssh devices */
+   
     .rd_btn {
         font-size: 12px;
     }
@@ -2153,25 +2151,25 @@
         height: 18px;
     }
 
-    /* PRIVATE AND PUBLIC */
+   
     .elaborate-choice, .inspiration, .path-details, .new-safe-privacy span {
         font-size: 13px;
     }
 
 }
 
-/* Width max=330px */
+
 @media screen and (max-width: 330px) {
 
-    /* SSH CONNECTING */
+   
 
-    /* Small device error */
+   
     .error_small_device_message {
         height: 70px;
         font-size: 20px;
     }
 
-    /* Error message */
+   
     #pop_error_auth_ssh {
         width: calc(100% - 330px);
     }
@@ -2181,7 +2179,7 @@
     }
 
 
-    /* The Devices */
+   
 
     .ssh_available_device {
         width: calc(100% - 330px);
@@ -2222,12 +2220,12 @@
         width: calc(100% - 330px);
     }
 
-    /* Heading section */
+   
     .heading_and_headDetails h3 {
         font-size: 14px;
     }
 
-    /* Dont have ssh devices */
+   
     .rd_btn {
         font-size: 11px;
     }
@@ -2237,25 +2235,25 @@
         height: 16px;
     }
 
-    /* PRIVATE AND PUBLIC */
+   
     .elaborate-choice, .inspiration, .path-details, .new-safe-privacy span {
         font-size: 13px;
     }
 
 }
 
-/* Width max=300px */
+
 @media screen and (max-width: 300px) {
 
-    /* SSH CONNECTING */
+   
 
-    /* Small device error */
+   
     .error_small_device_message {
         height: 70px;
         font-size: 18px;
     }
 
-    /* Error message */
+   
     #pop_error_auth_ssh {
         width: calc(100% - 340px);
     }
@@ -2265,7 +2263,7 @@
         font-weight: 400;
     }
 
-    /* Devices */
+   
 
     .ssh_available_device {
         width: calc(100% - 340px);
@@ -2275,7 +2273,7 @@
         width: calc(100% - 340px);
     }
 
-    /* Heading section */
+   
     .heading_and_headDetails h3 {
         font-size: 13px;
     }
@@ -2285,7 +2283,7 @@
         font-size: 12px;
     }
 
-    /* Dont have ssh devices */
+   
     .rd_btn {
         font-size: 10px;
     }
@@ -2295,7 +2293,7 @@
         height: 14px;
     }
 
-    /* PRIVATE AND PUBLIC */
+   
     .elaborate-choice, .inspiration, .path-details, .new-safe-privacy span {
         font-size: 12px;
     }
