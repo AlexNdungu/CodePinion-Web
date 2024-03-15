@@ -5,9 +5,11 @@ reserved_words.set('punctuation', ["'",'"',',', '.', ';', ':', '(', '[', '{', ')
 let focusIndex = null;
 let FocusStatus = false
 class CodePinionEditor {
+
     constructor(container) {
         this.container = container;
     }
+
     init(index,line_number) {
         this.container.innerHTML = "";
         this.new_line(index,line_number);
@@ -15,6 +17,7 @@ class CodePinionEditor {
         this.on_enter();
         this.on_backspace();
     }
+
     on_enter() {
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
@@ -32,6 +35,7 @@ class CodePinionEditor {
             }
         });
     }
+
     new_span(content, className){
         let newSpan = document.createElement('span');
         newSpan.classList.add(className);
@@ -39,6 +43,7 @@ class CodePinionEditor {
         newSpan.setAttribute("id", "active");
         return newSpan;
     }
+
     activate_clicked_span(){
         let editor_container = document.getElementById("the_editor");
         editor_container.addEventListener("mouseup", function(event) {
@@ -55,6 +60,7 @@ class CodePinionEditor {
             }
         });
     }
+
     new_line(index,line_number) {
         let line_number_elements = null;
         let single_line = `
@@ -87,6 +93,7 @@ class CodePinionEditor {
         line_inputs[index].appendChild(newSpan);
         this.activate_clicked_span();
     }
+
     on_backspace() {
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Backspace') {
@@ -123,6 +130,7 @@ class CodePinionEditor {
             }
         });
     }
+
     remove_line(index) {
         let all_line_containers = document.querySelectorAll(".editor_number_code");
         let all_lines = document.querySelectorAll(".editor_code_line");
@@ -138,6 +146,7 @@ class CodePinionEditor {
         this.at_focus_line(previous_line_index);
         this.at_focus_click();
     }
+
     at_focus_click() {
         let all_line_containers = document.querySelectorAll(".editor_number_code");
         let all_lines = document.querySelectorAll(".editor_code_line");
@@ -158,6 +167,7 @@ class CodePinionEditor {
         }
         return focusIndex;
     }
+
     at_focus_line(index) {
         let all_lines = document.querySelectorAll(".editor_code_line");
         setTimeout(function() {
@@ -170,6 +180,7 @@ class CodePinionEditor {
         sel.removeAllRanges(); 
         sel.addRange(range);
     }
+
     monitor_line_number(number_element,line_index,line_number) {
         const all_lines = document.querySelectorAll(".editor_code_line");
         const lastDivIndex = all_lines.length - 1;
@@ -183,6 +194,7 @@ class CodePinionEditor {
             }
         }
     }
+
     moveCursorToPosition(createSpanStatus) {
         let all_lines = document.querySelectorAll(".editor_code_line");
         let lineIndex = this.at_focus_click();
@@ -196,13 +208,16 @@ class CodePinionEditor {
             sel.addRange(range);
         }
     }
+
     getKeyByValueArray(map, member) { 
         for (let [key, value] of map.entries()) { 
             if (Array.isArray(value) && value.includes(member)) return key; 
         }
         return null;
     }
+
     line_theme() {
+
         function punctuation_auto_complete(punctuation){
             let completer = null;
             let newSpan = null;
@@ -231,15 +246,20 @@ class CodePinionEditor {
                 activeSpan.insertAdjacentElement('afterend', newSpan);
             }
         }
+
         let newSpan = null;
         let editor_id = document.getElementById("the_editor");
+
         editor_id.addEventListener('input', (event) => {
+
             let activeSpan = event.target.querySelector("span[id='active']")
             const text = activeSpan.textContent;
             let length = text.length;
             let firstLetter = text[0];
             let lastLetter = text[length - 1];
+
             if(lastLetter == "#" && !activeSpan.classList.contains('comment')){
+
                 if(text == '#'){
                     activeSpan.setAttribute('class', 'comment');
                 }
@@ -256,22 +276,29 @@ class CodePinionEditor {
                     activeSpan.insertAdjacentElement('afterend', newSpan);
                     this.moveCursorToPosition(true);
                 }
+
             }
+
             else if(activeSpan.classList.contains('comment')){
+
                 if(text == '') {
                     activeSpan.setAttribute('class', 'regular');
                 }
+
                 else if(firstLetter != '#'){
+
                     let previousSpan = activeSpan.previousElementSibling;
                     let parentDiv = activeSpan.parentElement;
                     activeSpan.textContent = '';
                     activeSpan.removeAttribute("id");
-                    let words = [];
                     let word = '';
+
                     for (let i = 0; i < text.length; i++) {
+
                         if(text[i] == ' ' || text[i] == '\u00A0'){
-                            words.push('\u00A0');
+
                             if(i == 0){
+
                                 if(!previousSpan || !previousSpan.classList.contains('regular')){
                                     newSpan = this.new_span('\u00A0','regular');
                                     activeSpan.insertAdjacentElement('afterend', newSpan);
@@ -283,6 +310,7 @@ class CodePinionEditor {
                                 activeSpan.remove();
                             }
                             else if(i => 1){
+
                                 let lastSpan = parentDiv.lastElementChild;
                                 if(!lastSpan.classList.contains('regular')){
                                     newSpan = this.new_span('\u00A0','regular');
@@ -294,18 +322,63 @@ class CodePinionEditor {
                                 }
                             }
                         }
+
                         else{
+
                             if(text[i + 1] == ' ' || text[i + 1] == '\u00A0' || i == text.length - 1){
-                                words.push(word + text[i]);
+
+                                let complete_word = word + text[i];
+                                let member = this.getKeyByValueArray(reserved_words,complete_word);
                                 word = '';
+                                
+                                if(i == 0){
+
+                                    if(!previousSpan || !previousSpan.classList.contains('regular')){
+                                        if(member){
+                                            newSpan = this.new_span(complete_word,member);
+                                        }
+                                        else{
+                                            newSpan = this.new_span(complete_word,'regular');
+                                        }
+                                        activeSpan.insertAdjacentElement('afterend', newSpan);
+                                    }
+                                    activeSpan.remove();
+                                }
+                                else if(i >= 1){
+
+                                    let lastSpan = parentDiv.lastElementChild;
+                                    if(!lastSpan.classList.contains('regular')){
+                                        if(member){
+                                            newSpan = this.new_span(complete_word,member);
+                                        }
+                                        else{
+                                            newSpan = this.new_span(complete_word,'regular');
+                                        }
+                                        newSpan.removeAttribute("id");
+                                        lastSpan.insertAdjacentElement('afterend', newSpan);
+                                    }
+                                    else{
+                                        if(member){
+                                            newSpan = this.new_span(complete_word,member);
+                                            newSpan.removeAttribute("id");
+                                            lastSpan.insertAdjacentElement('afterend', newSpan);
+                                        }
+                                        else{
+                                            lastSpan.textContent = lastSpan.textContent + complete_word;
+                                        }
+                                    }
+                                }
                             }
                             else{
                                 word = word + text[i];
                             }
+                            
                         }
                     }
                 }
+
             }
+
             else if(lastLetter == "\u00A0" && !activeSpan.classList.contains('regular') && !activeSpan.classList.contains('comment')) {
                 activeSpan.textContent = text.slice(0, -1);
                 activeSpan.removeAttribute("id");
@@ -313,6 +386,7 @@ class CodePinionEditor {
                 activeSpan.insertAdjacentElement('afterend', newSpan);
                 this.moveCursorToPosition(true);
             }
+
             else if(activeSpan.classList.contains('punctuation')) {
                 const selection = window.getSelection();
                 const range = selection.getRangeAt(0);
@@ -346,6 +420,7 @@ class CodePinionEditor {
                     this.moveCursorToPosition(true);
                 }
             }
+
             else if(activeSpan.classList.contains('operator')) {
                 const numericRegex = /^-?\d+(\.\d+)?$/;
                 if(text == ''){
@@ -368,6 +443,7 @@ class CodePinionEditor {
                     this.moveCursorToPosition(true);
                 }
             }
+
             else if(activeSpan.classList.contains('number')) {
                 const numericRegex = /^-?\d+(\.\d+)?$/;
                 if(this.getKeyByValueArray(reserved_words,lastLetter) == 'operator'){
@@ -382,6 +458,7 @@ class CodePinionEditor {
                     activeSpan.setAttribute('class', 'regular');
                 }
             }
+
             else if(activeSpan.classList.contains('keyword') && this.getKeyByValueArray(reserved_words,text) != 'keyword' ) {
                 let if_keyword_check = text.slice(0, -1);
                 let is_member = this.getKeyByValueArray(reserved_words,lastLetter);
@@ -419,6 +496,7 @@ class CodePinionEditor {
                     }
                 }
             }
+
             else {
                 let spanCreate = false;
                 const selection = window.getSelection();
@@ -535,7 +613,9 @@ class CodePinionEditor {
             }
         });
     }
+
 }
+
 const the_editor = document.getElementById("the_editor");
 const editor = new CodePinionEditor(the_editor);
 let index = 0;
