@@ -258,6 +258,10 @@ class CodePinionEditor {
             let firstLetter = text[0];
             let lastLetter = text[length - 1];
 
+            const selection = window.getSelection();
+            const range = selection.getRangeAt(0);
+            const cursorPosition = range.startOffset;
+
             if(lastLetter == "#" && !activeSpan.classList.contains('comment')){
 
                 if(text == '#'){
@@ -277,6 +281,28 @@ class CodePinionEditor {
                     this.moveCursorToPosition(true);
                 }
 
+            }
+
+            else if(!activeSpan.classList.contains('comment') && cursorPosition != length && text[cursorPosition-1] == '#'){
+
+                // get all the spans after the active span
+                let nextSpans = activeSpan.nextElementSibling;
+                let commentSentence = '';
+                while(nextSpans){
+                    commentSentence += nextSpans.textContent;
+                    nextSpans = nextSpans.nextElementSibling;
+                }
+
+                if(activeSpan.classList.contains('regular')){
+
+                    let firstPart = text.slice(0, cursorPosition-1);
+                    let secondPart = text.slice(cursorPosition-1) + commentSentence;
+
+                    activeSpan.textContent = firstPart;
+                    newSpan = this.new_span(secondPart,'comment');
+                    newSpan.removeAttribute("id");
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
+                }
             }
 
             else if(activeSpan.classList.contains('comment')){
@@ -498,18 +524,23 @@ class CodePinionEditor {
             }
 
             else {
+
                 let spanCreate = false;
-                const selection = window.getSelection();
-                const range = selection.getRangeAt(0);
-                const cursorPosition = range.startOffset;
+
                 if(cursorPosition != length) {
+
                     let words = text.trim().split(/\s+/);
                     let wordLen = words.length;
+
                     for (let i = 0; i < wordLen; i++) {
+
                         let memberType = this.getKeyByValueArray(reserved_words,words[i]);
+
                         if (memberType){
+
                             const newSentences = [[], []];
                             let currentSentenceIndex = 0;
+
                             for (const word of words) {
                                 if (word == words[i]) {
                                     currentSentenceIndex++;
@@ -517,6 +548,7 @@ class CodePinionEditor {
                                     newSentences[currentSentenceIndex].push(word);
                                 }
                             }
+
                             activeSpan.textContent = newSentences[0].join(' ') + '\u00A0';
                             activeSpan.removeAttribute("id");
                             let memberClass = this.new_span(words[i], memberType);
