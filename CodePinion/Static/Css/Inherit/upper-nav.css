@@ -4,8 +4,6 @@
     text-decoration: none;
     box-sizing: border-box;
 }
-
-
 .inherited-main-navigation-container{
     font-family: 'Roboto', sans-serif;
     z-index: 9999;
@@ -18,8 +16,6 @@
     padding-left: 5px;
     background-color: rgba(65, 65, 65,0.4)
 }
-
-
 .profile-click-navigation {
     font-family: 'Roboto', sans-serif;
     z-index: 9999;
@@ -32,15 +28,12 @@
     padding-right: 5px;
     background-color: rgba(65, 65, 65,0.4)
 }
-
 .inherited-main-navigation {
     width: 300px;
     height: calc(100% - 10px);
     border-radius: 10px;
     background-color: white;
 }
-
-
 .inherited-main-navigation-top {
     width: 100%;
     height: 80px;
@@ -49,21 +42,17 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
 .logo-in-nav{
     width: 35px;
     height: 35px;
     border-radius: 5px;
     object-fit: cover;
 }
-
 .logo-in-nav img{
     width: 100%;
     height: 100%;
     border-radius: 10px;
 }
-
 .codepinion-user {
     width: 100%;
     height: 100%;
@@ -76,8 +65,6 @@
     font-size: 16px;
     font-weight: 500;
 }
-
-
 .cancel-in-nav {
     width: 40px;
     height: 40px;
@@ -89,17 +76,13 @@
     transition: 0.2s ease-in;
     cursor: pointer;
 }
-
 .cancel-in-nav:hover {
     background-color: #F3F3F3;
     fill: #406CEE;
 }
-
 .cancel-in-nav svg {
     width: 22px;
 }
-
-
 .inherited-main-navigation-items {
     width: 100%;
     height: fit-content;
@@ -110,8 +93,6 @@
     align-items: center;
     justify-content: center;
 }
-
-
 .inherited-main-navigation-item {
     width: 100%;
     height: 50px;
@@ -126,25 +107,20 @@
     color: #414141;
     transition: 0.2s ease-in;
 }
-
 .inherited-main-navigation-item:hover {
     background-color: #F3F3F3;
     fill: #406CEE;
     color: #406CEE;
 }
-
 .inherited-main-navigation-item-out:hover {
     background-color: #F3F3F3;
     fill: #C53B3B;
     color: #C53B3B;
 }
-
 .inherited-main-navigation-item svg {
     width: 20px;
     margin-right: 10px;
 }
-
-
 .inherited-main-navigation-seperator-section {
     width: 100%;
     height:20px;
@@ -152,23 +128,16 @@
     align-items: center;
     justify-content: center;
 }
-
 .inherited-main-navigation-seperator {
     width: 100%;
     height: 1.5px;
     background-color: #e8e8e8;
 }
-
-
-
 .main-body {
     width: 100%;
     height: 100vh;
     overflow-y: auto;
 }
-
-
-
 .upper-section {
     font-family: 'Roboto', sans-serif;
     width: 100%;
@@ -177,8 +146,6 @@
     align-items: center;
     justify-content: center;
 }
-
-
 .upper-nav {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
@@ -188,8 +155,6 @@
     border-radius: 10px;
     background-color: #F3F3F3;
 }
-
-
 .logo-section {
     height: 100%;
     width: fit-content;
@@ -197,8 +162,6 @@
     align-items: center;
     padding-left: 20px;
 }
-
-
 .open-navigation-btn {
     width: 35px;
     height: 35px;
@@ -212,25 +175,18 @@
     transition: 0.2s ease-in;
     border: 1px solid #ACACAC;
 }
-
 .open-navigation-btn:hover {
     background-color: #F3F3F3;
     fill: #406CEE;
     border: 1px solid #406CEE;
 }
-
 .open-navigation-btn svg {
     width: 18px;
 }
-
-
-
 .logo-image {
     width: 50px;
     border-radius: 10px;
 }
-
-
 .user-section {
     height: 100%;
     width: fit-content;
@@ -238,10 +194,6 @@
     align-items: center;
     padding-right: 20px;
 }
-
-
-
-
 .theme-btn,.notif-btn {
     width: 40px;
     height: 40px;
@@ -251,14 +203,10 @@
     align-items: center;
     justify-content: center;
 }
-
 .theme-btn svg, .notif-btn svg {
     width: 17px;
     fill: #ACACAC;
 }
-
-
-
 #logged-user-image {
     width: 55px;
     height: 55px;
@@ -268,14 +216,11 @@
     cursor: pointer;
     transition: 0.2s ease-in;
 }
-
 #logged-user-image img {
     width: 100%;
     height: 100%;
     border-radius: inherit;
 }
-
-
 .profile_pic_absent {
     width: 100%;
     height: 100%;
@@ -290,253 +235,161 @@
     cursor: pointer;
     transition: 0.2s ease-in;
 }
-
-
 #logged-user-image:hover > .profile_pic_absent {
     background-color: #406CEE;
 }
-
-
-
 .lower-section {
     width: 100%;
     height: 100vh;
 }
-
-
-
-
-
-
-
 @media only screen and (max-width: 1370px) {
-    
-   
-
     .upper-section {
         height: 80px;
     }
-
     .upper-nav {
         border-radius: 7px;
     }
-    
-   
     .open-navigation-btn {
         width: 30px;
         height: 30px;
     }
-
     .open-navigation-btn svg {
         width: 15px;
     }
-
-   
     .logo-image {
         width: 40px;
         border-radius: 7px;
     }
-
-   
     #logged-user-image {
         width: 45px;
         height: 45px;
     }
-
-   
-   
     .inherited-main-navigation-item {
         height: 40px;
         border-radius: 7px;
         font-size: 14px;
     }
-
-
     .inherited-main-navigation-item svg {
         width: 16px;
     }
-
 }
-
-
 @media only screen and (max-width: 920px) {
-   
     .inherited-main-navigation-item {
         height: 46px;
         border-radius: 5px;
         font-size: 18px;
     }
-
     .inherited-main-navigation-item svg {
         width: 21px;
     }
 }
-
-
 @media only screen and (max-width: 550px) {
-    
-   
-
-   
     .logo-section {
         padding-left: 10px;
     }
-
     .upper-nav {
         border-radius: 5px;
     }
-
-   
-    
-   
     .open-navigation-btn {
         width: 25px;
         height: 25px;
         margin-right: 15px;
     }
-
     .open-navigation-btn svg {
         width: 13px;
     }
-
-   
     .logo-image {
         width: 35px;
         border-radius: 5px;
     }
-
-   
-
-   
     .user-section {
         padding-right: 10px;
     }
-
     .theme-btn,.notif-btn {
         margin: 0;
     }
-
     #logged-user-image {
         width: 40px;
         height: 40px;
     }
-
-   
     .inherited-main-navigation-item {
         height: 38px;
         border-radius: 5px;
         font-size: 14px;
     }
-
     .inherited-main-navigation-item svg {
         width: 18px;
     }
 }
-
-
 @media only screen and (max-width: 500px) {
-   
     .inherited-main-navigation-item {
         height: 42px;
         border-radius: 5px;
         font-size: 17px;
     }
-
     .inherited-main-navigation-item svg {
         width: 20px;
     }
 }
-
-
 @media only screen and (max-width: 420px) {
-   
     .inherited-main-navigation-item {
         height: 41px;
         border-radius: 5px;
         font-size: 15px;
     }
-
     .inherited-main-navigation-item svg {
         width: 19px;
     }
 }
-
-
 @media only screen and (max-width: 370px) {
-
-   
-    
-   
     .open-navigation-btn {
         width: 20px;
         height: 20px;
         margin-right: 10px;
     }
-
     .open-navigation-btn svg {
         width: 10px;
     }
-
-   
     .theme-btn, .notif-btn {
         width: 35px;
         height: 35px;
     }
-
     .theme-btn svg, .notif-btn svg {
         width: 14px;
         fill: #ACACAC;
     }
-
-   
     .logo-image {
         width: 30px;
         border-radius: 6px;
     }
-
-   
     #logged-user-image {
         width: 35px;
         height: 35px;
     }
-
-   
     .inherited-main-navigation-item {
         height: 37px;
         border-radius: 3px;
         font-size: 14px;
     }
-
     .inherited-main-navigation-item svg {
         width: 18px;
     }
 }
-
-
 @media only screen and (max-width: 300px) {
-    
-   
     .logo-image {
         width: 30px;
         border-radius: 5px;
     }
-
-   
     #logged-user-image {
         width: 30px;
         height: 30px;
     }
-
-   
     .inherited-main-navigation {
         width: calc(100% - 5px);
     }
-
-   
     .inherited-main-navigation-item {
         height: 32px;
         border-radius: 3px;
         font-size: 13px;
     }
 }
-

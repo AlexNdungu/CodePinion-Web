@@ -1,8 +1,6 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
-
-
 .signIn_Message_pop {
     position: absolute;
     padding-left: 10px;
@@ -12,7 +10,6 @@
     margin-bottom: 20px;
     border-radius: 10px;
 }
-
 #pop_error_auth_ssh {
     width: 100%;
     min-height: 50px;
@@ -23,7 +20,6 @@
     position: relative;
     margin-bottom: 10px;
 }
-
 #success_popup {
     height: 50px;
     right: 30px;
@@ -33,7 +29,6 @@
     fill: #50DC6C;
     z-index: 4;
 }
-
 #information_popup {
     height: 50px;
     right: 30px;
@@ -43,8 +38,6 @@
     fill: #FEC022;
     z-index: 4;
 }
-
-
 .sign_pop_outer {
     width: 35px;
     height: 35px;
@@ -53,21 +46,17 @@
     justify-content: center;
     border-radius: 100%;
 }
-
 #pop_error_auth_ssh .sign_pop_outer{
     background-color: #FC5758;
 }
-
 #success_popup .sign_pop_outer{
     background-color: #50DC6C;
     margin-right: 10px;
 }
-
 #information_popup .sign_pop_outer{
     background-color: #FEC022;
     margin-right: 10px;
 }
-
 .sign_pop_inner {
     width: 22px;
     height: 22px;
@@ -77,15 +66,12 @@
     justify-content: center;
     background-color: #fff;
 }
-
 .sign_pop_inner svg {
     width: 17px;
 }
-
 #information_popup .sign_pop_inner svg {
     width: 2.2px;
 }
-
 .sign_pop_message {
     height: 100%;
     width: max-content;
@@ -95,23 +81,16 @@
     font-size: 16px;
     font-weight: 500;
 }
-
-
-
 #pop_error_auth_ssh_message {
     color: #FC5758;
     text-align: center;
 }
-
 #success_popup .sign_pop_message {
     color: #50DC6C;
 }
-
 #information_popup .sign_pop_message {
     color: #FEC022;
 }
-
-
 .pop_close {
     width: 40px;
     height: 40px;
@@ -123,31 +102,21 @@
     margin-right: 5px;
     cursor: pointer;
 }
-
 .pop_close:hover {
     background-color: #fff;
 }
-
 .pop_close svg {
     width: 25px;
 }
-
 #pop_error_auth_ssh .pop_close svg {
     fill: #FC5758;
 }
-
 #success_popup .pop_close svg {
     fill: #50DC6C;
 }
-
 #information_popup .pop_close svg {
     fill: #FEC022;
 }
-
-
-
-
-
 #not_selected,#pop_error {
     position: absolute;
     right: 30px;
@@ -163,31 +132,24 @@
     z-index: 4;
     background-color: white;
 }
-
 #not_selected {
     border: 2px solid #406CEE;
 }
-
 #pop_error {
     border: 2px solid #E44F26;
 }
-
 .unselected_message,.error_message {
     font-size: 18px;
 }
-
 .success_message {
     color: #2CA631;
 }
-
 .unselected_message {
     color: #406CEE;
 }
-
 .error_message {
     color: #E44F26;
 }
-
 .check_icon,.check_icon_unselected,.pop_error_icon {
     width: 50px;
     height: 50px;
@@ -197,24 +159,16 @@
     border-radius: 10px;
     margin-right: 20px;
 }
-
 .check_icon_unselected {
     background-color: #406CEE;
 }
-
 .pop_error_icon {
     background-color: #E44F26;
 }
-
 .check_icon_unselected svg,.pop_error_icon svg {
     width: 30px;
     fill: #F3F3F3;
 }
-
-
-
-
-
 .creation_section {
     width: 100%;
     height: 100%;
@@ -223,10 +177,6 @@
     align-items: center;
     justify-content: center;
 }
-
-
-
-
 .choose_path_ssh_section {
     width: 100%;
     height: 100%;
@@ -237,7 +187,6 @@
     justify-content: center;
     top: 0;
 }
-
 .inner_choose_path_ssh {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
@@ -247,9 +196,6 @@
     justify-content: center;
     background-color: rgba(65, 65, 65,0.4);
 }
-
-
-
 .error_ssh_small_device {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
@@ -260,17 +206,12 @@
     align-items: center;
     justify-content: center;
 }
-
-
-
 .ssh_file_system {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
     background-color: white;
     border-radius: 10px;
 }
-
-
 .user_search_path_close_section {
     width: 100%;
     height: 70px;
@@ -280,8 +221,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
 .user_indicate_section {
     height: 50px;
     width: 300px;
@@ -294,24 +233,17 @@
     color: #414141;
     font-size: 16px;
 }
-
 .user_indicate_section svg {
     width: 40px;
     fill: #414141;
     margin-right: 10px;
 }
-
 #windows_icon {
     display: none;
 }
-
 #linux_icon {
     display: none;
 }
-
-
-
-
 .path_and_search_path_section {
     width: calc(100% - 370px);
     height: 50px;
@@ -321,8 +253,6 @@
     border-radius: 10px;
     background-color: #F3F3F3;
 }
-
-
 .ssh_path_indicate{
     width: 40%;
     height: 100%;
@@ -334,36 +264,28 @@
     overflow-x: auto;
     margin-right: 10px;
 }
-
 .ssh_path_indicate::-webkit-scrollbar {
     width: 5px;
     height: 8px;
 }
-
 .ssh_path_indicate::-webkit-scrollbar-track {
     background: #ACACAC;
 }
-
 .ssh_path_indicate::-webkit-scrollbar-thumb {
     background-color: #406CEE;
     border-radius: 2px;
 }
-
 .ssh_path_indicate svg {
     min-width: 26px;
     max-width: 26px;
     fill: #414141;
     margin-right: 10px;
 }
-
 .ssh_path_indicate span {
     color: #414141;
     font-size: 15px;
     white-space: nowrap;
 }
-
-
-
 .ssh_search_and_file_layout {
     width: 60%;
     height: 100%;
@@ -371,16 +293,12 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
 .ssh_folder_layout {
     width: 100px;
     height: 100%;
     display: flex;
     align-items: center;
 }
-
-
 .folder_layout_change {
     width: 40px;
     height: 40px;
@@ -391,14 +309,10 @@
     align-items: center;
     justify-content: center;
 }
-
 .folder_layout_change svg {
     fill: #414141;
     width: 25px;
 }
-
-
-
 .ssh_folder_search {
     width: calc(100% - 100px);
     height: 100%;
@@ -406,8 +320,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-
-
 .ssh_searching_section {
     width: calc(100% - 10px);
     height: 40px;
@@ -418,15 +330,12 @@
     align-items: center;
     justify-content: flex-start;
 }
-
 .ssh_searching_section svg {
     transform: scale(0.9);
     fill: #8F8F8F;
     margin-right: 10px;
     max-width: 24px;
 }
-
-
 .ssh_searching_section input {
     width: 400px;
     height: 100%;
@@ -436,13 +345,9 @@
     font-size: 15px;
     color: #414141;
 }
-
 .ssh_searching_section input::placeholder {
     color: #8F8F8F;
 }
-
-
-
 .close_ssh_filing {
     width: 45px;
     height: 45px;
@@ -454,25 +359,19 @@
     cursor: pointer;
     transition: 0.2s ease-in;
 }
-
 .close_ssh_filing:hover {
     transform: scale(1.1);
 }
-
 .close_ssh_filing_active {
     background-color: #2CA631;
 }
-
 .close_ssh_filing svg {
     width: 30px;
     fill: #F3F3F3;
 }
-
 #close_ssh_filing_svg_green {
     display: none;
 }
-
-
 .show_selected_path_section {
     width: 100%;
     height: 60px;
@@ -480,7 +379,6 @@
     align-items: flex-start;
     justify-content: center;
 }
-
 .inner_show_selected_path {
     width: calc(100% - 20px);
     height: 50px;
@@ -492,12 +390,9 @@
     padding-right: 10px;
     background-color: #F3F3F3;
 }
-
 .inner_show_selected_path h3 {
     color: #414141;
 }
-
-
 #back_dir_btn {
     height: 40px;
     width: 100px;
@@ -510,18 +405,13 @@
     transition: 0.2s ease-in;
     cursor: pointer;
 }
-
 #back_dir_btn:hover {
     background-color: #406CEE;
 }
-
 #back_dir_btn svg {
     fill: #F3F3F3;
     width: 30px;
 }
-
-
-
 .view_selected_path {
     width: fit-content;
     min-width: 400px;
@@ -535,14 +425,10 @@
     justify-content: flex-start;
     color: #414141;
 }
-
 .the_selected_path_show {
     margin-left: 5px;
     color: #406CEE;
 }
-
-
-
 .ssh_select_and_move_to_directories {
     width: 100%;
     height: calc(100% - 130px);
@@ -552,8 +438,6 @@
     align-items: flex-start;
     justify-content: space-between;
 }
-
-
 .select_ssh_directory_navigation {
     width: 300px;
     height: calc(100% - 10px);
@@ -566,9 +450,6 @@
     border-radius: 10px;
     background-color: #F3F3F3;
 }
-
-
-
 .the_clickable_and_inner_dir {
     width: 100%;
     height: fit-content;
@@ -577,9 +458,6 @@
     align-items: center;
     justify-content: center;
 }
-
-
-
 .inner_clicked_dir {
     display: none;
     width: 100%;
@@ -587,9 +465,6 @@
     padding-left: 20px;
     padding-top: 10px;
 }
-
-
-
 .drop_inner_dir {
     position: relative;
     width: calc(100% - 10px);
@@ -598,12 +473,9 @@
     border: 1.5px solid #D9D9D9;
     padding-bottom: 5px;
 }
-
 .drop_inner_dir:hover {
     border: 1.5px solid #406CEE;
 }
-
-
 .clickable_folder_is_empty {
     position: absolute;
     display: none;
@@ -614,13 +486,10 @@
     border-radius: 10px;
     background-color: #F3F3F3;
 }
-
 .clickable_folder_is_empty svg {
     width: 15px;
     fill: #414141;
 }
-
-
 @keyframes bounce {
     0%, 100% {
         transform: scale(1);
@@ -629,14 +498,9 @@
         transform: scale(2);
       }
   }
-  
- 
   .clickable_folder_is_empty svg {
     animation: bounce 2s ease-in-out infinite;
   }
-
-
-
 .close_enter_inner_dir_btns {
     width: 100%;
     height: 50px;
@@ -644,8 +508,6 @@
     align-items: center;
     justify-content: space-evenly;
 }
-
-
 .inner_dir_enter,.inner_dir_close {
     width: 45%;
     height: 40px;
@@ -657,27 +519,19 @@
     cursor: pointer;
     transition: 0.2 ease-in;
 }
-
 .inner_dir_enter:hover {
     background-color: #406CEE;
 }
-
 .inner_dir_close:hover {
     background-color: #C53B3B;
 }
-
 .inner_dir_enter span,.inner_dir_close span{
     color: #F3F3F3;
 }
-
 .inner_dir_enter svg,.inner_dir_close svg{
     fill: #F3F3F3;
     width: 24px;
 }
-
-
-
-
 .minor_dir_them_section {
     width: 100%;
     max-height: 200px;
@@ -687,8 +541,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-
-
 .minor_dir {
     width: calc(100% - 10px);
     min-height: 45px;
@@ -702,24 +554,18 @@
     transition: 0.1s ease-in;
     cursor: pointer;
 }
-
 .minor_dir:hover {
     background-color: #D9D9D9;
     fill: #406CEE;
     color: #406CEE;
 }
-
 .minor_dir svg {
     width: 24px;
     margin-right: 10px;
 }
-
 .minor_dir span {
     font-size: 15px;
 }
-
-
-
 .clickable_ssh_directory {
     position: relative;
     width: calc(100% - 10px);
@@ -732,32 +578,24 @@
     transition: 0.1s ease-in;
     cursor: pointer;
 }
-
 .clickable_ssh_directory:hover {
     background-color: #D9D9D9;
 }
-
 .clickable_ssh_directory span {
     font-size: 15px;
     color: #414141;
 }
-
 .clickable_ssh_directory:hover > span {
     color: #406CEE;
 }
-
 .clickable_ssh_directory svg {
     width: 24px;
     fill: #414141;
     margin-right: 10px;
 }
-
 .clickable_ssh_directory:hover > svg {
     fill: #406CEE;
 }
-
-
-
 @keyframes spin1 {
     from {
         transform: rotate(0deg);
@@ -766,8 +604,6 @@
         transform: rotate(360deg);
     }
 }
-
-
 .clickable_dir_spinner {
     display: none;
     position: absolute;
@@ -780,10 +616,6 @@
     border-radius: 50%;
     animation: spin1 0.4s linear infinite;
 }
-
-
-
-
 .check_choosen_directory_section {
     width: calc(100% - 310px);
     height: calc(100% - 10px);
@@ -796,8 +628,6 @@
     padding: 10px;
     background-color: #F3F3F3;
 }
-
-
 .ind_checked_and_choosen_dir {
     width: 200px;
     height: 200px;
@@ -810,23 +640,16 @@
     margin-bottom: 10px;
     cursor: pointer;
 }
-
-
-
 .ind_checked_and_choosen_dir:hover {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
-
 .ind_onchecked_and_choosen_dir {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
-
 .check_dir_section {
     width: 100%;
     height: 30px;
@@ -835,13 +658,9 @@
     justify-content: flex-end;
     padding-right: 5px;
 }
-
 .check_dir_section input {
     visibility: hidden;
 }
-
-
-
 .check_dir {
     width: 20px;
     height: 20px;
@@ -852,23 +671,16 @@
     justify-content: center;
     transition: 0.1s ease-in;
 }
-
-
 .svg_check_containers_hover {
     border: 1.5px solid #f3f3f3;
 }
-
-
 .ind_checked_and_choosen_dir:hover .check_dir_section > .check_dir{
     border: 1.5px solid #F3F3F3;
 }
-
 .svg_check_dir_tick {
     width: 15px;
     visibility: hidden;
 }
-
-
 .check_folder_ic {
     width: 100%;
     height: 100px;
@@ -876,12 +688,9 @@
     align-items: center;
     justify-content: center;
 }
-
 .check_folder_ic svg {
     width: 60px;
 }
-
-
 .checkable_dir_name {
     width: 100%;
     height: 70px;
@@ -889,17 +698,11 @@
     align-items: flex-start;
     justify-content: center;
 }
-
 .checkable_dir_name span {
     width: calc(100% - 30px);
     text-align: center;
     font-size: 14px;
 }
-
-
-
-
-
 .ssh_login_popup {
     width: 100%;
     height: 100%;
@@ -910,8 +713,6 @@
     justify-content: center;
     top: 0;
 }
-
-
 .inner_ssh_login_popup {
     position: relative;
     width: calc(100% - 20px);
@@ -923,9 +724,6 @@
     justify-content: center;
     background-color: rgba(65, 65, 65,0.4);
 }
-
-
-
 .close_ssh_form {
     position: absolute;
     width: 50px;
@@ -942,18 +740,13 @@
     transition: 0.1s ease-in;
     cursor: pointer;
 }
-
 .close_ssh_form:hover {
     background-color: #C53B3B;
     fill: #F3F3F3;
 }
-
 .close_ssh_form svg {
     width: 30px;
 }
-
-
-
 .display_no_ssh_device {
     width: 100%;
     height: 250px;
@@ -966,18 +759,14 @@
     padding-top: 30px;
     padding-bottom: 10px;
 }
-
 .empty-ssh-devs {
     width: 120px;
     height: 120px;
 }
-
 .empty-ssh-devs img {
     width: 100%;
     height: 100%;
 }
-
-
 .read_docs_add_devise{
     width: 100%;
     height: 50px;
@@ -985,7 +774,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .rd_btn {
     width: 180px;
     height: 100%;
@@ -1000,21 +788,13 @@
     cursor: pointer;
     transition: 0.2s ease-in;
 }
-
 .rd_btn svg {
     width: 24px;
     height: 24px;
 }
-
-
 .rd_btn:hover {
     background-color: #406CEE;
 }
-
-
-
-
-
 .ssh_available_devices {
     position: relative;
     width: 600px;
@@ -1025,8 +805,6 @@
     justify-content: flex-start;
     margin-top: 20px;
 }
-
-
 .ssh_available_device {
     width: 100%;
     height: 60px;
@@ -1039,26 +817,19 @@
     cursor: pointer;
     transition: 0.2s ease-in;
 }
-
 .ssh_available_device:hover {
     background-color: white;
     transform: scale(1.1);
 }
-
 .ssh_available_device:hover > .ssh_device_icon_and_details > .ssh_dev_os_icon{
     fill: #406CEE;
 }
-
-
-
 .ssh_device_icon_and_details,.ssh_device_edit_and_connect_both {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-
-
 .ssh_dev_os_icon {
     width: 60px;
     height: 60px;
@@ -1068,13 +839,10 @@
     fill: #414141;
     transition: 0.2s ease-in;
 }
-
 .ssh_dev_os_icon svg {
     width: 50px;
     height: 50px;
 }
-
-
 .loader_ssh_log {
     border: 2px solid #f3f3f3;
     border-radius: 50%;
@@ -1085,20 +853,14 @@
     animation: spin 0.4s linear infinite;
     display: none;
 }
-
-
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
 }
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
-
-
 .ssh_dev_login_detail {
     position: relative;
     height: 50px;
@@ -1112,9 +874,6 @@
     border-bottom-right-radius: 4px;
     border: 1px solid #B5B5B5;
 }
-
-
-
 .ssh_dev_login_detail_icon {
     position: absolute;
     top: 0;
@@ -1130,21 +889,15 @@
     border-bottom-right-radius: 4px;
     background-color: #414141;
 }
-
 .ssh_dev_login_detail_icon svg {
     width: 17px;
     fill: #F3F3F3;
 }
-
-
 .ssh_dev_login_detail span{
     padding: 10px;
     padding-left: 40px;
     color: #414141;
 }
-
-
-
 .ssh_device_edit_and_connect {
     width: 40px;
     height: 40px;
@@ -1156,30 +909,20 @@
     border-radius: 10px;
     transition: 0.2s ease-in;
 }
-
 .ssh_device_edit_and_connect:nth-child(1):hover{
     background-color: #406CEE;
 }
-
 .ssh_device_edit_and_connect:nth-child(2):hover{
     background-color: #2CA631;
 }
-
 .ssh_device_edit_and_connect svg {
     width: 22px;
     fill: #F3F3F3;
 }
-
-
-
-
-
 .create_form {
     width: 700px;
     height: 100%;
 }
-
-
 .heading_and_headDetails {
     width: 100%;
     height: 90px;
@@ -1190,44 +933,33 @@
     padding-top: 20px;
     border-bottom: 1px solid #8F8F8F;
 }
-
 .heading_and_headDetails h3 {
     color: #406CEE;
     margin-bottom: 10px;
     font-size: 19px;
 }
-
 .heading_and_headDetails span {
     color: #8F8F8F;
     font-size: 15px;
 }
-
-
-
 .select_account_add_safe_name {
     width: 100%;
     height: fit-content;
     display: flex;
 }
-
-
-
 .select_account {
     width: fit-content;
     height: fit-content;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
-
 }
-
 .acc-label {
     font-size: 16px;
     font-weight: 500;
     color: #414141;
     margin-bottom: 10px;
 }
-
 .account-select {
     width: fit-content;
     height: 50px;
@@ -1240,28 +972,22 @@
     justify-content: flex-start;
     border: 2px solid #414141;
 }
-
 .account-select svg {
     width: 26px;
     fill: #414141;
     margin-left: 10px;
 }
-
-
 .account-profile {
     width: 40px;
     height: 40px;
     margin-right: 10px;
     object-fit: cover;
 }
-
 .account-profile img {
     min-width: 100%;
     height: 100%;
     border-radius: 10px;
 }
-
-
 .the-separator {
     width: 80px;
     height: max-content;
@@ -1270,17 +996,12 @@
     align-items: center;
     justify-content: center;
 }
-
 .the-separator div {
     width: 2px;
     height: 50px;
     transform: rotate(20deg);
     background-color: #414141;
 }
-
-
-
-
 .safe-name-section {
     width: fit-content;
     height: fit-content;
@@ -1288,7 +1009,6 @@
     display: flex;
     flex-direction: column;
 }
-
 .safe-name-section input {
     width: 300px;
     height: 50px;
@@ -1300,10 +1020,6 @@
     font-size: 17px;
     color: #414141;
 }
-
-
-
-
 .description-section {
     width: 100%;
     height: fit-content;
@@ -1311,36 +1027,25 @@
     padding-bottom: 15px;
     border-bottom: 1px solid #8F8F8F;
 }
-
-
-
 .inspiration {
     display: flex;
     color: #8F8F8F;
     font-size: 15px;
     margin-bottom: 15px;
 }
-
 .inspiration p {
     margin-left: 5px;
     color: green;
 }
-
-
 .Description {
     display: flex;
     color: #414141;
     font-size: 15px;
-
 }
-
 .Description p {
     margin-left: 5px;
     color: #8F8F8F;
 }
-
-
-
 .description-input {
     width: 100%;
     height: 50px;
@@ -1352,9 +1057,6 @@
     color: #414141;
     background-color: #F3F3F3;
 }
-
-
-
 .private-or-public {
     width: 100%;
     height: fit-content;
@@ -1365,8 +1067,6 @@
     padding-bottom: 15px;
     border-bottom: 1px solid #8F8F8F;
 }
-
-
 .private {
     width: 100%;
     height: 70px;
@@ -1375,7 +1075,6 @@
     align-items: flex-start;
     justify-content: center;
 }
-
 .check-and-name {
     width: 100%;
     height: 40px;
@@ -1383,8 +1082,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-
-
 .check-click {
     width: 19px;
     height: 19px;
@@ -1395,7 +1092,6 @@
     border: 1px solid #414141;
     margin-right: 10px;
 }
-
 .check-click div {
     width: 13px;
     height: 13px;
@@ -1403,28 +1099,21 @@
     background-color: #406CEE;
     visibility: hidden;
 }
-
 .private svg {
     width: 18px;
     fill: #414141;
     margin-right: 10px;
 }
-
 .pp-name {
     font-size: 17px;
     font-weight: 500;
     color: #414141;
 }
-
 .elaborate-choice {
     color: #8F8F8F;
     font-size: 15px;
     margin-left: 60px;
 }
-
-
-
-
 .safe-path-section {
     width: 100%;
     height: fit-content;
@@ -1435,10 +1124,7 @@
     align-items: flex-start;
     justify-content: center;
     border-bottom: 1px solid #8F8F8F;
-
 }
-
-
 .selected-path-and-ssh-devices {
     width: 100%;
     height: fit-content;
@@ -1447,7 +1133,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-
 .select-path,.select-path-device {
     width: 100%;
     height: 70px;
@@ -1456,9 +1141,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-
-
-
 .select-path-btn,.select-path-btn-server {
     width: fit-content;
     height: 50px;
@@ -1472,37 +1154,27 @@
     transition: 0.1s ease-in;
     cursor: pointer;
 }
-
 .select-path-btn{
     padding: 20px;
 }
-
 .select-path-btn-server{
     padding-left: 5px;
     padding-right: 20px;
 }
-
 .select-path-btn svg {
     width: 24px;
 }
-
 .select-path-btn-server svg {
     width: 40px;
 }
-
-
-
 .select-path-btn:hover, .select-path-btn-server:hover {
     background-color: #414141;
 }
-
 .select-path-btn span,.select-path-btn-server span {
     font-weight: 500;
     font-size: 17px;
     margin-left: 10px;
 }
-
-
 .path-separation {
     width: 80px;
     height: 100%;
@@ -1510,16 +1182,12 @@
     align-items: center;
     justify-content: center;
 }
-
 .path-separation div {
     width: 2px;
     height: 50px;
     transform: rotate(20deg);
     background-color: #414141;
 }
-
-
-
 .path-pasted {
     width: 400px;
     height: 50px;
@@ -1533,40 +1201,30 @@
     background-color: #F3F3F3;
     border: 2px solid #414141;
 }
-
 .path-pasted span {
     white-space: nowrap;
 }
-
 .path-pasted::-webkit-scrollbar {
     width: 5px;
     height: 8px;
 }
-
 .path-pasted::-webkit-scrollbar-track {
     background: #ACACAC;
 }
-
 .path-pasted::-webkit-scrollbar-thumb {
     background-color: #406CEE;
     border-radius: 2px;
 }
-
-
 #selected-path {
     color: #414141;
     font-size: 17px;
 }
-
 .path-details {
     display: flex;
     color: #8F8F8F;
     font-size: 15px;
     margin-top: 10px;
 }
-
-
-
 .new-safe-privacy {
     width: 100%;
     height: fit-content;
@@ -1577,31 +1235,22 @@
     padding-top: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid #8F8F8F;
-
 }
-
 .new-safe-privacy span {
     color: #8F8F8F;
     font-size: 15px;
-
 }
-
 .new-safe-privacy svg {
     width: 24px;
     margin-right: 5px;
     fill: #8F8F8F;
 }
-
-
-
-
 .create-safe-section {
     width: 100%;
     height: fit-content;
     padding-top: 20px;
     padding-bottom: 20px;
 }
-
 .create-safe-btn {
     width: fit-content;
     height: 50px;
@@ -1615,687 +1264,444 @@
     font-size: 17px;
     font-weight: 500;
 }
-
 .create-safe-btn svg {
     width: 30px;
     fill: #F3F3F3;
     margin-left: 10px;
 }
-
-
-
-
-
-
-
-
-
 @media screen and (max-width: 1100px) {
-
-   
-
     .ssh_path_indicate {
         width: 50%;
     }
-
     .ssh_search_and_file_layout {
         width: 50%;
     }
-
     .ssh_folder_layout {
         display: none;
     }
-    
     .ssh_folder_search {
         width: 100%;
     }
-    
 }
-
-
 @media screen and (max-width: 950px) {
-    
-   
-
     .ssh_search_and_file_layout {
         display: none;
     }
-
     .ssh_path_indicate {
         width: 100%;
     }
-
 }
-
-
 @media screen and (max-width: 720px) {
-    
-   
     .ssh_file_system {
         display: none;
     }
-
-   
     .error_ssh_small_device {
         display: flex;
     }
-
 }
-
-
 @media screen and (max-width: 610px) {
-
-   
-
-   
     #pop_error_auth_ssh {
         width: calc(100% - 60px);
     }
-
     .ssh_available_device {
         width: calc(100% - 60px);
     }
-
     .display_no_ssh_device {
         width: calc(100% - 60px);
     }
-
-   
     .ssh_available_device:hover {
         transform: scale(1);
     }
-    
-   
-
     .create_form {
         width: 100%;
     }
-
-   
     .heading_and_headDetails {
         width: calc(100% - 20px);
         margin-left: 10px;
         margin-right: 10px;
         padding-left: 10px;
     }
-
-   
     .select_account_add_safe_name {
         width: calc(100% - 20px);
         margin-left: 10px;
         margin-right: 10px;
         padding-left: 10px;
     }
-
     .account-select {
         height: 45px;
         border-radius: 6px;
     }
-
     .account-profile {
         width: 35px;
         height: 35px;
     }
-
     .account-profile img {
         border-radius: 6px;
     }
-
-   
     .the-separator {
         width: 50px;
     }
-
-   
     .safe-name-section input {
         height: 45px;
         border-radius: 6px;
     }
-
-   
-
     .description-section {
         width: calc(100% - 20px);
         margin-left: 10px;
     }
-
     .inspiration {
         flex-direction: column;
         padding-left: 10px;
     }
-
     .inspiration p {
         margin-left: 0px;
         margin-top: 5px;
     }
-
     .Description {
         padding-left: 10px;
     }
-
-   
     .description-input {
         width: calc(100% - 20px);
         margin-left: 10px;
         height: 45px;
         border-radius: 6px;
     }
-
-   
     .private-or-public {
         width: calc(100% - 20px);
         margin-left: 10px;
     }
-
     .private {
         padding-left: 10px;
     }
-
-   
     .safe-path-section {
         width: calc(100% - 20px);
         margin-left: 10px;
     }
-
     .select-path {
         padding-left: 10px;
     }
-
     .path-details {
         padding-left: 10px;
     }
-
-   
     .new-safe-privacy {
         width: calc(100% - 20px);
         margin-left: 10px;
         padding-left: 10px;
     }
-
-   
     .create-safe-section {
         width: calc(100% - 20px);
         margin-left: 10px;
         padding-left: 10px;
     }
-
 }
-
-
 @media only screen and (max-width: 550px) {
-
-   
-
-   
     #pop_error_auth_ssh {
         width: calc(100% - 120px);
     }
-
     #pop_error_auth_ssh_message {
         font-size: 14px;
     }
-
-   
-
     .ssh_available_device {
         width: calc(100% - 120px);
         height: 50px;
     }
-
     .ssh_dev_login_detail {
         height: 40px;
     }
-
     .ssh_dev_os_icon {
         width: 40px;
         margin-right: 10px;
         margin-left: 5px;
     }
-
     .ssh_dev_login_detail_icon {
         width: 25px;
         height: 25px;
     }
-
     .ssh_dev_login_detail_icon svg {
         width: 12px;
     }
-
     .ssh_dev_login_detail span {
         padding-left: 30px;
     }
-
     .ssh_device_edit_and_connect {
         width: 35px;
         height: 35px;
         margin-right: 5px;
     }
-
     .ssh_device_edit_and_connect svg {
         width: 19px;
     }
-
-   
     .display_no_ssh_device {
         width: calc(100% - 120px);
     }
-
-   
-
     .select_account_add_safe_name {
         flex-direction: column;
     }
-
-   
     .select_account {
         width: 100%;
     }
-
     .account-select {
         width: calc(100% - 10px);
     }
-
     .account-select svg {
         margin-left: calc(100% - 160px);
         min-width: 23px;
     }
-
     .the-separator {
         display: none;
     }
-
-   
     .safe-name-section {
         width: 100%;
     }
-
     .safe-name-section input {
         width: calc(100% - 10px);
     }
-
-
-   
     .check-click {
         width: 17px;
         height: 17px;
     }
-
     .check-click div {
         width: 10px;
         height: 10px;
     }
-
     .private svg {
         width: 16px;
     }
-
     .pp-name {
         font-size: 16px;
     }
-
     .elaborate-choice {
         font-size: 14px;
     }
-
-   
     .select-path-btn {
         height: 45px;
         border-radius: 6px;
     }
-
     .select-path-btn svg {
         width: 20px;
     }    
-    
     .select-path-btn span {
         font-size: 15px;
     }
-
     .path-details {
         font-size: 14px;
     }
-
-   
     .new-safe-privacy svg {
         width: 20px;
     }
-
     .new-safe-privacy span {
         font-size: 14px;
     }
-
-   
     .create-safe-btn {
         height: 45px;
         border-radius: 6px;
         font-size: 15px;
     }
-
     .create-safe-btn svg {
         width: 25px;
     }
-
 }
-
-
 @media screen and (max-width: 500px) {
-    
-   
-
-   
     #pop_error_auth_ssh {
         width: calc(100% - 230px);
     }
-
     #pop_error_auth_ssh_message {
         font-size: 14px;
     }
-
     .sign_pop_outer {
         width: 30px;
         height: 30px;
     }
-
     .sign_pop_inner {
         width: 18px;
         height: 18px;
     }
-
     .sign_pop_inner svg {
         width: 12px;
     }
-
     .pop_close {
         width: 30px;
         height: 30px;
     }
-
     .pop_close svg {
         width: 22px;
     }
-
-   
-
     .ssh_available_device {
         width: calc(100% - 230px);
     }
-
     .ssh_dev_login_detail:nth-child(2) {
         display: none;
     }
-
-   
     .display_no_ssh_device {
         width: calc(100% - 230px);
         height: 200px;
     }
-
     .empty-ssh-devs {
         width: 90px;
         height: 90px;
     }
-
     .rd_btn {
         width: 150px;
         height: 40px;
         border-radius: 6px;
         font-size: 14px;
     }
-
     .rd_btn svg {
         width: 20px;
         height: 20px;
     }
-
-   
-
-   
     .heading_and_headDetails h3 {
         font-size: 17px;
     }
-
-
-   
-
     .acc-label {
         font-size: 15px;
     }
-
     .inspiration, .Description {
         font-size: 14px;
     }
-
-   
     .check-click {
         border-radius: 5px;
         width: 15px;
         height: 15px;
     }
-
     .private svg {
         width: 15px;
     }
-
     .pp-name {
         font-size: 15px;
     }
-
-
 }
-
-
 @media screen and (max-width: 400px) {
-
-   
-
-   
     #pop_error_auth_ssh {
         width: calc(100% - 260px);
     }
-
     .ssh_available_device {
         width: calc(100% - 260px);
     }
-
     .display_no_ssh_device {
         width: calc(100% - 260px);
     }
-
-   
     .heading_and_headDetails h3 {
         font-size: 15px;
     }
-    
 }
-
-
 @media screen and (max-width: 370px) {
-
-   
-
-   
     #pop_error_auth_ssh {
         width: calc(100% - 300px);
     }
-
     #pop_error_auth_ssh_message {
         font-size: 13px;
     }
-
-   
-
     .ssh_available_device {
         width: calc(100% - 300px);
     }
-
     .display_no_ssh_device {
         width: calc(100% - 300px);
     }
-
     .ssh_dev_login_detail span {
         font-size: 14px;
     }
-
-   
     .heading_and_headDetails h3 {
         font-size: 14px;
     }
-
-   
     .rd_btn {
         font-size: 12px;
     }
-
     .rd_btn svg {
         width: 18px;
         height: 18px;
     }
-
-   
     .elaborate-choice, .inspiration, .path-details, .new-safe-privacy span {
         font-size: 13px;
     }
-
 }
-
-
 @media screen and (max-width: 330px) {
-
-   
-
-   
     .error_small_device_message {
         height: 70px;
         font-size: 20px;
     }
-
-   
     #pop_error_auth_ssh {
         width: calc(100% - 330px);
     }
-
     #pop_error_auth_ssh_message {
         font-size: 13px;
     }
-
-
-   
-
     .ssh_available_device {
         width: calc(100% - 330px);
         height: 40px;
     }
-
     .ssh_dev_os_icon svg {
         width: 30px;
         height: 30px;
     }
-
     .ssh_dev_login_detail_icon {
         display: none;
     }
-
     .ssh_dev_login_detail span {
         font-size: 13px;
         white-space: nowrap;
         padding-left: 10px;
-
     }
-
     .ssh_device_edit_and_connect {
         width: 30px;
         height: 30px;
     }
-
     .ssh_device_edit_and_connect svg {
         width: 14px;
     }
-
     .ssh_dev_login_detail {
         height: 30px;
     }
-    
-
     .display_no_ssh_device {
         width: calc(100% - 330px);
     }
-
-   
     .heading_and_headDetails h3 {
         font-size: 14px;
     }
-
-   
     .rd_btn {
         font-size: 11px;
     }
-
     .rd_btn svg {
         width: 16px;
         height: 16px;
     }
-
-   
     .elaborate-choice, .inspiration, .path-details, .new-safe-privacy span {
         font-size: 13px;
     }
-
 }
-
-
 @media screen and (max-width: 300px) {
-
-   
-
-   
     .error_small_device_message {
         height: 70px;
         font-size: 18px;
     }
-
-   
     #pop_error_auth_ssh {
         width: calc(100% - 340px);
     }
-
     #pop_error_auth_ssh_message {
         font-size: 13px;
         font-weight: 400;
     }
-
-   
-
     .ssh_available_device {
         width: calc(100% - 340px);
     }
-
     .display_no_ssh_device {
         width: calc(100% - 340px);
     }
-
-   
     .heading_and_headDetails h3 {
         font-size: 13px;
     }
-
     .heading_and_headDetails span {
         color: #8F8F8F;
         font-size: 12px;
     }
-
-   
     .rd_btn {
         font-size: 10px;
     }
-
     .rd_btn svg {
         width: 14px;
         height: 14px;
     }
-
-   
     .elaborate-choice, .inspiration, .path-details, .new-safe-privacy span {
         font-size: 12px;
     }
-
 }

@@ -1,9 +1,6 @@
-
 .editor_body {
     position: relative;
 }
-
-
 .device_too_small {
     width: 100%;
     height: 100Vh;
@@ -12,7 +9,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .inner_too_small {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
@@ -23,9 +19,6 @@
     justify-content: center;
     flex-direction: column;
 }
-
-
-
 .message_popup {
     font-family: 'Roboto', sans-serif;
     position: absolute;
@@ -41,13 +34,11 @@
     color: #414141;
     z-index: 4;
 }
-
 .message_popup span {
     font-size: 17px;
     font-weight: 400;
     margin-left: 10px;
 }
-
 .message_pop_icon {
     min-width: 40px;
     height: 40px;
@@ -56,33 +47,24 @@
     align-items: center;
     justify-content: center;
 }
-
 .message_pop_icon svg {
     width: 20px;
     fill: #F3F3F3;
 } 
-
-
 #message_popup_success {
     background-color: #CFE8D3;
     border: 1px solid #2CA631;
 }
-
 #message_popup_success .message_pop_icon {
     background-color: #2CA631;
 }
-
-
 #message_popup_failed {
     background-color: #FAEEEB;
     border: 1px solid #C53B3B;
 }
-
 #message_popup_failed .message_pop_icon {
     background-color: #C53B3B;
 }
-
-
 .demo_intro_body {
     font-family: 'Roboto', sans-serif;
     width: 100%;
@@ -94,8 +76,6 @@
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.2);
 }
-
-
 .demo_intro {
     width: 800px;
     height: max-content;
@@ -109,15 +89,11 @@
     margin-top: 300px;
     margin-bottom: 30px;
 }
-
-
 .demo_intro_data {
     width: 700px;
     height: 100%;
     padding-top: 30px;
 }
-
-
 .close_intro {
     width: 100%;
     height: 60px;
@@ -125,7 +101,6 @@
     align-items: center;
     justify-content: flex-end;
 }
-
 .close_intro_btn {
     width: 40px;
     height: 40px;
@@ -138,17 +113,13 @@
     background-color: #414141;
     transition: 0.2s ease-in-out;
 }
-
 .close_intro_btn:hover {
     background-color: #C53B3B;
 }
-
 .close_intro_btn svg {
     width: 30px;
     fill: #F3F3F3;
 }
-
-
 .demo_welcome_mess {
     width: 100%;
     height: 50px;
@@ -158,30 +129,23 @@
     align-items: center;
     justify-content: flex-start;
 }
-
 .demo_welcome_mess p {
     color: #414141;
 }
-
 .demo_welcome_mess span {
     color: #406CEE;
     margin: 6px;
 }
-
-
 .demo_confetti {
     margin-left: 10px;
     width: 40px;
     height: 40px;
     object-fit: cover;
 }
-
 .demo_confetti img {
     width: 100%;
     height: 100%;
 }
-
-
 .demo_more_mess {
     width: 100%;
     height: 60px;
@@ -191,8 +155,6 @@
     justify-content: flex-start;
     color: #414141;
 }
-
-
 .demo_features,.demo_need {
     width: 100%;
     height: 50px;
@@ -200,26 +162,21 @@
     align-items: center;
     justify-content: flex-start;
 }
-
 .demo_features span,.demo_need span {
     font-size: 18px;
     font-weight: 600;
     color: #414141;
 }
-
 .demo_feature_img,.demo_need_img {
     margin-left: 10px;
     width: 30px;
     height: 30px;
     object-fit: cover;
 }   
-
 .demo_feature_img img,.demo_need_img img {
     width: 100%;
     height: 100%;
 }
-
-
 .demo_list {
     width: 100%;
     height: 110px;
@@ -229,7 +186,6 @@
     justify-content: space-between;
     padding-left: 20px;
 }
-
 .demo_list_item {
     width: 100%;
     height: max-content;
@@ -238,11 +194,9 @@
     justify-content: flex-start;
     color: #414141;
 }
-
 .demo_list_item p {
     width: 90%;
 }
-
 .demo_list_item_dot {
     min-width: 10px;
     min-height: 10px;
@@ -251,8 +205,6 @@
     margin-right: 10px;
     background-color: #406CEE;
 }
-
-
 .demo_thanks {
     width: 100%;
     height: 60px;
@@ -263,8 +215,6 @@
     font-size: 17px;
     font-weight: 500;
 }
-
-
 .proceed_to_demo_sec {
     width: 100%;
     height: 60px;
@@ -274,7 +224,6 @@
     font-size: 17px;
     font-weight: 500;
 }
-
 .proceed_to_demo_btn {
     width: 260px;
     height: 50px;
@@ -288,20 +237,15 @@
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
 .proceed_to_demo_btn:hover {
     background-color: #406CEE;
 }
-
 .proceed_to_demo_btn svg {
     width: 35px;
 }
-
-
 .skeleton_animation {
     animation: skeleton 1s linear infinite alternate;
 }
-
 @keyframes skeleton {
     0% {
         background-color: #F3F3F3;
@@ -310,49 +254,40 @@
         background-color: #D9D9D9;
     }
 }
-
 .skele_id {
     width: 100px;
     height: 35px;
     border-radius: 5px;
 }
-
 .skele_title {
     width: 300px;
     height: 35px;
     border-radius: 5px;
 }
-
 .skeleton_user_image {
     width: 45px;
     height: 45px;
     margin-right: 10px;
     border-radius: 10px;
 }
-
 .skeleton_user_name {
     width: 150px;
     height: 35px;
     border-radius: 5px;
 }
-
 .skele_date {
     width: 120px;
     height: 35px;
     border-radius: 5px;
 }
-
 .skele_access_edit_btn {
     width: 35px;
     height: 35px;
     border-radius: 7px;
 }
-
 .skele_access_edit_btn:nth-child(1){
     margin-right: 10px;
 }
-
-
 .see_all_bugs_section {
     font-family: 'Roboto', sans-serif;
     width: 100%;
@@ -364,7 +299,6 @@
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.2);
 }
-
 .all_bugs_section {
     width: calc(100% - 40px);
     height: calc(100vh - 40px);
@@ -375,8 +309,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
 .details_close_bug_view {
     width: 100%;
     height: 60px;
@@ -385,14 +317,11 @@
     align-items: center;
     justify-content: space-between;
 }
-
 .view_status_and_filter {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
-
 .view_status_section {
     height: 40px;
     width: max-content;
@@ -404,28 +333,22 @@
     background-color: #D9D9D9;
     border-radius: 10px;
 }
-
 .view_status_pending {
     color: #C53B3B;
     fill: #C53B3B;
 }
-
 .view_status_fixed {
     color: #2CA631;
     fill: #2CA631;
 }
-
 .view_status_section svg {
     width: 26px;
 }
-
 .view_status_section p {
     font-size: 17px;
     font-weight: 500;
     margin: 15px;
 }
-
-
 .view_status_count {
     width: max-content;
     min-width: 35px;
@@ -438,13 +361,10 @@
     justify-content: center;
     color: #F3F3F3;
 }
-
 .view_status_count span {
     font-weight: 500;
     font-size: 16px;
 }
-
-
 .filter_bugs_from_status {
     position: relative;
     margin-left: 10px;
@@ -454,7 +374,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .filter_bugs_from_status_contain {
     height: 100%;
     width: 100%;
@@ -468,23 +387,18 @@
     transition: 0.2s ease-in-out;
     cursor: pointer
 }
-
 .filter_bugs_from_status_contain:hover {
     background-color: #406CEE;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
 .filter_bugs_from_status_contain span {
     font-size: 17px;
     font-weight: 500;
 }
-
 .filter_bugs_from_status_contain svg {
     width: 20px;
 }
-
-
 .filter_selection_section {
     position: absolute;
     width: 130px;
@@ -499,7 +413,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .select_any_filter {
     width: 120px;
     height: 40px;
@@ -515,26 +428,20 @@
     transition: 0.2s ease-in-out;
     cursor: pointer
 }
-
 .select_any_filter:hover {
     background-color: #406CEE;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
 .select_any_filter svg {
     width: 20px;
     margin-right: 10px;
 }
-
-
 .filter_bugs_theme {
     background-color: #406CEE;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
-
 .close_bug_view {
     width: 40px;
     height: 40px;
@@ -546,17 +453,13 @@
     background-color: #414141;
     transition: 0.2s ease-in-out;
 }
-
 .close_bug_view:hover {
     background-color: #C53B3B;
 }
-
 .close_bug_view svg {
     width: 30px;
     fill: #F3F3F3;
 }
-
-
 .view_bugs_table {
     width: 100%;
     height: calc(100% - 60px);
@@ -566,8 +469,6 @@
     justify-content: center;
     overflow-y: auto;
 }
-
-
 .when_bug_table_is_empty {
     width: 100%;
     height: calc(100% - 60px);
@@ -575,44 +476,34 @@
     align-items: center;
     justify-content: center;
 }
-
 .when_bug_table_is_empty svg {
     width: 700px;
 }
-
 table {
     width: calc(100% - 20px);
     border-collapse: collapse;
 }
-
 td, th {
     text-align: start;
     padding: 8px;
 }
-
 th {
     color: #414141;
     border-bottom: 1px solid #8F8F8F;
 }
-
 tr {
     transition: 0.2s ease-in-out;
     cursor: pointer;
 }
-
 tr:hover {
     color: #406CEE;
     background-color: #F3F3F3;
 }
-
-
 .bug_owner_image_name,.access_edit_bug_details {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-
-
 .bug_owner_image,.bug_owner_noimage,.bug_owner_admin {
     width: 45px;
     height: 45px;
@@ -620,8 +511,6 @@ tr:hover {
     border-radius: 10px;
     background-color: #414141;
 }
-
-
 .bug_owner_noimage,.bug_owner_admin {
     display: flex;
     align-items: center;
@@ -631,31 +520,24 @@ tr:hover {
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
 .bug_owner_noimage:hover,.bug_owner_admin:hover {
     background-color: #406CEE;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
 .bug_owner_noimage span {
     font-size: 17px;
     font-weight: 500;
 }
-
 .bug_owner_admin svg {
     width: 25px;
 }
-
 .bug_owner_image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
-
-
-
 .access_edit_btn {
     width: 35px;
     height: 35px;
@@ -668,24 +550,17 @@ tr:hover {
     transition: 0.2s ease-in-out;
     cursor: pointer;
 }
-
 .access_edit_btn:nth-child(1){
     margin-right: 10px;
 }
-
 .access_edit_btn:hover {
     background-color: #406CEE;
     fill: #D9D9D9;
 }
-
 .access_edit_btn svg {
     width: 20px;
     pointer-events: none;
 }
-
-
-
-
 .see_one_bug_section {
     font-family: 'Roboto', sans-serif;
     width: 100%;
@@ -697,7 +572,6 @@ tr:hover {
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.2);
 }
-
 .one_bug_section {
     width: 800px;
     height: calc(100vh - 40px);
@@ -708,7 +582,6 @@ tr:hover {
     justify-content: space-between;
     background-color: white;
 }
-
 .one_details_and_close {
     width: 100%;
     height: 60px;
@@ -717,14 +590,11 @@ tr:hover {
     justify-content: space-between;
     padding: 10px;
 }
-
-
 .one_details_user {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .one_detail_id {
     height: 40px;
     width: max-content;
@@ -737,12 +607,10 @@ tr:hover {
     background-color: #414141;
     color: #F3F3F3;
 }
-
 .one_detail_id span {
     font-size: 16px;
     font-weight: 500;
 }
-
 .one_detail_status {
     height: 40px;
     width: max-content;
@@ -755,27 +623,22 @@ tr:hover {
     background-color: #D9D9D9;
     border-radius: 10px;
 }
-
 .one_detail_status_pending {
     color: #C53B3B;
     fill: #C53B3B;
 }
-
 .one_detail_status_fixed {
     color: #2CA631;
     fill: #2CA631;
 }
-
 .one_detail_status span {
     font-size: 17px;
     font-weight: 500;
     margin-left: 10px;
 }
-
 .one_detail_status svg {
     width: 26px;
 }
-
 .one_detail_userimage,.one_detail_user_noimage,.one_detail_admin {
     width: 40px;
     height: 40px;
@@ -790,41 +653,32 @@ tr:hover {
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
-
 .one_detail_userimage img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
-
 .one_detail_user_noimage,.one_detail_admin,.one_detail_userimage {
     display: none;
 }
-
 .one_detail_user_noimage:hover,.one_detail_admin:hover {
     background-color: #406CEE;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
 .one_detail_user_noimage span {
     font-size: 17px;
     font-weight: 500;
 }
-
 .one_detail_admin svg {
     width: 25px;
 }
-
 .one_detail_date {
     font-size: 16px;
     font-weight: 500;
     color: #414141;
 }
-
-
 .one_details_close {
     width: 40px;
     height: 40px;
@@ -836,17 +690,13 @@ tr:hover {
     background-color: #414141;
     transition: 0.2s ease-in-out;
 }
-
 .one_details_close:hover {
     background-color: #C53B3B;
 }
-
 .one_details_close svg {
     width: 30px;
     fill: #F3F3F3;
 }
-
-
 .the_bug_self_section {
     width: 100%;
     height: calc(100% - 60px);
@@ -855,7 +705,6 @@ tr:hover {
     align-items: center;
     justify-content: space-between;
 }
-
 .bug_title_detail {
     width: calc(100% - 20px);
     height: 50px;
@@ -867,26 +716,22 @@ tr:hover {
     align-items: center;
     justify-content: flex-start;
 }
-
 .bug_title_detail p {
     font-size: 17px;
     font-weight: 500;
 }
-
 .bug_screenshot {
     width: calc(100% - 20px);
     height: 340px;
     border-radius: 10px;
     border: 1px solid #B5B5B5;
 }
-
 .bug_screenshot img {
     width: 100%;
     height: 100%;
     object-fit: scale-down;
     border-radius: 10px;
 }
-
 .bug_body_details {
     width: calc(100% - 20px);
     height: 340px;
@@ -896,7 +741,6 @@ tr:hover {
     color: #414141;
     overflow-y: auto;
 }
-
 .bug_editor {
     position: relative;
     width: 100px;
@@ -907,7 +751,6 @@ tr:hover {
     align-items: center;
     justify-content: center;
 }
-
 .bug_edit_btn {
     width: 100%;
     height: 100%;
@@ -921,22 +764,18 @@ tr:hover {
     cursor: pointer;
     transition: 0.2s ease-in-out
 }
-
 .bug_edit_btn:hover {
     background-color: #406CEE;
     color: #D9D9D9;
     fill: #D9D9D9
 }
-
 .bug_edit_btn span {
     font-size: 17px;
     font-weight: 500;
 }
-
 .bug_edit_btn svg {
     width: 27px;
 }
-
 .bug_editor_lock {
     position: absolute;
     top: 0;
@@ -949,15 +788,10 @@ tr:hover {
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.2);
 }
-
 .bug_editor_lock svg {
     width: 25px;
     fill: #F3F3F3;
 }
-
-
-
-
 .demo_navigation {
     font-family: 'Roboto', sans-serif;
     width: 700px;
@@ -969,24 +803,18 @@ tr:hover {
     justify-content: space-between;
     background-color: white;
 }
-
-
 .demo_lang_img {
     width: 45px;
     height: 45px;
     object-fit: cover;
 }
-
 .demo_lang_img img {
     width: 100%;
     height: 100%;
 }
-
-
 .bug_menu {
     display: flex;
 }
-
 .bug_min_menu {
     width: max-content;
     height: 45px;
@@ -1002,19 +830,16 @@ tr:hover {
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
 .bug_min_menu:hover:nth-child(1){
     background-color: #C53B3B;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
 .bug_min_menu:hover:nth-child(2){
     background-color: #197c1d;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
 .bug_nums {
     width: max-content;
     height: 35px;
@@ -1026,24 +851,19 @@ tr:hover {
     align-items: center;
     justify-content: center;
 }
-
 .bug_nums span {
     font-weight: 500;
     margin: 8px;
     color: #D9D9D9;
 }
-
 .bug_min_menu p {
     font-size: 17px;
     font-weight: 500;
     margin-left: 10px;
 }
-
 .bug_min_menu svg {
     width: 24px;
 }
-
-
 .report_bug_btn {
     font-family: 'Roboto', sans-serif;
     height: 50px;
@@ -1059,16 +879,12 @@ tr:hover {
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
 .report_bug_btn:hover {
     background-color: #C53B3B;
 }
-
 .report_bug_btn svg {
     width: 35px;
 }
-
-
 .report_bug_section {
     font-family: 'Roboto', sans-serif;
     width: 100%;
@@ -1080,7 +896,6 @@ tr:hover {
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.2);
 }
-
 .report_form {
     width: 800px;
     height: max-content;
@@ -1091,8 +906,6 @@ tr:hover {
     border-radius: 10px;
     background-color: white;
 }
-
-
 .close_report_bug {
     width: 100%;
     height: 60px;
@@ -1100,8 +913,6 @@ tr:hover {
     align-items: center;
     justify-content: space-between;
 }
-
-
 .bug_id_and_date {
     width: max-content;
     height: 100%;
@@ -1111,13 +922,11 @@ tr:hover {
     margin-left: 10px;
     visibility: hidden;
 }
-
 .bug_id_and_date span {
     font-size: 17px;
     font-weight: 500;
     color: #414141;
 }
-
 .edit_bug_id {
     width: 40px;
     height: 40px;
@@ -1128,17 +937,13 @@ tr:hover {
     align-items: center;
     margin-right: 10px;
 }
-
 .edit_bug_id span {
     color: #F3F3F3;
 }
-
 .report_body {
     width: calc(100% - 20px);
     height: calc(100% - 60px);
 }
-
-
 .bug_title {
     width: 100%;
     height: 60px;
@@ -1146,7 +951,6 @@ tr:hover {
     align-items: center;
     justify-content: center;
 }
-
 .bug_title input {
     width: 100%;
     height: 45px;
@@ -1155,8 +959,6 @@ tr:hover {
     padding-left: 10px;
     font-size: 17px;
 }
-
-
 .bug_shot {
     position: relative;
     width: 100%;
@@ -1167,11 +969,6 @@ tr:hover {
     border-radius: 10px;
     border: 2px solid #414141;
 }
-
-
-
-
-
 .canvas_content {
     width: 100%;
     height: 100%;
@@ -1181,12 +978,9 @@ tr:hover {
     justify-content: center;
     overflow: hidden;
 }
-
-
 .canvas_content img {
     width: 90%;
 }
-
 .retake_screenshot_section {
     position: absolute;
     width: 100%;
@@ -1196,7 +990,6 @@ tr:hover {
     justify-content: center;
     padding-bottom: 20px;
 }
-
 .retake_btn {
     height: 45px;
     width: 140px;
@@ -1211,18 +1004,14 @@ tr:hover {
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
 .retake_btn:hover {
     background-color: #406CEE;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
 .retake_btn svg {
     width: 25px;
 }
-
-
 .write_review {
     width: 100%;
     height: 60px;
@@ -1230,7 +1019,6 @@ tr:hover {
     align-items: center;
     justify-content: flex-start;
 }
-
 .wrr_btn {
     margin-right: 10px;
     width: 110px;
@@ -1246,26 +1034,19 @@ tr:hover {
     cursor: pointer;
     transition: 0.2s ease;
 }
-
 .wrr_btn:hover {
     background-color: #414141;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
 .wrr_btn svg {
     width: 23px;
 }
-
 .wrr_btn_color {
     background-color: #414141;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
-
-
-
 .bodyTextReview {
     width: 100%;
     height: 325px;
@@ -1280,7 +1061,6 @@ tr:hover {
     border: 2px solid #414141;
     color: #414141;
 }
-
 .bodyText {
     width: 100%;
     height: max-content;
@@ -1291,8 +1071,6 @@ tr:hover {
     align-items: center;
     justify-content: space-between;
 }
-
-
 .options {
     width: 98%;
     height: max-content;
@@ -1301,7 +1079,6 @@ tr:hover {
     flex-wrap: wrap;
     align-items: center;
 }
-
 .options button {
     min-width: 40px;
     height: 40px;
@@ -1316,20 +1093,14 @@ tr:hover {
     color: #414141;
     cursor: pointer;
 }
-
 .options svg {
     width: 20px;
 }
-
 .options button:hover {
     color: #406CEE;
     fill: #406CEE;
     border: 2px solid #406CEE;
 }
-
-
-
-
 .richEdit {
     width: 98%;
     height: 250px;
@@ -1341,36 +1112,27 @@ tr:hover {
     color: #414141;
     overflow-x: auto;
 }
-
 .richEdit h1,#BodyFill h1 {
     font-size: 29px !important ;
     font-weight: 800;
 }
-
 .richEdit h2, #BodyFill h2 {
     font-size: 24px !important ;
     font-weight: 700;
 }
-
 .richEdit h3,#BodyFill h3 {
     font-size: 22px !important ;
     font-weight: 600;
 }
-
-
 .richEdit u,#BodyFill u{
     text-decoration: underline;
 }
-
 .richEdit strike,#BodyFill strike {
     text-decoration: line-through;
 }
-
 .richEdit ul,#BodyFill ul {
     list-style: circle outside;
 }
-
-
 .report_discard_section {
     width: 100%;
     height: 60px;
@@ -1378,7 +1140,6 @@ tr:hover {
     align-items: center;
     justify-content: center;
 }
-
 .r_d_btn {
     width: 120px;
     height: 45px;
@@ -1393,25 +1154,19 @@ tr:hover {
     transition: 0.2s ease-in-out;
     cursor: pointer;
 }
-
 .r_d_btn:nth-child(1):hover {
     background-color: #406CEE;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
 .r_d_btn:nth-child(2):hover {
     background-color: #C53B3B;
     color: #D9D9D9;
     fill: #D9D9D9;
 }
-
-
 .r_d_btn svg {
     width: 22px;
 }
-
-
 .report_spinner {
     display: none;
     width: 35px;
@@ -1421,102 +1176,58 @@ tr:hover {
     border-radius: 50%;
     animation: loading 1s ease infinite;
 }
-
 @keyframes loading {
     to {
         transform: rotate(1turn);
     }
 }
-
-
-
-
-
-
 @media screen and (max-height: 800px) {
-
-   
     .demo_intro_body {
         padding-top: 90px;
     }
-
-   
     .report_bug_section {
         padding-top: 120px;
         padding-bottom: 20px;
     }
-
-    
-   
-
     .one_bug_section {
         overflow-y: auto;
     }
-
     .bug_title_detail {
         min-height: 40px;
         margin-bottom: 10px;
     }
-
     .bug_screenshot,.bug_body_details {
         min-height: 280px;
         margin-bottom: 10px;
     }
-
     .bug_editor {
         min-height: 40px;
     }
-    
 }
-
-
 @media screen and (max-height: 600px) {
-
-   
     .demo_intro_body {
         padding-top: 280px;
     }
-
-   
     .report_bug_section {
         padding-top: 310px;
         padding-bottom: 20px;
     }
-
-   
     #the_editor {
         height: 420px;
     }
-
-    
 }
-
-
-
-
-
 @media screen and (max-width: 800px){
-
-   
     .one_bug_section,.report_form,.demo_intro {
         width: 790px;
     }
-
 }
-
-
 @media screen and (max-width: 790px) {
-
-   
     #demo_intro_body,#demo_navigation,#report_bug_section,#report_bug_btn,#the_editor,#see_all_bugs_section,#see_one_bug_section {
         display: none !important;
     }
-    
-   
     .device_too_small {
         display: flex;
     }
-
     #message_popup_failed {
         display: flex;
         width: calc(100% - 20px);

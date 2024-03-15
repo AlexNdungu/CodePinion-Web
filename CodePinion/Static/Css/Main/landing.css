@@ -5,9 +5,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
-
 .hero_word_section {
     position: relative;
     width: 50%;
@@ -17,9 +14,7 @@
     align-items: flex-start;
     justify-content: center;
     padding-left: 40px;
-   
 }
-
 .hero_word_section h1 {
     font-size: 55px;
     font-weight: 700;
@@ -27,7 +22,6 @@
     width: 80%;
     z-index: 1;
 }
-
 .hero_word_section p {
     font-size: 19px;
     color: #414141;
@@ -36,8 +30,6 @@
     width: 90%;
     z-index: 1;
 }
-
-
 .hero_cta_btn {
     width: max-content;
     height: 40px;
@@ -54,48 +46,39 @@
     transition: 0.2s ease-in-out;
     z-index: 1;
 }
-
 .hero_cta_btn svg {
     width: 26px;
     margin-left: 15px;
 }
-
 .hero_cta_btn:hover {
     transform: scale(1.05);
 }
-
-
 .ai_img,.coding_img,.merge_img {
     position: absolute;
 }
-
 .ai_img img,.coding_img img,.merge_img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .ai_img {
     width: 180px;
     height: 180px;
     bottom: 50px;
     left: 40px;
 }
-
 .coding_img {
     width: 180px;
     height: 180px;
     top: 60px;
     left: 40px;
 }
-
 .merge_img {
     width: 100px;
     height: 100px;
     top: 100px;
     right: 35%;
 }
-
 .extra_images_mobile {
     width: 100%;
     height: 150px;
@@ -104,7 +87,6 @@
     justify-content: center;
     margin-top: 30px;
 }
-
 .extra_image_mobile {
     width: 150px;
     height: 150px;
@@ -118,15 +100,11 @@
     margin-right: 20px;
     margin-left: 20px;
 }
-
 .extra_image_mobile img {
     width: 70%;
     height: 70%;
     object-fit: cover;
 }
-
-
-
 .hero_animation_section {
     width: 50%;
     height: 100%;
@@ -134,12 +112,7 @@
     align-items: center;
     justify-content: center;
     padding-right: 40px;
-   
 }
-
-
-
-
 .discover_section {
     width: 100%;
     height: 200px;
@@ -149,13 +122,11 @@
     align-items: center;
     justify-content: space-between;
 }
-
 .discover_section h2 {
     font-size: 23px;
     font-weight: 600;
     color: #414141;
 }
-
 .discover_features {
     width: 100%;
     height: 120px;
@@ -163,7 +134,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .discovered_feature {
     width: 250px;
     height: 110px;
@@ -181,41 +151,32 @@
     padding-bottom: 15px;
     transition: 0.2s ease-in-out;
 }
-
 .discovered_feature:hover {
     border: 1px solid #406CEE;
     fill: #406CEE;
     color: #406CEE;
 }
-
 .discovered_feature:nth-child(2) {
     margin-left: 20px;
     margin-right: 10px;
 }
-
 .discovered_feature:nth-child(3) {
     margin-left: 10px;
     margin-right: 20px;
 }
-
 .discovered_feature span {
     font-size: 18px;
     font-weight: 500;
 }
-
 .discovered_feature svg {
     width: 34px;
 }
-
-
-
 .version_control_section {
     margin-top: 50px;
     width: 100%;
     height: max-content;
     overflow: hidden;
 }
-
 .vc_heading {
     width: 100%;
     height: 50px;
@@ -224,19 +185,16 @@
     align-items: center;
     justify-content: flex-start;
 }
-
 .vc_heading svg {
     width: 25px;
     margin-right: 20px;
     fill: #414141;
 }
-
 .vc_heading h2 {
     font-size: 20px;
     font-weight: 600;
     color: #414141;
 }
-
 .vc_details {
     width: 100%;
     height: 70px;
@@ -248,7 +206,6 @@
     font-size: 17px;
     font-weight: 500;
 }
-
 .vc_images {
     width: 100%;
     height: max-content;
@@ -256,21 +213,17 @@
     align-items: center;
     justify-content: center;
 }
-
 .vc_actual_main_image {
     position: relative;
     width: calc(100% - 350px);
     height: max-content;
-   
     border-radius: 10px;
 }
-
 .vc_actual_main_image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .vc_actual_secondary_image {
     position: absolute;
     bottom: -60px;
@@ -279,7 +232,6 @@
     height: max-content;
     border-radius: 10px;
 }
-
 .vc_actual_secondary_2_image {
     position: absolute;
     bottom: 60px;
@@ -288,7 +240,6 @@
     height: max-content;
     border-radius: 10px;
 }
-
 .vc_btn_section {
     width: 100%;
     height: 60px;
@@ -296,8 +247,6 @@
     display: flex;
     align-items: center;
 }
-
-
 .vc_action_btn {
     width: max-content;
     height: 40px;
@@ -314,18 +263,13 @@
     transition: 0.2s ease-in-out;
     z-index: 1;
 }
-
 .vc_action_btn svg {
     width: 26px;
     margin-left: 15px;
 }
-
 .vc_action_btn:hover {
     transform: scale(1.05);
 }
-
-
-
 .welcome_aboard_section {
     width: 100%;
     height: 500px;
@@ -335,16 +279,10 @@
     margin-top: 110px;
     background-color: #D3DBFF;
 }
-
-
 .welcome_aboard_animation {
     width: 500px;
     height: 100%;
 }
-
-
-
-
 .welcome_aboard_words {
     width: 50%;
     height: 100%;
@@ -353,7 +291,6 @@
     align-items: flex-start;
     justify-content: center;
 }
-
 .aboard_list_item {
     width: 100%;
     height: max-content;
@@ -361,7 +298,6 @@
     align-items: flex-start;
     justify-content: space-between;
 }
-
 .blue_ab_dot {
     min-width: 12px;
     height: 12px;
@@ -370,7 +306,6 @@
     margin: 15px;
     margin-top: 15px;
 }
-
 .aboard_list_item p {
     font-size: 17px;
     font-weight: 500;
@@ -378,8 +313,6 @@
     padding-bottom: 15px;
     color: #414141;
 }
-
-
 .aboard_action_section {
     width: 100%;
     height: 60px;
@@ -388,7 +321,6 @@
     justify-content: flex-start;
     padding-left: 45px;
 }
-
 .end_hero {
     width: max-content;
     height: 40px;
@@ -405,881 +337,613 @@
     transition: 0.2s ease-in-out;
     z-index: 1;
 }
-
 .end_hero svg {
     width: 26px;
     margin-left: 15px;
 }
-
 .end_hero:hover {
     transform: scale(1.05);
 }
-
-
-
-
-
 .heading_text_hidden {
     opacity: 0;
     transition: 0.4s ease-in-out;
     transform: translateX(-100px)
 }
-
 .heading_text_show {
     opacity: 1;
     transform: translateX(0px);
 }
-
-
 .discovered_feature_hidden {
     opacity: 0;
     transition: 0.4s ease-in-out;
     transform: translateX(-100px)
 }
-
 .discovered_feature_show {
     opacity: 1;
     transform: translateX(0px);
 }
-
 .discovered_feature:nth-child(2),.extra_image_mobile:nth-child(2),.merge_img {
     transition-delay: 200ms;
 }
-
 .discovered_feature:nth-child(3),.extra_image_mobile:nth-child(3),.ai_img {
     transition-delay: 400ms;
 }
-
 .discovered_feature:nth-child(4) {
     transition-delay: 600ms;
 }
-
-
 .main_image_hidden {
     opacity: 0;
     transition: 0.6s ease-in-out;
     transform: translateY(100px)
 }
-
 .main_image_show {
     opacity: 1;
     transform: translateY(0px);
 }
-
 .secondary_1_image_hidden {
     opacity: 0;
     transition: 0.6s ease-in-out;
     transform: translateX(100px);
 }
-
 .secondary_1_image_show {
     opacity: 1;
     transform: translateX(0px);
 }
-
 .secondary_2_image_hidden {
     opacity: 0;
     transition: 0.6s ease-in-out;
     transform: translateX(-100px);
     transition-delay: 150ms;
 }
-
 .secondary_2_image_show {
     opacity: 1;
     transform: translateX(0px);
 }
-
 .action_button_hidden {
     opacity: 0;
     transition: 0.6s ease-in-out;
     transform: translateY(60px)
 }
-
 .action_button_show {
     opacity: 1;
     transform: translateY(0px);
 }
-
-
-
-
-
 @media screen and (max-height: 640px){
-
-   
-
     .hero_word_section h1 {
         font-size: 45px;
     }
-
     .hero_word_section p {
         font-size: 17px;
         margin-top: 20px;
         margin-bottom: 20px;
     }
-
     .ai_img {
         width: 100px;
         height: 100px;
         bottom: 20px;
     }
-
     .coding_img {
         width: 120px;
         height: 120px;
         top: 20px;
     }
-
     .merge_img {
         width: 60px;
         height: 60px;
         top: 50px;
         right: 45%;
     }
-
-   
     .hero_animation_section {
         padding: 70px;
     }
-
-
 }
-
-
-
-
-
 @media screen and (max-width: 1290px){
-   
-
     .ai_img {
         width: 140px;
         height: 140px;
     }
-
     .coding_img {
         width: 140px;
         height: 140px;
     }
-
     .merge_img {
         width: 90px;
         height: 90px;
     }
-
-   
     .vc_details {
         padding-right: 40px;
     }
-    
 }
-
-
 @media screen and (max-width: 1200px){
-   
-
     .hero_word_section h1 {
         font-size: 40px;
     }
-
     .ai_img {
         width: 120px;
         height: 120px;
     }
-
     .coding_img {
         width: 120px;
         height: 120px;
     }
-
     .merge_img {
         width: 80px;
         height: 80px;
     }
-
-   
     .discovered_feature {
         width: 200px;
     }
-
-   
     .vc_heading {
         padding-left: 80px;
     }
-
     .vc_actual_main_image {
         width: calc(100% - 250px);
     }
-
     .vc_actual_secondary_image {
         width: 260px;
     }
-
     .vc_details {
         padding-left: 120px;
     }
-
     .vc_btn_section {
         padding-left: 120px;
     }
-    
-   
     .welcome_aboard_section {
         height: 400px;
         margin-top: 90px;
     }
-
     .welcome_aboard_animation {
         width: 400px;
     }
-
     .welcome_aboard_words {
         width: 56%;
     }
-
 }
-
-
 @media screen and (max-width: 1030px){
-   
-
     .ai_img {
         width: 110px;
         height: 110px;
     }
-
     .coding_img {
         width: 110px;
         height: 110px;
         top: 40px;
     }
-
     .merge_img {
         width: 70px;
         height: 70px;
         top: 60px;
         right: 30%;
     }    
-
     .hero_word_section h1 {
         font-size: 38px;
     }
-
     .hero_word_section p {
         font-size: 18px;
         margin-top: 15px;
         margin-bottom: 15px;
     }
-
-   
     .hero_animation_section {
         padding: 30px;
     }
-    
-   
-
     .vc_heading h2 {
         font-size: 19px; 
     }
-
     .vc_heading svg {
         width: 24px;
     }
-    
     .vc_details {
         font-size: 16px;
     }
-
 }
-
-
 @media screen and (max-width: 950px){
-   
     .hero_section {
         height: max-content;
         flex-direction: column-reverse;
         justify-content: flex-start;
     }
-
-   
     .hero_word_section {
         width: 100%;
         height: max-content;
         padding-left: 0px;
         align-items: center;
     }
-
     .hero_word_section h1 {
         text-align: center;
     }
-
     .hero_word_section p {
         text-align: center;
         margin-top: 30px;
         margin-bottom: 30px;
     }
-
     .coding_img,.ai_img,.merge_img {
         display: none;
     }
-
     .extra_images_mobile {
         display: flex;
     }
-
-   
     .hero_animation_section {
         width: 100%;
         height: max-content;
         padding: 80px;
     }
-
-   
     .discovered_feature {
         width: 180px;
     }
-    
-   
-
     .vc_heading {
         padding-left: 40px;
     }
-
     .vc_details {
         padding-left: 80px;
     }
-
     .vc_actual_main_image {
         width: calc(100% - 160px);
     }
-
     .vc_actual_secondary_image {
         right: -50px;
     }
-
     .vc_actual_secondary_2_image {
         left: -50px;
     }
-
     .vc_btn_section {
         padding-left: 80px;
     }
-
-   
     .welcome_aboard_section {
         height: 350px;
         margin-top: 70px;
     }
-
     .welcome_aboard_animation {
         width: 350px;
     }
-
     .aboard_list_item p {
         font-size: 16px;
     }
-
 }
-
-
 @media screen and (max-width: 850px){
-   
     .discovered_feature {
         width: 170px;
     }
-
-   
-
     .vc_actual_main_image {
         width: calc(100% - 120px);
     }
-
     .vc_actual_secondary_2_image {
         left: -40px;
     }
-
     .vc_actual_secondary_image {
         right: -40px;
     }
-
     .vc_btn_section {
         padding-left: 60px;
     }
-
-   
     .welcome_aboard_words {
         width: 52%;
     }
-
     .aboard_list_item p {
         padding-top: 10px;
     }
 }
-
-
 @media screen and (max-width: 780px){
-   
     .discover_section {
         height: 620px;
         padding-top: 40px;
         margin-top: 40px;
     }
-
     .discover_features {
         height: 540px;
         flex-direction: column;
     }
-
     .discovered_feature {
         width: calc(100% - 40px);
     }
-
     .discovered_feature:nth-child(2) {
         margin-left: 0px;
         margin-right: 0px;
         margin-top: 20px;
         margin-bottom: 20px;
     }
-
     .discovered_feature:nth-child(3) {
         margin-left: 0px;
         margin-right: 0px;
         margin-bottom: 20px;
     }
-
-   
-
     .vc_heading {
         padding-left: 20px;
     }
-
     .vc_details {
         padding-left: 55px;
     }
-
     .vc_actual_main_image {
         width: calc(100% - 40px);
     }
-
     .vc_actual_secondary_image {
         right: 0px;
     }
-
     .vc_actual_secondary_2_image {
         left: 0px;
         bottom: -60px;
     }
-
     .vc_btn_section {
         padding-left: 20px;
     }
-
     #vc_btn_section_2,#vc_btn_section_4 {
         height: 120px;
         align-items: flex-end;
         padding-bottom: 14px;
     }
-
-   
     .aboard_list_item p {
         padding-top: 9px;
     }
 }
-
-
 @media screen and (max-width: 610px){
-
-   
     .hero_animation_section {
         padding: 40px;
     }
-
-   
     #vc_details_4 {
         height: max-content;
     }
-
     #vc_details_4 p {
         margin-bottom: 25px;
     }
-
     #vc_btn_section_1,#vc_btn_section_3 {
         height: 120px;
         align-items: flex-end;
         padding-bottom: 15px;
     }
-
-   
     .welcome_aboard_section {
         height: max-content;
         flex-direction: column;
     }
-
     .welcome_aboard_animation {
         width: 100%;
         padding: 50px;
     }
-
     .welcome_aboard_words {
         width: 100%;
     }
-
     .aboard_action_section {
         padding-left: 0;
         justify-content: center;
         margin-bottom: 50px;
     }
-
     .aboard_list_item p {
         padding-right: 20px;
     }
-
     .blue_ab_dot {
         margin: 20px;
     }
 }
-
-
 @media screen and (max-width: 550px){
-   
     .hero_word_section h1 {
         font-size: 35px;
     }
-
     .hero_word_section p {
         font-size: 17px;
     }
-
-   
     .hero_animation_section {
         padding: 40px;
     }
-
-   
     .discover_section h2 {
         font-size: 21px;
         text-align: center;
     }
-
-   
-
     .vc_details {
         padding-left: 30px;
         padding-right: 20px;
     }
-
     #vc_details_1,#vc_details_2,#vc_details_3 {
         height: max-content;
     }
-
     #vc_details_1 p,#vc_details_2 p,#vc_details_3 p {
         margin-bottom: 25px;
     }
-    
 }
-
-
 @media screen and (max-width: 490px){
-   
     .hero_word_section h1 {
         font-size: 30px;
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
     }
-
     .hero_word_section p {
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
     }
-
     .extra_images_mobile {
         height: 100px;
     }
-
     .extra_image_mobile  {
         width: 100px;
         height: 100px;
     }
-
-   
     .hero_animation_section {
         padding: 30px;
     }
-
-   
     .discover_section h2 {
         font-size: 20px;
     }
-
     .discovered_feature svg {
         width: 30px;
     }
-
-   
-
     #vc_actual_secondary_image_1 {
         top: -30px;
         bottom: 0;
         right: 10px;
     }
-
     #vc_details_1 p {
         margin-bottom: 45px;
     }
-
     .vc_btn_section {
         padding-left: 0;
         justify-content: center;
     }
-
     .vc_action_btn {
         font-size: 15px;
     }
-
     .vc_action_btn svg {
         width: 24px;
     }
-
-   
-
     .secondary_1_image_hidden {
         transition: 0.2s ease-in-out;
         transition-delay: 1000ms;
     }
-    
 }
-
-
 @media screen and (max-width: 440px){
-   
     .discover_section h2 {
         padding-left: 20px;
         padding-right: 20px;
     }
-
     .discovered_feature svg {
         width: 28px;
     }
-
-   
-
     #vc_actual_secondary_image_1,#vc_actual_secondary_image_2 {
         top: -30px;
         bottom: 0;
         right: 10px;
         width: 240px;
     }
-
     #vc_actual_secondary_image_2 {
         top: -20px;
     }
-
     #vc_actual_secondary_image_3 {
         top: -10px;
     }
-
     #vc_details_1 p,#vc_details_2 p,#vc_details_3 p,#vc_details_4 p {
         margin-bottom: 65px;
     }
-
     #vc_actual_secondary_2_image_1 {
         display: none;
     }
-
     #vc_actual_main_image_img_4 {
         visibility: hidden;
     }
-    
     #vc_actual_secondary_image_4 {
         top: 0;
     }
-
     #vc_actual_secondary_2_image_2 {
         top: 80px;
     }
-
     #vc_actual_main_image_4 {
         border: none;
     }
-
-   
     .welcome_aboard_animation {
         padding: 30px;
     }
-    
 }
-
-
 @media screen and (max-width: 400px){
-   
     .hero_word_section h1 {
         font-size: 25px;
     }
-
     .extra_images_mobile {
         height: 90px;
     }
-
     .extra_image_mobile {
         width: 90px;
         height: 90px;
     }
-
-   
     .hero_animation_section {
         padding: 20px;
     }
-
-   
     .discover_section h2 {
         font-size: 19px;
     }
-
     .discovered_feature span {
         font-size: 17px;
     }
-
     .discovered_feature svg {
         width: 26px;
     }
-
-   
-
     #vc_actual_secondary_image_1, #vc_actual_secondary_image_2 {
         width: 220px;
     }
-
     #vc_details_4 p {
         margin-bottom: 45px;
     }
-
-   
     .welcome_aboard_animation {
         padding: 20px;
     }
-    
 }
-
-
 @media screen and (max-width: 330px){
-   
     .hero_word_section h1 {
         font-size: 20px;
     }
-
     .hero_word_section p {
         font-size: 16px;
         margin-top: 20px;
         margin-bottom: 20px;
     }
-
     .extra_images_mobile {
         height: 80px;
     }
-
     .extra_image_mobile {
         width: 80px;
         height: 80px;
     }
-
-   
     .hero_animation_section {
         padding: 10px;
     }
-
-   
     #vc_actual_secondary_image_1, #vc_actual_secondary_image_2, #vc_actual_secondary_image_3, #vc_actual_secondary_image_4 {
         width: 200px;
     }
-
     #vc_actual_secondary_2_image_2 {
         width: 120px;
         top: 50px;
     }
-
-   
     .welcome_aboard_animation {
         padding: 10px;
     }
-
     .aboard_list_item p {
         padding-right: 10px;
     }
-
 }
-
-
 @media screen and (max-width: 300px){
-   
-
     .extra_images_mobile {
         height: 70px;
     }
-
     .extra_image_mobile {
         width: 70px;
         height: 70px;
     }
-
     .hero_cta_btn {
         font-size: 14px;
     }
-
-   
     .hero_animation_section {
         padding: 10px;
     }
-
-   
     .discover_section h2 {
         font-size: 18px;
     }
-
     .discovered_feature {
         height: 100px;
     }
-
     .discovered_feature span {
         font-size: 15px;
     }
-
     .discovered_feature svg {
         width: 24px;
     }
-
-   
     .vc_details {
         font-size: 15px;
     }
-
     .vc_action_btn {
         font-size: 14px;
         padding: 10px;
     }
-
     .vc_action_btn svg {
         width: 22px;
         margin-left: 10px;
     }
-
     #vc_actual_secondary_image_1, #vc_actual_secondary_image_2, #vc_actual_secondary_image_3, #vc_actual_secondary_image_4 {
         width: 185px;
     }
-
-    
-    
     .aboard_list_item p {
         font-size: 15px;
         padding-right: 10px;
     }
-    
     .end_hero {
         font-size: 14px;
         padding: 10px;
     }
-
     .end_hero svg {
         width: 22px;
         margin-left: 10px;

@@ -1,4 +1,3 @@
-
 .profile_container {
     position: relative;
     font-family: 'Roboto', sans-serif;
@@ -8,12 +7,9 @@
     align-items: flex-start;
     justify-content: center;
 }
-
 #profile_form {
     display: none;
 }
-
-
 .message_popup {
     font-family: 'Roboto', sans-serif;
     position: absolute;
@@ -29,13 +25,11 @@
     color: #414141;
     z-index: 4;
 }
-
 .message_popup span {
     font-size: 17px;
     font-weight: 400;
     margin-left: 10px;
 }
-
 .message_pop_icon {
     min-width: 40px;
     height: 40px;
@@ -44,33 +38,24 @@
     align-items: center;
     justify-content: center;
 }
-
 .message_pop_icon svg {
     width: 20px;
     fill: #F3F3F3;
 } 
-
-
 #message_popup_success {
     background-color: #CFE8D3;
     border: 1px solid #2CA631;
 }
-
 #message_popup_success .message_pop_icon {
     background-color: #2CA631;
 }
-
-
 #message_popup_failed {
     background-color: #FAEEEB;
     border: 1px solid #C53B3B;
 }
-
 #message_popup_failed .message_pop_icon {
     background-color: #C53B3B;
 }
-
-
 .inner_profile_section {
     position: relative;
     width: calc(100% - 20px);
@@ -81,14 +66,10 @@
     align-items: center;
     justify-content: center;
 }
-
-
 .update_profile_and_details_section {
     width: 500px;
     min-height: 300px;
 }
-
-
 .profile_image_and_details_section {
     width: 100%;
     height: 220px;
@@ -96,8 +77,6 @@
     align-items: flex-start;
     justify-content: space-between;
 }
-
-
 .profile_image {
     width: 170px;
     height: 210px;
@@ -108,13 +87,10 @@
     align-items: center;
     justify-content: flex-end;
 }
-
-
 .display_image_section {
     width: 150px;
     height: 150px;
 }
-
 .display_image_section img {
     display: none;
     width: 100%;
@@ -122,7 +98,6 @@
     border-radius: 10px;
     object-fit: cover;
 }
-
 .display_image_section_no_profile_picture {
     width: 100%;
     height: 100%;
@@ -135,8 +110,6 @@
     font-size: 34px;
     font-weight: 500;
 }
-
-
 .settings_image_section {
     position: relative;
     width: 100%;
@@ -145,7 +118,6 @@
     align-items: center;
     justify-content:space-evenly;
 }
-
 .image_set_btn {
     width: 40px;
     height: 40px;
@@ -158,22 +130,17 @@
     transition: 0.2s ease-in-out;
     cursor: pointer;
 }
-
 .image_set_btn:hover {
     background-color: #406CEE;
     fill: #F3F3F3;
 }
-
 .image_set_btn:nth-child(2):hover {
     background-color: #C53B3B;
     fill: #F3F3F3;
 }
-
 .image_set_btn svg {
     width: 21px;
 }
-
-
 .remove_profile_pic_convo {
     position: absolute;
     top: 5px;
@@ -192,7 +159,6 @@
     font-size: 14px;
     color: #414141;
 }
-
 .remove_pic_choice {
     width: 100%;
     height: 35px;
@@ -200,7 +166,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .remove_profile_pic_choice {
     width: max-content;
     height: 100%;
@@ -215,25 +180,20 @@
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
 .remove_profile_pic_choice:nth-child(1):hover {
     background-color: #C53B3B;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
 .remove_profile_pic_choice:nth-child(2):hover {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
 .remove_pic_choice svg {
     width: 18px;
     margin: 6px;
 }
-
-
 .user_detail_view_section {
     width: calc(100% - 170px);
     height: 210px;
@@ -241,7 +201,6 @@
     align-items: center;
     justify-content: flex-end;
 }
-
 .user_detail_view {
     width: calc(100% - 10px);
     height: 100%;
@@ -252,7 +211,6 @@
     align-items: center;
     justify-content: space-evenly;
 }
-
 .single_detail_view {
     width: calc(100% - 20px);
     height: 40px;
@@ -262,7 +220,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-
 .sing_det_icon {
     width: 40px;
     height: 40px;
@@ -274,11 +231,9 @@
     align-items: center;
     justify-content: center;
 }
-
 .sing_det_icon svg {
     width: 18px;
 }
-
 .sing_det_detail {
     width: calc(100% - 40px);
     height: 100%;
@@ -290,14 +245,10 @@
     font-size: 16px;
     font-weight: 500;
 }
-
-
 .bio_section {
     width: 100%;
     height: max-content;
 }
-
-
 .read_the_bio {
     position: relative;
     width: 100%;
@@ -308,7 +259,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .inner_read_bio {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
@@ -323,7 +273,6 @@
     font-weight: 400;
     overflow-y: auto;
 }
-
 .enable_bio_edit {
     position: absolute;
     right: 10px;
@@ -340,17 +289,13 @@
     transition: 0.2s ease-in-out;
     cursor: pointer;
 }
-
 .enable_bio_edit:hover {
     background-color: #406CEE;
     fill: #F3F3F3;
 }
-
 .enable_bio_edit svg {
     width: 21px;
 }
-
-
 .edit_the_bio {
     height: 200px;
     width: 100%;
@@ -361,7 +306,6 @@
     background-color: white;
     border-radius: 10px;
 }
-
 .bio_text_edit {
     width: 100%;
     height: 150px;
@@ -369,7 +313,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .bio_text_edit textarea {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
@@ -387,8 +330,6 @@
     color: #414141;
     background-color: #F3F3F3;
 }
-
-
 .save_discard_bio_edit {
     width: 100%;
     height: 50px;
@@ -396,7 +337,6 @@
     align-items: flex-start;
     justify-content: flex-end;
 }
-
 .bio_edit_btn {
     height: 40px;
     width: max-content;
@@ -414,26 +354,20 @@
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
 .bio_edit_btn:nth-child(1):hover {
     background-color: #C53B3B;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
 .bio_edit_btn:nth-child(2):hover {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
 .bio_edit_btn svg {
     width: 21px;
     margin: 0px 5px;
 }
-
-
-
 .all_detail_section {
     width: 100%;
     min-height: 200px;
@@ -442,7 +376,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .all_detail_edit {
     min-height: 260px;
     height: max-content;
@@ -455,8 +388,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-
-
 .one_edit_all_sec {
     width: calc(100% - 20px);
     height: 40px;
@@ -467,7 +398,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-
 .one_edit_icon {
     width: 40px;
     height: 40px;
@@ -479,11 +409,9 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-
 .one_edit_icon svg {
     width: 18px;
 }
-
 .one_edit_all_sec input {
     width: calc(100% - 50px);
     height: 100%;
@@ -495,8 +423,6 @@
     font-weight: 400;
     color: #414141;
 }
-
-
 .save_discard_all_dets {
     width: 100%;
     height: 50px;
@@ -504,8 +430,6 @@
     align-items: flex-start;
     justify-content: flex-end;
 }
-
-
 .all_detail_btn {
     height: 40px;
     width: max-content;
@@ -523,26 +447,20 @@
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
 .all_detail_btn:nth-child(1):hover {
     background-color: #C53B3B;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
 .all_detail_btn:nth-child(2):hover {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
 .all_detail_btn svg {
     width: 21px;
     margin: 0px 5px;
 }
-
-
-
 .select_profile_pic_section {
     position: absolute;
     width: 100%;
@@ -553,7 +471,6 @@
     justify-content: center;
     border-radius: 10px;
 }
-
 .inner_profile_select {
     width: 600px;
     height: 200px;
@@ -562,8 +479,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
 .profile_pic_and_instruct {
     width: 100%;
     height: 200px;
@@ -571,7 +486,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
 .new_profile_image {
     width: 200px;
     height: 200px;
@@ -581,7 +495,6 @@
     background-color: white;
     border-radius: 10px;
 }
-
 .new_profile_image img {
     display: none;
     width: calc(100% - 20px);
@@ -589,7 +502,6 @@
     border-radius: 10px;
     object-fit: cover;
 }
-
 .new_profile_image_no_pic {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
@@ -602,8 +514,6 @@
     font-size: 34px;
     font-weight: 500;
 }
-
-
 .prof_img_instruct {
     width: calc(100% - 210px);
     height: 200px;
@@ -613,12 +523,10 @@
     align-items: center;
     justify-content: space-between;
 }
-
 .profile_img_head_body {
     width: 100%;
     height: max-content;
 }
-
 .prof_img_inst_head {
     width: 100%;
     height: 40px;
@@ -633,13 +541,11 @@
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
-
 .prof_img_inst_head svg {
     width: 21px;
     margin-left: 10px;
     margin-right: 10px;
 }
-
 .prof_img_inst_body {
     width: 100%;
     height: max-content;
@@ -649,7 +555,6 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-
 .prof_img_inst_body p {
     margin-bottom: 10px;
     color: #414141;
@@ -657,8 +562,6 @@
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
 }
-
-
 .select_discard_save_image {
     width: 100%;
     height: 60px;
@@ -669,7 +572,6 @@
     align-items: center;
     justify-content: flex-end;
 }
-
 .prof_select_btn {
     height: 40px;
     width: max-content;
@@ -687,39 +589,31 @@
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-
 #profile_pic_input {
     display: none;
 }
-
 .prof_select_btn:nth-child(2):hover {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
 .prof_select_btn:nth-child(3),.prof_select_btn:nth-child(4) {
     display: none;
-
 }
-
 .prof_select_btn:nth-child(3):hover,.prof_select_btn:nth-child(5):hover {
     background-color: #C53B3B;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
 .prof_select_btn:nth-child(4):hover {
     background-color: #406CEE;
     fill: #F3F3F3;
     color: #F3F3F3;
 }
-
 .prof_select_btn svg {
     width: 21px;
     margin: 0px 5px;
 }
-
 #update_spinner {
     display: none;
     width: 30px;
@@ -729,7 +623,6 @@
     border-top-color: #414141;
     animation: spin 0.5s linear infinite;
 }
-
 #remove_profile_spinner {
     display: none;
     width: 25px;
@@ -739,7 +632,6 @@
     border-top-color: #414141;
     animation: spin 0.5s linear infinite;
 }
-  
 #update_bio_spinner{
     display: none;
     width: 25px;
@@ -749,7 +641,6 @@
     border-top-color: #414141;
     animation: spin 0.5s linear infinite;
 }
-
 #update_detail_spinner{
     display: none;
     width: 25px;
@@ -759,7 +650,6 @@
     border-top-color: #414141;
     animation: spin 0.5s linear infinite;
 }
-
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -768,81 +658,54 @@
         transform: rotate(360deg);
     }
 }
-
-
-
-
-
-
 @media screen and (max-height: 620px){
-   
     .inner_profile_section {
         height: max-content;
         padding-top: 10px;
         padding-bottom: 10px;
     }
 }
-
-
 @media screen and (max-width: 635px){
-
-   
     .select_profile_pic_section {
         justify-content: center;
         align-items: flex-start;
     }
-
     .inner_profile_select {
         height: max-content;
     }
-
     .profile_pic_and_instruct {
         height: max-content;
         flex-direction: column;
         padding-top: 10px;
     }
-
     .new_profile_image {
         width: 300px;
         height: 300px;
     }
-
     .prof_img_instruct {
         width: 400px;
         margin-top: 10px;
     }
-
 }
-
-
 @media screen and (max-width: 540px){
-
-   
     .lower-section {
         height: max-content !important;
     }
-
-   
     .message_popup {
         top: 0;
         right: 10px;
         max-width: calc(100% - 20px);
     }
-
     .message_pop_icon {
         min-width: 35px;
         height: 35px;
     }
-
     .message_pop_icon svg {
         width: 17px;
     }
-
     .message_popup span {
         font-size: 15px;
     }
-
-   
     .profile_image_and_details_section {
         flex-direction: column;
         align-items: center;
@@ -851,295 +714,199 @@
         padding-top: 10px;
         padding-bottom: 10px;
     } 
-
-   
     .profile_image {
         width: 300px;
         height: 300px;
         margin-bottom: 10px;
     }
-
-   
     .remove_profile_pic_convo {
         width: 170px;
         height: 70px;
         left: calc(100% - 70px);
         font-size: 13px;
     }
-
     .remove_pic_choice {
         height: 30px;
     }
-
     .remove_pic_choice svg {
         width: 16px;
     }
-
     #remove_profile_spinner {
         width: 20px;
         height: 20px;
     }
-
     .display_image_section {
         width: 250px;
         height: 250px;
     }
-
     .user_detail_view_section {
         justify-content: center;
         width: 100%;
     }
-
     .user_detail_view {
         width: 100%;
     }
-
-   
     .all_detail_section {
         padding-bottom: 10px;
     }
-
 }
-
-
 @media screen and (max-width: 500px){
-
-   
     .remove_profile_pic_convo {
         width: 150px;
         height: 60px;
         left: calc(100% - 70px);
         font-size: 12px;
     }
-
     .remove_pic_choice {
         height: 25px;
     }
-
     .remove_pic_choice svg {
         width: 14px;
     }
-
-   
     .user_detail_view_section {
         justify-content: center;
         width: 100%;
     }
-
-   
     .bio_section {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
     .read_the_bio,.edit_the_bio {
         width: calc(100% - 20px);
     }
-
     .user_detail_view {
         width: calc(100% - 20px);
     }
-
-   
     .all_detail_edit {
         width: calc(100% - 20px);
     }
-
 }
-
-
 @media screen and (max-width: 440px){
-   
     .remove_profile_pic_convo {
         left: calc(100% - 110px);
         top: 100%;
     }
-
-   
     .prof_img_instruct {
         width: 390px;
     }
 }
-
-
 @media screen and (max-width: 420px){
-
-   
     .prof_img_instruct {
         width: 380px;
     }
 }
-
-
 @media screen and (max-width: 395px){
-
-   
     .remove_profile_pic_convo {
       left: calc(100% - 130px);
     }
-
-   
     .sing_det_detail {
         font-size: 15px;
     }
-
-   
     .inner_read_bio,.bio_text_edit textarea {
         font-size: 15px;
     }
-
     .save_discard_bio_edit,.save_discard_all_dets {
         height: 45px;
     }
-
     .bio_edit_btn,.all_detail_btn {
         font-size: 14px;
         height: 35px;
     }
-
     .bio_edit_btn svg,.all_detail_btn svg {
         width: 19px;
     }
-
-   
     .one_edit_all_sec input {
         font-size: 15px;
     }
-
-   
     .prof_img_instruct {
         width: 350px;
     }
-
     .select_discard_save_image {
         min-height: 60px;
         margin-top: 10px;
     }
-
 }
-
-
 @media screen and (max-width: 365px){
-  
    .prof_img_instruct {
         width: 325px;
     }
-    
     .prof_select_btn {
         font-size: 14px;
     }
-
     .prof_select_btn svg {
         width: 20px;
     }
 }
-
-
 @media screen and (max-width: 330px){
-   
     .profile_image {
         width: 280px;
     }
-
     .remove_profile_pic_convo {
         left: calc(100% - 150px);
     }
-
-   
     .sing_det_detail {
         font-size: 14px;
     }
-
-   
     .inner_read_bio, .bio_text_edit textarea {
         font-size: 14px;
     }
-
-   
     .one_edit_all_sec input {
         font-size: 14px;
     }
-
-   
     .new_profile_image {
         width: 280px;
         height: 280px;
     }
-
     .prof_img_instruct {
         width: 280px;
     }
-
     .prof_img_inst_head {
         font-size: 15px;
     }
-
     .prof_img_inst_body p {
         font-size: 15px;
     }
-
     .select_discard_save_image {
         min-height: max-content;
         height: max-content;
         flex-wrap: wrap;
     }
-
     .prof_select_btn {
         margin: 10px;
     }
-
-
 }
-
-
 @media screen and (max-width: 300px){
-   
     .profile_image {
         width: 240px;
     }
-
     .display_image_section {
         width: 220px;
         height: 220px;
     }
-
-   
     .remove_profile_pic_convo {
         left: calc(100% - 150px);
     }
-
-   
     .sing_det_detail {
         font-size: 13px;
     }
-
-   
     .inner_read_bio, .bio_text_edit textarea {
         font-size: 13px;
     }
-
-   
     .one_edit_all_sec input {
         font-size: 13px;
     }
-
-   
     .new_profile_image {
         width: 240px;
         height: 240px;
     }
-
     .prof_img_instruct {
         width: 240px;
     }
-
     .prof_img_inst_head {
         font-size: 14px;
     }
-
     .prof_img_inst_body p {
         font-size: 14px;
     }
-
 }

@@ -1,4 +1,3 @@
-
 .inherited-upper-nav-section {
     font-family: 'Roboto', sans-serif;
     width: 100%;
@@ -7,8 +6,6 @@
     align-items: flex-start;
     justify-content: center;
 }
-
-
 .pie-chart-section {
     width: 400px;
     height: fit-content;
@@ -16,7 +13,6 @@
     align-items: flex-start;
     justify-content: center;
 }
-
 .inner-pie-section {
     height: fit-content;
     width: calc(100% - 20px);
@@ -24,8 +20,6 @@
     padding: 10px;
     background-color: #F3F3F3;
 }
-
-
 .safes-section {
     width: calc(100% - 410px);
     height: 100%;
@@ -33,9 +27,6 @@
     border-radius: 10px;
     background-color: #F3F3F3;
 }
-
-
-
 .search-and-buttons {
     width: 100%;
     height: 70px;
@@ -43,8 +34,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
 .search-section {
     width: 50%;
     height: 100%;
@@ -53,7 +42,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-
 .search-part {
     width: 400px;
     height: 45px;
@@ -64,13 +52,10 @@
     border: 2px solid #414141;
     border-radius: 10px;
 }
-
 .search-part svg {
     fill: #414141;
     width: 23px;
 } 
-
-
 #search-safe-input {
     width: 300px;
     height: 100%;
@@ -81,12 +66,9 @@
     color: #406CEE;
     font-size: 16px;
 }
-
 #search-safe-input::placeholder {
     color: #414141;
 }
-
-
 .filters-and-new-safe {
     width: 50%;
     height: 100%;
@@ -95,8 +77,6 @@
     justify-content: flex-end;
     padding-right: 20px;
 }
-
-
 .filter_btn {
     width: max-content;
     height: 45px;
@@ -110,25 +90,18 @@
     background-color: #D9D9D9;
     font-weight: 500;
 }
-
 .filter_btn svg {
     width: 25px;
     fill: #414141;
     margin-left: 10px;
 }
-
-
 .new-safe {
     background-color: #414141;
     color: #D9D9D9;
 }
-
 .new-safe svg {
     fill: #D9D9D9;
 }
-
-
-
 .separation-line {
     width: 100%;
     height: 15px;
@@ -136,16 +109,11 @@
     align-items: flex-start;
     justify-content: center;
 }
-
 .separation-line div {
     width: calc(100% - 40px);
     height: 1px;
     background-color: #ACACAC;
 }
-
-
-
-
 .list-of-safes {
     width: 100%;
     height: calc(100% - 100px);
@@ -153,9 +121,6 @@
     flex-direction: column;
     align-items: center;
 }
-
-
-
 .single-safe {
     width: calc(100% - 40px);
     height: 150px;
@@ -166,8 +131,6 @@
     align-items: center;
     margin-bottom: 20px;
 }
-
-
 .safe-name-state-stars-watchers {
     width: 100%;
     height: 40%;
@@ -175,7 +138,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
 .safe-name-state {
     width: 50%;
     height: 100%;
@@ -184,15 +146,11 @@
     justify-content: flex-start;
     padding-left: 20px;
 }
-
 .safe-name-state h2 {
     color: #406CEE;
     font-size: 21px;
     margin-right: 10px;
 }
-
-
-
 .safe-state {
     width: 35px;
     height: 35px;
@@ -202,15 +160,10 @@
     background-color: white;
     border-radius: 6px;
 }
-
 .safe-state svg {
     width: 17px;
     fill: #406CEE;
 }
-
-
-
-
 .stars-watchers-section {
     width: 50%;
     height: 100%;
@@ -219,7 +172,6 @@
     align-items: center;
     justify-content: flex-end;
 }
-
 .stats-view {
     width: max-content;
     height: 35px;
@@ -235,14 +187,10 @@
     font-size: 18px;
     font-weight: 500;
 }
-
 .stats-view svg {
     width: 20px;
     margin-right: 10px;
 }
-
-
-
 .about-safe {
     width: 100%;
     height: 20%;
@@ -253,8 +201,6 @@
     color: #8F8F8F;
     font-size: 15px;
 }
-
-
 .langs-section {
     width: 100%;
     height: 40%;
@@ -262,9 +208,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
-
 .langs {
     width: 50%;
     height: 100%;
@@ -273,9 +216,6 @@
     justify-content: space-between;
     padding: 20px;
 }
-
-
-
 .safe-langs {
     width:fit-content;
     height: 100%;
@@ -283,9 +223,6 @@
     align-items: center;
     justify-content: center;
 }
-
-
-
 .ind-safe-lang {
     width: 30px;
     height: 30px;
@@ -295,14 +232,10 @@
     object-fit: cover;
     margin-right: 10px;
 }
-
 .ind-safe-lang img {
     width: 100%;
     height: 100%;
 }
-
-
-
 .scheduled-commit {
     width: 50%;
     height: 100%;
@@ -311,7 +244,6 @@
     justify-content: flex-end;
     padding-right: 20px;
 }
-
 .commit-time {
     width: fit-content;
     height: 40px;
@@ -325,42 +257,25 @@
     border-radius: 6px;
     font-size: 15px;
 }
-
 .commit-time svg {
     width: 21px;
     margin-right: 10px;
 }
-
-
-
-
-
-
-
 @media screen and (max-width: 1370px) {
-
-   
-
     .search-and-buttons {
         height: 60px;
     }
-
     .search-part {
         width: 350px;
         height: 40px;
     }
-
     .search-part svg {
         width: 20px;
     }
-
-   
     #search-safe-input {
         width: 250px;
         font-size: 14px;
     }
-
-   
     .filter_btn {
         height: 40px;
         padding: 10px;
@@ -368,113 +283,77 @@
         border-radius: 7px;
         font-size: 14px;
     }
-
     .filter_btn svg {
         width: 23px;
         margin-left: 7px;
     }
-
     .new-safe svg {
         fill: #D9D9D9;
         width: 21px;
     }
-
-   
     .separation-line {
         height: 10px;
     }
-
-   
-    
     .safe-name-state h2 {
         font-size: 17px;
     }
-
-   
-
     .safe-state {
         width: 28px;
         height: 28px;
     }
-
     .safe-state svg {
         width: 13px;
     }
-
-   
     .stats-view {
         height: 28px;
         padding: 10px;
         font-size: 14px;
     }
-    
     .stats-view svg {
         width: 14px;
         margin-right: 5px;
     }
-
-   
     .about-safe {
         font-size: 14px;
     }
-
-   
     .ind-safe-lang {
         width: 24px;
         height: 24px;
     }
-
-   
     .commit-time {
         height: 28px;
         padding: 10px;
         font-size: 14px;
     }
-    
     .commit-time svg {
         width: 17px;
         margin-right: 5px;
     }
-
 }
-
-
 @media screen and (max-width: 1100px) {
-
-   
-
     .search-and-buttons {
         height: 100px;
         flex-direction: column;
     }
-
     .search-section {
         width: 100%;
         padding-left: 10px;
     }
-
     .search-part {
         width: calc(100% - 10px);
         height: 35px;
     }
-
     .search-part svg {
         width: 17px;
     }
-
-   
     #search-safe-input {
         width: calc(100% - 60px);
         font-size: 12px;
     }
-
-   
-
     .filters-and-new-safe {
         width: 100%;
         justify-content: flex-start;
     }
-
     .filter_btn {
         height: 35px;
         padding: 10px;
@@ -482,244 +361,163 @@
         border-radius: 7px;
         font-size: 12px;
     }
-
     .filter_btn svg {
         width: 20px;
         margin-left: 5px;
     }
-
     .new-safe svg {
         fill: #D9D9D9;
         width: 17px;
     }
-
-   
     .separation-line {
         height: 10px;
     }
-
     .separation-line div {
         width: calc(100% - 20px);
     }
-
-   
-
     .single-safe {
         width: calc(100% - 20px);
     }
-    
     .safe-name-state h2 {
         font-size: 15px;
     }
-
-   
-
     .safe-state {
         width: 25px;
         height: 25px;
     }
-
     .safe-state svg {
         width: 12px;
     }
-
-   
     .stats-view {
         height: 25px;
         padding: 10px;
         font-size: 12px;
     }
-    
     .stats-view svg {
         width: 12px;
         margin-right: 5px;
     }
-
-   
     .about-safe {
         font-size: 12px;
     }
-
-   
     .ind-safe-lang {
         width: 20px;
         height: 20px;
     }
-
-   
     .commit-time {
         height: 25px;
         padding: 10px;
         font-size: 12px;
     }
-    
     .commit-time svg {
         width: 15px;
         margin-right: 5px;
     }
-
 }
-
-
 @media screen and (max-width: 950px) {
-
-   
     .lower-section {
         height: fit-content !important;
     }
-
     .inherited-upper-nav-section {
         flex-direction: column;
         align-items: center;
     }
-
-   
     .pie-chart-section {
         width: 100%;
     }
-
     .inner-pie-section {
         height: 400px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
-   
     .safes-section {
         width: calc(100% - 20px);
         margin-top: 10px;
         margin-right: 0px;
     }
-
     .search-and-buttons {
         height: 120px;
     }
-
     .search-part {
         height: 40px;
     }
-
-
 }
-
-
 @media screen and (max-width:550px){
-    
-   
     .search-and-buttons {
         height: 100px;
     }
-
-   
     .single-safe {
         height: 130px;
     }
-
 }
-
-
 @media screen and (max-width:420px){
-    
-   
     .safe-name-state {
         padding-left: 10px;
     }
-
     .stars-watchers-section {
         padding-right: 10px;
     }
-
     .about-safe {
         padding-left: 10px;
     }
-
     .langs {
         padding-left: 10px;
     }
-
     .scheduled-commit {
         padding-right: 10px;
     }
-
 }
-
-
 @media screen and (max-width:380px){
-    
-   
-
     .filter_btn {
         height: 30px;
         padding: 7px;
     }
-
     .filter_btn svg {
         width: 17px;
     }
-
     .new-safe svg {
         width: 15px;
     }
-
     .commit-time {
         font-size: 10px;
     }
 }
-
-
 @media screen and (max-width:330px){
-    
-   
     .inner-pie-section {
         height: fit-content !important;
     }
-
-   
-
     .search-and-buttons {
         height: 50px;
     }
-
     .search-part {
         height: 30px;
         border-radius: 6px;
     }
-
     .search-part svg {
         width: 15px;
     }
-
-   
     .filters-and-new-safe {
         display: none;
     }
-
-   
     .single-safe {
         height: 120px;
     }
-
     .safe-name-state h2 {
         font-size: 12px;
     }
-
     .safe-state {
         width: 20px;
         height: 20px;
     }
-
     .safe-state svg {
         width: 10px;
         height: 10px;
     }
-
     .ind-safe-lang {
         margin-right: 5px;
     }
-
     .stats-view,.commit-time {
         display: none;
     }
-
 }
