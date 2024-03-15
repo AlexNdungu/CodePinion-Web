@@ -283,27 +283,27 @@ class CodePinionEditor {
 
             }
 
-            else if(!activeSpan.classList.contains('comment') && cursorPosition != length && text[cursorPosition-1] == '#'){
+            // else if(!activeSpan.classList.contains('comment') && cursorPosition != length && text[cursorPosition-1] == '#'){
 
-                // get all the spans after the active span
-                let nextSpans = activeSpan.nextElementSibling;
-                let commentSentence = '';
-                while(nextSpans){
-                    commentSentence += nextSpans.textContent;
-                    nextSpans = nextSpans.nextElementSibling;
-                }
+            //     // get all the spans after the active span
+            //     let nextSpans = activeSpan.nextElementSibling;
+            //     let commentSentence = '';
+            //     while(nextSpans){
+            //         commentSentence += nextSpans.textContent;
+            //         nextSpans = nextSpans.nextElementSibling;
+            //     }
 
-                if(activeSpan.classList.contains('regular')){
+            //     if(activeSpan.classList.contains('regular')){
 
-                    let firstPart = text.slice(0, cursorPosition-1);
-                    let secondPart = text.slice(cursorPosition-1) + commentSentence;
+            //         let firstPart = text.slice(0, cursorPosition-1);
+            //         let secondPart = text.slice(cursorPosition-1) + commentSentence;
 
-                    activeSpan.textContent = firstPart;
-                    newSpan = this.new_span(secondPart,'comment');
-                    newSpan.removeAttribute("id");
-                    activeSpan.insertAdjacentElement('afterend', newSpan);
-                }
-            }
+            //         activeSpan.textContent = firstPart;
+            //         newSpan = this.new_span(secondPart,'comment');
+            //         newSpan.removeAttribute("id");
+            //         activeSpan.insertAdjacentElement('afterend', newSpan);
+            //     }
+            // }
 
             else if(activeSpan.classList.contains('comment')){
 
@@ -486,10 +486,12 @@ class CodePinionEditor {
             }
 
             else if(activeSpan.classList.contains('keyword') && this.getKeyByValueArray(reserved_words,text) != 'keyword' ) {
+
                 let if_keyword_check = text.slice(0, -1);
                 let is_member = this.getKeyByValueArray(reserved_words,lastLetter);
                 let previousSpan = activeSpan.previousElementSibling;
                 let nextSpan = activeSpan.nextElementSibling;
+
                 if(this.getKeyByValueArray(reserved_words,if_keyword_check) == 'keyword' && is_member ){
                     activeSpan.removeAttribute("id");
                     activeSpan.textContent = if_keyword_check;
@@ -498,18 +500,21 @@ class CodePinionEditor {
                     this.moveCursorToPosition(true);
                 }
                 else{
+
                     if(previousSpan && previousSpan.classList.contains('regular') && (!nextSpan || !nextSpan.classList.contains('regular'))) {
                         previousSpan.textContent += text;
                         activeSpan.removeAttribute("id");
                         previousSpan.setAttribute("id", "active");
                         activeSpan.remove();
                     }
+
                     else if(nextSpan && nextSpan.classList.contains('regular') && (!previousSpan || !previousSpan.classList.contains('regular'))){
                         nextSpan.textContent = text + nextSpan.textContent;
                         activeSpan.removeAttribute("id");
                         nextSpan.setAttribute("id", "active");
                         activeSpan.remove();
                     }
+
                     else if (previousSpan && previousSpan.classList.contains('regular') && nextSpan && nextSpan.classList.contains('regular')){
                         previousSpan.textContent += text + nextSpan.textContent;
                         activeSpan.removeAttribute("id");
@@ -517,6 +522,7 @@ class CodePinionEditor {
                         activeSpan.remove();
                         nextSpan.remove();
                     }
+                    
                     else{
                         activeSpan.setAttribute('class', 'regular');
                     }
