@@ -414,6 +414,7 @@ class CodePinionEditor {
             }
 
             else if(activeSpan.previousElementSibling && activeSpan.previousElementSibling.classList.contains('keyword') && (activeSpan.previousElementSibling.innerHTML == 'def' || activeSpan.previousElementSibling.innerHTML == 'class') && (firstLetter == "\u00A0" || firstLetter == " ")) {
+                
                 activeSpan.textContent = '\u00A0';
                 activeSpan.removeAttribute("id");
                 newSpan = this.new_span(lastLetter,'define');
@@ -538,6 +539,7 @@ class CodePinionEditor {
             }
 
             else if(activeSpan.classList.contains('define')){
+
                 if(lastLetter == "("){
                     activeSpan.innerHTML += ')';
                 }
