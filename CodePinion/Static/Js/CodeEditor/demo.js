@@ -54,10 +54,13 @@ let one_detail_user_noimage_display = document.getElementById('one_detail_user_n
 let one_detail_user_noimage_display_first = document.getElementById('one_detail_user_noimage_display_first');
 let one_detail_admin_display = document.getElementById('one_detail_admin_display');
 let bug_editor_lock = document.getElementById('bug_editor_lock');
+let current_user_privilage = false;
 let bug_edit_btn = document.getElementById('bug_edit_btn');
+
 join_demo_btn.addEventListener("click", function () {
     join_demo();
 });
+
 richButtons.forEach(richBtn => {
     richBtn.addEventListener('click', () => {
         let myEvent = richBtn.dataset['command'];
@@ -74,34 +77,52 @@ richButtons.forEach(richBtn => {
         }
     });
 });
+
 retake_shot.addEventListener("click", function () {
     bug_shot.innerHTML = "";
     takeScreenShot();
 });
+
 EditRechTextBtn.addEventListener("click", function () {
     edit_rich_text();
 });
+
 ReviewRechTextBtn.addEventListener("click", function () {
     review_rich_text();
 });
+
 report_bug_btn.addEventListener("click", function () {
     use_report_bug_section('post',null);
 });
 close_bug_view_btn.addEventListener("click", function () {
     close_display_bugs();
 });
+
 one_details_close.addEventListener("click", function () {
     document.getElementById("see_one_bug_section").style.display = "none";
-})
+});
+
 bug_edit_btn.addEventListener("click", function () {
-    use_report_bug_section('edit',one_detail_id_display.innerHTML);
-    document.getElementById("see_one_bug_section").style.display = "none";
-})
+    if(current_user_privilage == true){
+        use_report_bug_section('edit',one_detail_id_display.innerHTML);
+        document.getElementById("see_one_bug_section").style.display = "none";
+    }
+    else{
+        fail_pop.style.display = "flex";
+        fail_pop_msg.innerHTML = "You cannot edit this report !";
+        setTimeout(function(){
+            fail_pop.style.display = "none";
+        }, 4000);
+    
+    }
+});
+
 for (let i = 0; i < discard_bug_report_btns.length; i++) {
     discard_bug_report_btns[i].addEventListener("click", function () {
         discard_report();
     });
-}
+};
+
 for (let i = 0; i < bug_min_menu_btns.length; i++) {
     bug_min_menu_btns[i].addEventListener("click", function () {
         filter_apply = 'All';
@@ -111,7 +132,8 @@ for (let i = 0; i < bug_min_menu_btns.length; i++) {
         select_any_filters[2].classList.add("filter_bugs_theme");
         display_bugs(bug_min_menu_btns[i].id,filter_apply);
     })
-}
+};
+
 filter_bugs_from_status.addEventListener("click", function () {
     if(filter_select == false){
         filter_selection_section.style.display = "flex";
@@ -123,7 +145,8 @@ filter_bugs_from_status.addEventListener("click", function () {
         filter_bugs_from_status.classList.remove("filter_bugs_theme");
         filter_select = false;
     }
-})
+});
+
 for (let i = 0; i < select_any_filters.length; i++) {
     select_any_filters[i].addEventListener("click", function () {
         for (let i = 0; i < select_any_filters.length; i++) {
@@ -143,7 +166,8 @@ for (let i = 0; i < select_any_filters.length; i++) {
         filter_bugs_from_status.classList.remove("filter_bugs_theme");
         display_bugs(status,filter_span.innerHTML)
     })
-}
+};
+
 function join_demo(){
     join_demo_spinner.style.display = "flex";
     join_demo_icon.style.display = "none";
@@ -181,7 +205,8 @@ function join_demo(){
             }, 4000);
         }
     }); 
-}
+};
+
 function use_report_bug_section(activity,bug_id){
     document.getElementById("report_bug_section").style.display = "flex";
     if(activity == 'post'){
@@ -190,7 +215,8 @@ function use_report_bug_section(activity,bug_id){
     else if(activity == 'edit'){
         prep_report_bug_section_for_edit(bug_id)
     }
-}
+};
+
 function takeScreenShot(){
     retake_shot.style.display = "flex";
     html2canvas(document.getElementById('the_editor')).then(function (canvas) {
@@ -198,7 +224,8 @@ function takeScreenShot(){
         bug_screenshot = canvas.toDataURL();
     });
     return bug_screenshot;
-}
+};
+
 function review_rich_text(){
     let bodyTextHtml = bodyTextContent.innerHTML;
     if (bodyTextHtml == ""){
@@ -211,13 +238,15 @@ function review_rich_text(){
     bodyTextReview.style.display = "flex";
     EditRechTextBtn.classList.remove("wrr_btn_color");
     ReviewRechTextBtn.classList.add("wrr_btn_color");
-}
+};
+
 function edit_rich_text(){
     bodyTextReview.style.display = "none";
     bodyText.style.display = "flex";
     ReviewRechTextBtn.classList.remove("wrr_btn_color");
     EditRechTextBtn.classList.add("wrr_btn_color");
-}
+};
+
 function discard_report(){
     bug_title_input.value = "";
     bodyTextContent.innerHTML = "";
@@ -229,7 +258,8 @@ function discard_report(){
     bug_id_and_date.style.visibility = "hidden";
     is_report_or_update_btn.innerHTML = "Report";
     document.getElementById("report_bug_section").style.display = "none";
-}
+};
+
 function create_table_content(){
     $('#view_bugs_table').empty();
     let tableHeading = 
@@ -249,7 +279,8 @@ function create_table_content(){
     </tbody>
     `
     $("#view_bugs_table").append(tableHeading);
-}
+};
+
 function create_row_dummies(){
     let row_dummy = 
     `
@@ -284,13 +315,15 @@ function create_row_dummies(){
     for (let i = 0; i < 10; i++) {
         $('#bug_table_body').append(row_dummy);
     }
-}
+};
+
 create_row_dummies();
 function close_display_bugs() {
     create_table_content();
     see_all_bugs_section.style.display = "None";
     create_row_dummies();
-}
+};
+
 function display_bugs(status,filter_apply){
     let status_is = status.split("-");
     let firstWord_status = status_is[0];
@@ -306,7 +339,9 @@ function display_bugs(status,filter_apply){
         view_status_section.classList.add("view_status_fixed");        
     }
     fetch_bugs(firstWord_status,filter_apply);
-}
+};
+
+
 function view_bug_details(bug_id){
     let formData = new FormData();
     formData.append('csrfmiddlewaretoken', csrf[0].value);
@@ -354,9 +389,11 @@ function view_bug_details(bug_id){
             }
             if(response.bug.bug_reporter_is_current_user == true){
                 bug_editor_lock.style.display = "none";
+                current_user_privilage = true;
             }
             else{
                 bug_editor_lock.style.display = "flex";
+                current_user_privilage = false;
             }
         },
         error: function(error){
@@ -367,7 +404,8 @@ function view_bug_details(bug_id){
             }, 4000);
         }
     }); 
-}
+};
+
 function fetch_bugs(status,filter_apply){
     let formData = new FormData();
     formData.append('csrfmiddlewaretoken', csrf[0].value);
@@ -479,7 +517,8 @@ function fetch_bugs(status,filter_apply){
             }, 4000);
         }
     });  
-}
+};
+
 function click_edit_on_list(){
     let view_bug_ids = document.getElementsByClassName("view_bug_id");
     let access_edit_bug_details = document.getElementsByClassName("access_edit_bug_details");
@@ -495,7 +534,8 @@ function click_edit_on_list(){
             }
         });
     }
-}
+};
+
 function prep_report_bug_section_for_edit(bug_id){
     retake_shot.style.display = "none";
     let formData = new FormData();
@@ -527,7 +567,8 @@ function prep_report_bug_section_for_edit(bug_id){
             }, 4000);
         }
     }); 
-}
+};
+
 function update_bug(){
     bug_title = bug_title_input.value;
     bug_body = bodyTextContent.innerHTML;
@@ -568,7 +609,8 @@ function update_bug(){
             }, 4000);
         }
     });  
-}
+};
+
 function report_new_bug(){
     bug_title = bug_title_input.value;
     bug_body = bodyTextContent.innerHTML;
@@ -611,7 +653,8 @@ function report_new_bug(){
             }, 4000);
         }
     });  
-}
+};
+
 report_bug_now.addEventListener("click", function () {
     if(bug_title_input.value == ""){
         fail_pop.style.display = "flex";
