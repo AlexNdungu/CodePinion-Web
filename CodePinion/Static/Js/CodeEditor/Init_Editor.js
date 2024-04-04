@@ -413,15 +413,12 @@ class CodePinionEditor {
                 this.moveCursorToPosition(true);
             }
 
-            else if(firstLetter == "\u00A0" || firstLetter == " ") {
-                let previousSpan = activeSpan.previousElementSibling;
-                if(previousSpan && previousSpan.classList.contains('keyword') && (previousSpan.innerHTML == 'def' || previousSpan.innerHTML == 'class')) {
-                    activeSpan.textContent = '\u00A0';
-                    activeSpan.removeAttribute("id");
-                    newSpan = this.new_span(lastLetter,'define');
-                    activeSpan.insertAdjacentElement('afterend', newSpan);
-                    this.moveCursorToPosition(true);
-                }
+            else if(activeSpan.previousElementSibling && activeSpan.previousElementSibling.classList.contains('keyword') && (activeSpan.previousElementSibling.innerHTML == 'def' || activeSpan.previousElementSibling.innerHTML == 'class') && (firstLetter == "\u00A0" || firstLetter == " ")) {
+                activeSpan.textContent = '\u00A0';
+                activeSpan.removeAttribute("id");
+                newSpan = this.new_span(lastLetter,'define');
+                activeSpan.insertAdjacentElement('afterend', newSpan);
+                this.moveCursorToPosition(true);
             }
 
             else if(activeSpan.classList.contains('punctuation')) {
