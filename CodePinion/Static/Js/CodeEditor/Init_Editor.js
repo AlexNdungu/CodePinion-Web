@@ -538,7 +538,9 @@ class CodePinionEditor {
             }
 
             else if(activeSpan.classList.contains('define')){
-
+                if(lastLetter == "("){
+                    activeSpan.innerHTML += ')';
+                }
             }
 
             else {
