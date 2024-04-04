@@ -93,7 +93,7 @@
 }
 
 .punctuation {
-    color: #A3B0EB;
+    color: #95a8fd;
 }
 
 .operator {
@@ -101,7 +101,7 @@
 }
 
 .number {
-    color: #b54900;
+    color: #90CBDE/*b54900*/;
 }
 
 .comment {

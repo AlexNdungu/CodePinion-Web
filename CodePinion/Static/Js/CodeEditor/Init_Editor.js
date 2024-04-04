@@ -537,6 +537,10 @@ class CodePinionEditor {
                 }
             }
 
+            else if(activeSpan.classList.contains('define')){
+
+            }
+
             else {
 
                 let spanCreate = false;
