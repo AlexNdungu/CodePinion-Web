@@ -539,9 +539,17 @@ class CodePinionEditor {
             }
 
             else if(activeSpan.classList.contains('define')){
+                let secondLastLetter = text[length - 2];
 
                 if(lastLetter == "("){
                     activeSpan.innerHTML += ')';
+                }
+                else if(secondLastLetter == ":"){
+                    let newSpan = this.new_span(lastLetter,'regular');
+                    activeSpan.removeAttribute("id");
+                    activeSpan.textContent = text.slice(0, -1);
+                    activeSpan.insertAdjacentElement('afterend', newSpan);
+                    this.moveCursorToPosition(true);
                 }
             }
 
