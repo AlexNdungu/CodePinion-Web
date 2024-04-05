@@ -510,8 +510,17 @@ class CodePinionEditor {
                     this.moveCursorToPosition(true);
                 }
                 else if(nextOfNextSpan.classList.contains('define')){
-                    nextSpan.innerHTML += nextOfNextSpan.innerHTML;
-                    nextOfNextSpan.remove();
+                    if(previousSpan && previousSpan.classList.contains('regular')){
+                        previousSpan.innerHTML += activeSpan.innerHTML + nextSpan.innerHTML;
+                        activeSpan.remove();
+                        nextOfNextSpan.remove();
+                    }
+                    else {
+                        activeSpan.setAttribute('class', 'regular');
+                        activeSpan.innerHTML += nextSpan.innerHTML + nextOfNextSpan.innerHTML;
+                        nextSpan.remove();
+                        nextOfNextSpan.remove();
+                    }
                 }
                 else{
 
