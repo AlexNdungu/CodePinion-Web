@@ -500,6 +500,7 @@ class CodePinionEditor {
                 let is_member = this.getKeyByValueArray(reserved_words,lastLetter);
                 let previousSpan = activeSpan.previousElementSibling;
                 let nextSpan = activeSpan.nextElementSibling;
+                let nextOfNextSpan = nextSpan.nextElementSibling;
 
                 if(this.getKeyByValueArray(reserved_words,if_keyword_check) == 'keyword' && is_member ){
                     activeSpan.removeAttribute("id");
@@ -507,6 +508,10 @@ class CodePinionEditor {
                     let newSpan = this.new_span(lastLetter, is_member);
                     activeSpan.insertAdjacentElement('afterend', newSpan);
                     this.moveCursorToPosition(true);
+                }
+                else if(nextOfNextSpan.classList.contains('define')){
+                    nextSpan.innerHTML += nextOfNextSpan.innerHTML;
+                    nextOfNextSpan.remove();
                 }
                 else{
 
