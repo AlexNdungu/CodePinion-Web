@@ -272,4 +272,4 @@ def ReportBug(request):
 
 @login_required
 def NewSafe(request):
-    return render(request, 'Editor/connect_safe.html')
+    return render(request, 'Editor/new_safe.html')

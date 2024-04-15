@@ -101,17 +101,21 @@ class Language(models.Model):
 
 # Safe Model
 class Safe(models.Model):
+
     safe_id = models.AutoField(primary_key=True)
     safe_name = models.CharField(max_length=30, verbose_name='Safe Name')
     safe_owner = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='User Profile',related_name='safe_owner')
     safe_members = models.ManyToManyField(Profile, blank=True, verbose_name='Safe Members',related_name='safe_members')
+
     languages = models.ManyToManyField(Language, blank=True)
     watchers = models.ManyToManyField(Profile, blank=True,related_name='watchers')
     stars = models.ManyToManyField(Profile, blank=True,related_name='stars')
     privacy_status = models.BooleanField(default=False, verbose_name='Privacy Status')
     delete_safe = models.BooleanField(default=False, verbose_name='Deleted Safe Status')
+
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
+    
     def __str__(self):
         return self.profile.full_name + ' - ' + self.safe_name
 
