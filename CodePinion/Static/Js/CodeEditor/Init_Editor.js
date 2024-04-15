@@ -500,7 +500,7 @@ class CodePinionEditor {
                 let is_member = this.getKeyByValueArray(reserved_words,lastLetter);
                 let previousSpan = activeSpan.previousElementSibling;
                 let nextSpan = activeSpan.nextElementSibling;
-                let nextOfNextSpan = nextSpan.nextElementSibling;
+                // let nextOfNextSpan = nextSpan.nextElementSibling;
 
                 if(this.getKeyByValueArray(reserved_words,if_keyword_check) == 'keyword' && is_member ){
                     activeSpan.removeAttribute("id");
@@ -509,19 +509,19 @@ class CodePinionEditor {
                     activeSpan.insertAdjacentElement('afterend', newSpan);
                     this.moveCursorToPosition(true);
                 }
-                else if(nextOfNextSpan.classList.contains('define')){
-                    if(previousSpan && previousSpan.classList.contains('regular')){
-                        previousSpan.innerHTML += activeSpan.innerHTML + nextSpan.innerHTML;
-                        activeSpan.remove();
-                        nextOfNextSpan.remove();
-                    }
-                    else {
-                        activeSpan.setAttribute('class', 'regular');
-                        activeSpan.innerHTML += nextSpan.innerHTML + nextOfNextSpan.innerHTML;
-                        nextSpan.remove();
-                        nextOfNextSpan.remove();
-                    }
-                }
+                // else if(nextOfNextSpan.classList.contains('define')){
+                //     if(previousSpan && previousSpan.classList.contains('regular')){
+                //         previousSpan.innerHTML += activeSpan.innerHTML + nextSpan.innerHTML;
+                //         activeSpan.remove();
+                //         nextOfNextSpan.remove();
+                //     }
+                //     else {
+                //         activeSpan.setAttribute('class', 'regular');
+                //         activeSpan.innerHTML += nextSpan.innerHTML + nextOfNextSpan.innerHTML;
+                //         nextSpan.remove();
+                //         nextOfNextSpan.remove();
+                //     }
+                // }
                 else{
 
                     if(previousSpan && previousSpan.classList.contains('regular') && (!nextSpan || !nextSpan.classList.contains('regular'))) {
@@ -696,4 +696,4 @@ const the_editor = document.getElementById("the_editor");
 const editor = new CodePinionEditor(the_editor);
 let index = 0;
 let line_number = 1;
-editor.init(index,line_number);
+//editor.init(index,line_number);

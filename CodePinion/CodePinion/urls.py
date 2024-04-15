@@ -1,5 +1,4 @@
 """CodePinion URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
 Examples:
@@ -17,27 +16,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-
-# Site Map imports
 from django.contrib.sitemaps.views import sitemap
 from Code1.sitemaps import StaticViewSitemap
 
-# Site Map Dictionary
 sitemaps = {
     'static': StaticViewSitemap,
 }
 
 urlpatterns = [
     path('kage/', admin.site.urls),
-    #Google Auth URL
     path("accounts/", include("allauth.urls")),
-    #Link Apps Urls to Main Project
     path('',include('Code1.urls')),
-    #Site Map Url
     path("sitemap.xml",sitemap,{"sitemaps": sitemaps},name="django.contrib.sitemaps.views.sitemap",
 )
 ]
 
-#Add static path
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
