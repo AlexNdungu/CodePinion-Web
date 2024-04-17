@@ -78,7 +78,7 @@
     display: inline-block;
     margin: 0 3px;
     animation-name: dots;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
@@ -138,14 +138,12 @@
     padding-left: 10px;
     border: 2px solid #8F8F8F;
     outline: none;
-    background-color: #F3F3F3;
     font-size: 16px;
     color: #414141;
     transition: 0.2s ease-in-out;
 }
 .safe-name-section input:focus{
     border: 2px solid #406CEE;
-    background-color: #fff;
 }
 .description-section {
     width: 100%;
@@ -161,6 +159,7 @@
     margin-bottom: 15px;
 }
 .inspiration p {
+    cursor: pointer;
     margin-left: 5px;
     color: green;
 }
@@ -182,13 +181,11 @@
     border-radius: 10px;
     font-size: 16px;
     color: #414141;
-    background-color: #F3F3F3;
-    border: 1px solid #8F8F8F;
+    border: 2px solid #8F8F8F;
     transition: 0.2s ease-in-out;
 }
 .description-input:focus {
     border: 2px solid #406CEE;
-    background-color: #fff;
 }
 .private-or-public {
     width: 100%;
