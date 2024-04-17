@@ -234,18 +234,25 @@
 .create-safe-btn {
     width: fit-content;
     height: 50px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     color: #F3F3F3;
     padding: 20px;
-    background-color: #406CEE;
+    background-color: #8F8F8F;
     font-size: 17px;
     font-weight: 500;
+    transition: 0.2s ease-in-out;
 }
+
+.create-safe-btn:hover {
+    background-color: #406CEE;
+}
+
 .create-safe-btn svg {
-    width: 30px;
+    width: 27px;
     fill: #F3F3F3;
     margin-left: 10px;
 }
