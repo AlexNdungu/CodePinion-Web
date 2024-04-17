@@ -63,6 +63,37 @@
     justify-content: flex-start;
     border: 2px solid #414141;
 }
+.account-dot-loader {
+    width: 150px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dot-loader {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: #8F8F8F;
+    display: inline-block;
+    margin: 0 3px;
+    animation-name: dots;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.dot-loader:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.dot-loader:nth-child(3) {
+    animation-delay: 0.8s;
+}
+@keyframes dots {
+    50% {
+        opacity: 0;
+        transform: scale(0.7)translateY(18px);
+    }
+}
 .account-select svg {
     width: 26px;
     fill: #414141;
@@ -105,11 +136,16 @@
     height: 50px;
     border-radius: 10px;
     padding-left: 10px;
-    border: 2px solid #414141;
+    border: 2px solid #8F8F8F;
     outline: none;
     background-color: #F3F3F3;
-    font-size: 17px;
+    font-size: 16px;
     color: #414141;
+    transition: 0.2s ease-in-out;
+}
+.safe-name-section input:focus{
+    border: 2px solid #406CEE;
+    background-color: #fff;
 }
 .description-section {
     width: 100%;
@@ -144,9 +180,15 @@
     margin-top: 10px;
     padding-left: 10px;
     border-radius: 10px;
-    font-size: 17px;
+    font-size: 16px;
     color: #414141;
     background-color: #F3F3F3;
+    border: 1px solid #8F8F8F;
+    transition: 0.2s ease-in-out;
+}
+.description-input:focus {
+    border: 2px solid #406CEE;
+    background-color: #fff;
 }
 .private-or-public {
     width: 100%;
@@ -182,6 +224,7 @@
     border-radius: 6px;
     border: 1px solid #414141;
     margin-right: 10px;
+    cursor: pointer;
 }
 .check-click div {
     width: 13px;
