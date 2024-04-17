@@ -273,3 +273,27 @@ def ReportBug(request):
 @login_required
 def NewSafe(request):
     return render(request, 'Editor/new_safe.html')
+
+def GetAllCurrentUserAccounts(request):
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        
+        current_user = request.user
+        all_accounts = models.Profile.objects.filter(user = current_user)
+        all_accounts_list = []
+
+        for account in all_accounts:
+
+            profile_url = ""
+            if account.profile_url == None:
+                profile_url = "None"
+            else:
+                profile_url = account.profile_url
+
+            account_dict = {
+                'account_image':profile_url,
+                'account_name':account.full_name,
+                'is_org':False,
+            }
+            all_accounts_list.append(account_dict)
+
+    return JsonResponse({'status':'success','accounts':all_accounts_list})

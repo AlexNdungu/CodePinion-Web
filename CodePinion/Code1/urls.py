@@ -22,4 +22,5 @@ urlpatterns = [
     path('reportBug/', views.ReportBug, name='report_bug'),
     path('updateBug/', views.UpdateBug, name='update_bug'),
     path('new_safe/', views.NewSafe, name='connect_safe_folder'),
+    path('getAllCurrentUserAccounts/', views.GetAllCurrentUserAccounts, name='get_all_current_user_accounts'),
 ]
