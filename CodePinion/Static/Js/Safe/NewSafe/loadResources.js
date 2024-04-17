@@ -1,3 +1,7 @@
 window.addEventListener('load', function () {
-    console.log('loadResources.js loaded');
+    getAllCurrentUserAccounts();
 });
+
+function getAllCurrentUserAccounts(){
+    console.log('getAllCurrentUserAccounts');
+}
