@@ -1,1 +1,3 @@
-export let alert = 'alert.js'
+export function createAlertPopUp(message, type) {
+    console.log(message);
+}

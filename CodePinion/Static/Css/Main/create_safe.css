@@ -6,7 +6,7 @@
     position: relative;
 }
 
-.alert_section {
+#alert_section {
     position: absolute;
     right: 0;
     top: 0;
@@ -47,6 +47,7 @@
 .message_pop_icon svg {
     width: 20px;
     fill: #F3F3F3;
+    pointer-events: none;
 } 
 .close_pop {
     width: 40px;

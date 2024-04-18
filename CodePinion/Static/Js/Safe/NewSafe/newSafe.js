@@ -1,11 +1,9 @@
-import {getAllCurrentUserAccounts} from './loadResources.js';
-import {alert} from '../Components/alert.js';
-
-console.log(alert);
+import * as alert from '../Components/alert.js';
+import * as loadResources from './loadResources.js';
 
 async function someFunc(){
     try{
-        let accounts = await getAllCurrentUserAccounts();
+        let accounts = await loadResources.getAllCurrentUserAccounts();
         console.log(accounts);
     }
     catch(error){
@@ -16,3 +14,6 @@ async function someFunc(){
 window.addEventListener('load', function () {
     someFunc();
 });
+
+
+// createAlertPopUp('Hello', 'success');
