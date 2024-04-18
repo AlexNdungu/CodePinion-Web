@@ -1,0 +1,1 @@
+export let alert = 'alert.js'
