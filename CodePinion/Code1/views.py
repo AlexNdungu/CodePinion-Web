@@ -296,4 +296,4 @@ def GetAllCurrentUserAccounts(request):
             }
             all_accounts_list.append(account_dict)
 
-    return JsonResponse({'status':'success','accounts':all_accounts_list})
+    return JsonResponse({'accounts':all_accounts_list})
