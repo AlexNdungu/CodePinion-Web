@@ -18,15 +18,19 @@ let closeAlertButton = `
 `;
 
 export class Alert{
-    constructor(type, message){
+    constructor(type,message,period,parentElement){
         this.type = type;
         this.message = message;
+        this.period = period;
+        this.parentElement = parentElement;
         this.sharedClassName = "message_popup";
         this.successSvg = successSvg;
         this.errorSvg = errorSvg;
         this.successMainClass = "message_popup_success";
         this.errorMainClass = "message_popup_failed";
         this.closeAlertButton = closeAlertButton;
+        this.renderAlert = this.renderAlertOnDom();
+        this.closeAlert = this.closeAndRemoveAlert();
     };
 
     createAlertContainer(){
@@ -54,10 +58,19 @@ export class Alert{
         return `<span>${this.message}</span>`;
     };
 
-    render(){
+    renderAlertOnDom(){
         let createdAlert = this.createAlertContainer();
         createdAlert.innerHTML = this.selectAlertSvg() + this.appendMessage() + this.closeAlertButton;
-        return createdAlert;
+        return this.parentElement.appendChild(createdAlert);
+    };
+
+    closeAndRemoveAlert(){
+        let theAlert = this.renderAlert;
+        setTimeout(() => {
+            $(this.renderAlert).fadeOut(1000,function(){
+                this.parentElement.removeChild(theAlert);
+            });
+        }, this.period);
     };
     
 };

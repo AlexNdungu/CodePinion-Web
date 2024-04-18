@@ -17,7 +17,5 @@ window.addEventListener('load', function () {
     someFunc();
 });
 
-let alert1 = new Alert.Alert('success', 'This is a success message');
-let alert2 = new Alert.Alert('error', 'This is an error message');
-alert_section.appendChild(alert1.render());
-alert_section.appendChild(alert2.render());
+new Alert.Alert('success', 'This is a success message', 5000,alert_section);
+new Alert.Alert('error', 'This is an error message', 8000,alert_section);
