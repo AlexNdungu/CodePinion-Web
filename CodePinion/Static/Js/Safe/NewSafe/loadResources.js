@@ -20,7 +20,7 @@ function getAllCurrentUserAccounts(){
     });
 }
 
-function createDefaultAccountElement(account_image,account_name){
+function createDefaultAccountHtmlElement(account_image,account_name){
     let default_account_html = `
             <div class="defaut_account">
                 <div class="account-profile">
@@ -36,4 +36,4 @@ function createDefaultAccountElement(account_image,account_name){
     return default_account_html;
 }
 
-export {getAllCurrentUserAccounts,createDefaultAccountElement};
+export {getAllCurrentUserAccounts,createDefaultAccountHtmlElement};

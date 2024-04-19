@@ -11,7 +11,7 @@ async function getDefaultUserAccount(){
     try{
         let accounts = await loadResources.getAllCurrentUserAccounts();
         let default_account = accounts.accounts[0]
-        let default_account_html = loadResources.createDefaultAccountElement(default_account.account_image,default_account.account_name);
+        let default_account_html = loadResources.createDefaultAccountHtmlElement(default_account.account_image,default_account.account_name);
         account_dot_loader.style.display = 'none';
         account_select.innerHTML += default_account_html
     }
