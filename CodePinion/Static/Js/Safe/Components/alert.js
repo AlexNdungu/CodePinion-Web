@@ -19,8 +19,6 @@ let closeAlertButton = `
 
 export class Alert{
 
-    
-
     constructor(type,message,period,parentElement){
         this.type = type;
         this.message = message;
