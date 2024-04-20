@@ -292,6 +292,7 @@ def GetAllCurrentUserAccounts(request):
             account_dict = {
                 'account_image':profile_url,
                 'account_name':account.full_name,
+                'account_id':account.profile_id,
                 'is_org':False,
             }
             all_accounts_list.append(account_dict)
