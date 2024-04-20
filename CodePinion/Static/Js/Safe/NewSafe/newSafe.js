@@ -5,7 +5,18 @@ let alert_section = document.getElementById('alert_section');
 let account_drop_down = document.getElementById('account-drop-down');
 let account_select = document.getElementById('account-select');
 let account_dot_loader = document.getElementById('account-dot-loader');
+let public_check_box = document.getElementById('check-click-public');
+let private_check_box = document.getElementById('check-click-private');
 let alertTimeout = 5000;
+
+function togglePrivatePublicCheckBox(visibility,private_check_box,public_check_box){
+    if(visibility == 'private'){
+        private_check_box.children[0].style.visibility = 'visible';
+    }
+    else if(visibility == 'public'){
+        public_check_box.children[0].style.visibility = 'visible';
+    }
+}
 
 async function getDefaultUserAccount(){
     try{
@@ -14,6 +25,8 @@ async function getDefaultUserAccount(){
         let default_account_html = loadResources.createDefaultAccountHtmlElement(default_account.account_image,default_account.account_name);
         account_dot_loader.style.display = 'none';
         account_select.innerHTML += default_account_html
+
+        togglePrivatePublicCheckBox('public',private_check_box,public_check_box);
     }
     catch(error){
         new Alert.Alert('error', 'An Error Occured While Loading User data. Please Refresh The Page', alertTimeout,alert_section);

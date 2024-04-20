@@ -36,13 +36,4 @@ function createDefaultAccountHtmlElement(account_image,account_name){
     return default_account_html;
 }
 
-function selectSafeVisibility(visibility, private_check_box, public_check_box){
-    if(visibility == 'private'){
-        private_check_box.checked = true;
-    }
-    else if(visibility == 'public'){
-        public_check_box.checked = true;
-    }
-}
-
-export {getAllCurrentUserAccounts,createDefaultAccountHtmlElement,selectSafeVisibility};
+export {getAllCurrentUserAccounts,createDefaultAccountHtmlElement};
