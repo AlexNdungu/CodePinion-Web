@@ -16,14 +16,15 @@ let public_check_box = document.getElementById('check-click-public');
 let private_check_box = document.getElementById('check-click-private');
 let alertTimeout = 5000;
 
-function togglePrivatePublicCheckBox(visibility,private_check_box,public_check_box){
+function togglePrivatePublicCheckBox(visibility){
+    createNewSafeMap.set('safe_visibility',visibility);
     if(visibility == 'private'){
+        public_check_box.children[0].style.visibility = 'hidden';
         private_check_box.children[0].style.visibility = 'visible';
-        createNewSafeMap.set('safe_visibility','private');
     }
     else if(visibility == 'public'){
+        private_check_box.children[0].style.visibility = 'hidden';
         public_check_box.children[0].style.visibility = 'visible';
-        createNewSafeMap.set('safe_visibility','public');
     }
 }
 
@@ -35,14 +36,13 @@ async function getDefaultUserAccount(){
         account_dot_loader.style.display = 'none';
         account_select.innerHTML += default_account_html
         createNewSafeMap.set('account_id',default_account.account_id);
+        createNewSafeMap.set('account_is_org',default_account.is_org);
 
         if(default_account.is_org == false){
-            togglePrivatePublicCheckBox('public',private_check_box,public_check_box);
-            createNewSafeMap.set('account_is_org',false);
+            togglePrivatePublicCheckBox('public');
         }
         else{
-            togglePrivatePublicCheckBox('private',private_check_box,public_check_box);
-            createNewSafeMap.set('account_is_org',true);
+            togglePrivatePublicCheckBox('private');
         }
     }
     catch(error){
