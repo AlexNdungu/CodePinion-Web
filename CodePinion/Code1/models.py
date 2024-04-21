@@ -110,6 +110,7 @@ class Safe(models.Model):
     languages = models.ManyToManyField(Language, blank=True)
     watchers = models.ManyToManyField(Profile, blank=True,related_name='watchers')
     stars = models.ManyToManyField(Profile, blank=True,related_name='stars')
+    pinned_status = models.BooleanField(default=False, verbose_name='Pinned Status')
     privacy_status = models.BooleanField(default=False, verbose_name='Privacy Status')
     delete_safe = models.BooleanField(default=False, verbose_name='Deleted Safe Status')
 
@@ -126,7 +127,8 @@ class Branch(models.Model):
     branch_name = models.CharField(max_length=30, verbose_name='Branch Name')
     branch_desc = models.TextField(verbose_name='Branch Description')
     branch_created_by = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Branch Owner',related_name='branch_owner')
-    delete_branch = models.BooleanField(default=False, verbose_name='Deleted Branch Status')
+    branch_is_head = models.BooleanField(default=False, verbose_name='Head Branch')
+    delete_branch = models.BooleanField(default=False, verbose_name='Deleted Branch')
     update = models.DateTimeField(auto_now=True)
     created = models.DateField(auto_now_add=True)
     def __str__(self):

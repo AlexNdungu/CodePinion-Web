@@ -338,7 +338,6 @@
         <script>
             let user_is_in_demo = "{{ user_is_in_demo }}";
             let demo_available = "{{ demo_available }}";
-            //
             let demo_navigation = document.getElementById("demo_navigation");
             let demo_intro_body = document.getElementById("demo_intro_body");
             let report_bug_btn = document.getElementById("report_bug_btn");
@@ -348,7 +347,6 @@
                 demo_intro_body.style.display = "none";
             }
             else {
-                // Check if user is in demo
                 if(user_is_in_demo == 'False'){
                     demo_intro_body.style.display = "flex";
                     demo_navigation.style.display = "none";

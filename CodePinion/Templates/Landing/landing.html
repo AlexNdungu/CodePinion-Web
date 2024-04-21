@@ -183,23 +183,20 @@
     </div>
 </div>
 <script>
-    // Script to ensure smooth scroll on click
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function (e) {
           e.preventDefault();
           const targetId = this.getAttribute('href');
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
-            // Increase scrollTop by 100px
             window.scrollTo({
-              top: targetElement.offsetTop - 75, // Add -100 here
+              top: targetElement.offsetTop - 75,
               behavior: 'smooth'
             });
           }
         });
       });
-    // Handle scroll animation
-    // Observe heading and text
+
     const observer_heading_text = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -214,7 +211,6 @@
     heading_text.forEach(el => {
         observer_heading_text.observe(el);
     });
-    // Observe Discover Features
     const observer_discovered_features = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -229,7 +225,6 @@
     discovered_features.forEach(el => {
         observer_discovered_features.observe(el);
     });
-    // Observe main images
     const observer_main_images = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -244,7 +239,6 @@
     main_images.forEach(el => {
         observer_main_images.observe(el);
     });
-    // Observe Secondary 1 images
     const observer_secondary_1_images = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -259,7 +253,6 @@
     secondary_1_images.forEach(el => {
         observer_secondary_1_images.observe(el);
     });
-    // Observe Secondary 2 images
     const observer_secondary_2_images = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -274,7 +267,6 @@
     secondary_2_images.forEach(el => {
         observer_secondary_2_images.observe(el);
     });
-    // Observe action buttons
     const observer_action_buttons = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

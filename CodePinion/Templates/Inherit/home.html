@@ -67,7 +67,7 @@
             let mobile_nav_close_icon = document.getElementById('mobile_nav_close_icon');
             let navigation_section = document.getElementById('navigation_section');
             let mobile_nav_open = false;
-            // Add event listiner
+
             responsive_nav_trigger_btn.addEventListener('click', ()=> {
                 if(mobile_nav_open == false){
                     mobile_navigation_action.classList.add('mobile_navigation_action_show');
@@ -119,9 +119,7 @@
                 <div class="copyright_section">
                     <p id="current_year" ></p>
                     <script>
-                        // Get the current year
                         let year = new Date().getFullYear();
-                        // Set the current year
                         document.getElementById("current_year").innerHTML = '&copy; ' + year + ' CodePinion. All rights reserved.';
                     </script>
                 </div>
@@ -134,12 +132,10 @@
     </div>
     <script>
         let nav = document.getElementById('navigation_section');
-        // Scroll event
         document.addEventListener('scroll', ()=> {
             if(window.scrollY > 0){
                 nav.classList.add('nav_on_scroll');
             }else{
-                // Check if the mobile navigation is open
                 if(mobile_nav_open == false){
                     nav.classList.remove('nav_on_scroll');
                 }

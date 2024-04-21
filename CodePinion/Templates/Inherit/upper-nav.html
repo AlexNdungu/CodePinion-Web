@@ -112,45 +112,30 @@
         </div>
     </div>
     <script>
-        // Get the toggle buttons
         let openNavBtn = document.getElementsByClassName("inherited-main-navigation-open-close");
         let openNavUserBtn = document.getElementsByClassName("profile-click-navigation-open-close");
-        // Get the navigation
         let nav = document.getElementById("inherited-main-navigation-container");
         let userNav = document.getElementById("profile-click-navigation");
-        // State of the navigation
         let navOpen = false;
         let userNavOpen = false;
-        // Add click event to the toggle buttons
         for (let i = 0; i < openNavBtn.length; i++) {
             openNavBtn[i].addEventListener("click", function() {
-                // Check if the navigation is open
                 if (navOpen == false) {
-                    // Open the navigation
                     nav.style.display = "flex";
-                    // Change the state of the navigation
                     navOpen = true;
                 } else {
-                    // Close the navigation
                     nav.style.display = "none";
-                    // Change the state of the navigation
                     navOpen = false;
                 }
             });
         }
-        // Add click event to the toggle buttons
         for (let i = 0; i < openNavUserBtn.length; i++) {
             openNavUserBtn[i].addEventListener("click", function() {
-                // Check if the navigation is open
                 if (userNavOpen == false) {
-                    // Open the navigation
                     userNav.style.display = "flex";
-                    // Change the state of the navigation
                     userNavOpen = true;
                 } else {
-                    // Close the navigation
                     userNav.style.display = "none";
-                    // Change the state of the navigation
                     userNavOpen = false;
                 }
             });

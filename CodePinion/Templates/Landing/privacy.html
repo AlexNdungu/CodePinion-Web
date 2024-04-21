@@ -359,16 +359,14 @@
         </div>
     </div>
     <script>
-        // Script to ensure smooth scroll on click
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', function (e) {
               e.preventDefault();
               const targetId = this.getAttribute('href');
               const targetElement = document.querySelector(targetId);
               if (targetElement) {
-                // Increase scrollTop by 100px
                 window.scrollTo({
-                  top: targetElement.offsetTop - 75, // Add -100 here
+                  top: targetElement.offsetTop - 75,
                   behavior: 'smooth'
                 });
               }
