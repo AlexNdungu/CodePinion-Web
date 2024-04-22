@@ -1,7 +1,6 @@
-let message_popup_success = document.getElementById("message_popup_success");
-let success_message_popup = document.getElementById("success_message_popup");
-let message_popup_failed = document.getElementById("message_popup_failed");
-let failed_message_popup = document.getElementById("failed_message_popup");
+import * as Alert from './alert.js';
+let alert_section = document.getElementById("alert_section");
+let alert_time = 4000;
 let csrf = document.getElementsByName('csrfmiddlewaretoken');
 let select_profile_pic_section = document.getElementById("select_profile_pic_section");
 let display_select_profile_pic_section = document.getElementById("display_select_profile_pic_section");
@@ -89,11 +88,9 @@ profile_file_input.addEventListener("change", function () {
             let h = this.height;
             let size = file.size;
             if(w != h){
-                message_popup_failed.style.display = "flex";
-                failed_message_popup.innerHTML = "Image must be square!";
+                new Alert.Alert('error','Image must be square!',alert_time,alert_section);
                 profile_image_checks[0].style.color = "#C53B3B";
                 setTimeout(function () {
-                    message_popup_failed.style.display = "none";
                     profile_image_checks[0].style.color = "#414141";
                     profile_file_input.value = "";
                 }, 3000);
@@ -111,11 +108,9 @@ profile_file_input.addEventListener("change", function () {
             else {
                 profile_image_checks[0].style.color = "#2CA631";
                 if(size > 2097152){
-                    message_popup_failed.style.display = "flex";
-                    failed_message_popup.innerHTML = "Image must be less than 2MB!";
+                    new Alert.Alert('error','Image must be less than 2MB!',alert_time,alert_section);
                     profile_image_checks[1].style.color = "#C53B3B";
                     setTimeout(function () {
-                        message_popup_failed.style.display = "none";
                         profile_image_checks[0].style.color = "#414141";
                         profile_image_checks[1].style.color = "#414141";
                         profile_file_input.value = "";
@@ -131,12 +126,9 @@ profile_file_input.addEventListener("change", function () {
                     }
                 }
                 else {
-                    message_popup_success.style.display = "flex";
-                    success_message_popup.innerHTML = "Image Selected Successfully!";
+
+                    new Alert.Alert('success','Image Selected Successfully!',alert_time,alert_section);
                     profile_image_checks[1].style.color = "#2CA631";
-                    setTimeout(function () {
-                        message_popup_success.style.display = "none";
-                    }, 3000);
                     current_displayed_profile_picture.src = reader.result;
                     new_profile_image_no_pic.style.display = "none";
                     current_displayed_profile_picture.style.display = "flex";
@@ -151,8 +143,7 @@ profile_file_input.addEventListener("change", function () {
     }
 });
 profile_pic_discard.addEventListener("click", function () {
-    message_popup_failed.style.display = "flex";
-    failed_message_popup.innerHTML = "Profile Picture Upload Discarded!";
+    new Alert.Alert('error','Profile Picture Upload Discarded!',alert_time,alert_section);
     profile_pic_discard.style.display = "none";
     profile_pic_update.style.display = "none";
     profile_upload_btn.style.display = "flex";
@@ -168,17 +159,10 @@ profile_pic_discard.addEventListener("click", function () {
     profile_file_input.value = "";
     profile_image_checks[0].style.color = "#414141";
     profile_image_checks[1].style.color = "#414141";
-    setTimeout(function () {
-        message_popup_failed.style.display = "none";
-    }, 3000);
 });
 profile_pic_update.addEventListener("click", function () {
     if(profile_pic == null){
-        message_popup_failed.style.display = "flex";
-        failed_message_popup.innerHTML = "Please select a profile picture!";
-        setTimeout(function () {
-            message_popup_failed.style.display = "none";
-        }, 3000);
+        new Alert.Alert('error','Please select a profile picture!',alert_time,alert_section);
     }
     else {
         upload_profile_pic();
@@ -192,11 +176,7 @@ profile_pic_close.addEventListener("click", function () {
 });
 display_remove_profile_pic_section.addEventListener("click", function () {
     if (original_profile_pic == ""){
-        message_popup_failed.style.display = "flex";
-        failed_message_popup.innerHTML = "You don't have a profile picture!";
-        setTimeout(function () {
-            message_popup_failed.style.display = "none";
-        }, 3000);
+        new Alert.Alert('error','You don\'t have a profile picture!',alert_time,alert_section);
         return;
     }
     else{
@@ -205,11 +185,7 @@ display_remove_profile_pic_section.addEventListener("click", function () {
 });
 remove_profile_pic_no.addEventListener("click", function () {
     remove_profile_pic_convo.style.display = "none";
-    message_popup_failed.style.display = "flex";
-    failed_message_popup.innerHTML = "Profile Picture Removal Cancelled!";
-    setTimeout(function () {
-        message_popup_failed.style.display = "none";
-    }, 3000);
+    new Alert.Alert('error','Profile Picture Removal Cancelled!',alert_time,alert_section);
 });
 remove_profile_pic_yes.addEventListener("click", function () {
     remove_profile_pic();
@@ -217,36 +193,20 @@ remove_profile_pic_yes.addEventListener("click", function () {
 enable_bio_edit_btn.addEventListener("click", function () {
     read_the_bio.style.display = "none";
     edit_the_bio.style.display = "flex";
-    message_popup_success.style.display = "flex";
-    success_message_popup.innerHTML = "You can now edit your bio!";
-    setTimeout(function () {
-        message_popup_success.style.display = "none";
-    }, 3000);
+    new Alert.Alert('success','You can now edit your bio!',alert_time,alert_section);
 });
 bio_edit_btn_discard.addEventListener("click", function () {
     edit_the_bio.style.display = "none";
     bio_textarea.value = original_bio;
     read_the_bio.style.display = "flex";
-    message_popup_failed.style.display = "flex";
-    failed_message_popup.innerHTML = "Bio Edit Discarded!";
-    setTimeout(function () {
-        message_popup_failed.style.display = "none";
-    }, 3000);
+    new Alert.Alert('error','Bio Edit Discarded!',alert_time,alert_section);
 });
 bio_edit_btn_update.addEventListener("click", function () {
     if(bio_textarea.value == ""){
-        message_popup_failed.style.display = "flex";
-        failed_message_popup.innerHTML = "Bio cannot be empty!";
-        setTimeout(function () {
-            message_popup_failed.style.display = "none";
-        }, 3000);
+        new Alert.Alert('error','Bio cannot be empty!',alert_time,alert_section);
     }
     else if(bio_textarea.value == original_bio){
-        message_popup_failed.style.display = "flex";
-        failed_message_popup.innerHTML = "No changes made to the bio!";
-        setTimeout(function () {
-            message_popup_failed.style.display = "none";
-        }, 3000);
+        new Alert.Alert('error','No changes made to the bio!',alert_time,alert_section);
     }
     else {
         update_bio();
@@ -268,58 +228,46 @@ for (let i = 0; i < other_det_inputs.length; i++) {
     });
 }
 all_detail_btn_discard.addEventListener("click", function () {
-    message_popup_failed.style.display = "flex";
-    failed_message_popup.innerHTML = "Detail Changes Discarded!";
     other_det_fullname.value = original_fullname_server;
     other_det_secondary_email.value = original_secondary_email_server;
     other_det_company.value = original_company_server;
     other_det_location.value = original_location_server;
     other_det_website.value = original_website_server;
     setTimeout(function () {
-        message_popup_failed.style.display = "none";
         save_discard_all_dets.style.display = "none";
     }, 3000);
+    new Alert.Alert('error','Detail Changes Discarded!',alert_time,alert_section);
 });
 all_detail_btn_update.addEventListener("click", function () {
     if(other_det_fullname.value !== original_fullname_server || other_det_secondary_email.value !== original_secondary_email_server || other_det_company.value !== original_company_server || other_det_location.value !== original_location_server || other_det_website.value !== original_website_server){
         if(other_det_secondary_email.value != ""){
             if(!validateEmail(other_det_secondary_email.value)){
-                message_popup_failed.style.display = "flex";
-                failed_message_popup.innerHTML = "Secondary email is not valid!";
-                setTimeout(function () {
-                    message_popup_failed.style.display = "none";
-                }, 3000);
+                new Alert.Alert('error','Secondary email is not valid!',alert_time,alert_section);
                 return;
             }
         }
         if(other_det_website.value != ""){
             if(!validateWebsite(other_det_website.value)){
-                message_popup_failed.style.display = "flex";
-                failed_message_popup.innerHTML = "Website is not valid!";
-                setTimeout(function () {
-                    message_popup_failed.style.display = "none";
-                }, 3000);
+                new Alert.Alert('error','Website is not valid!',alert_time,alert_section);
                 return;
             }
         }
         if(other_det_company.value != ""){
             if(other_det_company.value.length > 20){
-                message_popup_failed.style.display = "flex";
-                failed_message_popup.innerHTML = "Company name cannot be more than 20 characters!";
-                setTimeout(function () {
-                    message_popup_failed.style.display = "none";
-                }, 3000);
+                new Alert.Alert('error','Company name cannot be more than 20 characters!',alert_time,alert_section);
+                return;
+            }
+        }
+        if(other_det_fullname.value != ""){
+            if(other_det_fullname.value.length > 50){
+                new Alert.Alert('error','Full name cannot be more than 50 characters!',alert_time,alert_section);
                 return;
             }
         }
         update_all_details();
     }
     else {
-        message_popup_failed.style.display = "flex";
-        failed_message_popup.innerHTML = "No changes made to the details!";
-        setTimeout(function () {
-            message_popup_failed.style.display = "none";
-        }, 3000);
+        new Alert.Alert('error','No changes made to the details!',alert_time,alert_section);
     }
 });
 function sanitizeHTML(text) {
@@ -344,34 +292,12 @@ function upload_profile_pic() {
         success: function(response){
             update_spinner.style.display = "none";
             update_spinner_replaced.style.display = "flex";
-            message_popup_success.style.display = "flex";
-            success_message_popup.innerHTML = "Profile Picture Updated Successfully!";
-            setTimeout(function(){
-                message_popup_success.style.display = "none";
-                original_profile_pic = response.profile_pic_url;
-                display_image_section_no_profile_picture.style.display = "none";
-                new_profile_image_no_pic.style.display = "none";
-                display_profile_image_img.style.display = "flex";
-                current_displayed_profile_picture.style.display = "flex";
-                current_displayed_profile_picture.src = original_profile_pic;
-                display_profile_image_img.src = original_profile_pic;
-                home_profile_image.innerHTML = `<img src="${original_profile_pic}" alt="logged-user">`
-                profile_file_input.value = "";
-                profile_pic_discard.style.display = "none";
-                profile_pic_update.style.display = "none";
-                profile_pic_update.style.pointerEvents = "auto";
-                profile_upload_btn.style.display = "flex";
-                profile_image_checks[0].style.color = "#414141";
-                profile_image_checks[1].style.color = "#414141";
-            }, 4000);
+            new Alert.Alert('success','Profile Picture Updated Successfully!',alert_time,alert_section);
         },
         error: function(error){
             update_spinner.style.display = "none";
             update_spinner_replaced.style.display = "flex";
-            message_popup_failed.style.display = "flex";
-            failed_message_popup.innerHTML = "Failed To Update Profile Picture! Please try again, and if the issue persists, contact our support team.";
             setTimeout(function(){
-                message_popup_failed.style.display = "none";
                 current_displayed_profile_picture.src = original_profile_pic;
                 if(original_profile_pic == ""){
                     new_profile_image_no_pic.style.display = "flex";
@@ -389,6 +315,7 @@ function upload_profile_pic() {
                 profile_image_checks[0].style.color = "#414141";
                 profile_image_checks[1].style.color = "#414141";
             }, 4000);
+            new Alert.Alert('error','Failed To Update Profile Picture! Please try again, and if the issue persists, contact our support team.',alert_time,alert_section);
         }
     });
 }
@@ -409,10 +336,7 @@ function remove_profile_pic(){
             remove_profile_spinner.style.display = "none";
             remove_profile_spinner_icon.style.display = "flex";
             remove_profile_pic_yes.style.pointerEvents = "auto";
-            message_popup_success.style.display = "flex";
-            success_message_popup.innerHTML = "Profile Picture Removed Successfully!";
             setTimeout(function(){
-                message_popup_success.style.display = "none";
                 remove_profile_pic_convo.style.display = "none";
                 display_profile_image_img.style.display = "none";
                 current_displayed_profile_picture.style.display = "none";
@@ -424,16 +348,13 @@ function remove_profile_pic(){
                 display_image_section_no_profile_picture.style.display = "flex";
                 new_profile_image_no_pic.style.display = "flex";
             }, 4000);
+            new Alert.Alert('success','Profile Picture Removed Successfully!',alert_time,alert_section);
         },
         error: function(error){
             remove_profile_spinner.style.display = "none";
             remove_profile_spinner_icon.style.display = "flex";
             remove_profile_pic_yes.style.pointerEvents = "auto";
-            message_popup_failed.style.display = "flex";
-            failed_message_popup.innerHTML = "Failed To Remove Profile Picture! Please try again, and if the issue persists, contact our support team.";
-            setTimeout(function(){
-                message_popup_failed.style.display = "none";
-            }, 4000);   
+            new Alert.Alert('error','Failed To Remove Profile Picture! Please try again, and if the issue persists, contact our support team.',alert_time,alert_section);   
         }
     });
 }
@@ -452,28 +373,22 @@ function update_bio() {
         processData: false,
         contentType: false,
         success: function(response){
-            message_popup_success.style.display = "flex";
-            success_message_popup.innerHTML = "Bio Updated Successfully!";
             update_bio_spinner.style.display = "none";
             update_spinner_rep_icon.style.display = "flex";
             bio_edit_btn_update.style.pointerEvents = "auto";
+            original_bio = response.bio;
             setTimeout(function(){
-                message_popup_success.style.display = "none";
-                original_bio = response.bio;
                 inner_read_bio.innerHTML = original_bio;
                 edit_the_bio.style.display = "none";
                 read_the_bio.style.display = "flex";
             }, 4000);
+            new Alert.Alert('success','Bio Updated Successfully!',alert_time,alert_section);
         },
         error: function(error){
-            message_popup_failed.style.display = "flex";
-            failed_message_popup.innerHTML = "Failed To Update Bio! Please try again, and if the issue persists, contact our support team.";
             update_bio_spinner.style.display = "none";
             update_spinner_rep_icon.style.display = "flex";
             bio_edit_btn_update.style.pointerEvents = "auto";
-            setTimeout(function(){
-                message_popup_failed.style.display = "none";
-            }, 4000);
+            new Alert.Alert('error','Failed To Update Bio! Please try again, and if the issue persists, contact our support team.',alert_time,alert_section);
         }
     });
 }
@@ -504,13 +419,10 @@ function update_all_details() {
         processData: false,
         contentType: false,
         success: function(response){
-            message_popup_success.style.display = "flex";
-            success_message_popup.innerHTML = "Details Updated Successfully!";
             update_detail_spinner.style.display = "none";
             update_spinner_detail_icon.style.display = "flex";
             all_detail_btn_update.style.pointerEvents = "auto";
             setTimeout(function(){
-                message_popup_success.style.display = "none";
                 original_fullname_server = response.fullname;
                 original_secondary_email_server = response.secondary_email;
                 original_company_server = response.company;
@@ -529,16 +441,13 @@ function update_all_details() {
                 original_website = other_det_website.value;
                 save_discard_all_dets.style.display = "none";
             }, 4000);
+            new Alert.Alert('success','Details Updated Successfully!',alert_time,alert_section);
         },
         error: function(error){
-            message_popup_failed.style.display = "flex";
-            failed_message_popup.innerHTML = "Failed To Update Details! Please try again, and if the issue persists, contact our support team.";
             update_detail_spinner.style.display = "none";
             update_spinner_detail_icon.style.display = "flex";
             all_detail_btn_update.style.pointerEvents = "auto";
-            setTimeout(function(){
-                message_popup_failed.style.display = "none";
-            }, 4000);
+            new Alert.Alert('error','Failed To Update Details! Please try again, and if the issue persists, contact our support team.',alert_time,alert_section);
         }
     });
 }
