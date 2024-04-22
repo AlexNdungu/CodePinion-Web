@@ -206,6 +206,8 @@
 .account-profile {
     max-width: 40px;
     max-height: 40px;
+    min-width: 40px;
+    min-height: 40px;
     margin-right: 10px;
     object-fit: cover;
     display: flex;

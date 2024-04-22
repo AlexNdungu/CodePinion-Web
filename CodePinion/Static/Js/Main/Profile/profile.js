@@ -322,6 +322,11 @@ all_detail_btn_update.addEventListener("click", function () {
         }, 3000);
     }
 });
+function sanitizeHTML(text) {
+    var element = document.createElement('div');
+    element.innerText = text;
+    return element.innerHTML;
+}
 function upload_profile_pic() {
     update_spinner.style.display = "flex";
     update_spinner_replaced.style.display = "none";
@@ -439,7 +444,7 @@ function update_bio() {
     let formData = new FormData();
     formData.append('csrfmiddlewaretoken', csrf[0].value);
     formData.append('to_update', 'bio');
-    formData.append('bio', bio_textarea.value);
+    formData.append('bio', sanitizeHTML(bio_textarea.value));
     $.ajax({
         type:'POST',
         url:'/updateProfile/',
@@ -487,10 +492,10 @@ function update_all_details() {
     let formData = new FormData();
     formData.append('csrfmiddlewaretoken', csrf[0].value);
     formData.append('to_update', 'all_details');
-    formData.append('fullname', other_det_fullname.value);
+    formData.append('fullname', sanitizeHTML(other_det_fullname.value));
     formData.append('secondary_email', other_det_secondary_email.value);
-    formData.append('company', other_det_company.value);
-    formData.append('location', other_det_location.value);
+    formData.append('company', sanitizeHTML(other_det_company.value));
+    formData.append('location', sanitizeHTML(other_det_location.value));
     formData.append('website', other_det_website.value);
     $.ajax({
         type:'POST',
