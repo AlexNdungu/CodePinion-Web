@@ -16,6 +16,12 @@ let public_check_box = document.getElementById('check-click-public');
 let private_check_box = document.getElementById('check-click-private');
 let alertTimeout = 5000;
 
+function sanitizeHTML(text) {
+    var element = document.createElement('div');
+    element.innerText = text;
+    return element.innerHTML;
+}
+
 function togglePrivatePublicCheckBox(visibility){
     createNewSafeMap.set('safe_visibility',visibility);
     if(visibility == 'private'){
@@ -32,7 +38,7 @@ async function getDefaultUserAccount(){
     try{
         let accounts = await loadResources.getAllCurrentUserAccounts();
         let default_account = accounts.accounts[0]
-        let default_account_html = loadResources.createDefaultAccountHtmlElement(default_account.account_image,default_account.account_name);
+        let default_account_html = loadResources.createDefaultAccountHtmlElement(default_account.account_image,sanitizeHTML(default_account.account_name));
         account_dot_loader.style.display = 'none';
         account_select.innerHTML += default_account_html
         createNewSafeMap.set('account_id',default_account.account_id);
