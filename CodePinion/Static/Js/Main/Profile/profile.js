@@ -271,9 +271,16 @@ all_detail_btn_update.addEventListener("click", function () {
     }
 });
 function sanitizeHTML(text) {
-    var element = document.createElement('div');
-    element.innerText = text;
-    return element.innerHTML;
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#x27;',
+        "/": '&#x2F;',
+    };
+    const reg = /[&<>"'/]/ig;
+    return text.replace(reg, (match)=>(map[match]));
 }
 function upload_profile_pic() {
     update_spinner.style.display = "flex";

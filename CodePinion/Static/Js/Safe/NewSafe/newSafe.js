@@ -17,9 +17,16 @@ let private_check_box = document.getElementById('check-click-private');
 let alertTimeout = 5000;
 
 function sanitizeHTML(text) {
-    var element = document.createElement('div');
-    element.innerText = text;
-    return element.innerHTML;
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#x27;',
+        "/": '&#x2F;',
+    };
+    const reg = /[&<>"'/]/ig;
+    return text.replace(reg, (match)=>(map[match]));
 }
 
 function togglePrivatePublicCheckBox(visibility){
