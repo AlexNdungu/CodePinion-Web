@@ -7,88 +7,8 @@
     align-items: flex-start;
     justify-content: center;
 }
-#alert_section {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: max-content;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding-right: 10px;
-}
 #profile_form {
     display: none;
-}
-.message_popup {
-    font-family: 'Roboto', sans-serif;
-    height: 50px;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: max-content;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #414141;
-    z-index: 4;
-}
-.message_popup span {
-    font-size: 17px;
-    font-weight: 400;
-    margin-left: 10px;
-}
-.message_pop_icon {
-    min-width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.message_pop_icon svg {
-    width: 20px;
-    fill: #F3F3F3;
-    pointer-events: none;
-} 
-.close_pop {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-}
-.close_pop:hover {
-    background-color: #fff;
-}
-.close_pop svg {
-    width: 25px;
-}
-.message_popup_failed .close_pop svg {
-    fill: #C53B3B;
-}
-.message_popup_success .close_pop svg {
-    fill: #2CA631;
-}
-.message_popup_success {
-    background-color: #CFE8D3;
-    border: 1px solid #2CA631;
-}
-.message_popup_success .message_pop_icon {
-    background-color: #2CA631;
-}
-.message_popup_failed {
-    background-color: #FAEEEB;
-    border: 1px solid #C53B3B;
-}
-.message_popup_failed .message_pop_icon {
-    background-color: #C53B3B;
 }
 .inner_profile_section {
     position: relative;
