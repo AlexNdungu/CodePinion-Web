@@ -292,6 +292,23 @@ function upload_profile_pic() {
         success: function(response){
             update_spinner.style.display = "none";
             update_spinner_replaced.style.display = "flex";
+            setTimeout(function(){
+                original_profile_pic = response.profile_pic_url;
+                display_image_section_no_profile_picture.style.display = "none";
+                new_profile_image_no_pic.style.display = "none";
+                display_profile_image_img.style.display = "flex";
+                current_displayed_profile_picture.style.display = "flex";
+                current_displayed_profile_picture.src = original_profile_pic;
+                display_profile_image_img.src = original_profile_pic;
+                home_profile_image.innerHTML = `<img src="${original_profile_pic}" alt="logged-user">`
+                profile_file_input.value = "";
+                profile_pic_discard.style.display = "none";
+                profile_pic_update.style.display = "none";
+                profile_pic_update.style.pointerEvents = "auto";
+                profile_upload_btn.style.display = "flex";
+                profile_image_checks[0].style.color = "#414141";
+                profile_image_checks[1].style.color = "#414141";
+            }, 4000);
             new Alert.Alert('success','Profile Picture Updated Successfully!',alert_time,alert_section);
         },
         error: function(error){
