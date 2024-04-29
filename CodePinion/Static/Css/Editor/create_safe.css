@@ -53,6 +53,9 @@
     color: #414141;
     margin-bottom: 10px;
 }
+.account-drop-down {
+    position: relative;
+}
 .account-select {
     width: fit-content;
     height: 50px;
@@ -69,6 +72,15 @@
 }
 .account-select:hover {
     border: 2px solid #406CEE;
+}
+.account-options {
+    position: absolute;
+    top: calc(100% + 10px);
+    width: 250px;
+    min-height: 100px;
+    height: max-content;
+    border-radius: 10px;
+    background-color: #F3F3F3;
 }
 .defaut_account {
     pointer-events: none;
