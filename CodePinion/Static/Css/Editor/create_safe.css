@@ -73,15 +73,6 @@
 .account-select:hover {
     border: 2px solid #406CEE;
 }
-.account-options {
-    position: absolute;
-    top: calc(100% + 10px);
-    width: 250px;
-    min-height: 100px;
-    height: max-content;
-    border-radius: 10px;
-    background-color: #F3F3F3;
-}
 .defaut_account {
     pointer-events: none;
     width: fit-content;
@@ -153,6 +144,79 @@
     min-width: 100%;
     height: 100%;
     border-radius: 10px;
+}
+.account-options {
+    position: absolute;
+    top: calc(100% + 10px);
+    width: 250px;
+    min-height: 100px;
+    height: max-content;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.account-search-and-close {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.account-search-and-close input {
+    width: calc(100% - 55px);
+    height: 35px;
+    border-radius: 5px;
+    padding-left: 10px;
+    outline: none;
+    border: 2px solid #8F8F8F;
+    font-size: 15px;
+    color: #406CEE;
+}
+.account-search-and-close input:focus {
+    border: 2px solid #406CEE;
+}
+#close-account-list {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: white;
+    fill: #414141;
+}
+#close-account-list svg {
+    width: 22px;
+}
+#close-account-list:hover {
+    fill: #C53B3B;
+}
+.retreaved-account-list {
+    background-color: aqua;
+    width: 100%;
+    height: max-content;
+    min-height: 100px;
+}
+.retreaved-account-list-loader {
+    width: 100%;
+    height: 100px;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 5px;
+}
+.account-in-list-skeleton-loader {
+    width: calc(100% - 10px);
+    height: 45px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: #414141;
 }
 .the-separator {
     width: 80px;
