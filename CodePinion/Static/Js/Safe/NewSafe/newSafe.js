@@ -44,10 +44,11 @@ function togglePrivatePublicCheckBox(visibility){
 async function getDefaultUserAccount(){
     try{
         let accounts = await loadResources.getAllCurrentUserAccounts();
-        let default_account = accounts.accounts[0]
-        let default_account_html = loadResources.createDefaultAccountHtmlElement(default_account.account_image,sanitizeHTML(default_account.account_name));
+        let select_account_index = 0;
+        let default_account = accounts.accounts[select_account_index]
+        let default_account_html = loadResources.createDefaultAccountHtmlElement(default_account.account_image,sanitizeHTML(default_account.account_name),select_account_index);
         account_dot_loader.style.display = 'none';
-        account_select.innerHTML += default_account_html
+        account_select.appendChild(default_account_html)
         createNewSafeMap.set('account_id',default_account.account_id);
         createNewSafeMap.set('account_is_org',default_account.is_org);
 
