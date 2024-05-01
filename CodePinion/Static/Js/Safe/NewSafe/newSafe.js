@@ -9,6 +9,7 @@ createNewSafeMap.set('safe_description',null);
 createNewSafeMap.set('safe_visibility',null);
 
 let alert_section = document.getElementById('alert_section');
+let account_options = document.getElementById('account-options');
 let account_drop_down = document.getElementById('account-drop-down');
 let filter_accounts_inputs = document.getElementById('filter-accounts-inputs');
 let close_accounts_list = document.getElementById('close-account-list');
