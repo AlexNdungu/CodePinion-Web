@@ -11,8 +11,9 @@ createNewSafeMap.set('safe_visibility',null);
 let alert_section = document.getElementById('alert_section');
 let account_drop_down = document.getElementById('account-drop-down');
 let filter_accounts_inputs = document.getElementById('filter-accounts-inputs');
-let close_accounts_list = document.getElementById('close-account-list')
-let retreaved_account_list = document.getElementById('retreaved-account-list')
+let close_accounts_list = document.getElementById('close-account-list');
+let retreaved_account_list = document.getElementById('retreaved-account-list');
+let retreaved_account_list_loader = document.getElementById('retreaved-account-list-loader');
 let account_select = document.getElementById('account-select');
 let account_dot_loader = document.getElementById('account-dot-loader');
 let public_check_box = document.getElementById('check-click-public');

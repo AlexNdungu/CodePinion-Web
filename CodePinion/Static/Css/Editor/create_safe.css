@@ -152,7 +152,9 @@
     min-height: 100px;
     height: max-content;
     border-radius: 10px;
-    background-color: #F3F3F3;
+    background-color: white;
+    border: 1px solid #F3F3F3;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,17 +188,18 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: white;
     fill: #414141;
+    transition: 0.2s ease-in-out;
 }
 #close-account-list svg {
     width: 22px;
 }
 #close-account-list:hover {
     fill: #C53B3B;
+    background-color: white;
 }
 .retreaved-account-list {
-    background-color: aqua;
+    /* background-color: aqua; */
     width: 100%;
     height: max-content;
     min-height: 100px;
@@ -205,7 +208,7 @@
     width: 100%;
     height: 100px;
     background-color: azure;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -216,7 +219,19 @@
     height: 45px;
     margin-bottom: 5px;
     border-radius: 10px;
-    background-color: #414141;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+    0% {
+      background-color: #F3F3F3;
+    }
+    100% {
+      background-color: #a1a1a1;
+    }
+  }
+.individual-account-from-list {
+    height: 40px;
+    display: flex;
 }
 .the-separator {
     width: 80px;
