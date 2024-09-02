@@ -19,6 +19,7 @@ let account_select = document.getElementById('account-select');
 let account_dot_loader = document.getElementById('account-dot-loader');
 let public_check_box = document.getElementById('check-click-public');
 let private_check_box = document.getElementById('check-click-private');
+let check_private_and_public  = document.getElementsByClassName('check-click');
 let alertTimeout = 5000;
 
 function sanitizeHTML(text) {
@@ -72,3 +73,18 @@ async function getDefaultUserAccount(){
 window.addEventListener('load', function () {
     getDefaultUserAccount();
 });
+
+function change_visibility_onclick(visibility_state){
+    if(visibility_state == 'check-click-public'){
+        new Alert.Alert('success', 'Public Visibility', alertTimeout,alert_section);
+    }
+    else if(visibility_state == 'check-click-private'){
+        new Alert.Alert('error', 'Private Visibility', alertTimeout,alert_section);
+    }
+}
+
+for(let i = 0; i < check_private_and_public.length;i++){
+    check_private_and_public[i].addEventListener('click', ()=>{
+        change_visibility_onclick(check_private_and_public[i].id);
+    })
+}
