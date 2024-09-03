@@ -20,6 +20,7 @@ let account_dot_loader = document.getElementById('account-dot-loader');
 let public_check_box = document.getElementById('check-click-public');
 let private_check_box = document.getElementById('check-click-private');
 let check_private_and_public  = document.getElementsByClassName('check-click');
+let change_on_change_privacy = document.getElementById('change-on-change');
 let alertTimeout = 5000;
 
 function sanitizeHTML(text) {
@@ -40,10 +41,12 @@ function togglePrivatePublicCheckBox(visibility){
     if(visibility == 'private'){
         public_check_box.children[0].style.visibility = 'hidden';
         private_check_box.children[0].style.visibility = 'visible';
+        change_on_change_privacy.innerHTML = 'You are creating a private safe in your personal account.'
     }
     else if(visibility == 'public'){
         private_check_box.children[0].style.visibility = 'hidden';
         public_check_box.children[0].style.visibility = 'visible';
+        change_on_change_privacy.innerHTML = 'You are creating a public safe in your personal account.'
     }
 }
 
@@ -76,10 +79,10 @@ window.addEventListener('load', function () {
 
 function change_visibility_onclick(visibility_state){
     if(visibility_state == 'check-click-public'){
-        new Alert.Alert('success', 'Public Visibility', alertTimeout,alert_section);
+        togglePrivatePublicCheckBox('public');
     }
     else if(visibility_state == 'check-click-private'){
-        new Alert.Alert('error', 'Private Visibility', alertTimeout,alert_section);
+        togglePrivatePublicCheckBox('private')
     }
 }
 
