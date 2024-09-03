@@ -15,6 +15,6 @@ urlpatterns = [
     path('updateProfile/', views.UpdateProfile, name='update_profile'),
     path('dash/', views.Dashboard, name='dash'),
     path('safes/', views.Safes, name='safes'),
-    path('new_safe/', views.NewSafe, name='connect_safe_folder'),
+    path('new_safe/', views.NewSafe, name='new_safe'),
     path('getAllCurrentUserAccounts/', views.GetAllCurrentUserAccounts, name='get_all_current_user_accounts'),
 ]

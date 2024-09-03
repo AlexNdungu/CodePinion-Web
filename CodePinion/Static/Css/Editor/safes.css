@@ -98,9 +98,14 @@
 .new-safe {
     background-color: #414141;
     color: #D9D9D9;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 .new-safe svg {
     fill: #D9D9D9;
+}
+.new-safe:hover{
+    background-color: #406CEE;
 }
 .separation-line {
     width: 100%;
