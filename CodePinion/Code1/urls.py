@@ -16,5 +16,6 @@ urlpatterns = [
     path('dash/', views.Dashboard, name='dash'),
     path('safes/', views.Safes, name='safes'),
     path('new_safe/', views.NewSafe, name='new_safe'),
+    path('objectives/',views.ToDoObjectives,name='objectives_todo'),
     path('getAllCurrentUserAccounts/', views.GetAllCurrentUserAccounts, name='get_all_current_user_accounts'),
 ]

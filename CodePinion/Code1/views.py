@@ -132,6 +132,10 @@ def Safes(request):
 def NewSafe(request):
     return render(request, 'Editor/new_safe.html')
 
+@login_required
+def ToDoObjectives(request):
+    return render(request,'Editor/todo.html')
+
 def GetAllCurrentUserAccounts(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         
