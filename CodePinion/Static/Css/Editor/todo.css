@@ -1,0 +1,109 @@
+.lower-section {
+    font-family: 'Roboto', sans-serif;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.safe_name_stats-safe_menu {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.safe_name_stats,.safe_menu {
+    width: 100%;
+    height: 50%;
+}
+
+.safe_name_stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.safe_name_and_privacy,.stats_watchers_and_stars {
+    height: 100%;
+    width: 50%;
+}
+
+.safe_name_and_privacy {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 16px;
+    color: #414141;
+}
+
+.safe_name_and_privacy div{
+    margin-left: 10px;
+}
+
+.safe_name_and_privacy a{
+    color: #414141;
+}
+
+.safe_name_link_span {
+    font-weight: 600;
+}
+
+.safe_name_and_privacy svg{
+    width: 28px;
+    height: 28px;
+    fill: #414141;
+}
+
+.safe_private_icon {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #414141;
+}
+
+.safe_private_icon svg {
+    fill: #f3f3f3;
+    width: 15px;
+    height: 15px;
+}
+
+.stats_watchers_and_stars {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.stats_watcher_or_star {
+    width: max-content;
+    height: 35px;
+    min-width: 200px;
+    border: 2px solid #414141;
+    fill: #414141;
+    color: #414141;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.stats_watcher_or_star:hover {
+    border: 2px solid #406CEE;
+    fill: #406CEE;
+}
+
+.stats_watcher_or_star:nth-child(1){
+    margin-right: 10px;
+}
+
+.stats_watcher_or_star svg {
+    width: 19px;
+    height: 19px;
+}
