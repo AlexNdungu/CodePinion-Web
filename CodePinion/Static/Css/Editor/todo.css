@@ -55,6 +55,11 @@
 
 .safe_name_and_privacy a{
     color: #414141;
+    transition: 0.2s ease-in-out;
+}
+
+.safe_name_and_privacy a:hover {
+    color: #406CEE;
 }
 
 .safe_name_link_span {
@@ -92,7 +97,6 @@
 .stats_watcher_or_star {
     width: max-content;
     height: 35px;
-    min-width: 200px;
     border: 2px solid #414141;
     fill: #414141;
     color: #414141;
@@ -106,9 +110,18 @@
     transition: 0.2s ease-in-out;
 }
 
+.stats_watcher_or_star span {
+    margin: 5px;
+    font-size: 15px;
+}
+
 .stats_watcher_or_star:hover {
     border: 2px solid #406CEE;
     fill: #406CEE;
+}
+
+.stats_watcher_or_star:hover > .stats_watcher_or_star_span {
+    color: #406CEE;
 }
 
 .stats_watcher_or_star:nth-child(1){
@@ -126,13 +139,19 @@
     color: #f3f3f3;
     font-size: 13px;
     border-radius: 5px;
+    transition: 0.2s ease-in-out;
 }
 
 .stats_numbers span {
-    margin: 4px;
+    margin: 6px;
+}
+
+.stats_watcher_or_star:hover > .stats_numbers {
+    background-color: #406CEE;
 }
 
 .stats_watcher_or_star svg {
     width: 19px;
     height: 19px;
+    margin: 5px;
 }
