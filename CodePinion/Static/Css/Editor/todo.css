@@ -6,16 +6,16 @@
 
 .safe_name_stats-safe_menu {
     width: 100%;
-    height: 140px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.safe_name_stats,.safe_menu {
+.safe_name_stats {
     width: 100%;
-    height: 50%;
+    height: 60%;
 }
 
 .safe_name_stats {
@@ -154,4 +154,40 @@
     width: 19px;
     height: 19px;
     margin: 5px;
+}
+
+.safe_menu {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #acacac;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+}
+
+.safe_menu_member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: max-content;
+    border-radius: 5px;
+    padding: 10px;
+    fill: #414141;
+    color: #414141;
+    transition: 0.2s ease-in-out;
+}
+
+.safe_menu_member:hover {
+    background-color: #f3f3f3;
+}
+
+.safe_menu_member svg {
+    width: 18px;
+    margin-right: 5px;
+}
+
+.safe_menu_member span {
+    font-size: 14px;
 }
