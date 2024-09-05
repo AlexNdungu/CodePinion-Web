@@ -41,6 +41,18 @@
     margin-left: 10px;
 }
 
+.safe_owner_profile_image {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.safe_owner_profile_image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
 .safe_name_and_privacy a{
     color: #414141;
 }
