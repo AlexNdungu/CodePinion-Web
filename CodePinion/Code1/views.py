@@ -136,6 +136,10 @@ def NewSafe(request):
 def SafeBioDataInherit(request):
     return render(request,'Inherit/safe_biodata_inherit.html')
 
+@login_required
+def Tasks(request):
+    return render(request,'Editor/SafeBioData/task.html')
+
 def GetAllCurrentUserAccounts(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         

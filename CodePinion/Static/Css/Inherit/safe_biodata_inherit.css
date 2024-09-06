@@ -1,4 +1,6 @@
 .lower-section {
+    min-height: 100vh;
+    height: max-content !important;
     font-family: 'Roboto', sans-serif;
     padding-left: 70px;
     padding-right: 70px;

@@ -1,8 +1,10 @@
 {% extends 'Inherit/upper-nav.html' %}
 {% load static %}
 {% block head %}
+    {% block head_safeBioData %}
+    {% endblock %}
     <title>CodePinion ::- Bio Data</title>
-    <link rel="stylesheet" href="{% static '/Css/Editor/safe_biodata_inherit.css' %}">
+    <link rel="stylesheet" href="{% static '/Css/Inherit/safe_biodata_inherit.css' %}">
 {% endblock %}
 {% block lower_section %}
     <div class="safe_name_stats-safe_menu">
@@ -54,6 +56,8 @@
             </a>
         </div>
     </div>
+    {% block safeBioDataSection %}
+    {% endblock %}
 {% endblock %}
 {% block javaS %}
 {% endblock %}
