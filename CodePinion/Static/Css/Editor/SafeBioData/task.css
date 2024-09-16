@@ -27,7 +27,7 @@
 .the_search_bar {
     width: 400px;
     height: 45px;
-    border: 1px solid #414141;
+    border: 2px solid #414141;
     fill: #414141;
     border-radius: 5px;
     display: flex;
@@ -47,7 +47,7 @@
 }
 
 .the_search_bar:focus-within {
-    border: 1px solid #406CEE;
+    border: 2px solid #406CEE;
     fill: #406CEE;
 }
 
