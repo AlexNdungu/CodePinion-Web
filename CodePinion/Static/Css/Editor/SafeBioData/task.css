@@ -16,6 +16,38 @@
     height: 100%;
 }
 
+.the_planner_heading-present_date_section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.the_planner_heading {
+    display: flex;
+    fill: #414141;
+    color: #414141;
+}
+
+.the_planner_heading svg {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.the_planner_heading h2 {
+    font-size: 17px;
+    align-items: center;
+    justify-content: center;
+}
+
+#present_date_span {
+    font-size: 13px;
+    color: #8F8F8F;
+    margin-left: 40px;
+}
+
 .task_bulter-search_bar_section {
     width: 50%;
     height: 100%;
