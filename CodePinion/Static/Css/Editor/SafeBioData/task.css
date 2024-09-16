@@ -1,0 +1,57 @@
+.task_butler_search_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    border: 1px solid #B5B5B5;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.the_planner_heading-present_date_section,.sort_by-suggest_tasks {
+    width: 25%;
+    height: 100%;
+}
+
+.task_bulter-search_bar_section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.the_search_bar {
+    width: 400px;
+    height: 45px;
+    border: 1px solid #414141;
+    fill: #414141;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: 0.2s ease-in-out;
+}
+
+#search_planner_input {
+    height: 100%;
+    width: calc(100% - 50px);
+    font-size: 14px;
+    color: #406CEE;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.the_search_bar:focus-within {
+    border: 1px solid #406CEE;
+    fill: #406CEE;
+}
+
+.the_search_bar svg {
+    width: 23px;
+    margin: 10px;
+}
