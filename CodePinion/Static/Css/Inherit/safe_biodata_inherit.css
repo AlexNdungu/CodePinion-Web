@@ -81,7 +81,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    background-color: #414141;
+    background-color: #8F8F8F;
 }
 
 .safe_private_icon svg {
@@ -99,9 +99,9 @@
 .stats_watcher_or_star {
     width: max-content;
     height: 35px;
-    border: 2px solid #414141;
-    fill: #414141;
-    color: #414141;
+    border: 2px solid #8F8F8F;
+    fill: #8F8F8F;
+    color: #8F8F8F;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -137,7 +137,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #414141;
+    background-color: #8F8F8F;
     color: #f3f3f3;
     font-size: 13px;
     border-radius: 5px;
