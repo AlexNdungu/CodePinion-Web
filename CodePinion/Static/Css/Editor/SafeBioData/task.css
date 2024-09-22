@@ -124,3 +124,97 @@
     width: 12px;
     margin-right: 5px;
 }
+
+.add_new_butler_section {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    border: 1px solid #B5B5B5;
+}
+
+.type_objective_input_section,.date_addons_sections {
+    width: 100%;
+    height: 50%;
+}
+
+.type_objective_input_section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    fill: #414141;
+    transition: 0.2s ease-in-out;
+}
+
+.type_objective_input_section svg {
+    width: 20px;
+    margin-right: 15px;
+}
+
+.type_objective_input_section input {
+    width: calc(100% - 60px);
+    height: 38px;
+    background: none;
+    outline: none;
+    border: none;
+    color: #406CEE;
+    font-size: 14px;
+}
+
+.type_objective_input_section:focus-within {
+    fill: #406CEE;
+}
+
+.date_addons_sections {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.date_reminder_set_addon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    fill: #414141;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+}
+
+.date_reminder_set_addon:hover {
+    background-color: #dcdcdc;
+}
+
+.date_reminder_set_addon svg {
+    width: 15px;
+}
+
+.added_task_button {
+    width: max-content;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #414141;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.added_task_button span {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.added_task_button svg {
+    width: 20px;
+}
