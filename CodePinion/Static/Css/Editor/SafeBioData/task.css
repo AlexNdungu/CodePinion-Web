@@ -215,7 +215,12 @@
     fill: #F3F3F3;
     color: #F3F3F3;
     cursor: pointer;
+    transition: 0.2s ease-in-out;
     padding: 10px;
+}
+
+.added_task_button:hover {
+    background-color: #406CEE;
 }
 
 .added_task_button span {
