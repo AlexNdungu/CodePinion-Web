@@ -220,6 +220,10 @@
     font-size: 14px;
 }
 
+.date_reminder_set_addon_input {
+    display: none;
+}
+
 .close_selected_addon_date_view {
     width: 22px;
     height: 22px;
