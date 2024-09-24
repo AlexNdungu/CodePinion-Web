@@ -221,7 +221,8 @@
 }
 
 .date_reminder_set_addon_input {
-    display: none;
+    width: 0;
+    visibility: hidden;
 }
 
 .close_selected_addon_date_view {
