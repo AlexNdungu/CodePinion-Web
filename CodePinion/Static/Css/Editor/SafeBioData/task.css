@@ -201,6 +201,10 @@
     background-color: #dcdcdc;
 }
 
+.date_reminder_set_addon:focus {
+    background-color: #dcdcdc;
+}
+
 .date_reminder_set_addon svg {
     width: 15px;
 }
