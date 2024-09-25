@@ -8,8 +8,10 @@ function open_date_picker(date_input_index){
 }
 
 function show_selected_date_in_popup(popup_index,date_value){
+    let long_date = new Date(date_value);
+    const formattedDate = long_date.toDateString();
     selected_addon_date_views[popup_index].style.display = 'flex';
-    selected_addon_date_view_spans[popup_index].innerHTML = date_value;
+    selected_addon_date_view_spans[popup_index].innerHTML = formattedDate;
 }
 
 for(let i = 0; i < date_reminder_set_addons.length;i++){
