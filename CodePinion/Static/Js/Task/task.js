@@ -15,19 +15,33 @@ function show_selected_date_in_popup(popup_index,date_value){
     selected_addon_date_view_spans[popup_index].innerHTML = formattedDate;
 }
 
+function when_date_display_closes(value){
+    selected_addon_date_views[value].style.display = 'none';
+    date_reminder_set_addon_inputs[value].value = '';
+    selected_addon_date_view_spans[value].innerHTML = '';
+}
+
 function close_display_selected_dates(display_index){
     if(display_index == 0){
         for(let i = 0;i < selected_addon_date_views.length;i++){
-            selected_addon_date_views[i].style.display = 'none';
-            date_reminder_set_addon_inputs[i].value = '';
-            selected_addon_date_view_spans[i].innerHTML = '';
+            when_date_display_closes(i)
         }
+    }
+    else if(display_index == 1){
+        when_date_display_closes(1)
     }
 }
 
 for(let i = 0; i < date_reminder_set_addons.length;i++){
     date_reminder_set_addons[i].addEventListener('click',()=>{
-        open_date_picker(i);
+        if(i == 0){
+            open_date_picker(i);
+        }
+        else if(i == 1){
+            if(selected_addon_date_views[0].style.display == 'flex'){
+                open_date_picker(i);
+            }
+        }
     });
 }
 
