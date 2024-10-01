@@ -1,5 +1,6 @@
 let date_reminder_set_addons = document.getElementsByClassName('date_reminder_set_addon');
 let date_reminder_set_addon_inputs = document.getElementsByClassName('date_reminder_set_addon_input');
+let date_reminder_set_addon_due_date = document.getElementById('date_reminder_set_addon_due_date');
 let selected_addon_date_views = document.getElementsByClassName('selected_addon_date_view');
 let selected_addon_date_view_spans = document.getElementsByClassName('selected_addon_date_view_span');
 let close_selected_addon_date_views = document.getElementsByClassName('close_selected_addon_date_view');
@@ -32,6 +33,13 @@ function close_display_selected_dates(display_index){
     }
 }
 
+function max_min_dates(date_input,min_date,max_date){
+    date_input.setAttribute('min',min_date);
+    if(max_date != 0){
+        date_input.setAttribute('max',max_date);
+    };
+}
+
 for(let i = 0; i < date_reminder_set_addons.length;i++){
     date_reminder_set_addons[i].addEventListener('click',()=>{
         if(i == 0){
@@ -55,4 +63,9 @@ for(let i = 0; i < close_selected_addon_date_views.length;i++){
     close_selected_addon_date_views[i].addEventListener('click',()=>{
         close_display_selected_dates(i)
     })
+}
+
+window.onload = function () {
+    let today_dates = new Date().toISOString().split('T')[0];
+    max_min_dates(date_reminder_set_addon_due_date,today_dates,0)
 }
