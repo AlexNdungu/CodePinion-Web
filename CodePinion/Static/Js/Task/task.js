@@ -1,6 +1,7 @@
 let date_reminder_set_addons = document.getElementsByClassName('date_reminder_set_addon');
 let date_reminder_set_addon_inputs = document.getElementsByClassName('date_reminder_set_addon_input');
 let date_reminder_set_addon_due_date = document.getElementById('date_reminder_set_addon_due_date');
+let date_reminder_set_addon_rem_date = document.getElementById('date_reminder_set_addon_rem_date');
 let selected_addon_date_views = document.getElementsByClassName('selected_addon_date_view');
 let selected_addon_date_view_spans = document.getElementsByClassName('selected_addon_date_view_span');
 let close_selected_addon_date_views = document.getElementsByClassName('close_selected_addon_date_view');
@@ -55,8 +56,13 @@ for(let i = 0; i < date_reminder_set_addons.length;i++){
 
 for(let i = 0; i < date_reminder_set_addon_inputs.length;i++){
     date_reminder_set_addon_inputs[i].addEventListener('change',()=> {
-        show_selected_date_in_popup(i,date_reminder_set_addon_inputs[i].value)
-    })
+        show_selected_date_in_popup(i,date_reminder_set_addon_inputs[i].value);
+        if(i == 0){
+            let tomorrow = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().split('T')[0];
+            let max_date_from_input = new Date(date_reminder_set_addon_inputs[i].value).toISOString().split('T')[0];
+            max_min_dates(date_reminder_set_addon_rem_date,tomorrow,max_date_from_input);
+        }
+    });
 }
 
 for(let i = 0; i < close_selected_addon_date_views.length;i++){
