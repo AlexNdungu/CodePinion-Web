@@ -295,8 +295,12 @@
 
 .individual_added_objective {
     width: calc(100% - 10px);
-    min-height: 80px;
+    min-height: 70px;
     height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 5px;
     background-color: #D9D9D9;
     border-radius: 10px;
