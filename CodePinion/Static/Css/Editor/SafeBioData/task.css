@@ -383,3 +383,28 @@
     background-color: #F3F3F3;
     fill: #C53B3B;
 }
+
+.individual_objective_dates {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 60px;
+}
+
+.individual_objective_due_remind_date {
+    min-width: 27px;
+    width: max-content;
+    height: 27px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #F3F3F3;
+    fill: #414141;
+}
+
+.individual_objective_due_remind_date svg {
+    width: 15px;
+}
