@@ -525,7 +525,6 @@
 }
 
 .adjust_date_btn:hover {
-    fill: #406CEE;
     background-color: #B5B5B5;
 }
 
@@ -536,4 +535,38 @@
 .task_dates_due_and_remind input {
     width: 0;
     visibility: hidden;
+}
+
+.add_task_button_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add_task_button {
+    width: max-content;
+    height: 27px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #414141;
+    fill: #F3F3F3;
+    color: #F3F3F3;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    padding: 10px;
+}
+
+.add_task_button:hover {
+    background-color: #406CEE;
+}
+
+.add_task_button span {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.add_task_button svg {
+    width: 19px;
 }
